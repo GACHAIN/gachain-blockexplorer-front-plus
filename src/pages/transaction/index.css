@@ -1,0 +1,14 @@
+/* .money {
+    display: inline-block;
+    width: 120px;
+    height: 25px;
+    background-color: lightgreen;
+    line-height: 25px;
+} */
+
+.odd {
+    background-color: #eee
+}
+.even {
+    background-color: #fff;
+}
