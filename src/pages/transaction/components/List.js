@@ -7,7 +7,7 @@ const columns = [
   {
     title: <FormattedMessage id="TL_HASH" />,
     dataIndex: 'Hash',
-    render: (text, record) => <Link to={`transaction/${record.Hash}`}><span style={{fontWeight: 'bold'}}>{text}</span></Link>,
+    render: (text, record) => <Link to={`transaction/${record.Hash}`}><span style={{fontWeight: 'bold', width: '150px', overflow: 'hidden', textOverflow: 'ellipsis', display: 'inline-block', wordBreak: 'normal'}}>{text}</span></Link>,
   }, {
     title: <FormattedMessage id="TL_BLOCKID" />,
     dataIndex: 'BlockID',

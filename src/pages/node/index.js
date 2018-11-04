@@ -7,9 +7,6 @@ const Nodelist = ({ dispatch, node, loading }) => {
   let listProps = {
     dataSource: dataList,
     loading: loading.effects['node/query'],
-    rowClassName: (record, index) => {
-      return index % 2 === 0 ? styles.odd : styles.even
-    },
     pagination: {
       total: Number(total),
       showQuickJumper: true,

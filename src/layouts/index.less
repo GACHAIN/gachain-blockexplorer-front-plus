@@ -1,0 +1,41 @@
+/* 全局加载进度条 */
+@import '../styles/nProgress.less';
+
+/* 全局响应式 */
+@import '../styles/media.less';
+
+/* table样式自定义 */
+@import '../styles/table.less';
+
+:global {
+  html {
+    /*logo设置*/
+    #logo {
+      text-align: center;
+      padding: 35px 5px;
+      color: #eee;
+      font-size: 18px;
+      span {
+        display: inline-block;
+        width: 100%;
+        height: 25px;
+        font-weight: bold;
+      }
+    }
+    /*侧边栏样式设置*/
+    #menu {
+      ul li a {
+        color: #fff;
+      }
+    }
+    /*头部导航样式设置*/
+    div .nav-header {
+      background: #fff;
+      padding: 5px 20px;
+      .trigger {
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+    }
+  }
+}

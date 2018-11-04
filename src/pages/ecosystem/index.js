@@ -7,9 +7,6 @@ const List = ({ dispatch, ecosystem, loading }) => {
   let listProps = {
     loading: loading.effects['ecosystem/query'],
     dataSource: dataList,
-    rowClassName: (record, index) => {
-      return index % 2 === 0 ? 'odd' : 'even'
-    }
   }
 
   return (

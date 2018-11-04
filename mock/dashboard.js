@@ -11,11 +11,31 @@ export default {
             },
             'body': {
                 'cmd': "001",
-                'data|4': [
+                'data': [
                     {
-                        'title|+1': 123,
-                        'number|+1000': 2000,
-                    }
+                        'title': 'TOPNUMNODE',
+                        'number': 50,
+                        'icon': 'share-alt',
+                        'color': 'lightseagreen'
+                    },
+                    {
+                        'title': 'TOPNUMBLOCK',
+                        'number': 37192,
+                        'icon': 'block',
+                        'color': 'lightcoral'
+                    },
+                    {
+                        'title': 'TOPNUMTRANSACTION',
+                        'number': 589212,
+                        'icon': 'file-sync',
+                        'color': 'crimson',
+                    },
+                    {
+                        'title': 'TOPNUMECOSYSTEM',
+                        'number': 30,
+                        'icon': 'global',
+                        'color': 'green'
+                    },
                 ]
             }
         }
@@ -98,13 +118,35 @@ export default {
             },
             'body': {
                 'cmd': "001",
-                'data|20' : [
+                'data|20': [
                     {
-                      'name': '@date',
-                      'uv|+1000': '@natural(1000, 10000)',
-                      'amt': 2400,
+                        'name': '@date',
+                        'transaction|+1000': '@natural(1000, 10000)',
+                        'amt': 1000,
                     }
-                  ]
+                ]
+            }
+        }
+        req.end(JSON.stringify(Mock.mock(data)))
+    },
+
+    'POST /mock/api/dashboard_overview': (res, req) => {
+        let data = {
+            'head': {
+                version: "1.0",
+                msgtype: "response",
+                interface: "dashboard_overview",
+                remark: ""
+            },
+            'body': {
+                'cmd': "001",
+                'data|20': [
+                    {
+                        'name': '@date',
+                        'transaction|+1000': '@natural(1000, 10000)',
+                        // 'amt': 2400,
+                    }
+                ]
             }
         }
         req.end(JSON.stringify(Mock.mock(data)))

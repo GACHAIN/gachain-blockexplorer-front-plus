@@ -1,9 +1,10 @@
 import {
-    query_top_numbers, 
-    query_middle_blocks, 
-    query_middle_transactions, 
+    query_top_numbers,
+    query_middle_blocks,
+    query_middle_transactions,
     query_node_map,
-    query_history_map
+    query_history_map,
+    query_overview
 } from './services'
 
 export default {
@@ -20,6 +21,7 @@ export default {
         middle_blocks: [],
         // 中右交易展示
         middle_transactions: [],
+        over_view: [],
     },
 
     subscriptions: {
@@ -27,18 +29,22 @@ export default {
             history.listen((location) => {
                 if (location.pathname === '/dashboard') {
                     let query_top_numbers_args = {
-                        'head': {'version': "1.0", 'msgtype': "request", 'interface': "query_top_numbers", 'remark': ""},
-                        'params': {'cmd': "001"}
+                        'head': { 'version': "1.0", 'msgtype': "request", 'interface': "query_top_numbers", 'remark': "" },
+                        'params': { 'cmd': "001" }
                     };
                     let query_middle_blocks_args = {
-                        'head': {version: "1.0", msgtype: "request", interface: "query_middle_blocks", remark: ""},
-                        'params': {cmd: "001"}
+                        'head': { version: "1.0", msgtype: "request", interface: "query_middle_blocks", remark: "" },
+                        'params': { cmd: "001" }
                     };
                     let query_middle_transactions_args = {
-                        'head': {version: "1.0", msgtype: "request", interface: "query_middle_transactions", remark: ""},
-                        'params': {cmd: "001"}
+                        'head': { version: "1.0", msgtype: "request", interface: "query_middle_transactions", remark: "" },
+                        'params': { cmd: "001" }
                     };
-                    
+                    let query_overview_args = {
+                        'head': { version: "1.0", msgtype: "request", interface: "query_overview", remark: "" },
+                        'params': { cmd: "001" }
+                    }
+
                     dispatch({
                         type: 'query_top_numbers',
                         payload: query_top_numbers_args
@@ -56,6 +62,11 @@ export default {
                         payload: query_node_map
                     });
                     dispatch({
+                        type: 'query_overview',
+                        payload: query_overview_args,
+                    });
+
+                    dispatch({
                         type: 'query_history_map',
                         payload: query_history_map
                     })
@@ -65,7 +76,7 @@ export default {
     },
 
     effects: {
-        * query_top_numbers({payload = {}}, {call, put}) {
+        * query_top_numbers({ payload = {} }, { call, put }) {
             const result = yield call(query_top_numbers, payload)
             if (result.success) {
                 yield put({
@@ -77,7 +88,8 @@ export default {
                 })
             }
         },
-        * query_middle_blocks({payload}, {call, put}) { 
+
+        * query_middle_blocks({ payload }, { call, put }) {
             const result = yield call(query_middle_blocks, payload)
             if (result.success) {
                 yield put({
@@ -89,7 +101,8 @@ export default {
                 })
             }
         },
-        * query_middle_transactions({payload}, {call, put}) {
+
+        * query_middle_transactions({ payload }, { call, put }) {
             const result = yield call(query_middle_transactions, payload)
             if (result.success) {
                 yield put({
@@ -100,33 +113,46 @@ export default {
                     }
                 })
             }
-         },
+        },
 
-         * query_node_map({payload}, {call, put}) {
-             const result = yield call(query_node_map, payload)
-             if (result.success) {
-                 yield put({
-                     type: 'save',
-                     payload: {
-                         node_map: result.body.data,
-                         total: result.body.all_row_nums,
-                     }
-                 })
-             }
-         },
+        * query_node_map({ payload }, { call, put }) {
+            const result = yield call(query_node_map, payload)
+            if (result.success) {
+                yield put({
+                    type: 'save',
+                    payload: {
+                        node_map: result.body.data,
+                        total: result.body.all_row_nums,
+                    }
+                })
+            }
+        },
 
-         * query_history_map({payload}, {call, put}) {
-             const result = yield call(query_history_map, payload)
-             if (result.success) {
-                 yield put({
-                     type: 'save',
-                     payload: {
-                         history_map: result.body.data,
-                         total: result.body.all_row_nums
-                     }
-                 })
-             }
-         }
+        * query_history_map({ payload }, { call, put }) {
+            const result = yield call(query_history_map, payload)
+            if (result.success) {
+                yield put({
+                    type: 'save',
+                    payload: {
+                        history_map: result.body.data,
+                        total: result.body.all_row_nums
+                    }
+                })
+            }
+        },
+
+        * query_overview({ payload }, { call, put }) {
+            const result = yield call(query_overview, payload)
+            if (result.success) {
+                yield put({
+                    type: 'save',
+                    payload: {
+                        over_view: result.body.data,
+                        total: result.body.all_row_nums
+                    }
+                })
+            }
+        }
     },
 
     reducers: {

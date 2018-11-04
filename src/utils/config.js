@@ -1,10 +1,10 @@
 import { FormattedMessage } from 'react-intl';
 // mock URL
-// const URL = 'http://localhost:8000/mock/api'
+const URL = 'http://localhost:8000/mock/api'
 // mock 远程
 // const URL = 'http://192.168.1.124:8000/mock/api'
 // 线上环境
-const URL = 'http://192.168.1.165:8800/api'
+// const URL = 'http://192.168.1.165:8800/api'
 // 本地环境
 // const URL = 'http://127.0.0.1:7000/api'
 
@@ -24,6 +24,7 @@ module.exports = {
         dashboard_middle_transactions: `${URL}/dashboard_middle_transactions`,
         dashboard_node_map: `${URL}/dashboard_node_map`,
         dashboard_history_map: `${URL}/dashboard_history_map`,
+        dashboard_overview: `${URL}/dashboard_overview`,
         
         // Block
         getBlock: `${URL}/get_block_details`,

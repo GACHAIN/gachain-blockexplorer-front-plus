@@ -30,9 +30,6 @@ const Transaction = ({transaction, dispatch, loading}) => {
           payload: args
         })
       }
-    },
-    rowClassName: (record, index) => {
-      return index % 2 === 0 ? styles.odd : styles.even
     }
   }
   

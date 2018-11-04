@@ -6,7 +6,8 @@ let {
     dashboard_middle_blocks, 
     dashboard_middle_transactions,
     dashboard_node_map,
-    dashboard_history_map
+    dashboard_history_map,
+    dashboard_overview
 } = api
 export function query_top_numbers(params) {
     return request({
@@ -48,3 +49,11 @@ export function query_history_map(params) {
     })
 }
 
+
+export function query_overview(params) {
+    return request({
+        url: dashboard_overview,
+        method: 'post',
+        data: params
+    })
+}

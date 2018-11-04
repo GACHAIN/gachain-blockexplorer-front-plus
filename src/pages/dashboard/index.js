@@ -1,11 +1,16 @@
-import { Row, Col, Card } from 'antd';
+import { Row, Col } from 'antd';
 import { connect } from 'dva';
-import styles from './index.css';
-
-import { TopNumbers, MiddleBlocks, MiddleTransactions, NodeMap, HistoryMap } from './components';
+import { 
+  TopNumbers, 
+  MiddleBlocks, 
+  MiddleTransactions, 
+  NodeMap, 
+  OverView, 
+  HistoryMap 
+} from './components';
 
 const Dashboard = ({ loading, dispatch, dashboard }) => {
-  let { top_numbers, middle_blocks, middle_transactions, node_map, history_map } = dashboard
+  let { top_numbers, middle_blocks, middle_transactions, node_map, history_map, over_view } = dashboard
   let top_numers_props = {
     loading: loading.effects['dashboard/query_top_numbers'],
     data: top_numbers
@@ -19,16 +24,21 @@ const Dashboard = ({ loading, dispatch, dashboard }) => {
   let middle_transactions_props = {
     loading: loading.effects['dashboard/query_middle_transactions'],
     data: middle_transactions
-  }
+  };
 
   let node_map_props = {
     loading: loading.effects['dashboard/query_node_map'],
     data: node_map
-  }
+  };
 
   let history_map_props = {
     loading: loading.effects['dashboard/query_history_map'],
     data: history_map
+  };
+
+  let overview_props = {
+    loading: loading.effects['dashboard/query_overview'],
+    data: over_view
   }
 
   return (
@@ -36,21 +46,24 @@ const Dashboard = ({ loading, dispatch, dashboard }) => {
       <Row style={{ marginBottom: '10px' }}>
         <TopNumbers {...top_numers_props} />
       </Row>
-      <Row style={{ marginBottom: '10px', height: '300px' }}>
-        <Col xs={24} ms={24} md={24} lg={24}>
-          <HistoryMap {...history_map_props} />
+      <Row style={{ marginTop: '10px', marginBottom: '10px' }}>
+        <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12} id="overview">
+          <OverView {...overview_props} />
         </Col>
-      </Row>
-      <Row style={{ marginTop: '60px', marginBottom: '10px' }}>
-        <Col xs={24} ms={24} md={12} lg={12}>
+        <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12} id="node_map">
           <NodeMap {...node_map_props} />
         </Col>
       </Row>
+      <Row style={{height: '300px' }}>
+        <Col xs={24} sm={24} md={24} lg={24}>
+          <HistoryMap {...history_map_props} />
+        </Col>
+      </Row>
       <Row style={{ marginBottom: '10px' }}>
-        <Col xs={24} ms={24} md={12} lg={12}>
+        <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12} id="blocks">
           <MiddleBlocks {...middle_blocks_props} />
         </Col>
-        <Col xs={24} ms={24} md={12} lg={12} style={{paddingLeft: '12px'}}>
+        <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12} id="transactions">
           <MiddleTransactions {...middle_transactions_props} />
         </Col>
       </Row>

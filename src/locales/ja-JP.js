@@ -11,6 +11,32 @@ export default {
     ECOSYSTEM: 'エコシステム',
     SYSTEMPARAM: 'システムパラメータ',
 
+    // Dashboard
+    // TOPNUM
+    TOPNUMNODE: 'ノード数',
+    TOPNUMBLOCK: 'ブロックの高さ',
+    TOPNUMTRANSACTION: '取引/事務総数',
+    TOPNUMECOSYSTEM: 'エコシステムの総数',
+
+    HISTORYMAP: '最近の20日間の 取引/事務 の歴史',
+    H_BLOCK: 'サイズ',
+    H_TRANSACTION: '取引/事務',
+    H_PRODUCT: 'ノード',
+    H_SEND: '送信側',
+    H_REC: '受信者',
+    H_AMOUNT: '金額',
+    H_M: '分',
+    H_S: '秒',
+    H_NODE: '全世界のノード分布',
+    H_GACHAINOVERVIEW: '政務チェーン',
+
+    /**over_view */
+    H_MARKETVALUE: '今日の時価総額',
+    H_LASTBLOCK: '最後のブロック',
+    H_HASHRATE: 'ハッシュ率',
+    H_DIFFICULTY: '難度値',
+    H_MONREY: '政務币',
+
     // BlockList
     B_DETAIL: 'ブロックの詳細',
     BL_BLOCKID: 'ブロック ID',
@@ -19,25 +45,25 @@ export default {
     BL_NODEPOSITION:'梱包ノード',
     BL_ECOSYSTEMID: 'エコシステム ID',
     BL_KEYID: 'Key ID',
-    BL_TXNUM: '取引の数',
+    BL_TXNUM: '取引/事務の数',
 
     // Block
     B_ROLLBACKSHASH: 'ハシに戻る',
     B_SIGN: '署名',
-    B_TRANSACTIONDATA: '取引データ',
-    B_TRANSACTIONHASH: '取引ヘル',
-    B_TRANSACTIONSIZE: '取引の大きさ',
-    B_TRANSACTIONSIZEOFFSET: '取引の大きさを相殺する',
-    B_TRANSACTIONTYPEID: '取引タイプ ID',
+    B_TRANSACTIONDATA: '取引/事務データ',
+    B_TRANSACTIONHASH: '取引/事務ヘル',
+    B_TRANSACTIONSIZE: '取引/事務の大きさ',
+    B_TRANSACTIONSIZEOFFSET: '取引/事務の大きさを相殺する',
+    B_TRANSACTIONTYPEID: '取引/事務タイプ ID',
 
     // TransactionList
-    TL_CREATETIME: '取引生成時間',
+    TL_CREATETIME: '取引/事務生成時間',
     TL_SENDERKEYID: '送信者ID',
     TL_ECOSYSTEMID: 'エコシステムID',
     TL_BLOCKID: 'ブロックID',
-    TL_HASH: '取引ヒッシュ',
-    TL_TYPE: '取引の類型',
-    TL_ERROR: '取引の誤り',
+    TL_HASH: '取引/事務ヒッシュ',
+    TL_TYPE: '取引/事務の類型',
+    TL_ERROR: '取引/事務の誤り',
 
     // Transaction
     T_RECIPIENTKEYID: '受信者の KeyID',
@@ -90,7 +116,7 @@ export default {
     DATABASE_BACKENDVISION: '最新バージョン',
 
     // Search
-    S_T: '* *ブロックのハッシュ/ブロックの高いクエリーを入力して下さい。',
+    S_T: '取引(事務)のハッシュ・ブロック・ハッシュ/ブロックの高さを入力して下さい。',
     S: '検索',
 
     // Params

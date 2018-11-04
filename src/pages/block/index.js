@@ -9,9 +9,6 @@ const Block = ({ location, block, dispatch, loading }) => {
     dataSource: dataList,
     location,
     loading: loading.effects['block/query'],
-    rowClassName: (record, index) => {
-      return index % 2 === 0 ? styles.odd : styles.even
-    },
     pagination: {
       showQuickJumper: true,
       total: Number(total),

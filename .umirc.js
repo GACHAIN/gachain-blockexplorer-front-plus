@@ -1,7 +1,6 @@
 import { resolve } from "path";
 
 export default {
-  sass:{},
   plugins: [
     [
       'umi-plugin-react', {
@@ -10,6 +9,7 @@ export default {
           immer: true,
           hmr: true
         },
+        // 使用约定式路由后需排除如下路由
         routes: {
           exclude: [
             /model\.(j|t)sx?$/,
@@ -19,9 +19,11 @@ export default {
             /services\//,
           ],
         },
+        // 禁用组件按需加载
         dynamicImport: false,
         dll: false,
         // hardSource: /* isMac */process.platform === 'darwin',
+        // 本地化
         locale: {
           default: 'zh-CN', //默认语言 zh-CN
           antd: true,
@@ -32,13 +34,19 @@ export default {
       }
     ],
   ],
-  outputPath: "./build",
-  alias: {
-    utils: resolve(__dirname, './src/utils'),
-    config: resolve(__dirname, './src/utils/config')
-  },
+  publicPath: './', // build 后的静态文件引入路径
+  hash: true,
+  history: 'hash',  //启用Hash route
   ignoreMomentLocale: true,
-  "theme": {
-    "@primary-color": "#00aee6"
+  theme: {
+    "@primary-color": "#00aee6" // 配置 ANTD 的主题颜色
   },
+  alias: {
+    assets: resolve(__dirname, './src/assets'),
+    components: resolve(__dirname, './src/components'),
+    models: resolve(__dirname, './src/models'),
+    services: resolve(__dirname, './src/services'),
+    utils: resolve(__dirname, './src/utils'),
+    config: resolve(__dirname, './src/utils/config'),
+  }
 }

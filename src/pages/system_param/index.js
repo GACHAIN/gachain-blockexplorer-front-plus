@@ -7,9 +7,6 @@ const List = ({ dispatch, system_param, loading }) => {
   let listProps = {
     dataSource: dataList,
     loading: loading.effects['system_param/query'],
-    rowClassName: (record, index) => {
-      return index % 2 === 0 ? styles.odd : styles.even
-    },
     rowKey: record => record.ID,
     pagination: {
       total: Number(total),

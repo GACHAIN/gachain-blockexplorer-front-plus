@@ -1,32 +1,22 @@
-import { Button, Icon, Card } from 'antd';
+import { Button, Icon, Card, Row, Col } from 'antd';
+import { FormattedMessage } from 'react-intl';
 import styles from './middle_blocks.css';
 
 const middle_blocks = ({ data, loading }) => {
     let compontents = data.map((item, key) => {
         return (
-            <div className={styles.middle_block_body} key={key}>
-                <div></div>
-                <div>
-                    <p>由矿工 SparkPool</p>
-                    <p>20 交易 于 4 秒</p>
-                    <p>区块奖励 3.03641 以太币</p>
-                </div>
-            </div>
+            <Row key={key} justify="center">
+                <Col className={styles.blocks_left} xs={24} sm={24} md={24} lg={12} xl={12} xxl={12}></Col>
+                <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12} push={2}>
+                    <p><FormattedMessage id="H_PRODUCT"/> 1</p>
+                    <p>20 <FormattedMessage id="H_TRANSACTION"/></p>
+                </Col>
+            </Row>
         )
     })
 
     return (
-        <Card className={styles.middle_blocks} loading={loading}>
-            <div className={styles.middle_block_contents}>
-                <div>
-                    <Icon type="database" />
-                    <span>区块</span>
-                </div>
-                <div>
-                    <Button type="default">查看更多</Button>
-                </div>
-            </div>
-
+        <Card className={styles.middle_blocks} loading={loading} title={<span><Icon type="block" style={{fontSize: '20px'}}/> <FormattedMessage id="H_BLOCK"/></span>}>
             { compontents }
         </Card>
     )

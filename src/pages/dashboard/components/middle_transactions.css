@@ -1,60 +1,17 @@
-.middle_transaction_body{
-    height: 97px;
-    background-color: #fff;
-    border-bottom: 2px solid #f7f7f7;
-    padding: 5px 10px;
-}
-
-.middle_transaction_contents {
-    height: 47px;
-    background-color: #fff;
-    line-height: 47px;
-    border-bottom: 3px solid #f7f7f7;
-}
-
-.middle_transaction_contents div:first-child {
-    float: left;
-    padding-left: 15px;
-}
-
-.middle_transaction_contents div:last-child {
-    float: right;
-    padding-top: 10px;
-    padding-right: 15px;
-}
-
-.middle_transaction_body div:first-child {
-    float: left;
-}
-
-.middle_transaction_body div:first-child i {
-    padding-top: 3px;
-    font-size: 20px;
-}
-
-.middle_transaction_body div:nth-child(2) {
-    float: left;
-    padding-left: 5px;
-}
-
-.middle_transaction_body div:nth-child(2) p {
-    margin: 0;
-    padding: 0;
-    padding-bottom: 5px;
-}
-
-.middle_transaction_body div:nth-child(2) p:first-child span {
-
-}
-
-.middle_transaction_body div:nth-child(2) p a {
-    max-width: 120px;
+.transaction_r_c_r div span~a {
+    width: 30%;
+    overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block;
-    overflow: hidden;
-    vertical-align: middle
+    vertical-align: middle;
 }
 
-.middle_transaction_body div:last-child {
-    float: right;
+.transactions_R {
+    margin-bottom: 1rem;
+}
+
+.t_icon {
+    font-size: 2rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
 }

@@ -9,7 +9,33 @@ export default {
     BLOCK: 'Blocks',
     TRANSACTION: 'Transactions',
     ECOSYSTEM: 'Ecosystem',
-    SYSTEMPARAM: 'System_Param',
+    SYSTEMPARAM: 'System Param',
+
+    // Dashboard
+    // TOPNUM
+    TOPNUMNODE: 'Total number of nodes',
+    TOPNUMBLOCK: 'Block Height',
+    TOPNUMTRANSACTION: 'Total number of transactions',
+    TOPNUMECOSYSTEM: 'Total ecosystem',
+    
+    HISTORYMAP: 'Recent 20-day trading history',
+    H_BLOCK: 'Block',
+    H_TRANSACTION: 'Transaction',
+    H_PRODUCT: 'By the node',
+    H_SEND: 'Sender',
+    H_REC: 'Recipient',
+    H_AMOUNT: 'Amount',
+    H_M: 'Minutes',
+    H_S: 'Seconds',
+    H_NODE: 'Global node distribution',
+    H_GACHAINOVERVIEW: 'GAChain Over View',
+
+    /**over_view */
+    H_MARKETVALUE: 'Total market value today',
+    H_LASTBLOCK: 'Last Block',
+    H_HASHRATE: 'Hash Rate',
+    H_DIFFICULTY: 'Difficulty',
+    H_MONREY: 'GAC',
 
     // BlockList
     BL_BLOCKID: 'Block ID',

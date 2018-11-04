@@ -11,6 +11,32 @@ export default {
     ECOSYSTEM: '生态系统',
     SYSTEMPARAM: '系统参数',
 
+    // Dashboard
+    // TOPNUM
+    TOPNUMNODE: '节点总数',
+    TOPNUMBLOCK: '区块高度',
+    TOPNUMTRANSACTION: '交易/事务 总数',
+    TOPNUMECOSYSTEM: '生态系统总数',
+
+    HISTORYMAP: '最近20天 交易/事务 历史',
+    H_BLOCK: '区块',
+    H_TRANSACTION: '交易/事务',
+    H_PRODUCT: '由节点',
+    H_SEND: '发送方',
+    H_REC: '接收方',
+    H_AMOUNT: '数额',
+    H_M: '分钟',
+    H_S: '秒',
+    H_NODE: '全球节点分布',
+    H_GACHAINOVERVIEW: '政务链概览',
+
+    /**over_view */
+    H_MARKETVALUE: '当今总市值',
+    H_LASTBLOCK: '最后区块',
+    H_HASHRATE: '哈希率',
+    H_DIFFICULTY: '难度值',
+    H_MONREY: '政务币',
+
     // BlockList
     BL_BLOCKID: '区块高度',
     BL_HASH:'区块哈希值',
@@ -18,27 +44,27 @@ export default {
     BL_NODEPOSITION:'打包节点',
     BL_ECOSYSTEMID: '生态系统ID',
     BL_KEYID: '账号ID',
-    BL_TXNUM: '交易比数',
+    BL_TXNUM: '交易/事务比数',
 
     // Block
     B_DETAIL: '区块详情',
     B_ROLLBACKSHASH: '回滚哈希',
     B_SIGN: '签名',
-    B_TRANSACTIONDATA: '交易数据',
-    B_TRANSACTIONHASH: '交易哈希值',
-    B_TRANSACTIONSIZE: '交易大小',
-    B_TRANSACTIONSIZEOFFSET: '交易大小抵消',
-    B_TRANSACTIONTYPEID: '交易类型ID',
+    B_TRANSACTIONDATA: '交易/事务数据',
+    B_TRANSACTIONHASH: '交易/事务哈希值',
+    B_TRANSACTIONSIZE: '交易/事务大小',
+    B_TRANSACTIONSIZEOFFSET: '交易/事务大小抵消',
+    B_TRANSACTIONTYPEID: '交易/事务类型ID',
     
 
     // TransactionList
-    TL_CREATETIME: '交易生成时间',
+    TL_CREATETIME: '交易/事务生成时间',
     TL_SENDERKEYID: '发送者 账号ID',
     TL_ECOSYSTEMID: '生态系统ID',
     TL_BLOCKID: '区块高度',
-    TL_HASH: '交易哈希值',
-    TL_TYPE: '交易类型',
-    TL_ERROR: '交易错误',
+    TL_HASH: '交易/事务哈希值',
+    TL_TYPE: '交易/事务类型',
+    TL_ERROR: '交易/事务错误',
 
     // Transaction
     T_RECIPIENTKEYID: '接收者 账号ID',
@@ -91,7 +117,7 @@ export default {
     DATABASE_BACKENDVISION: '最新版本',
 
     // Search
-    S_T: '请输入 交易哈希/区块哈希/区块高度 查询',
+    S_T: '请输入 交易（事务）哈希 / 区块哈希 / 区块高度',
     S: '搜索',
 
     // Params
