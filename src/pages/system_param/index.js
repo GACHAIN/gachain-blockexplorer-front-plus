@@ -1,13 +1,11 @@
 import { connect } from 'dva';
 import SystemParamList from './components/List';
-import styles from './index.css';
 
 const List = ({ dispatch, system_param, loading }) => {
   let { dataList, total } = system_param
   let listProps = {
     dataSource: dataList,
     loading: loading.effects['system_param/query'],
-    rowKey: record => record.ID,
     pagination: {
       total: Number(total),
       onChange(p, n) {
@@ -24,7 +22,6 @@ const List = ({ dispatch, system_param, loading }) => {
             "page_size": n || "10",
           }
         }
-        console.log(p, n)
         dispatch({
           type: 'system_param/query',
           payload: args

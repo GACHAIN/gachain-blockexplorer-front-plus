@@ -20,7 +20,7 @@ export default modelExtend(pageModel, {
                         },
                         params: {
                             "cmd": "001",
-                            "start_page": "1",
+                            "current_page": "1",
                             "page_size": "10",
                         }
                     }
@@ -43,7 +43,7 @@ export default modelExtend(pageModel, {
                     type: 'querySuccess',
                     payload: {
                         dataList: data.body.data,
-                        total: data.body.all_row_nums,
+                        total: data.body.total,
                     },
                 })
             };

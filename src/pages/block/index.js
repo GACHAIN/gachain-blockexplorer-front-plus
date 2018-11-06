@@ -1,7 +1,6 @@
 import { connect } from 'dva';
 import PropTypes from 'prop-types';
 import BlockList from './components/List';
-import styles from './index.css';
 
 const Block = ({ location, block, dispatch, loading }) => {
   const { dataList, total } = block

@@ -26,7 +26,7 @@ const offsetWidth = document.querySelector('body').offsetWidth
 class BasicLayout extends React.Component {
   state = {
     collapsed: offsetWidth < 720,
-    searchWidth: offsetWidth < 720 ? '60%' : '25%',
+    searchWidth: '60%',
     searchVal: '',
   }
 
@@ -42,20 +42,6 @@ class BasicLayout extends React.Component {
 
   handleChange = (v) => {
     setLocale(v);
-  }
-
-  handleFocus = (e) => {
-    e.preventDefault()
-    this.setState({
-      searchWidth: '60%'
-    })
-  }
-
-  handleBlur = (e) => {
-    e.preventDefault()
-    this.setState({
-      searchWidth: offsetWidth < 720 ? '60%' : '25%'
-    })
   }
 
   getSearchPlacehold = () => {
@@ -76,9 +62,8 @@ class BasicLayout extends React.Component {
       },
       params: {
         "cmd": "001",
-        "start_page": "1",
+        "current_page": value,
         "page_size": "10",
-        'search_str': value
       }
     }
     let options = { url: commonSearch, method: 'POST', data: args }
@@ -87,8 +72,9 @@ class BasicLayout extends React.Component {
       .then((resolve) => {
         if (resolve.success) {
           let { ret_data_type } = resolve.body
+          console.log(resolve.body)
           if (parseInt(ret_data_type) === 1) {
-            router.replace(`/block/${resolve.body.data.BlockHeight}`);
+            router.replace(`/block/${resolve.body.data.header.block_id}`);
           } else
             if (parseInt(ret_data_type) === 2) {
               router.replace(`/transaction/${resolve.body.data.Hash}`)
@@ -101,7 +87,7 @@ class BasicLayout extends React.Component {
   }
 
   getPage = () => {
-    if (window.location.pathname === '/') {
+    if (window.location.hash === '#/') {
       return <Redirect to="/dashboard" />
     } else {
       return this.props.children
@@ -152,10 +138,8 @@ class BasicLayout extends React.Component {
                   enterButton={this.getSearchPlacehold().S}
                   size="large"
                   onSearch={value => this.searchVal(value)}
-                  onFocus={this.handleFocus}
-                  onBlur={this.handleBlur}
                   style={{ height: '40px', fontSize: '12px' }}
-                  width={120}
+                  width={this.state.searchWidth}
                 />
               </Col>
               <Col>

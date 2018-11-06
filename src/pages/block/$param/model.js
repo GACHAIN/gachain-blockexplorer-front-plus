@@ -13,7 +13,7 @@ export default {
     subscriptions: {
         setup({ dispatch, history }) {
             history.listen((location) => {
-                let match = pathToRegexp('/block/:param').exec(location.pathname)
+                let match = pathToRegexp('/block/:block_id').exec(location.pathname)
                 if (match) {
                     let payload = {}
                     payload.head = {
@@ -24,9 +24,8 @@ export default {
                     }
                     payload.params = {
                         "cmd": "001",
-                        "start_page": "1",
+                        "start_page": String(match[1]),
                         "page_size": "10",
-                        "BlockHeight": String(match[1])
                     }
                     dispatch({
                         type: 'query',

@@ -35,8 +35,8 @@ export default {
     ],
   ],
   publicPath: './', // build 后的静态文件引入路径
-  hash: true,
-  history: 'hash',  //启用Hash route
+  // hash: true,
+  history: 'hash',
   ignoreMomentLocale: true,
   theme: {
     "@primary-color": "#00aee6" // 配置 ANTD 的主题颜色
