@@ -1,7 +1,9 @@
 import pathToRegexp from 'path-to-regexp';
 import { query_detail } from '../services/transactions'
+import modelExtend from 'dva-model-extend';
+import { baseModel } from 'utils/model';
 
-export default {
+export default modelExtend(baseModel, {
     namespace: 's_transaction',
     state: {
         dataList: {},
@@ -21,9 +23,9 @@ export default {
 
                         params: {
                             "cmd": "001",
-                            "page_size": "10",
+                            "page_size": 10,
                             "hash": match[1],
-                            "start_page": "1"
+                            "current_page": 1
                         }
                     }
                     dispatch({
@@ -52,4 +54,4 @@ export default {
             return { ...state, ...payload }
         },
     }
-}
+})

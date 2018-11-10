@@ -1,10 +1,10 @@
 import modelExtend from 'dva-model-extend';
-import { pageModel } from '../../utils/model';
+import { baseModel } from 'utils/model';
 import * as blockServices from './services/blocks';
 
 const { query } = blockServices
 
-export default modelExtend(pageModel, {
+export default modelExtend(baseModel, {
     namespace: 'block',
 
     subscriptions: {
@@ -20,8 +20,8 @@ export default modelExtend(pageModel, {
                         },
                         params: {
                             "cmd": "001",
-                            "current_page": "1",
-                            "page_size": "10",
+                            "current_page": 1,
+                            "page_size": 10,
                         }
                     }
                     const payload = { ...args, ...location.query }

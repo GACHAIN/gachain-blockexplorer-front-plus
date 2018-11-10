@@ -1,8 +1,4 @@
 import Mock from 'mockjs';
-
-const Randmon = Mock.Random;
-var transactionArr = []
-
 export default {
     'POST /mock/api/get_transaction': (res, req) => {
         const { start_page, page_size, cmd } = res.body.params
@@ -21,8 +17,8 @@ export default {
                 'data|50-100': [{
                     "Hash|64": /[a-f0-9]/,
                     "TransactionType": "128",
-                    "Sender|4": /[0-9]{5}/,
-                    "Recver|4": /[0-9]{5}/,
+                    "Sender": "-9213360776412951271",
+                    "Recver": "-9213360776412951271",
                     "Time": "@time(\"yyyy-MM-dd HH:MM:SS\")",
                     "Total": "0.000000",
                     "ServiceFee": "0.000000",
@@ -35,7 +31,6 @@ export default {
                 }]
             }
         })
-        transactionArr = data
         req.end(JSON.stringify(data))
     },
 

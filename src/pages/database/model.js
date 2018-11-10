@@ -1,6 +1,11 @@
 import { query } from './services/database'
 
 export default {
+    state: {
+        dataList: [],
+        total: [],
+    },
+
     namespace: 'database',
     subscriptions: {
         setup({dispatch, history}){
@@ -15,8 +20,8 @@ export default {
                         },
                         "params":{
                             "cmd":"001",
-                            "page_size":"10",
-                            "start_page":"1",
+                            "page_size":10,
+                            "current_page":1,
                         }
                     }
                     dispatch({
@@ -36,7 +41,7 @@ export default {
                     type: 'save',
                     payload: {
                         dataList: result.body.data,
-                        total: 100
+                        total: result.body.total
                     }
                 })
             }

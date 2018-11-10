@@ -6,9 +6,6 @@ const Database = ({ database, dispatch, loading }) => {
     let listProps = {
         loading: loading.effects['database/query'],
         dataSource: dataList,
-        rowClassName: (record, index) => {
-            return index % 2 === 0 ? 'odd' : 'even'
-        }
     }
     return (
         <List {...listProps} />

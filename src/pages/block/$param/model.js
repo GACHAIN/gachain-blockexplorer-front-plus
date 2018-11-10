@@ -2,6 +2,11 @@ import pathToRegexp from 'path-to-regexp';
 import { query_detail } from '../services/blocks';
 
 export default {
+    state: {
+        dataList: [],
+        total: [],
+    },
+
     namespace: 's_block_detail',
 
     reducers: {
@@ -24,8 +29,7 @@ export default {
                     }
                     payload.params = {
                         "cmd": "001",
-                        "start_page": String(match[1]),
-                        "page_size": "10",
+                        "block_id": Number(match[1]),
                     }
                     dispatch({
                         type: 'query',

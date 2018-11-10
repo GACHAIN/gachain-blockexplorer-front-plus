@@ -1,12 +1,12 @@
 import { Row, Col } from 'antd';
 import { connect } from 'dva';
-import { 
-  TopNumbers, 
-  MiddleBlocks, 
-  MiddleTransactions, 
-  NodeMap, 
-  OverView, 
-  HistoryMap 
+import {
+  TopNumbers,
+  MiddleBlocks,
+  MiddleTransactions,
+  NodeMap,
+  OverView,
+  HistoryMap
 } from './components';
 
 const Dashboard = ({ loading, dispatch, dashboard }) => {
@@ -54,7 +54,7 @@ const Dashboard = ({ loading, dispatch, dashboard }) => {
           <NodeMap {...node_map_props} />
         </Col>
       </Row>
-      <Row style={{height: '300px' }}>
+      <Row style={{ height: '300px' }}>
         <Col xs={24} sm={24} md={24} lg={24}>
           <HistoryMap {...history_map_props} />
         </Col>

@@ -1,44 +1,81 @@
-import { Table, Button } from 'antd';
+import { Table, Tooltip } from 'antd';
 import { FormattedMessage } from 'react-intl';
-import { moneyToGac } from '../../../utils/index';
+import moment from 'moment';
 import Link from 'umi/link';
 
-const columns = [
-  {
-    title: <FormattedMessage id="TL_HASH" />,
-    dataIndex: 'Hash',
-    render: (text, record) => <Link to={`transaction/${record.Hash}`}><span style={{fontWeight: 'bold', width: '150px', overflow: 'hidden', textOverflow: 'ellipsis', display: 'inline-block', wordBreak: 'normal'}}>{text}</span></Link>,
-  }, {
-    title: <FormattedMessage id="TL_BLOCKID" />,
-    dataIndex: 'BlockID',
-  }, {
-    title: <FormattedMessage id="TL_ECOSYSTEMID" />,
-    dataIndex: 'EcosystemID',
-  }, {
-    title: <FormattedMessage id="TL_SENDERKEYID" />,
-    dataIndex: 'Sender',
-  }, {
-    title: <FormattedMessage id="T_RECIPIENTKEYID" />,
-    dataIndex: 'Recver',
-  }, {
-    title: <FormattedMessage id="TL_CREATETIME" />,
-    dataIndex: 'Time',
-    render: (text)=><span style={{fontWeight: "bold"}}>{text}</span>
-  }, {
-    title: <FormattedMessage id="T_AMOUNT" />,
-    dataIndex: 'Amount',
-    render: (text)=><Button type="primary">{text} GAC</Button>
-  }];
-
 const List = ({ ...listProps }) => {
+  const columns = [
+    {
+      title: <FormattedMessage id="TL_HASH" />,
+      dataIndex: 'Hash',
+      render: (text, record) => {
+        if (record.BlockID > 0) {
+          return (
+            <Tooltip placement="topLeft" title={text}>
+              <Link to={`transaction/${record.Hash}`}>
+                <span id="textOverflow">{text}</span>
+              </Link>
+            </Tooltip>
+          )
+        } else {
+          return (
+            <Tooltip placement="topLeft" title={text}>
+              <span id="textOverflow">{text}</span>
+            </Tooltip>
+          )
+        }
+      }
+    }, {
+      title: <FormattedMessage id="TL_BLOCKID" />,
+      dataIndex: 'BlockID',
+      render: (text, record) => {
+        if (Number(text) > 0) {
+          return (
+            <Link to={`block/${record.BlockID}`}><span>{text}</span></Link>
+          )
+        } else {
+          return (
+            <span id="failure">
+              <FormattedMessage id="ME_FAILYRE" />
+            </span>
+          )
+        }
+      }
+    },
+    {
+      title: <FormattedMessage id="TL_TYPE" />,
+      dataIndex: 'Type',
+    },
+    {
+      title: <FormattedMessage id="TL_WALLET" />,
+      dataIndex: 'WalletID',
+      render: (text) => {
+        return (
+          <Tooltip placement="topLeft" title={text}>
+            <span id="textOverflow" onClick={() => { listProps.onToggle("WalletID") }}>
+              {text}
+            </span>
+          </Tooltip>
+        )
+      }
+    }, {
+      title: <FormattedMessage id="TL_CREATETIME" />,
+      dataIndex: 'Time',
+      render: (text) => <span>{moment(text).format()}</span>
+    }, {
+      title: <FormattedMessage id="T_ERROR" />,
+      dataIndex: 'Error',
+      render: (text) => (
+        <Tooltip placement="topLeft" title={text}>
+          <span id="textOverflow">{text}</span>
+        </Tooltip>
+      )
+    }];
+
   return (<Table
-    scroll={{ x: 1600 }}
     rowKey={record => record.Hash}
     columns={
-      columns.map((item) => {
-        item['align'] = 'center'
-        return item
-      })
+      columns.map((item) => { item['align'] = 'center'; return item })
     }
     {...listProps} />
   )

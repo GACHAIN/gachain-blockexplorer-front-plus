@@ -1,18 +1,16 @@
 import modelExtend from 'dva-model-extend';
-import { pageModel } from '../../utils/model';
+import { baseModel } from 'utils/model';
 import * as transactionServices from './services/transactions';
-
 const { query } = transactionServices
 
-export default modelExtend(pageModel, {
+export default modelExtend(baseModel, {
     namespace: 'transaction',
+    state: {
+        dataList: [],
+        total: "",
+    },
     reducers: {
-        showModal(state, { payload }) {
-            return { ...state, ...payload }
-        },
-        hideModal(state, { payload }) {
-            return { ...state, ...payload }
-        }
+        
     },
     effects: {
         * query({ payload = {} }, { call, put }) {
@@ -22,7 +20,7 @@ export default modelExtend(pageModel, {
                     type: 'querySuccess',
                     payload: {
                         dataList: data.body.data,
-                        total: data.body.all_row_nums,
+                        total: data.body.total,
                     }
                 })
             }
@@ -41,8 +39,8 @@ export default modelExtend(pageModel, {
                         },
                         params: {
                             "cmd": "001",
-                            "start_page": "1",
-                            "page_size": "10",
+                            "current_page": 1,
+                            "page_size": 10,
                         }
                     }
                     const payload = { ...args, ...location.query }

@@ -34,11 +34,11 @@ export default {
                     };
                     let query_middle_blocks_args = {
                         'head': { version: "1.0", msgtype: "request", interface: "query_middle_blocks", remark: "" },
-                        'params': { cmd: "001" }
+                        'params': { cmd: "001", "current_page": 1, "page_size": 5, }
                     };
                     let query_middle_transactions_args = {
                         'head': { version: "1.0", msgtype: "request", interface: "query_middle_transactions", remark: "" },
-                        'params': { cmd: "001" }
+                        'params': { cmd: "001", "current_page": 1, "page_size": 5, }
                     };
                     let query_overview_args = {
                         'head': { version: "1.0", msgtype: "request", interface: "query_overview", remark: "" },
@@ -61,10 +61,10 @@ export default {
                         type: 'query_node_map',
                         payload: query_node_map
                     });
-                    dispatch({
-                        type: 'query_overview',
-                        payload: query_overview_args,
-                    });
+                    // dispatch({
+                    //     type: 'query_overview',
+                    //     payload: query_overview_args,
+                    // });
 
                     dispatch({
                         type: 'query_history_map',
@@ -83,7 +83,7 @@ export default {
                     type: 'save',
                     payload: {
                         top_numbers: result.body.data,
-                        total: 4,
+                        total: result.body.total,
                     },
                 })
             }

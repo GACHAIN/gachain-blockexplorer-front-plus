@@ -1,4 +1,4 @@
-import { Table, Tooltip } from 'antd';
+import { Table, Tooltip, Tag } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import * as React from 'react';
 
@@ -19,6 +19,17 @@ const columns = [
   }, {
     title: <FormattedMessage id="SP_CONDITIONS" />,
     dataIndex: 'conditions',
+    render: (text)=>{
+      if (text === "true") {
+        return (
+          <Tag color="blue">{text}</Tag>
+        )
+      } else {
+        return (
+          <Tag color="red">{text}</Tag>
+        )
+      }
+    }
   }
 ];
 

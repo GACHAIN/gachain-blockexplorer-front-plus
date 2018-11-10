@@ -18,13 +18,13 @@ export default {
     TOPNUMTRANSACTION: 'Total number of transactions',
     TOPNUMECOSYSTEM: 'Total ecosystem',
     
-    HISTORYMAP: 'Recent 20-day trading history',
+    HISTORYMAP: 'Recent 30-day trading history',
     H_BLOCK: 'Block',
     H_TRANSACTION: 'Transaction',
     H_PRODUCT: 'By the node',
     H_SEND: 'Sender',
     H_REC: 'Recipient',
-    H_AMOUNT: 'Amount',
+    H_TIME: 'Create Time',
     H_M: 'Minutes',
     H_S: 'Seconds',
     H_NODE: 'Global node distribution',
@@ -43,10 +43,11 @@ export default {
     BL_HASH:'Hash',
     BL_NODEPOSITION:'Node Position',
     BL_ECOSYSTEMID: 'Ecosystem ID',
-    BL_KEYID: 'Key ID',
+    BL_KEYID: 'Account ID/ Address',
     BL_TXNUM: 'Tx Num',
 
     // Block
+    B_HEADER: 'Block header information',
     B_DETAIL: 'Block Detail',
     B_ROLLBACKSHASH: 'Rollbacks Hash',
     B_SIGN: 'sign',
@@ -58,25 +59,24 @@ export default {
 
     // TransactionList
     TL_CREATETIME: 'Create Time',
-    TL_SENDERKEYID: 'Sender KeyID',
-    TL_ECOSYSTEMID: 'Ecosystem ID',
-    TL_BLOCKID: 'Block ID',
+    TL_WALLET: 'Wallet ID/Address',
     TL_HASH: 'Hash',
     TL_TYPE: 'Type',
     TL_ERROR: 'Error',
+    TL_CONTRACTNAME: 'Call Contract Name',
 
     // Transaction
     T_RECIPIENTKEYID: 'Recipient KeyID',
     T_COMMISSION: 'Commission',
     T_SERVICEFEE: 'Service Fee',
     T_AMOUNT: 'Amount',
+    T_ERROR: 'Error Message',
     T_COMMENT: 'Comment',
 
     // Node
-    N_NODEID: 'Node ID',
-    N_URL: 'Url',
-    N_VOTENUMS: 'Votes',
-    N_DAILYREWARD: 'Daily_Reward',
+    N_URL: 'API Address',
+    N_PUBLIC: 'Public Key',
+    N_KEYID: 'Key ID/Address',
 
     // Ecosystem
     E_ID: 'Ecosystem ID',
@@ -118,9 +118,14 @@ export default {
     // Search
     S_T: 'Please enter transaction hash/block hash/block height query',
     S: 'Search',
+    S_NotFound: 'Entered information incorrectly and did not find the block/transaction',
+    S_VALUENULL: 'The value of the query cannot be empty',
 
     // Params
     PARAMNAME: 'Param Name',
     VALUE: 'Value',
+
+    //Message
+    ME_FAILYRE: 'failure',
 }
     

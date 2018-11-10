@@ -9,20 +9,18 @@ import { setLocale, getLocale } from 'umi/locale';
 import Redirect from 'umi/redirect';
 import router from 'umi/router';
 
-import Menu from 'components/Menus/index'
-import menuData from 'components/Menus/menu';
-import Bread from 'components/Bread';
-
-import { request, config } from '../utils';
+import Menus from 'components/Menus/index'
+import { request, config } from 'utils';
 import './index.less';
 
 const { Sider, Content } = Layout;
 const Option = Select.Option;
 const Search = Input.Search;
 const { api } = config;
+
 const { commonSearch } = api;
 const offsetWidth = document.querySelector('body').offsetWidth
-
+let prev_hash = ""
 class BasicLayout extends React.Component {
   state = {
     collapsed: offsetWidth < 720,
@@ -53,37 +51,54 @@ class BasicLayout extends React.Component {
   }
 
   searchVal = (value) => {
-    let args = {
-      head: {
-        "version": "1.0",
-        "msgtype": "request",
-        "interface": "get_common_search",
-        "remark": ""
-      },
-      params: {
-        "cmd": "001",
-        "current_page": value,
-        "page_size": "10",
-      }
-    }
-    let options = { url: commonSearch, method: 'POST', data: args }
-
-    request(options)
-      .then((resolve) => {
-        if (resolve.success) {
-          let { ret_data_type } = resolve.body
-          console.log(resolve.body)
-          if (parseInt(ret_data_type) === 1) {
-            router.replace(`/block/${resolve.body.data.header.block_id}`);
-          } else
-            if (parseInt(ret_data_type) === 2) {
-              router.replace(`/transaction/${resolve.body.data.Hash}`)
-            }
+    if (value.length === 0) {
+      let { intl: { formatMessage } } = this.props;
+      message.warning(formatMessage({ id: 'S_VALUENULL' }))
+      return false
+    } else {
+      let args = {
+        head: {
+          "version": "1.0",
+          "msgtype": "request",
+          "interface": "get_common_search",
+          "remark": ""
+        },
+        params: {
+          "cmd": "001",
         }
-      })
-      .catch((reject) => {
-        message.error(reject, "line 82")
-      })
+      }
+      let v = ""
+      if (value.length === 64) {
+        args.params['hash'] = value
+        v = value
+      } else {
+        args.params['block_id'] = Number(value)
+        v = Number(value)
+      }
+
+      let options = { url: commonSearch, method: 'POST', data: args }
+
+      request(options)
+        .then((resolve) => {
+          if (resolve.success) {
+            let { ret_data_type, retcode, data } = resolve.body
+            if (retcode === 404) {
+              let { intl: { formatMessage } } = this.props;
+              message.error(formatMessage({id:"S_NotFound"}))
+              return false;
+            }
+            if (parseInt(ret_data_type) === 1) {
+              router.replace(`/block/${data.header.block_id}`);
+            } else if (parseInt(ret_data_type) === 2) {
+              router.replace(`/transaction/${v}`)
+            }
+          }
+        })
+        .catch((reject) => {
+          message.error(reject, "line 82")
+        })
+    }
+
   }
 
   getPage = () => {
@@ -95,11 +110,13 @@ class BasicLayout extends React.Component {
   }
 
   render() {
-    // 1. 获取到当前的地址
-    NProgress.start(0.8)
-    NProgress.set(0.8)
-    NProgress.inc(0.8)
-    NProgress.done()
+    if (location.hash !== prev_hash) {
+      NProgress.start(0.8)
+      NProgress.set(0.8)
+      NProgress.inc(0.8)
+      NProgress.done()
+    }
+    prev_hash = location.hash
     return (
       <Layout>
         <Sider
@@ -109,17 +126,15 @@ class BasicLayout extends React.Component {
           collapsed={this.state.collapsed}
           style={{ backgroundColor: '#004a7c', height: '100vh', position: 'fixed', left: 0, boxShadow: 'rgb(153, 153, 153) 1px 5px 5px', overflow: 'hidden', transition: 'all 0.3s' }}
           breakpoint={'xs'}
-          onBreakpoint={(broken)=>{
-            this.setState({
-              collapsed: broken
-            })
+          onBreakpoint={(broken) => {
+            this.setState({ collapsed: broken })
           }}
         >
           <div id="logo">
             <FormattedMessage id="BLOCK_EXPLORER" />
           </div>
           <div id="menu">
-            <Menu />
+            <Menus />
           </div>
         </Sider>
         <Layout style={{ transition: 'all 0.3s', marginLeft: this.state.collapsed ? '0px' : '200px' }}>
@@ -151,12 +166,12 @@ class BasicLayout extends React.Component {
               </Col>
             </Row>
           </div>
-          <Bread menuData={menuData} />
+          {/* <Bread menuData={menuData} /> */}
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
             {this.getPage()}
           </Content>
         </Layout>
-      </Layout>
+      </Layout >
     )
   }
 }

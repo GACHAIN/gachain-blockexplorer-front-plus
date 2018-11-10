@@ -6,7 +6,7 @@ export default {
       'umi-plugin-react', {
         antd: true,
         dva: {
-          immer: true,
+          // immer: true,
           hmr: true
         },
         // 使用约定式路由后需排除如下路由

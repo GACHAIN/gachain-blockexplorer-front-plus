@@ -18,13 +18,13 @@ export default {
     TOPNUMTRANSACTION: '取引/事務総数',
     TOPNUMECOSYSTEM: 'エコシステムの総数',
 
-    HISTORYMAP: '最近の20日間の 取引/事務 の歴史',
+    HISTORYMAP: '最近の30日間の 取引/事務 の歴史',
     H_BLOCK: 'サイズ',
     H_TRANSACTION: '取引/事務',
     H_PRODUCT: 'ノード',
     H_SEND: '送信側',
     H_REC: '受信者',
-    H_AMOUNT: '金額',
+    H_TIME: '時間がかかる',
     H_M: '分',
     H_S: '秒',
     H_NODE: '全世界のノード分布',
@@ -44,10 +44,11 @@ export default {
     BL_HASH:'ハッシュ値',
     BL_NODEPOSITION:'梱包ノード',
     BL_ECOSYSTEMID: 'エコシステム ID',
-    BL_KEYID: 'Key ID',
+    BL_KEYID: 'アカウントid /住所',
     BL_TXNUM: '取引/事務の数',
 
     // Block
+    B_HEADER: 'ブロックヘッダ情報',
     B_ROLLBACKSHASH: 'ハシに戻る',
     B_SIGN: '署名',
     B_TRANSACTIONDATA: '取引/事務データ',
@@ -58,25 +59,24 @@ export default {
 
     // TransactionList
     TL_CREATETIME: '取引/事務生成時間',
-    TL_SENDERKEYID: '送信者ID',
-    TL_ECOSYSTEMID: 'エコシステムID',
-    TL_BLOCKID: 'ブロックID',
+    TL_WALLET: 'お財布id /住所',
     TL_HASH: '取引/事務ヒッシュ',
     TL_TYPE: '取引/事務の類型',
     TL_ERROR: '取引/事務の誤り',
+    TL_CONTRACTNAME: '契約名を呼び出す',
 
     // Transaction
     T_RECIPIENTKEYID: '受信者の KeyID',
     T_COMMISSION: '委員会',
     T_SERVICEFEE: '手数料',
     T_AMOUNT: '振替金額',
+    T_ERROR: '誤った情報',
     T_COMMENT: '备考',
 
     // Node
-    N_NODEID: 'ノード ID',
-    N_URL: 'アドレス',
-    N_VOTENUMS: '票',
-    N_DAILYREWARD: '1日の奨励',
+    N_URL: 'API アドレス',
+    N_PUBLIC: '公開',
+    N_KEYID: 'アカウント ID/住所',
 
     // Ecosystem
     E_ID: 'エコシステム',
@@ -118,8 +118,13 @@ export default {
     // Search
     S_T: '取引(事務)のハッシュ・ブロック・ハッシュ/ブロックの高さを入力して下さい。',
     S: '検索',
+    S_NotFound: '入力情报が间违いて、ブロック/取引が见つからなかった',
+    S_VALUENULL: 'クエリーの値は空にはできない',
 
     // Params
     PARAMNAME: 'パラメータ名',
     VALUE: '値',
+
+     //Message
+     ME_FAILYRE: '失敗',
 }

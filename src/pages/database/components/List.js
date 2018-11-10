@@ -1,10 +1,5 @@
 import { FormattedMessage } from 'react-intl';
 import { Table } from 'antd'
-// "ID":"1",
-// "Name":"GAchainDB",
-// "Engine":"postgresql",
-// "BackendVision":"20180902"
-
 const columns = [
     {
         title: <FormattedMessage id="DATABASE_ID" />,
@@ -20,7 +15,7 @@ const columns = [
     },
     {
         title: <FormattedMessage id="DATABASE_BACKENDVISION" />,
-        dataIndex: 'BackendVision'
+        dataIndex: 'BackendVersion'
     }
 ]
 

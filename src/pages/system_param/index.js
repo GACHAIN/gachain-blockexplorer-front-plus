@@ -18,8 +18,8 @@ const List = ({ dispatch, system_param, loading }) => {
           },
           params: {
             "cmd": "001",
-            "start_page": p || "1",
-            "page_size": n || "10",
+            "current_page": p || 1,
+            "page_size": n || 10,
           }
         }
         dispatch({

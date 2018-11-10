@@ -16,15 +16,15 @@ export default {
     TOPNUMNODE: '节点总数',
     TOPNUMBLOCK: '区块高度',
     TOPNUMTRANSACTION: '交易/事务 总数',
-    TOPNUMECOSYSTEM: '生态系统总数',
+    TOPNUMECOSYSTEM: '生态系统',
 
-    HISTORYMAP: '最近20天 交易/事务 历史',
+    HISTORYMAP: '最近30天 交易/事务 历史',
     H_BLOCK: '区块',
     H_TRANSACTION: '交易/事务',
     H_PRODUCT: '由节点',
     H_SEND: '发送方',
     H_REC: '接收方',
-    H_AMOUNT: '数额',
+    H_TIME: '产生时间',
     H_M: '分钟',
     H_S: '秒',
     H_NODE: '全球节点分布',
@@ -43,10 +43,11 @@ export default {
     BL_CREATETIME: '打包时间',
     BL_NODEPOSITION:'打包节点',
     BL_ECOSYSTEMID: '生态系统ID',
-    BL_KEYID: '账号ID',
-    BL_TXNUM: '交易/事务比数',
+    BL_KEYID: '账号 ID/地址',
+    BL_TXNUM: '交易/事务 数量',
 
     // Block
+    B_HEADER: '区块头信息',
     B_DETAIL: '区块详情',
     B_ROLLBACKSHASH: '回滚哈希',
     B_SIGN: '签名',
@@ -59,25 +60,24 @@ export default {
 
     // TransactionList
     TL_CREATETIME: '交易/事务生成时间',
-    TL_SENDERKEYID: '发送者 账号ID',
-    TL_ECOSYSTEMID: '生态系统ID',
-    TL_BLOCKID: '区块高度',
+    TL_WALLET: '钱包 ID/地址',
     TL_HASH: '交易/事务哈希值',
     TL_TYPE: '交易/事务类型',
     TL_ERROR: '交易/事务错误',
+    TL_CONTRACTNAME: '调用合约名',
 
     // Transaction
     T_RECIPIENTKEYID: '接收者 账号ID',
     T_COMMISSION: '委员会',
     T_SERVICEFEE: '手续费',
     T_AMOUNT: '转账金额',
+    T_ERROR: '错误信息',
     T_COMMENT: '备注',
 
     // Node
-    N_NODEID: '节点ID',
-    N_URL: '网址',
-    N_VOTENUMS: '票数',
-    N_DAILYREWARD: ' 每日奖励',
+    N_URL: 'API地址',
+    N_PUBLIC: '公钥',
+    N_KEYID: '账户 ID/地址',
 
     // Ecosystem
     E_ID: '生态系统ID',
@@ -119,8 +119,13 @@ export default {
     // Search
     S_T: '请输入 交易（事务）哈希 / 区块哈希 / 区块高度',
     S: '搜索',
+    S_NotFound: '输入信息有误，没有找到 区块/交易',
+    S_VALUENULL: '查询的值不能为空',
 
     // Params
     PARAMNAME: '参数名称',
     VALUE: '值',
+
+    //Message
+    ME_FAILYRE: '失败',
 }

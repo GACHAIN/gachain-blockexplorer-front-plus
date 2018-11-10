@@ -1,13 +1,21 @@
 import TransactionList from './components/List';
 import { connect } from 'dva';
-import styles from './index.css';
 
 const Transaction = ({transaction, dispatch, loading}) => {
   const { dataList, total } = transaction
+  function toggle(index) {
+    dispatch({
+      type: 'transaction/toggle',
+      payload: {
+        index
+      }
+    });
+  }
 
   let listProps = {
     dataSource: dataList,
     loading: loading.effects['transaction/query'],
+    onToggle: toggle,
     pagination: {
       showQuickJumper: true,
       total: Number(total),
@@ -21,8 +29,8 @@ const Transaction = ({transaction, dispatch, loading}) => {
           },
           params: {
             "cmd": "001",
-            "start_page": p || "1",
-            "page_size": n || "10",
+            "current_page": p || 1,
+            "page_size": n || 10,
           }
         }
         dispatch({

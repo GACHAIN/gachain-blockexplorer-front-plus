@@ -36,6 +36,14 @@
         font-size: 1.2rem;
         cursor: pointer;
       }
+      /*语言选择样式*/
+      .lang {
+        border-bottom: none;
+      }
+      .ant-menu-submenu .ant-menu-submenu-horizontal .sublang:hover {
+          border-bottom: none !important;
+          background-color: #eee !important;
+      }
     }
   }
   /*哈希值样式*/
@@ -45,6 +53,63 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: inline-block;
+    cursor: pointer;
+  }
+
+  /*gac*/
+  #gac {
+    width: 6rem;
+    display: inline-block;
+    text-align: center;
+    height: 2rem;
+    line-height: 2rem;
+    background: #219643;
+    color: #ffffff;
+    border-radius: 0.3rem;
+  }
+
+  /**错误*/
+  #failure {
+    width: 3rem;
+    display: inline-block;
+    line-height: 1.5rem;
+    background: #ce3333;
+    border-radius: 0.2rem;
+    color: #ffffff;
+  }
+
+  /**向右箭头*/
+  #arrow-right {
+    padding-left: 12px;
+    text-align: center;
+    padding-right: 12px;
+    font-size: 1.5rem;
+    color: #099011;
+  }
+
+  /*发送者*/
+  #send{
+    padding-left: 12px;
+    padding-right: 12px;
+    line-height: 2.2rem;
+    display: inline-block;
+    border-radius: 0.2rem;
+    background-color: #c71515;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  /*接收者*/
+  #recipient {
+    padding-left: 12px;
+    padding-right: 12px;
+    line-height: 2.2rem;
+    display: inline-block;
+    border-radius: 0.2rem;
+    background-color: #0a9007;
+    color: #fff;
+    text-align: center;
     cursor: pointer;
   }
 }

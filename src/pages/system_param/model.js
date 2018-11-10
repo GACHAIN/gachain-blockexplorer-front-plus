@@ -1,8 +1,8 @@
 import modelExtend from 'dva-model-extend';
-import { pageModel } from '../../utils/model';
+import { baseModel } from 'utils/model';
 import { query } from './services/system_param';
 
-export default modelExtend(pageModel, {
+export default modelExtend(baseModel, {
     namespace: 'system_param',
     subscriptions: {
         setup({ dispatch, history }) {
@@ -17,8 +17,8 @@ export default modelExtend(pageModel, {
                         },
                         params: {
                             "cmd": "001",
-                            "start_page": "1",
-                            "page_size": "10",
+                            "current_page": 1,
+                            "page_size": 10,
                         }
                     }
                     dispatch({
@@ -28,8 +28,6 @@ export default modelExtend(pageModel, {
                 }
             })
         },
-
-
     },
 
     effects: {
@@ -41,7 +39,7 @@ export default modelExtend(pageModel, {
                     type: 'querySuccess',
                     payload: {
                         dataList: data.body.data,
-                        total: data.body.all_row_nums,
+                        total: data.body.total,
                     },
                 })
             };

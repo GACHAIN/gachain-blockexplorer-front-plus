@@ -7,6 +7,7 @@ const List = ({ dispatch, ecosystem, loading }) => {
   let listProps = {
     loading: loading.effects['ecosystem/query'],
     dataSource: dataList,
+    hideOnSinglePage: true,
   }
 
   return (

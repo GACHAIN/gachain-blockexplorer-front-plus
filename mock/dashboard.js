@@ -130,25 +130,25 @@ export default {
         req.end(JSON.stringify(Mock.mock(data)))
     },
 
-    'POST /mock/api/dashboard_overview': (res, req) => {
-        let data = {
-            'head': {
-                version: "1.0",
-                msgtype: "response",
-                interface: "dashboard_overview",
-                remark: ""
-            },
-            'body': {
-                'cmd': "001",
-                'data|20': [
-                    {
-                        'name': '@date',
-                        'transaction|+1000': '@natural(1000, 10000)',
-                        // 'amt': 2400,
-                    }
-                ]
-            }
-        }
-        req.end(JSON.stringify(Mock.mock(data)))
-    }
+    // 'POST /mock/api/dashboard_overview': (res, req) => {
+    //     let data = {
+    //         'head': {
+    //             version: "1.0",
+    //             msgtype: "response",
+    //             interface: "dashboard_overview",
+    //             remark: ""
+    //         },
+    //         'body': {
+    //             'cmd': "001",
+    //             'data|20': [
+    //                 {
+    //                     'name': '@date',
+    //                     'transaction|+1000': '@natural(1000, 10000)',
+    //                     // 'amt': 2400,
+    //                 }
+    //             ]
+    //         }
+    //     }
+    //     req.end(JSON.stringify(Mock.mock(data)))
+    // }
 }

@@ -4,10 +4,19 @@ import BlockList from './components/List';
 
 const Block = ({ location, block, dispatch, loading }) => {
   const { dataList, total } = block
+  function toggle(index) {
+    dispatch({
+      type: 'block/toggle',
+      payload: {
+        index
+      }
+    });
+  }
   const listProps = {
     dataSource: dataList,
     location,
     loading: loading.effects['block/query'],
+    onToggle: toggle,
     pagination: {
       showQuickJumper: true,
       total: Number(total),
@@ -21,8 +30,8 @@ const Block = ({ location, block, dispatch, loading }) => {
           },
           params: {
             "cmd": "001",
-            "start_page": p || "1",
-            "page_size": n || "10",
+            "current_page": p || 1,
+            "page_size": n || 10,
           }
         }
         dispatch({

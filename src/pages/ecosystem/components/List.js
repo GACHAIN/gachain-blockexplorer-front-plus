@@ -6,25 +6,28 @@ import withRouter from 'umi/withRouter';
 const columns = [
   {
     title: <FormattedMessage id="E_ID" />,
-    dataIndex: 'EcosystemID',
+    dataIndex: 'id',
   }, {
-    title: <FormattedMessage id="E_NAME" />,
-    dataIndex: 'EcosystemName',
+    title: <FormattedMessage id="E_ID" />,
+    dataIndex: 'name',
     render: (text, record) => <Link to={
       {
-        pathname: `/ecosystem/${record.EcosystemID}/params`,
+        pathname: `/ecosystem/${record.id}/params`,
         state: {
-          ecosys_par: record.Params
+          ecosys_par: record.app_params
         }
       }
     }>{text}</Link>
+  }, {
+    title: <FormattedMessage id="E_NAME" />,
+    dataIndex: 'member',
   }
 ]
 
 const EcosystemList = ({ ...listProps }) => {
   return (
-    <Table {...listProps} columns={columns.map((item)=>{ item['align'] = 'center'; return item })}
-    rowKey={record=>record.EcosystemID}
+    <Table {...listProps} columns={columns.map((item) => { item['align'] = 'center'; return item })}
+      rowKey={record => record.name}
     />
   )
 }

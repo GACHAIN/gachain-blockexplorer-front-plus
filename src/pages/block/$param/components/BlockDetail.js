@@ -1,4 +1,4 @@
-import { Table, Button, Divider, Tooltip } from 'antd';
+import { Table, Divider, Tooltip } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
 import Link from 'umi/link';
@@ -21,15 +21,15 @@ const transactions_info_columns = [
         render: (text, record) => {
             return (
                 <Tooltip placement="topLeft" title={text}>
-                    <Link to={`/transaction/${record.hash}`} id="textOverflow">{text}</Link>
+                    <Link to={`/transaction/${record.hash}`}id="textOverflow">{text}</Link>
                 </Tooltip>
             )
         }
     }, {
-        title: <FormattedMessage id="TL_BLOCKID" />,
+        title: <FormattedMessage id="TL_CONTRACTNAME" />,
         dataIndex: 'contract_name',
     }, {
-        title: <FormattedMessage id="TL_ECOSYSTEMID" />,
+        title: <FormattedMessage id="TL_CREATETIME" />,
         dataIndex: 'time',
         render: (text)=>{
             return (
@@ -37,25 +37,28 @@ const transactions_info_columns = [
             )
         }
     }, {
-        title: <FormattedMessage id="TL_SENDERKEYID" />,
+        title: <FormattedMessage id="TL_TYPE" />,
         dataIndex: 'type',
     }, {
-        title: <FormattedMessage id="T_RECIPIENTKEYID" />,
-        dataIndex: 'Recver',
-    }, {
-        title: <FormattedMessage id="TL_CREATETIME" />,
-        dataIndex: 'Time',
-    }, {
-        title: <FormattedMessage id="T_AMOUNT" />,
-        dataIndex: 'Total',
-        render: (text) => <Button type="primary">{text}</Button>
+        title: <FormattedMessage id="TL_WALLET" />,
+        dataIndex: 'key_id',
     }
 ]
 
 const BlockDetail = (props) => {
-    let { Block_info, Transactions_info } = props.data_list
+    let { Block_header, Block_info, Transactions_info } = props.data_list
+    console.log(props.data_list)
     return (
         <div>
+            <Divider orientation="left"><FormattedMessage id="B_HEADER" /></Divider>
+            <Table 
+                columns={columns} 
+                dataSource={Block_header} 
+                pagination={false} 
+                rowKey={record => record.key} 
+                loading = {props.loading}
+            />
+
             <Divider orientation="left"><FormattedMessage id="B_DETAIL" /></Divider>
             <Table 
                 columns={columns} 

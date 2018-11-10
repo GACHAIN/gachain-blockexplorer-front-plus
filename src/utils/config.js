@@ -3,33 +3,57 @@ import { FormattedMessage } from 'react-intl';
 // const URL = 'http://localhost:8000/mock/api'
 // mock 远程
 // const URL = 'http://192.168.1.124:8000/mock/api'
-// 线上环境
-const URL = 'http://192.168.1.165:8800/api' 
+// 测试环境
+// const URL = 'http://192.168.1.161:8800/api'
+// 莫工主机
+const URL = 'http://192.168.1.165:8800/api'
 // 本地环境
 // const URL = 'http://127.0.0.1:7000/api'
 
 module.exports = {
-    name: <FormattedMessage id="GAC_BLOCK_EXPLORER"/>,
+    name: <FormattedMessage id="GAC_BLOCK_EXPLORER" />,
     prefix: 'GAChain',
     footerText: <FormattedMessage id="FOOTERTEXT" />,
     CORS: [
-        {"Access-Control-Allow-Origin": "*"}
+        { "Access-Control-Allow-Origin": "*" }
     ],
-    YQL:[],
+    YQL: [],
     URL,
+    MONEY_POWER: 12,
+    // i18n: {
+    //     /* Countrys flags: https://www.flaticon.com/packs/countrys-flags */
+    //     languages: [
+    //         {
+    //             key: 'en-US',
+    //             title: 'English',
+    //             flag: '/flag.svg',
+    //         },
+    //         {
+    //             key: 'zh-CN',
+    //             title: '中文',
+    //             flag: '/china.svg',
+    //         },
+    //         {
+    //             key: 'ja-JP',
+    //             title: '日本语',
+    //             flag: '/japan.svg',
+    //         }
+    //     ],
+    //     defaultLanguage: 'en',
+    // },
     api: {
         //top_numbers, middle_blocks, middle_transactions
-        dashboard_top_numbers: `${URL}/dashboard_top_numbers`,
-        dashboard_middle_blocks: `${URL}/dashboard_middle_blocks`,
-        dashboard_middle_transactions: `${URL}/dashboard_middle_transactions`,
-        dashboard_node_map: `${URL}/dashboard_node_map`,
-        dashboard_history_map: `${URL}/dashboard_history_map`,
-        dashboard_overview: `${URL}/dashboard_overview`,
-        
+        dashboard_top_numbers: `${URL}/dashboard_top_num`, //四个统计总数
+        dashboard_middle_blocks: `${URL}/get_block`, //区块展示
+        dashboard_middle_transactions: `${URL}/get_transaction`, //交易展示
+        dashboard_node_map: `${URL}/dashboard_node_map`, //全球节点地图分布
+        dashboard_history_map: `${URL}/dashboard_history_map`, //历史交易曲线图
+        dashboard_overview: `${URL}/dashboard_overview`, // 政务链概览
+
         // Block
         getBlock: `${URL}/get_block_details`,
         getBlockList: `${URL}/get_block`,
-        
+
         // Transaction
         getTransaction: `${URL}/get_transaction_details`,
         getTransactionList: `${URL}/get_transaction`,
