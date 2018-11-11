@@ -32,6 +32,7 @@ export default {
 
     /**over_view */
     H_MARKETVALUE: '今日の時価総額',
+    H_RATE: '今日の為替相場：',
     H_LASTBLOCK: '最後のブロック',
     H_HASHRATE: 'ハッシュ率',
     H_DIFFICULTY: '難度値',

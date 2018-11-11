@@ -21,7 +21,7 @@ const transactions_info_columns = [
         render: (text, record) => {
             return (
                 <Tooltip placement="topLeft" title={text}>
-                    <Link to={`/transaction/${record.hash}`}id="textOverflow">{text}</Link>
+                    <span id="textOverflow">{text}</span>
                 </Tooltip>
             )
         }

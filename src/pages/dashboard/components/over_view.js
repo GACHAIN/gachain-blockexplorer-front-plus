@@ -17,7 +17,8 @@ const over_view = ({ loading, data, rate }) => {
                     <Icon type="global" style={{ fontSize: '50px' }} />
                 </Col>
                 <Col span={20}>
-                    <Row>
+                    {/* 总市值 */}
+                    {/* <Row>
                         <Link to="#" style={{ color: '#eee' }}><FormattedMessage id="H_MARKETVALUE" />
                         <span style={{color: '#ffffff'}}>
                         <i style={{    fontStyle: 'normal', fontSize: '18px', paddingLeft: '5px'}}>
@@ -26,8 +27,11 @@ const over_view = ({ loading, data, rate }) => {
                            
                         </span>
                         </Link>
-                    </Row>
+                    </Row> */}
+                    {/* GAC汇率 */}
                     <Row>
+                        <span style={{color: '#ffffff'}}><FormattedMessage id="H_RATE" /></span>
+                        <br/>
                         <Link to="#" style={{ color: '#fff', fontSize: '16px' }}>
                             {`1 GAC ≈ ${data === undefined ? 0 : Number(data['btc-gac'].last)} BTC ≈ ${data === undefined ? 0 : Number(data['usdt-gac'].last)} USDT`}
                         </Link>

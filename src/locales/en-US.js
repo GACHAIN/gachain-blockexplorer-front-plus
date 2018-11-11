@@ -32,6 +32,7 @@ export default {
 
     /**over_view */
     H_MARKETVALUE: 'Total market value today',
+    H_RATE: 'Today\'s Exchange Rate:',
     H_LASTBLOCK: 'Last Block',
     H_HASHRATE: 'Hash Rate',
     H_DIFFICULTY: 'Difficulty',
