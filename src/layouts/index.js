@@ -20,7 +20,7 @@ const { api } = config;
 
 const { commonSearch } = api;
 const offsetWidth = document.querySelector('body').offsetWidth
-let prev_hash = ""
+let prev_pathname = ""
 class BasicLayout extends React.Component {
   state = {
     collapsed: offsetWidth < 720,
@@ -110,13 +110,13 @@ class BasicLayout extends React.Component {
   }
 
   render() {
-    if (location.hash !== prev_hash) {
+    if (location.pathname !== prev_pathname) {
       NProgress.start(0.8)
       NProgress.set(0.8)
       NProgress.inc(0.8)
       NProgress.done()
     }
-    prev_hash = location.hash
+    prev_pathname = location.pathname
     return (
       <Layout>
         <Sider
