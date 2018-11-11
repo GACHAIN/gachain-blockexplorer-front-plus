@@ -5,7 +5,6 @@ import {
     query_node_map,
     query_history_map,
     query_gac,
-    query_rate
 } from './services'
 
 export default {
@@ -161,19 +160,6 @@ export default {
                 })
             }
         },
-
-        * query_rate({ payload }, { call, put }) {
-            const result = yield call(query_rate, payload)
-            if (result.success) {
-                yield put({
-                    type: 'save',
-                    payload: {
-                        rate: result.data
-                    }
-                })
-            }
-        },
-
     },
 
     reducers: {

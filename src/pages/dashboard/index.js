@@ -10,7 +10,7 @@ import {
 } from './components';
 
 const Dashboard = ({ loading, dispatch, dashboard }) => {
-  let { top_numbers, middle_blocks, middle_transactions, node_map, history_map, gac, rate } = dashboard
+  let { top_numbers, middle_blocks, middle_transactions, node_map, history_map, gac } = dashboard
   let top_numers_props = {
     loading: loading.effects['dashboard/query_top_numbers'],
     data: top_numbers
@@ -39,7 +39,6 @@ const Dashboard = ({ loading, dispatch, dashboard }) => {
   let gac_props = {
     loading: loading.effects['dashboard/query_gac'],
     data: gac,
-    rate
   }
 
   return (

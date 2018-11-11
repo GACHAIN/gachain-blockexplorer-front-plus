@@ -23,8 +23,6 @@ module.exports = {
     URL,
     MONEY_POWER: 12,
     api: {
-        // 交易所(coinegg)查询 BTC/GAC
-        // coinegg_Btc_Gac: `https://api.coinegg.im/api/v1/ticker/region/btc`,
         // 查询GAC
         dashboard_gac: `${URL}/dashboard_gac`,
 

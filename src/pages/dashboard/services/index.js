@@ -57,10 +57,3 @@ export function query_gac(params) {
         data: params
     })
 }
-
-export function query_rate(params) {
-    return request({
-        url: "/api/v1/exchange_rate",
-        data: params
-    })
-}

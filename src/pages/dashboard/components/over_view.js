@@ -3,7 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import styles from './over_view.css'
 import Link from 'umi/link'
 
-const over_view = ({ loading, data, rate }) => {
+const over_view = ({ loading, data }) => {
     return (
         <Card
             title={<FormattedMessage id="H_GACHAINOVERVIEW" style={{ color: '#fff' }} />}
@@ -31,6 +31,12 @@ const over_view = ({ loading, data, rate }) => {
                     {/* GAC汇率 */}
                     <Row>
                         <span style={{color: '#ffffff'}}><FormattedMessage id="H_RATE" /></span>
+                        <i style={{    fontStyle: 'normal', fontSize: '18px', paddingLeft: '5px'}}>¥
+                            {/* {`¥ ${data === undefined ? 0 : (Number(data['usdt-gac'].last))}`} */}
+                            {
+                                !loading && data.length !== 0 ? parseFloat(Number(data['usdt-gac'].last) * (data.Rates.rates.CNY)).toFixed(3) : '数据错误'
+                            }
+                        </i>
                         <br/>
                         <Link to="#" style={{ color: '#fff', fontSize: '16px' }}>
                             {`1 GAC ≈ ${data === undefined ? 0 : Number(data['btc-gac'].last)} BTC ≈ ${data === undefined ? 0 : Number(data['usdt-gac'].last)} USDT`}
