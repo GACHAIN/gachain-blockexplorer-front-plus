@@ -1,7 +1,8 @@
-import { Table, Divider, Tooltip } from 'antd';
-import { FormattedMessage } from 'react-intl';
+import { Table, Divider, Tooltip, message } from 'antd';
+import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
+import React from 'react';
 import moment from 'moment';
-import Link from 'umi/link';
+import router from 'umi/router';
 
 const columns = [
     {
@@ -31,9 +32,9 @@ const transactions_info_columns = [
     }, {
         title: <FormattedMessage id="TL_CREATETIME" />,
         dataIndex: 'time',
-        render: (text)=>{
+        render: (text) => {
             return (
-                <span>{ moment(text).format() }</span>
+                <span>{moment(text).format()}</span>
             )
         }
     }, {
@@ -45,41 +46,53 @@ const transactions_info_columns = [
     }
 ]
 
-const BlockDetail = (props) => {
-    let { Block_header, Block_info, Transactions_info } = props.data_list
-    return (
-        <div>
-            <Divider orientation="left"><FormattedMessage id="B_HEADER" /></Divider>
-            <Table 
-                columns={columns} 
-                dataSource={Block_header} 
-                pagination={false} 
-                rowKey={record => record.key} 
-                loading = {props.loading}
-            />
+class BlockDetail extends React.Component {
+    static propTypes = {
+        intl: intlShape.isRequired,
+    }
 
-            <Divider orientation="left"><FormattedMessage id="B_DETAIL" /></Divider>
-            <Table 
-                columns={columns} 
-                dataSource={Block_info} 
-                pagination={false} 
-                rowKey={record => record.key} 
-                loading = {props.loading}
-            />
+    render() {
+        let { Block_header, Block_info, Transactions_info } = this.props.data_list
+        let { intl: { formatMessage } } = this.props;
+        let { loading } = this.props
+        if(!loading && Block_header.length === 0 && Block_info.length === 0 && Transactions_info.length === 0) {
+            router.replace("/block")
+            message.error(formatMessage({ id: 'S_NotFound' }))
+        }
+        return (
+            <div>
+                <Divider orientation="left"><FormattedMessage id="B_HEADER" /></Divider>
+                <Table
+                    columns={columns}
+                    dataSource={Block_header}
+                    pagination={false}
+                    rowKey={record => record.key}
+                    loading={this.props.loading}
+                />
 
-            <Divider orientation="left" style={{marginTop: 20}}><FormattedMessage id="TRANSACTION" /></Divider>
-            <Table
-                columns={transactions_info_columns.map((item)=>{
-                    item['align'] = 'center'
-                    return item
-                })} 
-                dataSource={Transactions_info} 
-                pagination={true} 
-                rowKey={record => record.hash} 
-                loading = {props.loading}
-            />
-        </div>
-    )
+                <Divider orientation="left"><FormattedMessage id="B_DETAIL" /></Divider>
+                <Table
+                    columns={columns}
+                    dataSource={Block_info}
+                    pagination={false}
+                    rowKey={record => record.key}
+                    loading={this.props.loading}
+                />
+
+                <Divider orientation="left" style={{ marginTop: 20 }}><FormattedMessage id="TRANSACTION" /></Divider>
+                <Table
+                    columns={transactions_info_columns.map((item) => {
+                        item['align'] = 'center'
+                        return item
+                    })}
+                    dataSource={Transactions_info}
+                    pagination={true}
+                    rowKey={record => record.hash}
+                    loading={this.props.loading}
+                />
+            </div>
+        )
+    }
 }
 
-export default BlockDetail
+export default injectIntl(BlockDetail)

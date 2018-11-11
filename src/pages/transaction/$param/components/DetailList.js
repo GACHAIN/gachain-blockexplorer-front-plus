@@ -1,7 +1,6 @@
 import { Table, Row, Divider, message } from 'antd';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import router from 'umi/router';
-import { Component } from 'react';
 
 const columns = [
     {
