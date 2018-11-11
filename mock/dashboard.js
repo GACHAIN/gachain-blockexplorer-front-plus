@@ -1,7 +1,7 @@
 import Mock from 'mockjs';
 
 export default {
-    'POST /mock/api/dashboard_top_numbers': (res, req) => {
+    'POST /mock/api/dashboard_top_num': (res, req) => {
         let data = {
             'head': {
                 'version': "1.0",

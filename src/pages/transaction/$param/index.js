@@ -1,6 +1,6 @@
 import DetailList from './components/DetailList';
 import { walletIdToAddr, walletAddrToId, checkKeyidOrAddress } from 'utils';
-import { Tag, Row, Col, Tooltip } from 'antd';
+import { Tag, Row, Col } from 'antd';
 import { qGacToGac } from 'utils';
 import { connect } from 'dva';
 

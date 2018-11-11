@@ -65,6 +65,7 @@ export default {
     TL_TYPE: '交易/事务类型',
     TL_ERROR: '交易/事务错误',
     TL_CONTRACTNAME: '调用合约名',
+    TL_BLOCKID: '区块ID',
 
     // Transaction
     T_RECIPIENTKEYID: '接收者 账号ID',

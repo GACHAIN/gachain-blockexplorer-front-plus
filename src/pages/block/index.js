@@ -17,6 +17,7 @@ const Block = ({ location, block, dispatch, loading }) => {
     location,
     loading: loading.effects['block/query'],
     onToggle: toggle,
+    scroll: {x: 1200},
     pagination: {
       showQuickJumper: true,
       total: Number(total),

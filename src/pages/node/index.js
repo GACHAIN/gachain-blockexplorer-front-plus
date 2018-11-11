@@ -15,6 +15,7 @@ const Nodelist = ({ dispatch, node, loading }) => {
     dataSource: dataList,
     loading: loading.effects['node/query'],
     onToggle: toggle,
+    scroll: {x: 1200},
     pagination: {
       total: Number(total),
       showQuickJumper: true,

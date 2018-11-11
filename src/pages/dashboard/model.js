@@ -4,7 +4,8 @@ import {
     query_middle_transactions,
     query_node_map,
     query_history_map,
-    query_overview
+    query_gac,
+    query_rate
 } from './services'
 
 export default {
@@ -40,8 +41,8 @@ export default {
                         'head': { version: "1.0", msgtype: "request", interface: "query_middle_transactions", remark: "" },
                         'params': { cmd: "001", "current_page": 1, "page_size": 5, }
                     };
-                    let query_overview_args = {
-                        'head': { version: "1.0", msgtype: "request", interface: "query_overview", remark: "" },
+                    let query_gac_args = {
+                        'head': { version: "1.0", msgtype: "request", interface: "query_gac", remark: "" },
                         'params': { cmd: "001" }
                     }
 
@@ -61,14 +62,21 @@ export default {
                         type: 'query_node_map',
                         payload: query_node_map
                     });
-                    // dispatch({
-                    //     type: 'query_overview',
-                    //     payload: query_overview_args,
-                    // });
+                    dispatch({
+                        type: 'query_gac',
+                        payload: query_gac_args,
+                    });
 
                     dispatch({
                         type: 'query_history_map',
                         payload: query_history_map
+                    });
+
+                    dispatch({
+                        type: 'query_rate',
+                        payload: {
+                            base: 'usdt'
+                        }
                     })
                 }
             })
@@ -141,18 +149,31 @@ export default {
             }
         },
 
-        * query_overview({ payload }, { call, put }) {
-            const result = yield call(query_overview, payload)
+        * query_gac({ payload }, { call, put }) {
+            const result = yield call(query_gac, payload)
             if (result.success) {
                 yield put({
                     type: 'save',
                     payload: {
-                        over_view: result.body.data,
+                        gac: result.body.data,
                         total: result.body.all_row_nums
                     }
                 })
             }
-        }
+        },
+
+        * query_rate({ payload }, { call, put }) {
+            const result = yield call(query_rate, payload)
+            if (result.success) {
+                yield put({
+                    type: 'save',
+                    payload: {
+                        rate: result.data
+                    }
+                })
+            }
+        },
+
     },
 
     reducers: {

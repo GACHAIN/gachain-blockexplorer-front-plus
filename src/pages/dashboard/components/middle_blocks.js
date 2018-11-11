@@ -5,7 +5,6 @@ import styles from './middle_blocks.css';
 
 const middle_blocks = ({ data, loading }) => {
     let compontents = data.map((item, key) => {
-        console.log(item)
         return (
             <Row key={key} justify="center" style={{ paddingBottom: "1rem" }}>
                 <Link to={`/block/${item.block_id}`}>
@@ -20,8 +19,8 @@ const middle_blocks = ({ data, loading }) => {
                     </Col>
                 </Link>
                 <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12} push={2}>
-                    <p><FormattedMessage id="H_PRODUCT" /> <Tag color="blue">{item.node_position}</Tag></p>
-                    <p>{item.tx_count} <FormattedMessage id="H_TRANSACTION" /></p>
+                    <Row><FormattedMessage id="H_PRODUCT" /> <Tag color="blue">{item.node_position}</Tag></Row>
+                    <Row>{item.tx_count} <FormattedMessage id="H_TRANSACTION" /></Row>
                 </Col>
             </Row>
         )

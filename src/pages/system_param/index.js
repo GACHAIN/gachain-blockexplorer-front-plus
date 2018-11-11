@@ -6,6 +6,7 @@ const List = ({ dispatch, system_param, loading }) => {
   let listProps = {
     dataSource: dataList,
     loading: loading.effects['system_param/query'],
+    scroll: {x: 1200},
     pagination: {
       total: Number(total),
       onChange(p, n) {

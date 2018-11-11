@@ -7,7 +7,7 @@ let {
     dashboard_middle_transactions,
     dashboard_node_map,
     dashboard_history_map,
-    dashboard_overview
+    dashboard_gac
 } = api
 export function query_top_numbers(params) {
     return request({
@@ -50,10 +50,17 @@ export function query_history_map(params) {
 }
 
 
-export function query_overview(params) {
+export function query_gac(params) {
     return request({
-        url: dashboard_overview,
+        url: dashboard_gac,
         method: 'post',
+        data: params
+    })
+}
+
+export function query_rate(params) {
+    return request({
+        url: "/api/v1/exchange_rate",
         data: params
     })
 }

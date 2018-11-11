@@ -7,7 +7,6 @@ import styles from './middle_transactions.css';
 const middle_transactions = ({ data, loading }) => {
 
     let compontents = data.map((item, key) => {
-        console.log(item)
         return (
             <Row key={key} className={styles.transactions_R}>
                 <Col xs={0} ms={0} md={4} lg={4} xl={4} xxl={4}>

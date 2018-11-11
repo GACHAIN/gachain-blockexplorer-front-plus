@@ -64,6 +64,7 @@ export default {
     TL_TYPE: '取引/事務の類型',
     TL_ERROR: '取引/事務の誤り',
     TL_CONTRACTNAME: '契約名を呼び出す',
+    TL_BLOCKID: 'ブロック ID',
 
     // Transaction
     T_RECIPIENTKEYID: '受信者の KeyID',

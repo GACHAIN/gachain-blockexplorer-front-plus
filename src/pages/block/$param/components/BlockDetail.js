@@ -47,7 +47,6 @@ const transactions_info_columns = [
 
 const BlockDetail = (props) => {
     let { Block_header, Block_info, Transactions_info } = props.data_list
-    console.log(props.data_list)
     return (
         <div>
             <Divider orientation="left"><FormattedMessage id="B_HEADER" /></Divider>

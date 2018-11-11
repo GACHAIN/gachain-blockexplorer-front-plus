@@ -10,7 +10,7 @@ import {
 } from './components';
 
 const Dashboard = ({ loading, dispatch, dashboard }) => {
-  let { top_numbers, middle_blocks, middle_transactions, node_map, history_map, over_view } = dashboard
+  let { top_numbers, middle_blocks, middle_transactions, node_map, history_map, gac, rate } = dashboard
   let top_numers_props = {
     loading: loading.effects['dashboard/query_top_numbers'],
     data: top_numbers
@@ -36,9 +36,10 @@ const Dashboard = ({ loading, dispatch, dashboard }) => {
     data: history_map
   };
 
-  let overview_props = {
-    loading: loading.effects['dashboard/query_overview'],
-    data: over_view
+  let gac_props = {
+    loading: loading.effects['dashboard/query_gac'],
+    data: gac,
+    rate
   }
 
   return (
@@ -48,7 +49,7 @@ const Dashboard = ({ loading, dispatch, dashboard }) => {
       </Row>
       <Row style={{ marginTop: '10px', marginBottom: '10px' }}>
         <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12} id="overview">
-          <OverView {...overview_props} />
+          <OverView {...gac_props} />
         </Col>
         <Col xs={24} sm={24} md={24} lg={12} xl={12} xxl={12} id="node_map">
           <NodeMap {...node_map_props} />

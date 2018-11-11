@@ -30,9 +30,9 @@ export default [
         "FormattedMessage": "SYSTEMPARAM",
         "to": "/system_param"
     },
-    {
-        "icon": "database",
-        "FormattedMessage": "DATABASE",
-        "to": "/database"
-    },
+    // {
+    //     "icon": "database",
+    //     "FormattedMessage": "DATABASE",
+    //     "to": "/database"
+    // },
 ]

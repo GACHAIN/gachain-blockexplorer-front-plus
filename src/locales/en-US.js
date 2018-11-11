@@ -64,6 +64,7 @@ export default {
     TL_TYPE: 'Type',
     TL_ERROR: 'Error',
     TL_CONTRACTNAME: 'Call Contract Name',
+    TL_BLOCKID: 'Block ID',
 
     // Transaction
     T_RECIPIENTKEYID: 'Recipient KeyID',

@@ -102,7 +102,7 @@ class BasicLayout extends React.Component {
   }
 
   getPage = () => {
-    if (window.location.hash === '#/') {
+    if (window.location.pathname === '/') {
       return <Redirect to="/dashboard" />
     } else {
       return this.props.children
@@ -120,9 +120,10 @@ class BasicLayout extends React.Component {
     return (
       <Layout>
         <Sider
+          id="nav_"
           trigger={null}
           collapsible
-          collapsedWidth="0"
+          collapsedWidth={0}
           collapsed={this.state.collapsed}
           style={{ backgroundColor: '#004a7c', height: '100vh', position: 'fixed', left: 0, boxShadow: 'rgb(153, 153, 153) 1px 5px 5px', overflow: 'hidden', transition: 'all 0.3s' }}
           breakpoint={'xs'}
@@ -137,7 +138,7 @@ class BasicLayout extends React.Component {
             <Menus />
           </div>
         </Sider>
-        <Layout style={{ transition: 'all 0.3s', marginLeft: this.state.collapsed ? '0px' : '200px' }}>
+        <Layout id="content" style={{ transition: 'all 0.3s', marginLeft: this.state.collapsed ? '0': '200px'}}>
           <div className="nav-header">
             <Row type="flex" justify="space-between" align="middle">
               <Col>

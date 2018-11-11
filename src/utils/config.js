@@ -6,9 +6,11 @@ import { FormattedMessage } from 'react-intl';
 // 测试环境
 // const URL = 'http://192.168.1.161:8800/api'
 // 莫工主机
-const URL = 'http://192.168.1.165:8800/api'
+// const URL = 'http://192.168.1.165:8800/api'
 // 本地环境
 // const URL = 'http://127.0.0.1:7000/api'
+// 远程环境
+const URL = 'http://ibm.sifu8.cn:8800/api'
 
 module.exports = {
     name: <FormattedMessage id="GAC_BLOCK_EXPLORER" />,
@@ -20,28 +22,12 @@ module.exports = {
     YQL: [],
     URL,
     MONEY_POWER: 12,
-    // i18n: {
-    //     /* Countrys flags: https://www.flaticon.com/packs/countrys-flags */
-    //     languages: [
-    //         {
-    //             key: 'en-US',
-    //             title: 'English',
-    //             flag: '/flag.svg',
-    //         },
-    //         {
-    //             key: 'zh-CN',
-    //             title: '中文',
-    //             flag: '/china.svg',
-    //         },
-    //         {
-    //             key: 'ja-JP',
-    //             title: '日本语',
-    //             flag: '/japan.svg',
-    //         }
-    //     ],
-    //     defaultLanguage: 'en',
-    // },
     api: {
+        // 交易所(coinegg)查询 BTC/GAC
+        // coinegg_Btc_Gac: `https://api.coinegg.im/api/v1/ticker/region/btc`,
+        // 查询GAC
+        dashboard_gac: `${URL}/dashboard_gac`,
+
         //top_numbers, middle_blocks, middle_transactions
         dashboard_top_numbers: `${URL}/dashboard_top_num`, //四个统计总数
         dashboard_middle_blocks: `${URL}/get_block`, //区块展示

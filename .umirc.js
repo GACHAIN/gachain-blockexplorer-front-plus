@@ -9,6 +9,9 @@ export default {
           // immer: true,
           hmr: true
         },
+        // dynamicImport: {
+        //   webpackChunkName: true,
+        // },
         // 使用约定式路由后需排除如下路由
         routes: {
           exclude: [
@@ -20,7 +23,7 @@ export default {
           ],
         },
         // 禁用组件按需加载
-        dynamicImport: false,
+        // dynamicImport: true,
         dll: false,
         // hardSource: /* isMac */process.platform === 'darwin',
         // 本地化
@@ -34,9 +37,16 @@ export default {
       }
     ],
   ],
+  proxy: {
+    '/api/v1/exchange_rate': {
+      target: 'https://data.block.cc/',
+      changeOrigin: true,
+      pathRewrite: { '^/api/v1/exchange_rate': '/api/v1/exchange_rate' },
+    },
+  },
   publicPath: './', // build 后的静态文件引入路径
-  // hash: true,
-  history: 'hash',
+  hash: true,
+  // history: 'hash',
   ignoreMomentLocale: true,
   theme: {
     "@primary-color": "#00aee6" // 配置 ANTD 的主题颜色

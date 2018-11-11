@@ -6,7 +6,6 @@ import styles from './node_map.css';
 
 require('echarts/map/js/world.js')
 const max = -Infinity;
-const min = Infinity;
 const getColor = () => {
     // var colors = ['#00F5FF', '#00E5EE', '#00FFFF', '#00C5CD'];
     var colors = ['#00aee6', '#00aee6', '#00aee6', '#00aee6'];
@@ -122,7 +121,7 @@ const node_map = ({ data, loading }) => {
         ]
     };
     return (
-        <Card className={styles.node_map_content} title={<FormattedMessage id="H_NODE"/>} loading={loading}>
+        <Card className={styles.node_map_content} title={<FormattedMessage id="H_NODE"/>} loading={loading} bodyStyle={{height: '20rem'}}>
             <ReactEcharts
                 option={option}
                 style={{ width: '100%' }}
