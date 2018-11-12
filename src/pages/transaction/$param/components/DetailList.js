@@ -40,6 +40,7 @@ class DetailList extends React.Component {
                         dataSource={item.value}
                         columns={columns}
                         pagination={pagination}
+                        
                     />
                 </Row>
             )

@@ -49,11 +49,11 @@ const TransactionHash = ({dispatch, s_transaction, loading }) => {
                     valueObj.key = "Amount"
                     valueObj.value = (
                         <Row gutter={24}>
-                            <Col span={8} id="send" onClick={(e)=>toggle(e)}>{senderID}</Col>
-                            <Col span={3} id="arrow-right"><span>➤</span></Col>
-                            <Col span={8} id="recipient" onClick={(e)=>toggle(e)}>{recipient1}</Col>
-                            <Col span={5}>
-                                <Tag color="#108ee9">+{qGacToGac(valueObj.value)} GAC</Tag>
+                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="send" onClick={(e)=>toggle(e)}>{senderID}</Col>
+                            <Col xs={24} ms={24} md={24} lg={3} xl={3} xxl={3} id="arrow-right"><span>➤</span></Col>
+                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="recipient" onClick={(e)=>toggle(e)}>{recipient1}</Col>
+                            <Col xs={24} ms={24} md={24} lg={5} xl={5} xxl={5} id="gac_col">
+                                <span id="gac_amount">+{qGacToGac(valueObj.value)} GAC</span>
                             </Col>
                         </Row>
                     )
@@ -63,11 +63,11 @@ const TransactionHash = ({dispatch, s_transaction, loading }) => {
                     valueObj.key = "Service Fee"
                     valueObj.value = (
                         <Row gutter={24}>
-                            <Col span={8} id="send" onClick={(e)=>toggle(e)}>{senderID}</Col>
-                            <Col span={3} id="arrow-right"><span>➤</span></Col>
-                            <Col span={8} id="recipient" onClick={(e)=>toggle(e)}>{recipient2}</Col>
-                            <Col span={5}>
-                                <Tag color="#108ee9">+{qGacToGac(valueObj.value)} GAC</Tag>
+                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="send" onClick={(e)=>toggle(e)}>{senderID}</Col>
+                            <Col xs={24} ms={24} md={24} lg={3} xl={3} xxl={3} id="arrow-right"><span>➤</span></Col>
+                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="recipient" onClick={(e)=>toggle(e)}>{recipient2}</Col>
+                            <Col xs={24} ms={24} md={24} lg={5} xl={5} xxl={5} id="gac_col">
+                                <span id="gac_amount">+{qGacToGac(valueObj.value)} GAC</span>
                             </Col>
                         </Row>
                     )
@@ -77,11 +77,11 @@ const TransactionHash = ({dispatch, s_transaction, loading }) => {
                     valueObj.key = "Commission"
                     valueObj.value = (
                         <Row gutter={24}>
-                            <Col span={8} id="send" onClick={(e)=>toggle(e)}>{senderID}</Col>
-                            <Col span={3} id="arrow-right"><span>➤</span></Col>
-                            <Col span={8} id="recipient" onClick={(e)=>toggle(e)}>{recipient3}</Col>
-                            <Col span={5}>
-                                <Tag color="#108ee9">+{qGacToGac(valueObj.value)} GAC</Tag>
+                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="send" onClick={(e)=>toggle(e)}>{senderID}</Col>
+                            <Col xs={24} ms={24} md={24} lg={3} xl={3} xxl={3} id="arrow-right"><span>➤</span></Col>
+                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="recipient" onClick={(e)=>toggle(e)}>{recipient3}</Col>
+                            <Col xs={24} ms={24} md={24} lg={5} xl={5} xxl={5} id="gac_col">
+                                <span id="gac_amount">+{qGacToGac(valueObj.value)} GAC</span>
                             </Col>
                         </Row>
                     )
