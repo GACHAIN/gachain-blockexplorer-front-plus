@@ -1,4 +1,4 @@
-import { Icon, Card, Row, Col } from 'antd';
+import { Icon, Card, Row, Col, Tooltip } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import Link from 'umi/link';
 import moment from 'moment';
@@ -14,14 +14,23 @@ const middle_transactions = ({ data, loading }) => {
                 </Col>
                 <Col xs={24} ms={24} md={20} lg={20} xl={20} xxl={20} className={styles.transaction_r_c_r}>
                     <Row>
-                        <span><FormattedMessage id="H_TRANSACTION" />#</span>
-                        <Link to={`transaction/${item.Hash}`}>{item.Hash}</Link>
+                        <span><FormattedMessage id="H_TRANSACTION" /># </span>
+                        <Link id="textOverflow" to={`transaction/${item.Hash}`}>{item.Hash}</Link>
+                        {
+                            item.BlockID === 0 ? 
+                            <span id="failure">
+                                <FormattedMessage id="ME_FAILYRE" />
+                            </span> : 
+                            <span id="success">
+                                <FormattedMessage id="ME_SUCCESS" />
+                            </span>
+                        }
                     </Row>
                     <Row>
-                        <span><FormattedMessage id="H_SEND" /></span>
-                        <a href="#">0xd5bbb58e8e7271365a41038c2df1d3efea0b2a71</a>
-                        <span><FormattedMessage id="H_REC" /></span>
-                        <a href="#">0x891f460176f180836f53b729ffb27cfcc7d74d71</a>
+                        <span><FormattedMessage id="WalletID" /></span>
+                        <Tooltip placement="topLeft" title={item.WalletID}>
+                            <span id="textOverflow">{item.WalletID}</span>
+                        </Tooltip>
                     </Row>
                     <Row>
                         <span><FormattedMessage id="H_TIME" />: {moment(item.Time).format()}</span>

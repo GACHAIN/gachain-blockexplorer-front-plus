@@ -13,7 +13,7 @@ import Menus from 'components/Menus/index'
 import { request, config } from 'utils';
 import './index.less';
 
-const { Sider, Content } = Layout;
+const { Sider, Content, Footer } = Layout;
 const Option = Select.Option;
 const Search = Input.Search;
 const { api } = config;
@@ -171,6 +171,12 @@ class BasicLayout extends React.Component {
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
             {this.getPage()}
           </Content>
+          <Footer id="footer">
+            <span>@2017 - 2018 Powered by Gachain</span>
+            <a href="https://github.com/GACHAIN" target="_blank" style={{color: "#000000"}}>
+              <Icon type="github" style={{paddingLeft: '5px'}}/>
+            </a>
+          </Footer>
         </Layout>
       </Layout >
     )

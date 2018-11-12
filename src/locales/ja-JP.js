@@ -15,15 +15,13 @@ export default {
     // TOPNUM
     TOPNUMNODE: 'ノード数',
     TOPNUMBLOCK: 'ブロックの高さ',
-    TOPNUMTRANSACTION: '取引/事務総数',
-    TOPNUMECOSYSTEM: 'エコシステムの総数',
+    TOPNUMTRANSACTION: '取引/事務',
+    TOPNUMECOSYSTEM: 'エコシステムの',
 
     HISTORYMAP: '最近の30日間の 取引/事務 の歴史',
     H_BLOCK: 'サイズ',
     H_TRANSACTION: '取引/事務',
     H_PRODUCT: 'ノード',
-    H_SEND: '送信側',
-    H_REC: '受信者',
     H_TIME: '時間がかかる',
     H_M: '分',
     H_S: '秒',
@@ -80,7 +78,7 @@ export default {
     TL_WALLET: 'お財布id /住所',
     TL_HASH: '取引/事務ヒッシュ',
     TL_TYPE: '取引/事務の類型',
-    TL_ERROR: '取引/事務の誤り',
+    TL_ERROR: 'インターフェース情報',
     TL_CONTRACTNAME: '契約名を呼び出す',
     TL_BLOCKID: 'ブロック ID',
 
@@ -89,7 +87,7 @@ export default {
     T_COMMISSION: '委員会',
     T_SERVICEFEE: '手数料',
     T_AMOUNT: '振替金額',
-    T_ERROR: '誤った情報',
+    T_ERROR: 'インターフェース情報',
     T_COMMENT: '备考',
     TransactionHistory: '振込史',
     TransactionStatus: '取引/物事の状态。',
@@ -98,8 +96,8 @@ export default {
     // Transaction Detail
     id:	'ID：',
     Amount: '振替金額：',
-    'Service Fee': '手数料：',
-    Commission: '契約料金：',
+    'Service Fee': '鉱夫費：',
+    Commission: '契約金：',
     comment: '描写：',
     blockID: 'ブロック ID：',
     txHash: '取引ヘル：',
@@ -109,7 +107,7 @@ export default {
     Type: '取引の類型：',	
     WalletID: '財布 ID：',
     BlockID: 'ブロック ID：',
-    Error: '誤った情報：',	
+    Error: 'インターフェース情報：',	
     contract_name: '契約名称：',
     params: 'パラメータ：',
     type: '取引の類型：',
@@ -168,4 +166,5 @@ export default {
 
     //Message
     ME_FAILYRE: '失敗',
+    ME_SUCCESS: '成功',
 }

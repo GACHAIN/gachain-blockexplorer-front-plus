@@ -15,15 +15,13 @@ export default {
     // TOPNUM
     TOPNUMNODE: '节点总数',
     TOPNUMBLOCK: '区块高度',
-    TOPNUMTRANSACTION: '交易/事务 总数',
+    TOPNUMTRANSACTION: '交易/事务',
     TOPNUMECOSYSTEM: '生态系统',
 
     HISTORYMAP: '最近30天 交易/事务 历史',
     H_BLOCK: '区块',
     H_TRANSACTION: '交易/事务',
     H_PRODUCT: '由节点',
-    H_SEND: '发送方',
-    H_REC: '接收方',
     H_TIME: '产生时间',
     H_M: '分钟',
     H_S: '秒',
@@ -80,7 +78,7 @@ export default {
     TL_WALLET: '钱包 ID/地址',
     TL_HASH: '交易/事务哈希值',
     TL_TYPE: '交易/事务类型',
-    TL_ERROR: '交易/事务错误',
+    TL_ERROR: '交易/事务 接口内容',
     TL_CONTRACTNAME: '调用合约名',
     TL_BLOCKID: '区块ID',
 
@@ -89,7 +87,7 @@ export default {
     T_COMMISSION: '委员会',
     T_SERVICEFEE: '手续费',
     T_AMOUNT: '转账金额',
-    T_ERROR: '错误信息',
+    T_ERROR: '接口内容',
     T_COMMENT: '备注',
     TransactionHistory: '转账历史',
     TransactionStatus: '交易/事物 状态',
@@ -98,8 +96,8 @@ export default {
     // Transaction Detail
     id:	'ID：',
     Amount: '转账金额：',
-    'Service Fee': '手续费：',
-    Commission: '合约收费：',
+    'Service Fee': '矿工费：',
+    Commission: '合约佣金：',
     comment: '描述：',
     blockID: '区块 ID：',
     txHash: '交易哈希：',
@@ -109,7 +107,7 @@ export default {
     Type: '交易类型：',	
     WalletID: '钱包ID：',
     BlockID: '区块ID：',
-    Error: '错误信息：',	
+    Error: '接口内容：',	
     contract_name: '合约名称：',
     params: '参数：',
     type: '交易类型：',
@@ -168,4 +166,5 @@ export default {
 
     //Message
     ME_FAILYRE: '失败',
+    ME_SUCCESS: '成功',
 }

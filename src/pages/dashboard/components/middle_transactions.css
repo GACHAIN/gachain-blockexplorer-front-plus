@@ -1,11 +1,3 @@
-.transaction_r_c_r div span~a {
-    width: 30%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
-    vertical-align: middle;
-}
-
 .transactions_R {
     margin-bottom: 1rem;
 }
@@ -14,4 +6,8 @@
     font-size: 2rem;
     padding-top: 1rem;
     padding-left: 1rem;
+}
+
+.transaction_r_c_r span, .transaction_r_c_r a {
+    vertical-align: middle
 }

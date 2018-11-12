@@ -15,15 +15,13 @@ export default {
     // TOPNUM
     TOPNUMNODE: 'Total number of nodes',
     TOPNUMBLOCK: 'Block Height',
-    TOPNUMTRANSACTION: 'Total number of transactions',
-    TOPNUMECOSYSTEM: 'Total ecosystem',
+    TOPNUMTRANSACTION: 'Transactions',
+    TOPNUMECOSYSTEM: 'Ecosystem',
 
     HISTORYMAP: 'Recent 30-day trading history',
     H_BLOCK: 'Block',
     H_TRANSACTION: 'Transaction',
     H_PRODUCT: 'By the node',
-    H_SEND: 'Sender',
-    H_REC: 'Recipient',
     H_TIME: 'Create Time',
     H_M: 'Minutes',
     H_S: 'Seconds',
@@ -80,7 +78,7 @@ export default {
     TL_WALLET: 'Wallet ID/Address',
     TL_HASH: 'Hash',
     TL_TYPE: 'Type',
-    TL_ERROR: 'Error',
+    TL_ERROR: 'Interface Information',
     TL_CONTRACTNAME: 'Call Contract Name',
     TL_BLOCKID: 'Block ID',
 
@@ -89,7 +87,7 @@ export default {
     T_COMMISSION: 'Commission',
     T_SERVICEFEE: 'Service Fee',
     T_AMOUNT: 'Amount',
-    T_ERROR: 'Error Message',
+    T_ERROR: 'Interface Information',
     T_COMMENT: 'Comment',
     TransactionHistory: 'Transfer History',
     TransactionStatus: 'Transaction Status',
@@ -98,8 +96,8 @@ export default {
     // Transaction Detail
     id: 'ID:',
     Amount: 'Amount:',
-    'Service Fee': 'Service Fee:',
-    Commission: 'Commission:',
+    'Service Fee': 'Miners Fee:',
+    Commission: 'Contract Commission:',
     comment: 'Comment:',
     blockID: 'Block ID:',
     txHash: 'TxHash:',
@@ -109,7 +107,7 @@ export default {
     Type: 'Type:',
     WalletID: 'Wallet ID:',
     BlockID: 'Block ID:',
-    Error: 'Error:',
+    Error: 'Interface Information:',
     contract_name: 'Contract Name:',
     params: 'Params:',
     type: 'Type:',
@@ -167,6 +165,7 @@ export default {
     VALUE: 'Value',
 
     //Message
-    ME_FAILYRE: 'failure',
+    ME_FAILYRE: 'Failure',
+    ME_SUCCESS: 'Success',
 }
 

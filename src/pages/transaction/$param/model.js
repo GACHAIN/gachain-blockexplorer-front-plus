@@ -41,7 +41,7 @@ export default modelExtend(baseModel, {
             const data = yield call(query_detail, payload)
             if (data.success) {
                 yield put({
-                    type: 'querySuccess',
+                    type: 'save',
                     payload: {
                         dataList: data.body.data,
                     }
@@ -50,8 +50,12 @@ export default modelExtend(baseModel, {
         }
     },
     reducers: {
-        'querySuccess'(state, { payload }) {
-            return { ...state, ...payload }
-        },
+        'save'(state, {payload}) {
+            console.log({...state, ...payload})
+            return {
+                ...state,
+                ...payload
+            }
+        }
     }
 })
