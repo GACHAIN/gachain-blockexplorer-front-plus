@@ -4,7 +4,7 @@ import Link from 'umi/link';
 import styles from './middle_blocks.css';
 
 const middle_blocks = ({ data, loading }) => {
-    let compontents = data.map((item, key) => {
+    let compontents = (!loading && data) ? data.map((item, key) => {
         return (
             <Row key={key} justify="center" style={{ paddingBottom: "1rem" }}>
                 <Link to={`/block/${item.block_id}`}>
@@ -24,7 +24,7 @@ const middle_blocks = ({ data, loading }) => {
                 </Col>
             </Row>
         )
-    })
+    }): []
 
     return (
         <Card className={styles.middle_blocks} loading={loading} title={<span><Icon type="block" style={{ fontSize: '20px' }} /> <FormattedMessage id="H_BLOCK" /></span>} bodyStyle={{ height: "30rem" }}>

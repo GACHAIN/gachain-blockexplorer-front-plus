@@ -6,14 +6,14 @@ import styles from './middle_transactions.css';
 
 const middle_transactions = ({ data, loading }) => {
 
-    let compontents = data.map((item, key) => {
+    let compontents = (!loading && data) ? data.map((item, key) => {
         return (
             <Row key={key} className={styles.transactions_R}>
                 <Col xs={0} ms={0} md={4} lg={4} xl={4} xxl={4}>
                     <Icon type="audit" className={styles.t_icon}/>
                 </Col>
                 <Col xs={24} ms={24} md={20} lg={20} xl={20} xxl={20} className={styles.transaction_r_c_r}>
-                    <Row>
+                    <Row gutter={24}>
                         <span><FormattedMessage id="H_TRANSACTION" /># </span>
                         <Link id="textOverflow" to={`transaction/${item.Hash}`}>{item.Hash}</Link>
                         {
@@ -39,7 +39,7 @@ const middle_transactions = ({ data, loading }) => {
                 </Col>
             </Row>
         )
-    })
+    }):[]
 
     return (
         <Card className={styles.middle_transactions} loading={loading} title={<span><Icon type="file-sync" style={{ fontSize: '20px' }} className={styles.rotate} /> <FormattedMessage id="H_TRANSACTION" /></span>} bodyStyle={{height: "30rem"}}>

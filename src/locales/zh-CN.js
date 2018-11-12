@@ -30,7 +30,7 @@ export default {
 
     /**over_view */
     H_MARKETVALUE: '当今总市值',
-    H_RATE: '今日汇率：',
+    H_RATE: '今日价格：',
     H_LASTBLOCK: '最后区块',
     H_HASHRATE: '哈希率',
     H_DIFFICULTY: '难度值',

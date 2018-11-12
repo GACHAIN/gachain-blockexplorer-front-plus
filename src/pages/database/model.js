@@ -35,7 +35,6 @@ export default {
     effects: {
         * query({payload}, {call, put}) {
             const result = yield call(query, payload)
-            console.log(result)
             if (result.success) {
                 yield put({
                     type: 'save',

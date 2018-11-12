@@ -8,7 +8,7 @@ const List = ({ dispatch, ecosystem, loading }) => {
     loading: loading.effects['ecosystem/query'],
     dataSource: dataList,
     hideOnSinglePage: true,
-    scroll: {x: 1200},
+    scroll: {x: 400},
   }
 
   return (

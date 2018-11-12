@@ -98,6 +98,7 @@ class BlockDetail extends React.Component {
                         return item
                     })}
                     pagination={true}
+                    scroll={{x: '900'}}
                     rowKey={record => record.hash}
                     loading={this.props.loading}
                 />
