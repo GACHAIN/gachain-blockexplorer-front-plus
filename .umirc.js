@@ -6,12 +6,11 @@ export default {
       'umi-plugin-react', {
         antd: true,
         dva: {
-          // immer: true,
           hmr: true
         },
-        // dynamicImport: {
-        //   webpackChunkName: true,
-        // },
+        dynamicImport: {
+          webpackChunkName: true,
+        },
         // 使用约定式路由后需排除如下路由
         routes: {
           exclude: [
@@ -46,7 +45,7 @@ export default {
   },
   publicPath: './', // build 后的静态文件引入路径
   hash: true,
-  // history: 'hash',
+  history: 'hash',
   ignoreMomentLocale: true,
   theme: {
     "@primary-color": "#00aee6" // 配置 ANTD 的主题颜色

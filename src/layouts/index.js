@@ -102,7 +102,12 @@ class BasicLayout extends React.Component {
   }
 
   getPage = () => {
-    if (window.location.pathname === '/') {
+    // if (window.location.pathname === '/') {
+    //   return <Redirect to="/dashboard" />
+    // } else {
+    //   return this.props.children
+    // }
+    if (location.hash === '#/') {
       return <Redirect to="/dashboard" />
     } else {
       return this.props.children

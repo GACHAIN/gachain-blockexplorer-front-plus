@@ -1,3 +1,4 @@
+import '@babel/polyfill';
 import { message } from 'antd';
 import pathToRegexp from 'path-to-regexp';
 import router from 'umi/router';
@@ -10,8 +11,6 @@ if (s !== null) {
     router.replace(`/transaction/${hash}`)
 }
 
-
-/**初始化dva */
 export const dva = {
     config: {
         onError(e) {
