@@ -21,6 +21,7 @@ export default {
         middle_blocks: [],
         // 中右交易展示
         middle_transactions: [],
+        // 概览
         over_view: [],
     },
 

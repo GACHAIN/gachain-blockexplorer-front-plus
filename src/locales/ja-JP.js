@@ -42,8 +42,8 @@ export default {
     B_DETAIL: 'ブロックの詳細',
     BL_BLOCKID: 'ブロック ID',
     BL_CREATETIME: '作成時間',
-    BL_HASH:'ハッシュ値',
-    BL_NODEPOSITION:'梱包ノード',
+    BL_HASH: 'ハッシュ値',
+    BL_NODEPOSITION: '梱包ノード',
     BL_ECOSYSTEMID: 'エコシステム ID',
     BL_KEYID: 'アカウントid /住所',
     BL_TXNUM: '取引/事務の数',
@@ -57,6 +57,23 @@ export default {
     B_TRANSACTIONSIZE: '取引/事務の大きさ',
     B_TRANSACTIONSIZEOFFSET: '取引/事務の大きさを相殺する',
     B_TRANSACTIONTYPEID: '取引/事務タイプ ID',
+
+    // Block Detial
+    block_id: 'ブロック ID：',
+    time: '時間を生成する：',
+    ecosystem_id: 'エコシステム ID：',
+    key_id: 'アカウント ID：',
+    node_position: '梱包ノード：',
+    sign: '署名：',
+    hash: 'ハッシュ値：',
+    version: 'バージョン番号：',
+    tx_count: '取引/取引量：',
+    rollbacks_hash: 'ハシに戻る：',
+    mrkl_root: 'メルケル氏：',
+    bin_data: 'バイナリデータ：',
+    sys_update: 'システム更新：',
+    gen_block: '',
+    stop_count: '',
 
     // TransactionList
     TL_CREATETIME: '取引/事務生成時間',
@@ -77,6 +94,25 @@ export default {
     TransactionHistory: '振込史',
     TransactionStatus: '取引/物事の状态。',
     TxDetailedInfoHex: '取引/事物の详细。',
+
+    // Transaction Detail
+    id:	'ID：',
+    Amount: '振替金額：',
+    'Service Fee': '手数料：',
+    Commission: '契約料金：',
+    comment: '描写：',
+    blockID: 'ブロック ID：',
+    txHash: '取引ヘル：',
+    createdAt: '作成時間：',
+    Hash: 'ハッシュ値：',
+    Time: '作成時間：',
+    Type: '取引の類型：',	
+    WalletID: '財布 ID：',
+    BlockID: 'ブロック ID：',
+    Error: '誤った情報：',	
+    contract_name: '契約名称：',
+    params: 'パラメータ：',
+    type: '取引の類型：',
 
     // Node
     N_URL: 'API アドレス',
@@ -130,6 +166,6 @@ export default {
     PARAMNAME: 'パラメータ名',
     VALUE: '値',
 
-     //Message
-     ME_FAILYRE: '失敗',
+    //Message
+    ME_FAILYRE: '失敗',
 }

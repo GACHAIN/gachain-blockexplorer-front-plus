@@ -8,7 +8,7 @@ const columns = [
     {
         title: <FormattedMessage id="PARAMNAME" />,
         dataIndex: 'key',
-        width: 150
+        width: '10rem'
     }, {
         title: <FormattedMessage id="VALUE" />,
         dataIndex: 'val',
@@ -64,7 +64,10 @@ class BlockDetail extends React.Component {
                 <Divider orientation="left"><FormattedMessage id="B_HEADER" /></Divider>
                 <Table
                     columns={columns}
-                    dataSource={Block_header}
+                    dataSource={Block_header.map((item)=>{
+                        item.key = <span style={{fontWeight: "bold"}}><FormattedMessage id={item.key} /></span>
+                        return item
+                    })}
                     pagination={false}
                     rowKey={record => record.key}
                     loading={this.props.loading}
@@ -73,7 +76,12 @@ class BlockDetail extends React.Component {
                 <Divider orientation="left"><FormattedMessage id="B_DETAIL" /></Divider>
                 <Table
                     columns={columns}
-                    dataSource={Block_info}
+                    dataSource={Block_info.map((item)=>{
+                        if (item.key) {
+                            item.key = <span style={{fontWeight: "bold"}}><FormattedMessage id={item.key} /></span>
+                        }
+                        return item
+                    })}
                     pagination={false}
                     rowKey={record => record.key}
                     loading={this.props.loading}
@@ -85,7 +93,10 @@ class BlockDetail extends React.Component {
                         item['align'] = 'center'
                         return item
                     })}
-                    dataSource={Transactions_info}
+                    dataSource={Transactions_info.map((item)=>{
+                        item.key = <span style={{fontWeight: "bold"}}><FormattedMessage id={item.key} /></span>
+                        return item
+                    })}
                     pagination={true}
                     rowKey={record => record.hash}
                     loading={this.props.loading}

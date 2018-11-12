@@ -6,14 +6,13 @@ const columns = [
     {
         title: <FormattedMessage id="PARAMNAME" />,
         dataIndex: 'key',
+        width: '5rem',
         render: text => {
             return <span style={{ width: '5rem', display: 'inline-block' }}>{text}</span>
         },
-        key: 'paramname'
     }, {
         title: <FormattedMessage id="VALUE" />,
         dataIndex: 'value',
-        key: 'value'
     },
 ]
 
@@ -36,10 +35,12 @@ class DetailList extends React.Component {
                     <Divider orientation="left"><span><FormattedMessage id={item.key} /></span></Divider>
                     <Table
                         loading={loading}
-                        dataSource={item.value}
+                        dataSource={item.value.map((item)=>{
+                            item.key = <span><FormattedMessage id={item.key} /></span>
+                            return item
+                        })}
                         columns={columns}
                         pagination={pagination}
-                        scroll={{x: '900'}}
                     />
                 </Row>
             )

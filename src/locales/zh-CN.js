@@ -57,7 +57,23 @@ export default {
     B_TRANSACTIONSIZE: '交易/事务大小',
     B_TRANSACTIONSIZEOFFSET: '交易/事务大小抵消',
     B_TRANSACTIONTYPEID: '交易/事务类型ID',
-    
+
+    // Block Detial
+    block_id: '区块 ID：',
+    time: '生成时间：',
+    ecosystem_id: '生态系统 ID：',
+    key_id: '账号 ID：',
+    node_position: '打包节点：',
+    sign: '签名：',
+    hash: '哈希值：',
+    version: '版本号：',
+    tx_count: '交易/事务 数量：',
+    rollbacks_hash: '回滚哈希：',
+    mrkl_root: '默克尔根：',
+    bin_data: '二进制数据：',	
+    sys_update: '系统更新：',
+    gen_block: '',
+    stop_count: '',
 
     // TransactionList
     TL_CREATETIME: '交易/事务生成时间',
@@ -78,6 +94,25 @@ export default {
     TransactionHistory: '转账历史',
     TransactionStatus: '交易/事物 状态',
     TxDetailedInfoHex: '交易/事物 详情',
+
+    // Transaction Detail
+    id:	'ID：',
+    Amount: '转账金额：',
+    'Service Fee': '手续费：',
+    Commission: '合约收费：',
+    comment: '描述：',
+    blockID: '区块 ID：',
+    txHash: '交易哈希：',
+    createdAt: '创建时间：',
+    Hash: '哈希值：',
+    Time: '创建时间：',
+    Type: '交易类型：',	
+    WalletID: '钱包ID：',
+    BlockID: '区块ID：',
+    Error: '错误信息：',	
+    contract_name: '合约名称：',
+    params: '参数：',
+    type: '交易类型：',
 
     // Node
     N_URL: 'API地址',

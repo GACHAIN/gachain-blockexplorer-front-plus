@@ -17,7 +17,7 @@ export default {
     TOPNUMBLOCK: 'Block Height',
     TOPNUMTRANSACTION: 'Total number of transactions',
     TOPNUMECOSYSTEM: 'Total ecosystem',
-    
+
     HISTORYMAP: 'Recent 30-day trading history',
     H_BLOCK: 'Block',
     H_TRANSACTION: 'Transaction',
@@ -41,8 +41,8 @@ export default {
     // BlockList
     BL_BLOCKID: 'Block ID',
     BL_CREATETIME: 'Create Time',
-    BL_HASH:'Hash',
-    BL_NODEPOSITION:'Node Position',
+    BL_HASH: 'Hash',
+    BL_NODEPOSITION: 'Node Position',
     BL_ECOSYSTEMID: 'Ecosystem ID',
     BL_KEYID: 'Account ID/ Address',
     BL_TXNUM: 'Tx Num',
@@ -57,6 +57,23 @@ export default {
     B_TRANSACTIONSIZE: 'Transaction Size',
     B_TRANSACTIONSIZEOFFSET: 'Transaction Size Offset',
     B_TRANSACTIONTYPEID: 'Transaction Type ID',
+
+    // Block Detial
+    block_id: 'Block ID:',
+    time: 'Create Time',
+    ecosystem_id: 'Ecosystem ID:',
+    key_id: 'Account ID:',
+    node_position: 'Packaging Node:',
+    sign: 'Signature:',
+    hash: 'Hash:',
+    version: 'Version:',
+    tx_count: 'Number of Transactions',
+    rollbacks_hash: 'Rollbacks Hash',
+    mrkl_root: 'Merkel Root:',
+    bin_data: 'Binary Data:',
+    sys_update: 'System Update:',
+    gen_block: '',
+    stop_count: '',
 
     // TransactionList
     TL_CREATETIME: 'Create Time',
@@ -77,6 +94,25 @@ export default {
     TransactionHistory: 'Transfer History',
     TransactionStatus: 'Transaction Status',
     TxDetailedInfoHex: 'Transaction Info',
+
+    // Transaction Detail
+    id: 'ID:',
+    Amount: 'Amount:',
+    'Service Fee': 'Service Fee:',
+    Commission: 'Commission:',
+    comment: 'Comment:',
+    blockID: 'Block ID:',
+    txHash: 'TxHash:',
+    createdAt: 'Create Time:',
+    Hash: 'Hash:',
+    Time: 'Create Time:',
+    Type: 'Type:',
+    WalletID: 'Wallet ID:',
+    BlockID: 'Block ID:',
+    Error: 'Error:',
+    contract_name: 'Contract Name:',
+    params: 'Params:',
+    type: 'Type:',
 
     // Node
     N_URL: 'API Address',
@@ -133,4 +169,4 @@ export default {
     //Message
     ME_FAILYRE: 'failure',
 }
-    
+
