@@ -1,6 +1,6 @@
 export default {
     // config
-    BLOCK_EXPLORER: 'GAChain 浏览器',
+    BLOCK_EXPLORER: '政务链浏览器',
     FOOTERTEXT: 'GAChain block explorer  ©2018 智乾区块链科技有限公司',
 
     // menu
