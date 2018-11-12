@@ -17,7 +17,6 @@ const columns = [
     },
 ]
 
-
 class DetailList extends React.Component {
     static propTypes = {
         intl: intlShape.isRequired,
@@ -34,13 +33,13 @@ class DetailList extends React.Component {
         let tables = listData.map((item) => {
             return (
                 <Row>
-                    <Divider orientation="left"><span>{item.key}</span></Divider>
+                    <Divider orientation="left"><span><FormattedMessage id={item.key} /></span></Divider>
                     <Table
                         loading={loading}
                         dataSource={item.value}
                         columns={columns}
                         pagination={pagination}
-                        
+                        scroll={{x: '900'}}
                     />
                 </Row>
             )

@@ -74,6 +74,9 @@ export default {
     T_AMOUNT: 'Amount',
     T_ERROR: 'Error Message',
     T_COMMENT: 'Comment',
+    TransactionHistory: 'Transfer History',
+    TransactionStatus: 'Transaction Status',
+    TxDetailedInfoHex: 'Transaction Info',
 
     // Node
     N_URL: 'API Address',

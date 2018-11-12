@@ -75,6 +75,9 @@ export default {
     T_AMOUNT: '转账金额',
     T_ERROR: '错误信息',
     T_COMMENT: '备注',
+    TransactionHistory: '转账历史',
+    TransactionStatus: '交易/事物 状态',
+    TxDetailedInfoHex: '交易/事物 详情',
 
     // Node
     N_URL: 'API地址',

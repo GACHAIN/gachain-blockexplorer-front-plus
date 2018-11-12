@@ -16,7 +16,7 @@ const Transaction = ({transaction, dispatch, loading}) => {
     dataSource: dataList,
     loading: loading.effects['transaction/query'],
     onToggle: toggle,
-    scroll: {x: 1200},
+    scroll: {x: 900},
     pagination: {
       showQuickJumper: true,
       total: Number(total),

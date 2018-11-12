@@ -74,6 +74,9 @@ export default {
     T_AMOUNT: '振替金額',
     T_ERROR: '誤った情報',
     T_COMMENT: '备考',
+    TransactionHistory: '振込史',
+    TransactionStatus: '取引/物事の状态。',
+    TxDetailedInfoHex: '取引/事物の详细。',
 
     // Node
     N_URL: 'API アドレス',

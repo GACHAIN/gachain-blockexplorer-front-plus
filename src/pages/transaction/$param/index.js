@@ -4,7 +4,7 @@ import { Tag, Row, Col } from 'antd';
 import { qGacToGac } from 'utils';
 import { connect } from 'dva';
 
-const TransactionHash = ({dispatch, s_transaction, loading }) => {
+const TransactionHash = ({s_transaction, loading }) => {
     let { dataList } = s_transaction
     let senderID, recipient1, recipient2, recipient3
 
