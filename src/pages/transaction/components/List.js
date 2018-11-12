@@ -1,4 +1,4 @@
-import { Table, Tooltip } from 'antd';
+import { Table, Tooltip, Row, Tag } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
 import Link from 'umi/link';
@@ -61,7 +61,12 @@ const List = ({ ...listProps }) => {
     }, {
       title: <FormattedMessage id="TL_CREATETIME" />,
       dataIndex: 'Time',
-      render: (text) => <span>{moment(text).format()}</span>
+      render: (text) => (
+        <Row>
+          <Tag color="#2db7f5">{moment(text*1000).format('YY-MM-DD HH:mm:ss')}</Tag>
+          <Tag color="#108ee9">{moment(text*1000).fromNow(false)}</Tag>
+        </Row>
+      )
     }, {
       title: <FormattedMessage id="T_ERROR" />,
       dataIndex: 'Error',

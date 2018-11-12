@@ -15,12 +15,10 @@ const columns = [
         dataIndex: 'value',
     },
 ]
-
 class DetailList extends React.Component {
     static propTypes = {
         intl: intlShape.isRequired,
     }
-
     render() {
         let { listData, pagination, loading } = this.props
         let { intl: { formatMessage } } = this.props;
@@ -36,7 +34,7 @@ class DetailList extends React.Component {
                     <Table
                         loading={loading}
                         dataSource={item.value.map((item)=>{
-                            item.key = <span><FormattedMessage id={item.key} /></span>
+                            item.key = <span style={{fontWeight: 'bold'}}><FormattedMessage id={item.key} /></span>
                             return item
                         })}
                         columns={columns}

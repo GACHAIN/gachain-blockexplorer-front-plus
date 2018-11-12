@@ -1,3 +1,4 @@
+import { Row, Tag } from 'antd';
 import { connect } from 'dva';
 import BlockDetail from './components/BlockDetail';
 import moment from 'moment';
@@ -16,7 +17,12 @@ const Block = ({ s_block_detail, loading }) => {
                     let headObj = {}
                     headObj.key = hk
                     if (hk === "time") {
-                        headObj.val = moment(data[k][hk]).format()
+                        headObj.val = (
+                            <Row>
+                                <Tag color="#2db7f5">{moment(data[k][hk]*1000).format('YY-MM-DD HH:mm:ss')}</Tag>
+                                <Tag color="#108ee9">{moment(data[k][hk]*1000).fromNow(false)}</Tag>
+                            </Row>
+                        )
                     } else {
                         headObj.val = data[k][hk]
                     }
@@ -27,7 +33,12 @@ const Block = ({ s_block_detail, loading }) => {
             } else {
                 obj.key = k
                 if (k === "time") {
-                    obj.val = moment(data[k]).format()
+                    obj.val = (
+                        <Row>
+                            <Tag color="#2db7f5">{moment(data[k]*1000).format('YY-MM-DD HH:mm:ss')}</Tag>
+                            <Tag color="#108ee9">{moment(data[k]*1000).fromNow(false)}</Tag>
+                        </Row>
+                    )
                 }else {
                     obj.val = data[k]
                 }

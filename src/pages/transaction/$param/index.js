@@ -3,6 +3,7 @@ import { walletIdToAddr, walletAddrToId, checkKeyidOrAddress } from 'utils';
 import { Tag, Row, Col } from 'antd';
 import { qGacToGac } from 'utils';
 import { connect } from 'dva';
+import moment from 'moment';
 
 const TransactionHash = ({s_transaction, loading }) => {
     let { dataList } = s_transaction
@@ -83,6 +84,24 @@ const TransactionHash = ({s_transaction, loading }) => {
                             <Col xs={24} ms={24} md={24} lg={5} xl={5} xxl={5} id="gac_col">
                                 <span id="gac_amount">+{qGacToGac(valueObj.value)} GAC</span>
                             </Col>
+                        </Row>
+                    )
+                }
+
+                if (valueObj.key === 'createdAt') {
+                    valueObj.value = (
+                        <Row>
+                            <Tag color="#2db7f5">{moment(valueObj.value).format('YY-MM-DD HH:MM:SS')}</Tag>
+                            <Tag color="#108ee9">{moment(valueObj.value).fromNow()}</Tag>
+                        </Row>
+                    )
+                }
+
+                if (valueObj.key === 'Time' || valueObj.key === 'time') {
+                    valueObj.value = (
+                        <Row>
+                            <Tag color="#2db7f5">{moment(valueObj.value*1000).format('YY-MM-DD HH:MM:SS')}</Tag>
+                            <Tag color="#108ee9">{moment(valueObj.value*1000).fromNow()}</Tag>
                         </Row>
                     )
                 }

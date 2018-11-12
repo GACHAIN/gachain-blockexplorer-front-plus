@@ -6,7 +6,7 @@ import styles from './middle_blocks.css';
 const middle_blocks = ({ data, loading }) => {
     let compontents = (!loading && data) ? data.map((item, key) => {
         return (
-            <Row key={key} justify="center" style={{ paddingBottom: "1rem" }}>
+            <Row key={key} justify="center" style={{borderBottom: 'dashed 1px #eeeeee', paddingBottom: '1rem', marginBottom: '1rem'}} >
                 <Link to={`/block/${item.block_id}`}>
                     <Col className={styles.blocks_left} xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
                         <Row>
@@ -27,7 +27,7 @@ const middle_blocks = ({ data, loading }) => {
     }): []
 
     return (
-        <Card className={styles.middle_blocks} loading={loading} title={<span><Icon type="block" style={{ fontSize: '20px' }} /> <FormattedMessage id="H_BLOCK" /></span>} bodyStyle={{ height: "30rem" }}>
+        <Card className={styles.middle_blocks} loading={loading} title={<span><Icon type="block" style={{ fontSize: '20px', overflowY: 'scroll' }} /> <FormattedMessage id="H_BLOCK" /></span>} bodyStyle={{ height: "30rem" }}>
             {compontents}
         </Card>
     )

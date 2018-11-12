@@ -1,4 +1,4 @@
-import { Table, Divider, Tooltip, message } from 'antd';
+import { Table, Divider, Tooltip, message, Row } from 'antd';
 import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
 import React from 'react';
 import moment from 'moment';
@@ -34,7 +34,10 @@ const transactions_info_columns = [
         dataIndex: 'time',
         render: (text) => {
             return (
-                <span>{moment(text).format()}</span>
+                <Row>
+                    <Row>{moment(text*1000).format('YY-MM-DD HH:mm:ss')}</Row>
+                    <Row>{moment(text*1000).fromNow(false)}</Row>
+                </Row>
             )
         }
     }, {

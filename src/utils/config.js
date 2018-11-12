@@ -11,6 +11,9 @@ import { FormattedMessage } from 'react-intl';
 // const URL = 'http://127.0.0.1:7000/api'
 // 华东服务器
 const URL = 'http://hd.gac.one:8800/api'
+// IBM服务器
+// const URL = 'http://ibm.sifu8.cn:8800/api'
+
 
 module.exports = {
     name: <FormattedMessage id="GAC_BLOCK_EXPLORER" />,

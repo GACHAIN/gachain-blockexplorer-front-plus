@@ -1,4 +1,4 @@
-import { Table, Tooltip } from 'antd';
+import { Table, Tooltip, Row, Tag } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import Link from 'umi/link';
 import moment from 'moment';
@@ -24,7 +24,10 @@ const List = ({ ...listProps }) => {
       dataIndex: 'time',
       render: (text) => {
         return (
-          <span>{moment(text).format()}</span>
+          <Row>
+              <Tag color="#2db7f5">{moment(text*1000).format('YY-MM-DD HH:mm:ss')}</Tag>
+              <Tag color="#108ee9">{moment(text*1000).fromNow(false)}</Tag>
+          </Row>
         )
       }
     }, {
