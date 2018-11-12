@@ -8,7 +8,7 @@ const columns = [
     title: <FormattedMessage id="E_ID" />,
     dataIndex: 'id',
   }, {
-    title: <FormattedMessage id="E_ID" />,
+    title: <FormattedMessage id="E_NAME" />,
     dataIndex: 'name',
     render: (text, record) => <Link to={
       {
@@ -19,7 +19,7 @@ const columns = [
       }
     }>{text}</Link>
   }, {
-    title: <FormattedMessage id="E_NAME" />,
+    title: <FormattedMessage id="E_MEMBERS" />,
     dataIndex: 'member',
   }
 ]

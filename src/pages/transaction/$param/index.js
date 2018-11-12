@@ -2,6 +2,7 @@ import DetailList from './components/DetailList';
 import { walletIdToAddr, walletAddrToId, checkKeyidOrAddress } from 'utils';
 import { Tag, Row, Col } from 'antd';
 import { qGacToGac } from 'utils';
+import Link from 'umi/link';
 import { connect } from 'dva';
 import moment from 'moment';
 
@@ -105,6 +106,13 @@ const TransactionHash = ({s_transaction, loading }) => {
                         </Row>
                     )
                 }
+
+                if (valueObj.key === 'blockID' || valueObj.key === 'BlockID') {
+                    valueObj.value = (
+                        <Link to={`/block/${valueObj.value}`}>{valueObj.value}</Link>
+                    )
+                }
+
                 valueArr.push(valueObj)
                 obj.value = valueArr
             }

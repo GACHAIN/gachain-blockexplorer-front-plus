@@ -46,7 +46,7 @@ export default {
     BL_TXNUM: 'Tx Num',
 
     // Block
-    B_HEADER: 'Block header information',
+    B_HEADER: 'Block Header Information',
     B_DETAIL: 'Block Detail',
     B_ROLLBACKSHASH: 'Rollbacks Hash',
     B_SIGN: 'sign',
