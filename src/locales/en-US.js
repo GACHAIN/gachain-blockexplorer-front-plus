@@ -122,13 +122,14 @@ export default {
     E_NAME: 'Ecosystem Name',
     E_MEMBERS: 'Members Num',
 
-    // Ecosystem Members
-    EM_KEYID: 'Key ID',
-    EM_AMOUNT: 'GAC Num',
-    EM_PUBLIC: 'Public Key',
+    // Ecosystem Keys
+    K_WALLETID: 'KeyID/Address',
+    K_AMOUNT: 'Amount',
+    K_PUBLICKEY: 'Public Key',
 
     // Ecosystem Prameters
-    ECOSYSTEMPRAMETER: 'Ecosystem Parmeters',
+    ECOSYSTEMPRAMETER: 'Params',
+    ECOSYSTEMPMEMBERS: 'Members',
     EP_NAME: 'Name',
     EP_VALUE: 'Value',
     EP_CONDITIONS: 'Conditions',

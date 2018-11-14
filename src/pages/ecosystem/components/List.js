@@ -12,7 +12,7 @@ const columns = [
     dataIndex: 'name',
     render: (text, record) => <Link to={
       {
-        pathname: `/ecosystem/${record.id}/params`,
+        pathname: `/ecosystem/${record.id}`,
         state: {
           ecosys_par: record.app_params === null ? [] : record.app_params
         }
@@ -21,6 +21,11 @@ const columns = [
   }, {
     title: <FormattedMessage id="E_MEMBERS" />,
     dataIndex: 'member',
+    // render: (text, record) => <Link to={
+    //   {
+    //     pathname: `/ecosystem/${record.id}`,
+    //   }
+    // }></Link>
   }
 ]
 

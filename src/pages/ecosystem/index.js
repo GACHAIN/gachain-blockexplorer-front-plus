@@ -1,7 +1,7 @@
 import { connect } from 'dva';
 import EcosystemList from './components/List';
 
-const List = ({ dispatch, ecosystem, loading }) => {
+const List = ({ ecosystem, loading }) => {
   const { dataList } = ecosystem
 
   let listProps = {

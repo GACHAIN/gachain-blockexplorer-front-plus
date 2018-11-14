@@ -1,7 +1,7 @@
 import { request, config } from 'utils';
 
 let { api } = config
-let { getEcosystem } = api
+let { getEcosystem, getEcosystemKeys } = api
 
 export function query(params) {
     return request({
@@ -9,4 +9,12 @@ export function query(params) {
         method: 'POST',
         data: params,
     }) 
-} 
+}
+
+export function query_members(params) {
+    return request({
+        url: getEcosystemKeys,
+        method: 'POST',
+        data: params
+    })
+}

@@ -122,13 +122,14 @@ export default {
     E_NAME: '生态系统名称',
     E_MEMBERS: '会员总数',
 
-    // Ecosystem Members
-    EM_KEYID: 'Key ID',
-    EM_AMOUNT: 'GAC数量',
-    EM_PUBLIC: '公钥',
+    //Ecosystem Keys
+    K_WALLETID: '账户 ID/地址',
+    K_AMOUNT: '余额',
+    K_PUBLICKEY: '公钥',
 
     // Ecosystem Prameters
-    ECOSYSTEMPRAMETER: '生态系统参数',
+    ECOSYSTEMPRAMETER: '生态参数',
+    ECOSYSTEMPMEMBERS: '生态会员',
     EP_NAME: '参数名称',
     EP_VALUE: '值',
     EP_CONDITIONS: '修改条件',
@@ -171,5 +172,5 @@ export default {
     //Type
     TYPE_TRANSFER: '转账',
     TYPE_CREATEUSER: '创建用户',
-    TYPE_TASK: '定时任务'
+    TYPE_TASK: '定时任务',
 }

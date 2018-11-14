@@ -122,13 +122,14 @@ export default {
     E_NAME: 'エコシステム名',
     E_MEMBERS: '会員数',
 
-    // Ecosystem Members
-    EM_KEYID: 'Key ID',
-    EM_AMOUNT: 'GAC 数',
-    EM_PUBLIC: '公開',
+    // Ecosystem Keys
+    K_WALLETID: 'アカウント ID/住所',
+    K_AMOUNT: '残高',
+    K_PUBLICKEY: 'ノード公開鍵',
 
     // Ecosystem Prameters
-    ECOSYSTEMPRAMETER: '生態系パラメータ',
+    ECOSYSTEMPRAMETER: '生態パラメータ',
+    ECOSYSTEMPMEMBERS: '生態系',
     EP_NAME: 'パラメータ名',
     EP_VALUE: '値',
     EP_CONDITIONS: '条件を修正する',
@@ -171,5 +172,5 @@ export default {
     //Type
     TYPE_TRANSFER: '振替',
     TYPE_CREATEUSER: 'ユーザーを作成する',
-    TYPE_TASK: '定時の任務'
+    TYPE_TASK: '定時の任務',
 }
