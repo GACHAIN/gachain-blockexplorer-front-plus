@@ -6,7 +6,7 @@ import Link from 'umi/link';
 import { connect } from 'dva';
 import moment from 'moment';
 
-const TransactionHash = ({s_transaction, loading }) => {
+const TransactionHash = ({ s_transaction, loading }) => {
     let { dataList } = s_transaction
     let senderID, recipient1, recipient2, recipient3
 
@@ -51,9 +51,9 @@ const TransactionHash = ({s_transaction, loading }) => {
                     valueObj.key = "Amount"
                     valueObj.value = (
                         <Row gutter={24}>
-                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="send" onClick={(e)=>toggle(e)}>{senderID}</Col>
+                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="send" onClick={(e) => toggle(e)}>{senderID}</Col>
                             <Col xs={24} ms={24} md={24} lg={3} xl={3} xxl={3} id="arrow-right"><span>➤</span></Col>
-                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="recipient" onClick={(e)=>toggle(e)}>{recipient1}</Col>
+                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="recipient" onClick={(e) => toggle(e)}>{recipient1}</Col>
                             <Col xs={24} ms={24} md={24} lg={5} xl={5} xxl={5} id="gac_col">
                                 <span id="gac_amount">+{qGacToGac(valueObj.value)} GAC</span>
                             </Col>
@@ -65,9 +65,9 @@ const TransactionHash = ({s_transaction, loading }) => {
                     valueObj.key = "Service Fee"
                     valueObj.value = (
                         <Row gutter={24}>
-                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="send" onClick={(e)=>toggle(e)}>{senderID}</Col>
+                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="send" onClick={(e) => toggle(e)}>{senderID}</Col>
                             <Col xs={24} ms={24} md={24} lg={3} xl={3} xxl={3} id="arrow-right"><span>➤</span></Col>
-                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="recipient" onClick={(e)=>toggle(e)}>{recipient2}</Col>
+                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="recipient" onClick={(e) => toggle(e)}>{recipient2}</Col>
                             <Col xs={24} ms={24} md={24} lg={5} xl={5} xxl={5} id="gac_col">
                                 <span id="gac_amount">+{qGacToGac(valueObj.value)} GAC</span>
                             </Col>
@@ -79,39 +79,72 @@ const TransactionHash = ({s_transaction, loading }) => {
                     valueObj.key = "Commission"
                     valueObj.value = (
                         <Row gutter={24}>
-                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="send" onClick={(e)=>toggle(e)}>{senderID}</Col>
+                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="send" onClick={(e) => toggle(e)}>{senderID}</Col>
                             <Col xs={24} ms={24} md={24} lg={3} xl={3} xxl={3} id="arrow-right"><span>➤</span></Col>
-                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="recipient" onClick={(e)=>toggle(e)}>{recipient3}</Col>
+                            <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="recipient" onClick={(e) => toggle(e)}>{recipient3}</Col>
                             <Col xs={24} ms={24} md={24} lg={5} xl={5} xxl={5} id="gac_col">
                                 <span id="gac_amount">+{qGacToGac(valueObj.value)} GAC</span>
                             </Col>
                         </Row>
                     )
                 }
+                // Error处理
+                if (valueObj.key === 'Error') {
+                    let data = JSON.parse(valueObj.value).data
+                    delete data.txhash
+                    valueObj.value = (
+                        <Row>
+                            <code>
+                                <pre>
+                                    {JSON.stringify(data, null, 4)}
+                                </pre>
+                            </code>
+                        </Row>
+                    )
+                }
 
+                // timestamp时间格式处理
                 if (valueObj.key === 'createdAt') {
                     valueObj.value = (
                         <Row>
-                            <Tag color="#2db7f5">{moment(valueObj.value).format('YY-MM-DD HH:MM:SS')}</Tag>
-                            <Tag color="#108ee9">{moment(valueObj.value).fromNow()}</Tag>
+                            {moment(valueObj.value).format('YYYY-MM-DD HH:MM:SS')}
                         </Row>
                     )
                 }
 
-                if (valueObj.key === 'Time' || valueObj.key === 'time') {
+                // 时间戳处理
+                if (valueObj.key === 'Time') {
                     valueObj.value = (
                         <Row>
-                            <Tag color="#2db7f5">{moment(valueObj.value*1000).format('YY-MM-DD HH:MM:SS')}</Tag>
-                            <Tag color="#108ee9">{moment(valueObj.value*1000).fromNow()}</Tag>
+                            {moment(valueObj.value * 1000).format('YYYY-MM-DD HH:MM:SS')}
                         </Row>
                     )
                 }
 
+                if (valueObj.key === 'time' || valueObj.key === 'key_id') {
+                    continue
+                }
+
+                // 区块ID处理
                 if (valueObj.key === 'blockID' || valueObj.key === 'BlockID') {
                     valueObj.value = (
                         <Link to={`/block/${valueObj.value}`}>{valueObj.value}</Link>
                     )
                 }
+
+                // 过滤处理
+                if (valueObj.key === 'type' || valueObj.key === 'Type' || valueObj.key === 'hash' || valueObj.key === 'BlockID') {
+                    continue
+                }
+
+                // 参数处理
+                if (valueObj.key === 'params') {
+                    valueObj.value = (
+                        <pre>
+                            {JSON.stringify(valueObj.value, null, 4)}
+                        </pre>)
+                }
+
                 valueArr.push(valueObj)
                 obj.value = valueArr
             }
@@ -132,4 +165,4 @@ const TransactionHash = ({s_transaction, loading }) => {
     )
 }
 
-export default connect( ({dispatch, s_transaction, loading }) => ({dispatch, s_transaction, loading }))(TransactionHash)
+export default connect(({ dispatch, s_transaction, loading }) => ({ dispatch, s_transaction, loading }))(TransactionHash)

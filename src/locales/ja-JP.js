@@ -89,12 +89,12 @@ export default {
     T_AMOUNT: '振替金額',
     T_ERROR: 'インターフェース情報',
     T_COMMENT: '备考',
-    TransactionHistory: '振込史',
+    TransactionHistory: '振替明細',
     TransactionStatus: '取引/物事の状态。',
     TxDetailedInfoHex: '取引/事物の详细。',
 
     // Transaction Detail
-    id:	'ID：',
+    id:	'取引/事務 ID：',
     Amount: '振替金額：',
     'Service Fee': '鉱夫費：',
     Commission: '契約金：',
@@ -167,4 +167,9 @@ export default {
     //Message
     ME_FAILYRE: '失敗',
     ME_SUCCESS: '成功',
+
+    //Type
+    TYPE_TRANSFER: '振替',
+    TYPE_CREATEUSER: 'ユーザーを作成する',
+    TYPE_TASK: '定時の任務'
 }

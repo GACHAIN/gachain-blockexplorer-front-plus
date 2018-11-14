@@ -7,12 +7,12 @@ const List = ({ ...listProps }) => {
   const columns = [
     {
       title: <FormattedMessage id="TL_HASH" />,
-      dataIndex: 'Hash',
+      dataIndex: 'hash',
       render: (text, record) => {
         if (record.BlockID > 0) {
           return (
             <Tooltip placement="topLeft" title={text}>
-              <Link to={`transaction/${record.Hash}`}>
+              <Link to={`transaction/${record.hash}`}>
                 <span id="textOverflow">{text}</span>
               </Link>
             </Tooltip>
@@ -20,18 +20,20 @@ const List = ({ ...listProps }) => {
         } else {
           return (
             <Tooltip placement="topLeft" title={text}>
-              <span id="textOverflow">{text}</span>
+              <Link to={`transaction/${record.hash}`}>
+                <span id="textOverflow">{text}</span>
+              </Link>
             </Tooltip>
           )
         }
       }
     }, {
       title: <FormattedMessage id="TL_BLOCKID" />,
-      dataIndex: 'BlockID',
+      dataIndex: 'block_id',
       render: (text, record) => {
         if (Number(text) > 0) {
           return (
-            <Link to={`block/${record.BlockID}`}><span>{text}</span></Link>
+            <Link to={`block/${record.block_id}`}><span>{text}</span></Link>
           )
         } else {
           return (
@@ -41,18 +43,35 @@ const List = ({ ...listProps }) => {
           )
         }
       }
-    },
-    {
+    }, {
       title: <FormattedMessage id="TL_TYPE" />,
-      dataIndex: 'Type',
-    },
-    {
+      dataIndex: 'type',
+      render: (text) => {
+        if (text === 276) {
+          return (
+            <Tag color="blue"><FormattedMessage id="TYPE_TRANSFER" /></Tag>
+          )
+        } else
+          if (text === 293) {
+            return (
+              <Tag color="green"><FormattedMessage id="TYPE_CREATEUSER" /></Tag>
+            )
+          } else
+            if (text === 264) {
+              return (
+                <Tag color="magenta"><FormattedMessage id="TYPE_TASK" /></Tag>
+              )
+            }
+
+        return text
+      }
+    }, {
       title: <FormattedMessage id="TL_WALLET" />,
-      dataIndex: 'WalletID',
+      dataIndex: 'key_id',
       render: (text) => {
         return (
           <Tooltip placement="topLeft" title={text}>
-            <span id="textOverflow" onClick={() => { listProps.onToggle("WalletID") }}>
+            <span id="textOverflow" onClick={() => { listProps.onToggle("key_id") }}>
               {text}
             </span>
           </Tooltip>
@@ -60,25 +79,16 @@ const List = ({ ...listProps }) => {
       }
     }, {
       title: <FormattedMessage id="TL_CREATETIME" />,
-      dataIndex: 'Time',
+      dataIndex: 'time',
       render: (text) => (
         <Row>
-          <Tag color="#2db7f5">{moment(text*1000).format('YY-MM-DD HH:mm:ss')}</Tag>
-          <Tag color="#108ee9">{moment(text*1000).fromNow(false)}</Tag>
+          <Tag color="#108ee9">{moment(text * 1000).fromNow(false)}</Tag>
         </Row>
-      )
-    }, {
-      title: <FormattedMessage id="T_ERROR" />,
-      dataIndex: 'Error',
-      render: (text) => (
-        <Tooltip placement="topLeft" title={text}>
-          <span id="textOverflow">{text}</span>
-        </Tooltip>
       )
     }];
 
   return (<Table
-    rowKey={record => record.Hash}
+    rowKey={record => record.hash}
     columns={
       columns.map((item) => { item['align'] = 'center'; return item })
     }

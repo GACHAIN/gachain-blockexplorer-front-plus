@@ -3,6 +3,7 @@ import { connect } from 'dva';
 import BlockDetail from './components/BlockDetail';
 import moment from 'moment';
 
+
 const Block = ({ s_block_detail, loading }) => {
     let { dataList } = s_block_detail
     function handle_data_list(data) {
@@ -19,30 +20,40 @@ const Block = ({ s_block_detail, loading }) => {
                     if (hk === "time") {
                         headObj.val = (
                             <Row>
-                                <Tag color="#2db7f5">{moment(data[k][hk]*1000).format('YY-MM-DD HH:mm:ss')}</Tag>
-                                <Tag color="#108ee9">{moment(data[k][hk]*1000).fromNow(false)}</Tag>
+                                {moment(data[k][hk] * 1000).format('YYYY-MM-DD HH:mm:ss')}
                             </Row>
                         )
                     } else {
                         headObj.val = data[k][hk]
+                    }
+
+                    // 过滤掉hash 因为再详情中已经有
+                    if (headObj.key === 'hash') {
+                        continue
                     }
                     Block_header.push(headObj)
                 }
             } else if (k === 'transactions') {
                 Transactions_info = data[k]
             } else {
+                // 排除字段
+                let excludeField = ['ecosystem_id', 'node_position', 'key_id', 'time', 'gen_block', 'stop_count']
                 obj.key = k
-                if (k === "time") {
+                if (excludeField.includes(obj.key)) {
+                    continue
+                }
+
+                // 对时间值的处理
+                if (obj.key === "time") {
                     obj.val = (
                         <Row>
-                            <Tag color="#2db7f5">{moment(data[k]*1000).format('YY-MM-DD HH:mm:ss')}</Tag>
-                            <Tag color="#108ee9">{moment(data[k]*1000).fromNow(false)}</Tag>
+                            {moment(data[k] * 1000).format('YYYY-MM-DD HH:mm:ss')}
                         </Row>
                     )
-                }else {
+                } else {
                     obj.val = data[k]
                 }
-                
+
                 Block_info.push(obj)
             }
         }
@@ -60,4 +71,4 @@ const Block = ({ s_block_detail, loading }) => {
         <BlockDetail {...listProps} />
     )
 }
-export default connect( ({s_block_detail, loading}) => ({s_block_detail, loading}))(Block)
+export default connect(({ s_block_detail, loading }) => ({ s_block_detail, loading }))(Block)

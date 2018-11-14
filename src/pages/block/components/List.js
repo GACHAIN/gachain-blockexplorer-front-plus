@@ -25,7 +25,6 @@ const List = ({ ...listProps }) => {
       render: (text) => {
         return (
           <Row>
-              <Tag color="#2db7f5">{moment(text*1000).format('YY-MM-DD HH:mm:ss')}</Tag>
               <Tag color="#108ee9">{moment(text*1000).fromNow(false)}</Tag>
           </Row>
         )
@@ -41,9 +40,9 @@ const List = ({ ...listProps }) => {
       dataIndex: 'key_id',
       render: (text) => (
         <Tooltip placement="topLeft" title={text}>
-          <span id="textOverflow" onClick={() => { listProps.onToggle("key_id") }}>
+          <a id="textOverflow" onClick={() => { listProps.onToggle("key_id") }}>
             {text}
-          </span>
+          </a>
         </Tooltip>
       )
     }, {

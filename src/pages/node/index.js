@@ -15,7 +15,7 @@ const Nodelist = ({ dispatch, node, loading }) => {
     dataSource: dataList,
     loading: loading.effects['node/query'],
     onToggle: toggle,
-    scroll: {x: 600},
+    scroll: { x: 600 },
     pagination: {
       total: Number(total),
       showQuickJumper: true,
@@ -30,8 +30,8 @@ const Nodelist = ({ dispatch, node, loading }) => {
           },
           params: {
             "cmd": "001",
-            "page_size":p || 10,
-            "current_page":n || 1,
+            "page_size": p || 10,
+            "current_page": n || 1,
           }
         }
         dispatch({

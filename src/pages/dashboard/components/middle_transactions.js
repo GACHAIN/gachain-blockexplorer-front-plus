@@ -3,41 +3,54 @@ import { FormattedMessage } from 'react-intl';
 import Link from 'umi/link';
 import moment from 'moment';
 import styles from './middle_transactions.css';
+import { tag } from 'postcss-selector-parser';
 
 const middle_transactions = ({ data, loading }) => {
 
+    let typeTag = (text) => {
+        if (text === 276) {
+            return (
+                <Tag color="blue"><FormattedMessage id="TYPE_TRANSFER" /></Tag>
+            )
+        } else
+            if (text === 293) {
+                return (
+                    <Tag color="green"><FormattedMessage id="TYPE_CREATEUSER" /></Tag>
+                )
+            } else
+                if (text === 264) {
+                    return (
+                        <Tag color="magenta"><FormattedMessage id="TYPE_TASK" /></Tag>
+                    )
+                }
+
+        return text
+    }
+
     let compontents = (!loading && data) ? data.map((item, key) => {
         return (
-            <Row key={key} className={styles.transactions_R} style={{borderBottom: 'dashed 1px #eeeeee', paddingBottom: '1rem'}}>
+            <Row key={key} className={styles.transactions_R} style={{ borderBottom: 'dashed 1px #eeeeee', paddingBottom: '1rem' }}>
                 <Col xs={0} ms={0} md={4} lg={4} xl={4} xxl={4}>
                     <Icon type="audit" className={styles.t_icon} />
                 </Col>
                 <Col xs={18} ms={18} md={14} lg={14} xl={12} xxl={12} className={styles.transaction_r_c_r}>
                     <Row>
                         <span><FormattedMessage id="H_TRANSACTION" /># </span>
-                        <Link id="textOverflow" to={`transaction/${item.Hash}`}>{item.Hash}</Link>
+                        <Link id="textOverflow" to={`transaction/${item.hash}`}>{item.hash}</Link>
                     </Row>
                     <Row>
                         <span><FormattedMessage id="WalletID" /></span>
-                        <Tooltip placement="topLeft" title={item.WalletID}>
-                            <span id="textOverflow">{item.WalletID}</span>
+                        <Tooltip placement="topLeft" title={item.key_id}>
+                            <span id="textOverflow">{item.key_id}</span>
                         </Tooltip>
                     </Row>
                     <Row>
-                        <span><FormattedMessage id="H_TIME" />: <Tag color="#2db7f5">{moment(item.Time * 1000).format('YY-MM-DD HH:MM:SS')}</Tag></span>
+                        <span><Tag color="#2db7f5">{moment(item.time * 1000).fromNow()}</Tag></span>
                     </Row>
                 </Col>
                 <Col xs={6} ms={6} md={6} lg={6} xl={8} xxl={8}>
-                    <Row style={{paddingTop: '1.5rem'}}>
-                        {
-                            item.BlockID === 0 ?
-                                <span id="failure">
-                                    <FormattedMessage id="ME_FAILYRE" />
-                                </span> :
-                                <span id="success">
-                                    <FormattedMessage id="ME_SUCCESS" />
-                                </span>
-                        }
+                    <Row style={{ paddingTop: '1.5rem' }}>
+                        {typeTag(item.type)}
                     </Row>
                 </Col>
             </Row>

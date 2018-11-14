@@ -1,7 +1,7 @@
 import TransactionList from './components/List';
 import { connect } from 'dva';
 
-const Transaction = ({transaction, dispatch, loading}) => {
+const Transaction = ({ transaction, dispatch, loading }) => {
   const { dataList, total } = transaction
   function toggle(index) {
     dispatch({
@@ -16,7 +16,7 @@ const Transaction = ({transaction, dispatch, loading}) => {
     dataSource: dataList,
     loading: loading.effects['transaction/query'],
     onToggle: toggle,
-    scroll: {x: 900},
+    scroll: { x: 900 },
     pagination: {
       showQuickJumper: true,
       total: Number(total),
@@ -25,7 +25,7 @@ const Transaction = ({transaction, dispatch, loading}) => {
           head: {
             "version": "1.0",
             "msgtype": "request",
-            "interface": "get_transaction",
+            "interface": "get_transaction_block",
             "remark": ""
           },
           params: {
@@ -35,13 +35,13 @@ const Transaction = ({transaction, dispatch, loading}) => {
           }
         }
         dispatch({
-          type: 'transaction/query',
+          type: 'transaction/queryTransactionByBlock',
           payload: args
         })
       }
     }
   }
-  
+
   return (
     <div>
       <TransactionList {...listProps} />
@@ -49,6 +49,6 @@ const Transaction = ({transaction, dispatch, loading}) => {
   )
 }
 
-export default connect(transaction=>transaction)(Transaction)
+export default connect(transaction => transaction)(Transaction)
 
 

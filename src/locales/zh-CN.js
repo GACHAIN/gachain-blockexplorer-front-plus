@@ -89,12 +89,12 @@ export default {
     T_AMOUNT: '转账金额',
     T_ERROR: '接口内容',
     T_COMMENT: '备注',
-    TransactionHistory: '转账历史',
+    TransactionHistory: '转账明细',
     TransactionStatus: '交易/事物 状态',
     TxDetailedInfoHex: '交易/事物 详情',
 
     // Transaction Detail
-    id:	'ID：',
+    id:	'交易/事物 ID：',
     Amount: '转账金额：',
     'Service Fee': '矿工费：',
     Commission: '合约佣金：',
@@ -167,4 +167,9 @@ export default {
     //Message
     ME_FAILYRE: '失败',
     ME_SUCCESS: '成功',
+
+    //Type
+    TYPE_TRANSFER: '转账',
+    TYPE_CREATEUSER: '创建用户',
+    TYPE_TASK: '定时任务'
 }

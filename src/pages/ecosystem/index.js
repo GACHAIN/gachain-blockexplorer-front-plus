@@ -9,6 +9,7 @@ const List = ({ dispatch, ecosystem, loading }) => {
     dataSource: dataList,
     hideOnSinglePage: true,
     scroll: {x: 400},
+    pagination: false
   }
 
   return (

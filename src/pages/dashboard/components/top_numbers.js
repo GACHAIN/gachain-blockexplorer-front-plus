@@ -14,10 +14,14 @@ const top_numbers = ({ loading, data }) => {
                         <Col span={16}>
                             <Row className={styles.top_numbers_title} id="textOverflow"><FormattedMessage id={item.title} /></Row>
                             <Row style={{fontSize: '2rem', fontWeight: 'bold'}}>
-                                <CountUp
-                                    end={item.number}
-                                    duration={2.75}
-                                />
+                            <CountUp
+                                start={0}
+                                end={item.number}
+                                duration={3}
+                                useEasing
+                                useGrouping
+                                separator=","
+                            />
                             </Row>
                         </Col>
                     </Row>

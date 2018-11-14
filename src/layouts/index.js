@@ -122,6 +122,7 @@ class BasicLayout extends React.Component {
         <Sider
           id="nav_"
           trigger={null}
+          mode="horizontal"
           collapsible
           collapsedWidth={0}
           collapsed={this.state.collapsed}

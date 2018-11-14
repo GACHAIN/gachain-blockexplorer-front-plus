@@ -1,10 +1,10 @@
 import {
     query_top_numbers,
     query_middle_blocks,
-    query_middle_transactions,
     query_node_map,
     query_history_map,
     query_gac,
+    query_middle_transactions
 } from './services'
 
 export default {
@@ -71,13 +71,6 @@ export default {
                         type: 'query_history_map',
                         payload: query_history_map
                     });
-
-                    dispatch({
-                        type: 'query_rate',
-                        payload: {
-                            base: 'usdt'
-                        }
-                    })
                 }
             })
         }
@@ -104,19 +97,6 @@ export default {
                     type: 'save',
                     payload: {
                         middle_blocks: result.body.data,
-                        total: result.body.all_row_nums,
-                    }
-                })
-            }
-        },
-
-        * query_middle_transactions({ payload }, { call, put }) {
-            const result = yield call(query_middle_transactions, payload)
-            if (result.success) {
-                yield put({
-                    type: 'save',
-                    payload: {
-                        middle_transactions: result.body.data,
                         total: result.body.all_row_nums,
                     }
                 })
@@ -156,6 +136,19 @@ export default {
                     type: 'save',
                     payload: {
                         gac: result.body.data,
+                        total: result.body.all_row_nums
+                    }
+                })
+            }
+        },
+
+        * query_middle_transactions({ payload }, { call, put }) {
+            const result = yield call(query_middle_transactions, payload)
+            if (result.success) {
+                yield put({
+                    type: 'save',
+                    payload: {
+                        middle_transactions: result.body.data,
                         total: result.body.all_row_nums
                     }
                 })

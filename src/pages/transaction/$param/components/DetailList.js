@@ -6,7 +6,6 @@ const columns = [
     {
         title: <FormattedMessage id="PARAMNAME" />,
         dataIndex: 'key',
-        width: '5rem',
         render: text => {
             return <span style={{ width: '5rem', display: 'inline-block' }}>{text}</span>
         },
@@ -39,6 +38,7 @@ class DetailList extends React.Component {
                         })}
                         columns={columns}
                         pagination={pagination}
+                        rowKey={record=>record.key.props.children.props.id}
                     />
                 </Row>
             )

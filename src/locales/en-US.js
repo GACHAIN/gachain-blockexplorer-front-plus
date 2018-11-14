@@ -89,12 +89,12 @@ export default {
     T_AMOUNT: 'Amount',
     T_ERROR: 'Interface Information',
     T_COMMENT: 'Comment',
-    TransactionHistory: 'Transfer History',
+    TransactionHistory: 'Transfer Detail',
     TransactionStatus: 'Transaction Status',
     TxDetailedInfoHex: 'Transaction Info',
 
     // Transaction Detail
-    id: 'ID:',
+    id: 'Transaction ID:',
     Amount: 'Amount:',
     'Service Fee': 'Miners Fee:',
     Commission: 'Contract Commission:',
@@ -167,5 +167,10 @@ export default {
     //Message
     ME_FAILYRE: 'Failure',
     ME_SUCCESS: 'Success',
+
+    //Type
+    TYPE_TRANSFER: 'Transfer',
+    TYPE_CREATEUSER: 'Create User',
+    TYPE_TASK: 'Task'
 }
 

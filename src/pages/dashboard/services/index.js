@@ -4,10 +4,10 @@ let { api } = config
 let { 
     dashboard_top_numbers, 
     dashboard_middle_blocks, 
-    dashboard_middle_transactions,
     dashboard_node_map,
     dashboard_history_map,
-    dashboard_gac
+    dashboard_gac,
+    getTransactionByBlock
 } = api
 export function query_top_numbers(params) {
     return request({
@@ -27,7 +27,7 @@ export function query_middle_blocks(params) {
 
 export function query_middle_transactions(params) {
     return request({
-        url: dashboard_middle_transactions,
+        url: getTransactionByBlock,
         method: 'post',
         data: params
     })

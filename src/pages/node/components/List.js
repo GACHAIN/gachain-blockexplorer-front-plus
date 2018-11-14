@@ -14,7 +14,7 @@ const NodeList = ({ ...listProps }) => {
       dataIndex: 'key_id',
       render: (text) => {
         return (
-          <span onClick={()=>listProps.onToggle("key_id")}>{text}</span>
+          <a onClick={() => listProps.onToggle("key_id")} id="textOverflow">{text}</a>
         )
       }
     }, {
