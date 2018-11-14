@@ -1,23 +1,13 @@
-.uicomponents {
-    /* padding: 0 12px; */
-}
-
 .numCard {
-    padding: 32px;
+    padding: 2rem;
     cursor: pointer;
 }
 
 .top_numbers_icon {
     float: left;
-    font-size: 50px;
+    font-size: 3rem;
 }
 
-
-.top_numbers_icon ~ p {
-    margin: 0;
-    padding: 0;
-    float: left;
-    padding-left: 5px;
-    font-size: 28px;
-    font-weight: bold;
+.top_numbers_title {
+    font-size: 1.1rem
 }

@@ -112,7 +112,6 @@ const TransactionHash = ({s_transaction, loading }) => {
                         <Link to={`/block/${valueObj.value}`}>{valueObj.value}</Link>
                     )
                 }
-
                 valueArr.push(valueObj)
                 obj.value = valueArr
             }

@@ -14,7 +14,7 @@ const columns = [
       {
         pathname: `/ecosystem/${record.id}/params`,
         state: {
-          ecosys_par: record.app_params
+          ecosys_par: record.app_params === null ? [] : record.app_params
         }
       }
     }>{text}</Link>

@@ -12,8 +12,8 @@ const top_numbers = ({ loading, data }) => {
                             <Icon className={styles.top_numbers_icon} type={item.icon} style={{ color: item.color, paddingTop: '14px' }} />
                         </Col>
                         <Col span={16}>
-                            <Row style={{width: '120px', display: 'inline-block', height: '40px', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', fontSize: '20px'}}><FormattedMessage id={item.title} /></Row>
-                            <Row style={{fontSize: '30px', fontWeight: 'bold'}}>
+                            <Row className={styles.top_numbers_title} id="textOverflow"><FormattedMessage id={item.title} /></Row>
+                            <Row style={{fontSize: '2rem', fontWeight: 'bold'}}>
                                 <CountUp
                                     end={item.number}
                                     duration={2.75}

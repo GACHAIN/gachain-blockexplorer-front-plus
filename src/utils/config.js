@@ -6,11 +6,11 @@ import { FormattedMessage } from 'react-intl';
 // 测试环境
 // const URL = 'http://192.168.1.161:8800/api'
 // 莫工主机
-// const URL = 'http://192.168.1.165:8800/api'
+const URL = 'http://192.168.1.165:8800/api'
 // 本地环境
-// const URL = 'http://127.0.0.1:7000/api'
+// const URL = 'http://127.0.0.1:8800/api'
 // 华东服务器
-const URL = 'http://hd.gac.one:8800/api'
+// const URL = 'http://hd.gac.one:8800/api'
 // IBM服务器
 // const URL = 'http://ibm.sifu8.cn:8800/api'
 
@@ -43,6 +43,7 @@ module.exports = {
 
         // Transaction
         getTransaction: `${URL}/get_transaction_details`,
+        getTransactionByBlock: `${URL}/get_transaction_block`,
         getTransactionList: `${URL}/get_transaction`,
 
         // Node

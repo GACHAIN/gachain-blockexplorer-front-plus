@@ -1,7 +1,7 @@
 import { request, config } from 'utils';
 
 let { api } = config
-let { getTransactionList, getTransaction } = api
+let { getTransactionList, getTransaction, getTransactionByBlock } = api
 
 export function query(params) {
     return request({
@@ -14,6 +14,14 @@ export function query(params) {
 export function query_detail(params) {
     return request({
         url: getTransaction,
+        method: 'POST',
+        data: params
+    })
+}
+
+export function query_transaction_by_block(params) {
+    return request({
+        url: getTransactionByBlock,
         method: 'POST',
         data: params
     })
