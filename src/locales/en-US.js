@@ -156,7 +156,7 @@ export default {
     DATABASE_BACKENDVISION: 'Version',
 
     // Search
-    S_T: 'Please enter transaction hash/block hash/block height query',
+    S_T: 'Please enter transaction hash/block hash/block height/account ID/ address',
     S: 'Search',
     S_NotFound: 'Entered information incorrectly and did not find the block/transaction',
     S_VALUENULL: 'The value of the query cannot be empty',

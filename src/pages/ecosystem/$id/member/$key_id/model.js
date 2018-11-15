@@ -7,7 +7,6 @@ export default modelExtend(baseModel, {
     namespace: 'member',
     state: {
         dataList: [],
-        total: "",
     },
     subscriptions: {
         setup({ dispatch, history }) {
@@ -42,12 +41,19 @@ export default modelExtend(baseModel, {
             const data = yield call(query_member, payload)
             if (data.success) {
                 yield put({
-                    type: 'querySuccess',
+                    type: 'save',
                     payload: {
                         dataList: data.body.data,
-                        total: data.body.total,
                     }
                 })
+            }
+        }
+    },
+    reducers: {
+        'save'(state, {payload}) {
+            return {
+                ...state,
+                ...payload
             }
         }
     }

@@ -155,7 +155,7 @@ export default {
     DATABASE_BACKENDVISION: '最新版本',
 
     // Search
-    S_T: '请输入 交易（事务）哈希 / 区块哈希 / 区块高度',
+    S_T: '请输入 事务哈希 / 区块哈希 / 区块高度 / 账户ID/地址',
     S: '搜索',
     S_NotFound: '输入信息有误，没有找到 区块/交易',
     S_VALUENULL: '查询的值不能为空',

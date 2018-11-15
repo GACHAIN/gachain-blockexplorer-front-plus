@@ -10,7 +10,7 @@ import Redirect from 'umi/redirect';
 import router from 'umi/router';
 
 import Menus from 'components/Menus/index'
-import { request, config } from 'utils';
+import { request, config, walletAddrToId } from 'utils';
 import './index.less';
 
 const { Sider, Content, Footer } = Layout;
@@ -90,10 +90,16 @@ class BasicLayout extends React.Component {
       return false
     } else {
       let valString = String(value)
-      if (valString.length === 18 || valString.length === 19 || valString.length === 20) {
+      // key_id
+      if (valString.length === 18 || valString.length === 19 || valString.length === 20 || valString.length === 24) {
+        console.log(valString)
+        if (valString.length === 24) {
+          valString = walletAddrToId(valString)
+        }
         router.replace(`/ecosystem/1/member/${valString}`)
         return false
-      }
+      } 
+      
       let args = {
         head: {
           "version": "1.0",

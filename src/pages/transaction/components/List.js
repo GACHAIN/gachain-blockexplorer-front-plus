@@ -1,11 +1,12 @@
 import { Table, Tooltip, Row, Tag } from 'antd';
 import { FormattedMessage } from 'react-intl';
-import router from 'umi/router';
+import { checkKeyidOrAddress, walletAddrToId } from 'utils';
 import moment from 'moment';
 import Link from 'umi/link';
 
 const List = ({ ...listProps }) => {
   const viewDetail = (text) => {
+    text = checkKeyidOrAddress(text) === 1 ? walletAddrToId(text) : text
     window.location.href=`${window.origin}#/ecosystem/1/member/${text}`
   }
   const columns = [
