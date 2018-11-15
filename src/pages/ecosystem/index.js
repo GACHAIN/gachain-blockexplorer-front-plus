@@ -3,7 +3,7 @@ import EcosystemList from './components/List';
 
 const List = ({ ecosystem, loading }) => {
   const { dataList } = ecosystem
-
+  localStorage.setItem('ecosysteList', JSON.stringify(dataList));
   let listProps = {
     loading: loading.effects['ecosystem/query'],
     dataSource: dataList,

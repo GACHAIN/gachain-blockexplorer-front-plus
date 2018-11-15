@@ -52,6 +52,7 @@ module.exports = {
         // Ecosystem
         getEcosystem: `${URL}/get_ecosystem`,
         getEcosystemKeys: `${URL}/get_ecosystem_keys`,
+        getEcosystemKey: `${URL}/get_ecosystem_key`,
 
         // System_Param
         getSystemParam: `${URL}/get_system_param`,

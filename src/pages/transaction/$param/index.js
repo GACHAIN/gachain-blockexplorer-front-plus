@@ -1,6 +1,6 @@
 import DetailList from './components/DetailList';
 import { walletIdToAddr, walletAddrToId, checkKeyidOrAddress } from 'utils';
-import { Tag, Row, Col } from 'antd';
+import { Row, Col } from 'antd';
 import { qGacToGac } from 'utils';
 import Link from 'umi/link';
 import { connect } from 'dva';
@@ -113,7 +113,7 @@ const TransactionHash = ({ s_transaction, loading }) => {
                 }
 
                 // 时间戳处理
-                if (valueObj.key === 'Time') {
+                if (valueObj.key === 'Time' || valueObj.key === 'time') {
                     valueObj.value = (
                         <Row>
                             {moment(valueObj.value * 1000).format('YYYY-MM-DD HH:MM:SS')}
@@ -121,7 +121,7 @@ const TransactionHash = ({ s_transaction, loading }) => {
                     )
                 }
 
-                if (valueObj.key === 'time' || valueObj.key === 'key_id') {
+                if (valueObj.key === 'key_id') {
                     continue
                 }
 

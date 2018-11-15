@@ -13,19 +13,22 @@ const columns = [
     render: (text, record) => <Link to={
       {
         pathname: `/ecosystem/${record.id}`,
-        state: {
-          ecosys_par: record.app_params === null ? [] : record.app_params
+        query: {
+          'state': 'params'
         }
       }
     }>{text}</Link>
   }, {
     title: <FormattedMessage id="E_MEMBERS" />,
     dataIndex: 'member',
-    // render: (text, record) => <Link to={
-    //   {
-    //     pathname: `/ecosystem/${record.id}`,
-    //   }
-    // }></Link>
+    render: (text, record) => <Link to={
+      {
+        pathname: `/ecosystem/${record.id}`,
+        query: {
+          "state": 'members'
+        }
+      }
+    }>{text}</Link>
   }
 ]
 

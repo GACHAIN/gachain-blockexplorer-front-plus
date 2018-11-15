@@ -18,7 +18,7 @@ const NodeList = ({ ...listProps }) => {
         )
       }
     }, {
-      title: <FormattedMessage id="N_PUBLIC" />,
+      title: <FormattedMessage id="MN_PUBLICKEY" />,
       dataIndex: 'public_key',
       render: (text) => {
         return (

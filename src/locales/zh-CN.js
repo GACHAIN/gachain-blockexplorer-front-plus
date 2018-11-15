@@ -90,11 +90,11 @@ export default {
     T_ERROR: '接口内容',
     T_COMMENT: '备注',
     TransactionHistory: '转账明细',
-    TransactionStatus: '交易/事物 状态',
-    TxDetailedInfoHex: '交易/事物 详情',
+    TransactionStatus: '交易/事务 状态',
+    TxDetailedInfoHex: '交易/事务 详情',
 
     // Transaction Detail
-    id:	'交易/事物 ID：',
+    id:	'交易/事务 ID：',
     Amount: '转账金额：',
     'Service Fee': '矿工费：',
     Commission: '合约佣金：',
@@ -114,13 +114,12 @@ export default {
 
     // Node
     N_URL: 'API地址',
-    N_PUBLIC: '公钥',
     N_KEYID: '账户 ID/地址',
 
     // Ecosystem
     E_ID: '生态系统ID',
     E_NAME: '生态系统名称',
-    E_MEMBERS: '会员总数',
+    E_MEMBERS: '成员总数',
 
     //Ecosystem Keys
     K_WALLETID: '账户 ID/地址',
@@ -129,7 +128,7 @@ export default {
 
     // Ecosystem Prameters
     ECOSYSTEMPRAMETER: '生态参数',
-    ECOSYSTEMPMEMBERS: '生态会员',
+    ECOSYSTEMPMEMBERS: '生态成员',
     EP_NAME: '参数名称',
     EP_VALUE: '值',
     EP_CONDITIONS: '修改条件',

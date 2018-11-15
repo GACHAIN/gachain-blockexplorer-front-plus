@@ -22,6 +22,31 @@ const { commonSearch } = api;
 const offsetWidth = document.querySelector('body').offsetWidth
 let prev_pathname = ""
 class BasicLayout extends React.Component {
+  componentDidMount() {
+    window.addEventListener('scroll', () => {
+      let header = this.refs.header
+      if (header) {
+        let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
+        let laycontent = document.querySelector(".ant-layout-content")
+        let langObj = document.querySelector(".selectLang")
+
+        if (scrollTop > 50) {
+          header.style.position = "fixed",
+            header.style['z-index'] = 1,
+            laycontent.style['margin-top'] = '124px',
+            langObj.style.display = 'none',
+            header.style['width'] = '100%',
+            header.style['box-shadow'] = '1px 0px 5px 1px #eaeaea'
+        } else {
+          header.style.position = 'relative'
+          laycontent.style['margin-top'] = '24px'
+          header.style['width'] = '100%'
+          langObj.style.display = 'block'
+        }
+      }
+    })
+  }
+
   state = {
     collapsed: offsetWidth < 720,
     searchWidth: '60%',
@@ -36,6 +61,14 @@ class BasicLayout extends React.Component {
     this.setState({
       collapsed: !this.state.collapsed,
     });
+
+    /**logo显示和隐藏 */
+    let logoObj = document.querySelector("#logo")
+    if (this.state.collapsed === true) {
+      logoObj.style.display = "block"
+    } else {
+      logoObj.style.display = "none"
+    }
   }
 
   handleChange = (v) => {
@@ -56,6 +89,11 @@ class BasicLayout extends React.Component {
       message.warning(formatMessage({ id: 'S_VALUENULL' }))
       return false
     } else {
+      let valString = String(value)
+      if (valString.length === 18 || valString.length === 19 || valString.length === 20) {
+        router.replace(`/ecosystem/1/member/${valString}`)
+        return false
+      }
       let args = {
         head: {
           "version": "1.0",
@@ -84,7 +122,7 @@ class BasicLayout extends React.Component {
             let { ret_data_type, retcode, data } = resolve.body
             if (retcode === 404) {
               let { intl: { formatMessage } } = this.props;
-              message.error(formatMessage({id:"S_NotFound"}))
+              message.error(formatMessage({ id: "S_NotFound" }))
               return false;
             }
             if (parseInt(ret_data_type) === 1) {
@@ -139,8 +177,8 @@ class BasicLayout extends React.Component {
             <Menus />
           </div>
         </Sider>
-        <Layout id="content" style={{ transition: 'all 0.3s', marginLeft: this.state.collapsed ? '0': '200px'}}>
-          <div className="nav-header">
+        <Layout id="content" style={{ transition: 'all 0.3s', marginLeft: this.state.collapsed ? '0' : '12.5rem' }}>
+          <div className="nav-header" ref="header">
             <Row type="flex" justify="space-between" align="middle">
               <Col>
                 <Icon
@@ -168,14 +206,13 @@ class BasicLayout extends React.Component {
               </Col>
             </Row>
           </div>
-          {/* <Bread menuData={menuData} /> */}
           <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
             {this.getPage()}
           </Content>
           <Footer id="footer">
             <span>@2017 - 2018 Powered by Gachain</span>
-            <a href="https://github.com/GACHAIN" target="_blank" style={{color: "#000000"}}>
-              <Icon type="github" style={{paddingLeft: '5px'}}/>
+            <a href="https://github.com/GACHAIN" target="_blank" style={{ color: "#000000" }}>
+              <Icon type="github" style={{ paddingLeft: '5px' }} />
             </a>
           </Footer>
         </Layout>

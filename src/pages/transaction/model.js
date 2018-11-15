@@ -13,18 +13,6 @@ export default modelExtend(baseModel, {
 
     },
     effects: {
-        * query({ payload = {} }, { call, put }) {
-            const data = yield call(query, payload)
-            if (data.success) {
-                yield put({
-                    type: 'querySuccess',
-                    payload: {
-                        dataList: data.body.data,
-                        total: data.body.total,
-                    }
-                })
-            }
-        },
         * queryTransactionByBlock({ payload = {} }, { call, put }) {
             const data = yield call(query_transaction_by_block, payload)
             if (data.success) {

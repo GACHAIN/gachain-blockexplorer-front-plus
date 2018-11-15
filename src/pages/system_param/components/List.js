@@ -9,7 +9,10 @@ const columns = [
   }, {
     title: <FormattedMessage id="SP_VALUE" />,
     dataIndex: 'value',
-    render: (text)=>{
+    render: (text) => {
+      if (text === '') {
+        text = '-'
+      }
       return (
         <Tooltip placement="topLeft" title={text} arrowPointAtCenter>
           <span id="textOverflow">{text}</span>
@@ -19,7 +22,7 @@ const columns = [
   }, {
     title: <FormattedMessage id="SP_CONDITIONS" />,
     dataIndex: 'conditions',
-    render: (text)=>{
+    render: (text) => {
       if (text === "true") {
         return (
           <Tag color="blue">{text}</Tag>
@@ -37,8 +40,8 @@ const SystemParamList = ({ ...listProps }) => {
   return (
     <div>
       <Table
-        columns={ columns.map((item) => { item['align'] = 'center'; return item }) }
-        rowKey={ record=>record.name }
+        columns={columns.map((item) => { item['align'] = 'center'; return item })}
+        rowKey={record => record.name}
         {...listProps}
       />
     </div>

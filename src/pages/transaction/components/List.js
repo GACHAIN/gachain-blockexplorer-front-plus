@@ -1,9 +1,13 @@
 import { Table, Tooltip, Row, Tag } from 'antd';
 import { FormattedMessage } from 'react-intl';
+import router from 'umi/router';
 import moment from 'moment';
 import Link from 'umi/link';
 
 const List = ({ ...listProps }) => {
+  const viewDetail = (text) => {
+    window.location.href=`${window.origin}#/ecosystem/1/member/${text}`
+  }
   const columns = [
     {
       title: <FormattedMessage id="TL_HASH" />,
@@ -68,13 +72,16 @@ const List = ({ ...listProps }) => {
     }, {
       title: <FormattedMessage id="TL_WALLET" />,
       dataIndex: 'key_id',
-      render: (text) => {
+      render: (text, record) => {
         return (
-          <Tooltip placement="topLeft" title={text}>
-            <span id="textOverflow" onClick={() => { listProps.onToggle("key_id") }}>
-              {text}
-            </span>
-          </Tooltip>
+          <Row>
+            <Tooltip placement="topLeft" title={text}>
+              <a id="textOverflow" onClick={() => { listProps.onToggle("key_id") }}>
+                {text}
+              </a>
+            </Tooltip>
+            <Tag color="#108ee9" onClick={() => { viewDetail(text) }}>查看</Tag>
+          </Row>
         )
       }
     }, {

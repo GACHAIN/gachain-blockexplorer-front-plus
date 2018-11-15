@@ -12,9 +12,11 @@
     /*logo设置*/
     #logo {
       text-align: center;
-      padding: 35px 5px;
       color: #eee;
       font-size: 18px;
+      height: 3rem;
+      line-height: 3rem;
+      border-bottom: 1px solid #25597d;
       span {
         display: inline-block;
         width: 100%;
@@ -24,6 +26,7 @@
     }
     /*侧边栏样式设置*/
     #menu {
+      margin-top: 1rem;
       ul li a {
         color: #fff;
       }
@@ -31,9 +34,10 @@
     /*头部导航样式设置*/
     div .nav-header {
       background: #fff;
+      height: 3rem;
       padding: 5px 20px;
       .trigger {
-        font-size: 1.2rem;
+        font-size: 1.0rem;
         cursor: pointer;
       }
       /*语言选择样式*/
@@ -162,6 +166,41 @@
     background-color: #fff;
     .ant-tabs-nav .ant-tabs-tab {
       height: 3rem;
+    }
+  }
+
+  /*头像*/
+  #member_info {
+    padding-bottom: 1.5rem;
+    #member_img {
+      text-align: center;
+      span {
+        height: 5rem;
+        width: 5rem;
+      }
+    }
+    #member_assets {
+      height: 3rem;
+      line-height: 3rem;
+    }
+    /*会员姓名*/
+    #member_name {
+      text-align: center;
+      span {
+        display: inline-block;
+        height: 3rem;
+        line-height: 3rem;
+        font-weight: bold;
+        color: #333;
+        font-family: monospace;
+      }
+    }
+    #member_description {
+      text-align: center;
+    }
+    #member_union {
+      height: 3rem;
+      line-height: 3rem;
     }
   }
 }
