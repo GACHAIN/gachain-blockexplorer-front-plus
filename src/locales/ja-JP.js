@@ -38,7 +38,7 @@ export default {
 
     // BlockList
     B_DETAIL: 'ブロックの詳細',
-    BL_BLOCKID: 'ブロック ID',
+    BL_BLOCKID: 'ブロックの高さ',
     BL_CREATETIME: '作成時間',
     BL_HASH: 'ハッシュ値',
     BL_NODEPOSITION: '梱包ノード',
@@ -80,7 +80,7 @@ export default {
     TL_TYPE: '取引/事務の類型',
     TL_ERROR: 'インターフェース情報',
     TL_CONTRACTNAME: '契約名を呼び出す',
-    TL_BLOCKID: 'ブロック ID',
+    TL_BLOCKID: 'ブロックの高さ',
 
     // Transaction
     T_RECIPIENTKEYID: '受信者の KeyID',
@@ -94,28 +94,28 @@ export default {
     TxDetailedInfoHex: '取引/事物の详细。',
 
     // Transaction Detail
-    id:	'取引/事務 ID：',
+    id: '取引/事務 ID：',
     Amount: '振替金額：',
     'Service Fee': '鉱夫費：',
     Commission: '契約金：',
     comment: '描写：',
-    blockID: 'ブロック ID：',
+    blockID: 'ブロックの高さ：',
     txHash: '取引ヘル：',
     createdAt: '作成時間：',
     Hash: 'ハッシュ値：',
     Time: '作成時間：',
-    Type: '取引の類型：',	
+    Type: '取引の類型：',
     WalletID: '財布 ID：',
-    BlockID: 'ブロック ID：',
-    Error: 'インターフェース情報：',	
+    BlockID: 'ブロックの高さ：',
+    Error: 'インターフェース情報：',
     contract_name: '契約名称：',
     params: 'パラメータ：',
     type: '取引の類型：',
 
     // Node
     N_URL: 'API アドレス',
-    N_PUBLIC: '公開',
     N_KEYID: 'アカウント ID/住所',
+    N_REGION: '地域',
 
     // Ecosystem
     E_ID: 'エコシステム',
@@ -173,4 +173,26 @@ export default {
     TYPE_TRANSFER: '振替',
     TYPE_CREATEUSER: 'ユーザーを作成する',
     TYPE_TASK: '定時の任務',
+
+    //Button
+    VIEW: 'チェック',
+
+    //Member
+    MEM_MEMBERINFO: 'メンバー情報',
+    MEM_ASSETS: '資産',
+
+    MEM_TRANSACTION: '取引/事務',
+    MEM_INCOME: '転入',
+    MEM_OUTCOME: '転出',
+
+    MEM_HASH: '取引ヘル',
+    MEM_SEND: '送信側',
+    MEM_REC: '受信者',
+
+    //Countries
+    COUN_1: 'アメリカ・バージニア州アシュベン。',
+    COUN_2: '中国・北京',
+    COUN_3: '中国・杭州',
+    COUN_4: '中国・南昌',
+    COUN_5: '日本・東京'
 }

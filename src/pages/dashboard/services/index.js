@@ -9,6 +9,7 @@ let {
     dashboard_gac,
     getTransactionByBlock
 } = api
+
 export function query_top_numbers(params) {
     return request({
         url: dashboard_top_numbers,

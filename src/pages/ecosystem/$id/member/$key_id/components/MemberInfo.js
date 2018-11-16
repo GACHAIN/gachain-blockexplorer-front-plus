@@ -1,26 +1,32 @@
 import { Card, Row, Col, Avatar, Divider } from 'antd';
-import { qGacToGac } from 'utils'
+import { FormattedMessage } from 'react-intl';
+import { qGacToGac, fmoney, checkKeyidOrAddress, walletAddrToId, walletIdToAddr } from 'utils'
 
-const MemberInfo = (props) => {
-    let data = props.data.dataList
+const MemberInfo = ({ data }) => {
+    /**点击KeyID地址切换 */
+    let toggle = (e) => {
+        let text = e.target.innerHTML
+        text = checkKeyidOrAddress(text) === 1 ? walletAddrToId(text) : walletIdToAddr(text)
+        e.target.innerHTML = text
+    }
     return (
-        <Card span={4}>
+        <Card span={4} title={<FormattedMessage id="MEM_MEMBERINFO" />}>
             <Row id="member_img">
                 <Avatar src={require("./img/tx.png")} />
             </Row>
             <Row id="member_name">
-                <span>{data.id}</span>
+                <span onClick={(e) => toggle(e)} style={{cursor: 'pointer'}}>{data.id}</span>
             </Row>
-            <Row id="member_description">
+            {/* <Row id="member_description">
                 <span>这个家伙很懒，什么也没有留下</span>
-            </Row>
+            </Row> */}
             <Divider dashed={true} />
             <Row>
-                <h4>资产</h4>
+                <h4><FormattedMessage id="MEM_ASSETS" /></h4>
                 <Row id="member_assets">
                     <Col span={8}>GAC</Col>
                     <Col span={16}>
-                        <span>{qGacToGac(data.amount)} GAC</span>
+                        <span id="gac_amount">{fmoney(qGacToGac(data.amount), 4)} GAC</span>
                     </Col>
                 </Row>
             </Row>

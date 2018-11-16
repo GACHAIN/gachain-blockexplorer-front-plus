@@ -37,7 +37,7 @@ export default {
     H_MONREY: 'GAC',
 
     // BlockList
-    BL_BLOCKID: 'Block ID',
+    BL_BLOCKID: 'Block Height',
     BL_CREATETIME: 'Create Time',
     BL_HASH: 'Hash',
     BL_NODEPOSITION: 'Node Position',
@@ -57,7 +57,7 @@ export default {
     B_TRANSACTIONTYPEID: 'Transaction Type ID',
 
     // Block Detial
-    block_id: 'Block ID:',
+    block_id: 'Block Height:',
     time: 'Create Time',
     ecosystem_id: 'Ecosystem ID:',
     key_id: 'Account ID:',
@@ -80,7 +80,7 @@ export default {
     TL_TYPE: 'Type',
     TL_ERROR: 'Interface Information',
     TL_CONTRACTNAME: 'Call Contract Name',
-    TL_BLOCKID: 'Block ID',
+    TL_BLOCKID: 'Block Height',
 
     // Transaction
     T_RECIPIENTKEYID: 'Recipient KeyID',
@@ -99,14 +99,14 @@ export default {
     'Service Fee': 'Miners Fee:',
     Commission: 'Contract Commission:',
     comment: 'Comment:',
-    blockID: 'Block ID:',
+    blockID: 'Block Height:',
     txHash: 'TxHash:',
     createdAt: 'Create Time:',
     Hash: 'Hash:',
     Time: 'Create Time:',
     Type: 'Type:',
     WalletID: 'Wallet ID:',
-    BlockID: 'Block ID:',
+    BlockID: 'Block Height:',
     Error: 'Interface Information:',
     contract_name: 'Contract Name:',
     params: 'Params:',
@@ -114,8 +114,8 @@ export default {
 
     // Node
     N_URL: 'API Address',
-    N_PUBLIC: 'Public Key',
     N_KEYID: 'Key ID/Address',
+    N_REGION: 'Region',
 
     // Ecosystem
     E_ID: 'Ecosystem ID',
@@ -172,6 +172,28 @@ export default {
     //Type
     TYPE_TRANSFER: 'Transfer',
     TYPE_CREATEUSER: 'Create User',
-    TYPE_TASK: 'Task'
+    TYPE_TASK: 'Task',
+
+    //Button
+    VIEW: 'View',
+
+    //Member
+    MEM_MEMBERINFO: 'Member Information',
+    MEM_ASSETS: 'Assets',
+
+    MEM_TRANSACTION: 'Transaction',
+    MEM_INCOME: 'Into',
+    MEM_OUTCOME: 'Out',
+
+    MEM_HASH: 'Hash',
+    MEM_SEND: 'Sender',
+    MEM_REC: 'Recipient',
+
+    //Countries
+    COUN_1: 'United States - ashburn, va',
+    COUN_2: 'China - Beijing',
+    COUN_3: 'Hangzhou, China',
+    COUN_4: 'Nanchang, China',
+    COUN_5: 'Japan - Tokyo'
 }
 

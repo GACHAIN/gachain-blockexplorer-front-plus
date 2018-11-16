@@ -67,6 +67,9 @@ const transactions_info_columns = [
     }, {
         title: <FormattedMessage id="TL_WALLET" />,
         dataIndex: 'key_id',
+        render: (text) => {
+            return <a href={`#/ecosystem/1/member/${text}?state=income`}>{text}</a>
+        }
     }
 ]
 

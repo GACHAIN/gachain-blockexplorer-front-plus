@@ -31,6 +31,16 @@ const Block = ({ s_block_detail, loading }) => {
                     if (headObj.key === 'hash') {
                         continue
                     }
+
+                    // 对Key的处理
+                    if (headObj.key === 'key_id') {
+                        headObj.val = (
+                            <a href={`#/ecosystem/1/member/${headObj.val}?state=income`}>
+                                {headObj.val}
+                            </a>
+                        )
+                    }
+
                     Block_header.push(headObj)
                 }
             } else if (k === 'transactions') {

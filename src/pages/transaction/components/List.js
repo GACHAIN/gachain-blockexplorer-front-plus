@@ -7,7 +7,7 @@ import Link from 'umi/link';
 const List = ({ ...listProps }) => {
   const viewDetail = (text) => {
     text = checkKeyidOrAddress(text) === 1 ? walletAddrToId(text) : text
-    window.location.href=`${window.origin}#/ecosystem/1/member/${text}`
+    window.location.href=`${window.origin}#/ecosystem/1/member/${text}?state=income`
   }
   const columns = [
     {
@@ -73,7 +73,7 @@ const List = ({ ...listProps }) => {
     }, {
       title: <FormattedMessage id="TL_WALLET" />,
       dataIndex: 'key_id',
-      render: (text, record) => {
+      render: (text) => {
         return (
           <Row>
             <Tooltip placement="topLeft" title={text}>
@@ -81,7 +81,7 @@ const List = ({ ...listProps }) => {
                 {text}
               </a>
             </Tooltip>
-            <Tag color="#108ee9" onClick={() => { viewDetail(text) }}>查看</Tag>
+            <Tag color="#108ee9" onClick={() => { viewDetail(text) }}><FormattedMessage id="VIEW"/></Tag>
           </Row>
         )
       }

@@ -2,10 +2,6 @@ import '@babel/polyfill';
 import { message } from 'antd';
 import pathToRegexp from 'path-to-regexp';
 import router from 'umi/router';
-
-
-// window.g_app.model("member_info")
-
 /**兼容钱袋链接跳转 */
 let s = pathToRegexp("/gachain/database/1/transaction/:hash").exec(location.pathname)
 let hash

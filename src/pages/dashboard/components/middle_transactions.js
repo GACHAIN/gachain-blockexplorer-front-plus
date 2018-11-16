@@ -3,7 +3,6 @@ import { FormattedMessage } from 'react-intl';
 import Link from 'umi/link';
 import moment from 'moment';
 import styles from './middle_transactions.css';
-import { tag } from 'postcss-selector-parser';
 
 const middle_transactions = ({ data, loading }) => {
 

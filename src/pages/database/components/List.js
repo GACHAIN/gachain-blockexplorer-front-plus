@@ -21,8 +21,8 @@ const columns = [
 
 export default (props) => {
     return (
-        <Table columns={columns.map((item)=>{item['align']='center'; return item})} {...props}
-        rowKey={record=>record.ID}
+        <Table columns={columns.map((item) => { item['align'] = 'center'; return item })} {...props}
+            rowKey={record => record.ID}
         />
     )
 }

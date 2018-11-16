@@ -43,6 +43,7 @@ export default {
       pathRewrite: { '^/api/v1/exchange_rate': '/api/v1/exchange_rate' },
     },
   },
+
   publicPath: './', // build 后的静态文件引入路径
   hash: true,
   history: 'hash',
@@ -57,5 +58,24 @@ export default {
     services: resolve(__dirname, './src/services'),
     utils: resolve(__dirname, './src/utils'),
     config: resolve(__dirname, './src/utils/config'),
-  }
+  },
+  urlLoaderExcludes: [/\.svg$/],
+  chainWebpack(config) {
+    config.module
+      .rule('svg')
+      .test(/\.svg(\?v=\d+\.\d+\.\d+)?$/)
+      .use([
+        {
+          loader: 'babel-loader',
+        },
+        {
+          loader: '@svgr/webpack',
+          options: {
+            babel: false,
+            icon: true,
+          },
+        },
+      ])
+      .loader(require.resolve('@svgr/webpack'));
+  },
 }

@@ -1,9 +1,9 @@
 import { Tabs } from 'antd';
 import { connect } from 'dva';
 import ParamsList from './components/ParamsList';
-import MembersList from './components/MembersList'
-import { stringify } from 'qs'
-import router from 'umi/router'
+import MembersList from './components/MembersList';
+import { stringify } from 'qs';
+import router from 'umi/router';
 import { FormattedMessage } from 'react-intl';
 
 const TabPane = Tabs.TabPane;
@@ -32,7 +32,6 @@ const EcosystemID = (props) => {
 
     /**点击KeyID地址切换 */
     const toggle = (index) => {
-        console.log(index)
         dispatch({
             type: 'ecosystemID/toggle',
             payload: {

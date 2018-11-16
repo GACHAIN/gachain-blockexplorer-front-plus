@@ -1,7 +1,6 @@
 import DetailList from './components/DetailList';
-import { walletIdToAddr, walletAddrToId, checkKeyidOrAddress } from 'utils';
+import { walletIdToAddr, walletAddrToId, checkKeyidOrAddress, fmoney, qGacToGac } from 'utils';
 import { Row, Col } from 'antd';
-import { qGacToGac } from 'utils';
 import Link from 'umi/link';
 import { connect } from 'dva';
 import moment from 'moment';
@@ -47,6 +46,8 @@ const TransactionHash = ({ s_transaction, loading }) => {
                 }
 
                 valueObj.value = data[k][k1]
+
+                // 转账
                 if (valueObj.key === "amount1") {
                     valueObj.key = "Amount"
                     valueObj.value = (
@@ -55,12 +56,13 @@ const TransactionHash = ({ s_transaction, loading }) => {
                             <Col xs={24} ms={24} md={24} lg={3} xl={3} xxl={3} id="arrow-right"><span>➤</span></Col>
                             <Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="recipient" onClick={(e) => toggle(e)}>{recipient1}</Col>
                             <Col xs={24} ms={24} md={24} lg={5} xl={5} xxl={5} id="gac_col">
-                                <span id="gac_amount">+{qGacToGac(valueObj.value)} GAC</span>
+                                <span id="gac_amount">+{fmoney(qGacToGac(valueObj.value), 3)} GAC</span>
                             </Col>
                         </Row>
                     )
                 }
 
+                // 手续费
                 if (valueObj.key === "amount2") {
                     valueObj.key = "Service Fee"
                     valueObj.value = (
@@ -75,6 +77,7 @@ const TransactionHash = ({ s_transaction, loading }) => {
                     )
                 }
 
+                //commission
                 if (valueObj.key === "amount3") {
                     valueObj.key = "Commission"
                     valueObj.value = (

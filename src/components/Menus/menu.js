@@ -5,15 +5,16 @@ export default [
         "to": "/dashboard"
     },
     {
-        "icon": "share-alt",
-        "FormattedMessage": "NODE",
-        "to": "/node"
-    },
-    {
         "icon": "block",
         "FormattedMessage": "BLOCK",
         "to": "/block"
     },
+    {
+        "icon": "share-alt",
+        "FormattedMessage": "NODE",
+        "to": "/node"
+    },
+    
     {
         "icon": "file-sync",
         "FormattedMessage": "TRANSACTION",

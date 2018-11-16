@@ -25,7 +25,7 @@ export default {
     H_TIME: '产生时间',
     H_M: '分钟',
     H_S: '秒',
-    H_NODE: '全球节点分布',
+    H_NODE: '全球主节点分布',
     H_GACHAINOVERVIEW: '政务链概览',
 
     /**over_view */
@@ -57,7 +57,7 @@ export default {
     B_TRANSACTIONTYPEID: '交易/事务类型ID',
 
     // Block Detial
-    block_id: '区块 ID：',
+    block_id: '区块高度：',
     time: '生成时间：',
     ecosystem_id: '生态系统 ID：',
     key_id: '账号 ID：',
@@ -80,7 +80,7 @@ export default {
     TL_TYPE: '交易/事务类型',
     TL_ERROR: '交易/事务 接口内容',
     TL_CONTRACTNAME: '调用合约名',
-    TL_BLOCKID: '区块ID',
+    TL_BLOCKID: '区块高度',
 
     // Transaction
     T_RECIPIENTKEYID: '接收者 账号ID',
@@ -99,14 +99,14 @@ export default {
     'Service Fee': '矿工费：',
     Commission: '合约佣金：',
     comment: '描述：',
-    blockID: '区块 ID：',
+    blockID: '区块高度：',
     txHash: '交易哈希：',
     createdAt: '创建时间：',
     Hash: '哈希值：',
     Time: '创建时间：',
     Type: '交易类型：',	
     WalletID: '钱包ID：',
-    BlockID: '区块ID：',
+    BlockID: '区块高度：',
     Error: '接口内容：',	
     contract_name: '合约名称：',
     params: '参数：',
@@ -115,6 +115,7 @@ export default {
     // Node
     N_URL: 'API地址',
     N_KEYID: '账户 ID/地址',
+    N_REGION: '地区',
 
     // Ecosystem
     E_ID: '生态系统ID',
@@ -172,4 +173,26 @@ export default {
     TYPE_TRANSFER: '转账',
     TYPE_CREATEUSER: '创建用户',
     TYPE_TASK: '定时任务',
+
+    //Button
+    VIEW: '查看',
+
+    //Member
+    MEM_MEMBERINFO: '成员信息',
+    MEM_ASSETS: '资产',
+
+    MEM_TRANSACTION: '交易/事务',
+    MEM_INCOME: '转入',
+    MEM_OUTCOME: '转出',
+
+    MEM_HASH: '交易哈希',
+    MEM_SEND: '发送方',
+    MEM_REC: '接收方',
+
+    //Countries
+    COUN_1: '美国-弗吉尼亚州阿什本',
+    COUN_2: '中国-北京',
+    COUN_3: '中国-杭州',
+    COUN_4: '中国-南昌',
+    COUN_5: '日本-东京'
 }

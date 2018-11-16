@@ -32,13 +32,13 @@ class DetailList extends React.Component {
                     <Divider orientation="left"><span><FormattedMessage id={item.key} /></span></Divider>
                     <Table
                         loading={loading}
-                        dataSource={item.value.map((item)=>{
-                            item.key = <span style={{fontWeight: 'bold'}}><FormattedMessage id={item.key} /></span>
+                        dataSource={item.value.map((item) => {
+                            item.key = <span style={{ fontWeight: 'bold' }}><FormattedMessage id={item.key} /></span>
                             return item
                         })}
                         columns={columns}
                         pagination={pagination}
-                        rowKey={record=>record.key.props.children.props.id}
+                        rowKey={record => record.key.props.children.props.id}
                     />
                 </Row>
             )

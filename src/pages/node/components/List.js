@@ -1,15 +1,25 @@
-import { Table, Tooltip, Row, Tag } from 'antd';
+import { Table, Tooltip, Icon } from 'antd';
 import { FormattedMessage } from 'react-intl';
-import { checkKeyidOrAddress, walletAddrToId } from 'utils';
 import * as React from 'react';
+import china from './svg/china.svg';
+import japan from './svg/japan.svg';
+import united_states from './svg/united-states.svg';
 
 const NodeList = ({ ...listProps }) => {
-  const viewDetail = (text) => {
-    text = checkKeyidOrAddress(text) === 1 ? walletAddrToId(text) : text
-    window.location.href = `${window.origin}#/ecosystem/1/member/${text}`
-  }
   const columns = [
     {
+      title: <FormattedMessage id="N_REGION" />,
+      dataIndex: 'city',
+      render: (text, record) => {
+        return (
+          <span><Icon 
+          style={{paddingRight: '1rem', fontSize: '1.2rem'}}
+          component={
+            record.icon === 'china' ? china : record.icon === 'japan' ? japan :record.icon === 'united_states' ? united_states : united_states
+          }/>{text}</span>
+        )
+      }
+    },{
       title: <FormattedMessage id="N_URL" />,
       dataIndex: 'api_address',
       render: (text) => <span>{text}</span>
@@ -18,12 +28,9 @@ const NodeList = ({ ...listProps }) => {
       dataIndex: 'key_id',
       render: (text) => {
         return (
-          <Row>
-            <Tooltip placement="topLeft" title={text}>
-              <a onClick={() => listProps.onToggle("key_id")} id="textOverflow">{text}</a>
-            </Tooltip>
-            <Tag color="#108ee9" onClick={() => { viewDetail(text) }}>查看</Tag>
-          </Row>
+          <Tooltip placement="topLeft" title={text}>
+            <a onClick={() => listProps.onToggle("key_id")} id="textOverflow">{text}</a>
+          </Tooltip>
         )
       }
     }, {

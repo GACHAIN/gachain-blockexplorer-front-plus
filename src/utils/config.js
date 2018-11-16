@@ -4,13 +4,13 @@ import { FormattedMessage } from 'react-intl';
 // mock 远程
 // const URL = 'http://192.168.1.124:8000/mock/api'
 // 测试环境
-// const URL = 'http://192.168.1.161:8800/api'
+const URL = 'http://192.168.1.161:8800/api'
 // 莫工主机
 // const URL = 'http://192.168.1.165:8800/api'
 // 本地环境
 // const URL = 'http://127.0.0.1:8800/api'
 // 华东服务器
-const URL = 'http://hd.gac.one:8800/api'
+// const URL = 'http://hd.gac.one:8800/api'
 // IBM服务器
 // const URL = 'http://ibm.sifu8.cn:8800/api'
 
@@ -22,7 +22,6 @@ module.exports = {
     CORS: [
         { "Access-Control-Allow-Origin": "*" }
     ],
-    YQL: [],
     URL,
     MONEY_POWER: 12,
     api: {
@@ -53,6 +52,7 @@ module.exports = {
         getEcosystem: `${URL}/get_ecosystem`,
         getEcosystemKeys: `${URL}/get_ecosystem_keys`,
         getEcosystemKey: `${URL}/get_ecosystem_key`,
+        getEcosystemMemberTransactions: `${URL}/get_find_tranhistory`,  
 
         // System_Param
         getSystemParam: `${URL}/get_system_param`,
@@ -61,6 +61,9 @@ module.exports = {
         commonSearch: `${URL}/common_search`,
 
         // Database
-        getDatabase: `${URL}/database`
+        getDatabase: `${URL}/database`,
+
+        //CheckIp
+        getIp: `http://ip.taobao.com/service/getIpInfo.php`,
     },
 }

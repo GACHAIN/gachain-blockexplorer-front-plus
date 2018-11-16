@@ -4,7 +4,7 @@ import jsonp from 'jsonp';
 import pathToRegexp from 'path-to-regexp';
 import cloneDeep from 'lodash.clonedeep';
 import qs from 'qs';
-import { CORS, YQL } from './config';
+import { CORS } from './config';
 
 const fetch = (options) => {
     let {
@@ -40,17 +40,14 @@ const fetch = (options) => {
                 param: `${qs.stringify(data)}`,
                 name: `jsonp_${new Date().getTime()}`,
                 timeout: 4000,
-            }, 
-            (error, result) => {
-                if (error) {
-                    reject(error)
-                }
-                resolve({ statusText: 'OK', status: 200, data: result })
-            })
+            },
+                (error, result) => {
+                    if (error) {
+                        reject(error)
+                    }
+                    resolve({ statusText: 'OK', status: 200, data: result })
+                })
         })
-    } else if (fetchType === 'YQL') {
-        url = `http://query.yahooapis.com/v1/public/yql?q=select * from json where url='${options.url}?${encodeURIComponent(qs.stringify(options.data))}'&format=json`
-        data = null
     }
 
     switch (method.toLowerCase()) {
@@ -80,42 +77,42 @@ export default function request(options) {
             if (!options.fetchType) {
                 if (CORS.length > 0) {
                     options.fetchType = 'CORS'
-                } else if (YQL && YQL.indexOf(origin) > -1) {
-                    options.fetchType = 'YQL'
                 } else {
                     options.fetchType = 'JSONP'
                 }
             }
         }
     }
-    return fetch(options).then((response) => {
-        const { statusText, status } = response
-        let data = options.fetchType === 'YQL' ? response.data.query.results.json : response.data
-        if (data instanceof Array) {
-            data = {
-                list: data,
+    return fetch(options)
+        .then((response) => {
+            const { statusText, status } = response
+            let data = response.data
+            if (data instanceof Array) {
+                data = {
+                    list: data,
+                }
             }
-        }
-        return Promise.resolve({
-            success: true,
-            message: statusText,
-            statusCode: status,
-            ...data,
+            return Promise.resolve({
+                success: true,
+                message: statusText,
+                statusCode: status,
+                ...data,
+            })
         })
-    }).catch((error) => {
-        const { response } = error
-        let msg
-        let statusCode
-        if (response && response instanceof Object) {
-            const { data, statusText } = response
-            statusCode = response.status
-            msg = data.message || statusText
-        } else {
-            statusCode = 600
-            msg = error.message || 'Network Error'
-        }
-        /* eslint-disable */
-        return Promise.reject({ success: false, statusCode, message: msg })
-    })
+        .catch((error) => {
+            const { response } = error
+            let msg
+            let statusCode
+            if (response && response instanceof Object) {
+                const { data, statusText } = response
+                statusCode = response.status
+                msg = data.message || statusText
+            } else {
+                statusCode = 600
+                msg = error.message || 'Network Error'
+            }
+            /* eslint-disable */
+            return Promise.reject({ success: false, statusCode, message: msg })
+        })
 }
 
