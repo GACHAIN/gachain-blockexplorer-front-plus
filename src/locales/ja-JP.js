@@ -59,6 +59,7 @@ export default {
     // Block Detial
     block_id: 'ブロック ID：',
     time: '時間を生成する：',
+    'utc-time': 'UTC時間',
     ecosystem_id: 'エコシステム ID：',
     key_id: 'アカウント ID：',
     node_position: '梱包ノード：',

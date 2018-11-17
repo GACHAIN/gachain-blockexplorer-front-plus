@@ -13,6 +13,10 @@ export default modelExtend(baseModel, {
     subscriptions: {
         setup({ dispatch, history }) {
             history.listen((location) => {
+                let { state } = location.query
+                if (!state) {
+                    state = 'income'
+                }
                 let match = pathToRegexp('/ecosystem/:id/member/:key_id').exec(location.pathname)
                 if (match) {
                     let query_member_args = {
@@ -21,7 +25,7 @@ export default modelExtend(baseModel, {
                     }
                     let query_member_transaction_args = {
                         head: { "version": "1.0", "msgtype": "request", "interface": "get_find_tranhistory", "remark": "" },
-                        params: { "cmd": "001", "page_size": 10, "current_page": 1, "wallet": match[2], "ecosystem": parseInt(match[1]), "searchType": location.query.state, }
+                        params: { "cmd": "001", "page_size": 10, "current_page": 1, "wallet": match[2], "ecosystem": parseInt(match[1]), "searchType": state, }
                     }
                     dispatch({
                         type: 'query_member',
@@ -51,7 +55,6 @@ export default modelExtend(baseModel, {
 
         * query_member_transaction({ payload = {} }, { call, put }) {
             const data = yield call(query_member_transaction, payload)
-            console.log(data)
             if (data.success) {
                 if (data.body.ret_data_type === 'income') {
                     yield put({

@@ -42,7 +42,7 @@ export default {
     BL_HASH: 'Hash',
     BL_NODEPOSITION: 'Node Position',
     BL_ECOSYSTEMID: 'Ecosystem ID',
-    BL_KEYID: 'Account ID/ Address',
+    BL_KEYID: 'Account / Wallet',
     BL_TXNUM: 'Tx Num',
 
     // Block
@@ -59,6 +59,7 @@ export default {
     // Block Detial
     block_id: 'Block Height:',
     time: 'Create Time',
+    'utc-time': 'UTC Time',
     ecosystem_id: 'Ecosystem ID:',
     key_id: 'Account ID:',
     node_position: 'Packaging Node:',
@@ -75,7 +76,7 @@ export default {
 
     // TransactionList
     TL_CREATETIME: 'Create Time',
-    TL_WALLET: 'Wallet ID/Address',
+    TL_WALLET: 'Account / Wallet',
     TL_HASH: 'Hash',
     TL_TYPE: 'Type',
     TL_ERROR: 'Interface Information',
@@ -114,7 +115,7 @@ export default {
 
     // Node
     N_URL: 'API Address',
-    N_KEYID: 'Key ID/Address',
+    N_KEYID: 'Account / Wallet',
     N_REGION: 'Region',
 
     // Ecosystem
@@ -123,7 +124,7 @@ export default {
     E_MEMBERS: 'Members Num',
 
     // Ecosystem Keys
-    K_WALLETID: 'KeyID/Address',
+    K_WALLETID: 'Account / Wallet',
     K_AMOUNT: 'Amount',
     K_PUBLICKEY: 'Public Key',
 

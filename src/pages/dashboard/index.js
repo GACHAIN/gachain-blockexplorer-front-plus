@@ -10,7 +10,6 @@ import {
 } from './components';
 
 const Dashboard = ({ loading, dashboard }) => {
-  console.log(dashboard)
   let { top_numbers, middle_blocks, middle_transactions, node_map, history_map, gac } = dashboard
   let top_numers_props = {
     loading: loading.effects['dashboard/query_top_numbers'],

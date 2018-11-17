@@ -10,7 +10,7 @@ const middle_blocks = ({ data, loading }) => {
                 <Link to={`/block/${item.block_id}`}>
                     <Col className={styles.blocks_left} xs={12} sm={12} md={12} lg={12} xl={12} xxl={12}>
                         <Row>
-                            <Col style={{ lineHeight: '4rem', textAlign: 'center' }}>
+                            <Col style={{ lineHeight: '4rem', textAlign: 'center', height: '4rem', backgroundColor: '#004b80', borderRadius: '0.5rem', boxShadow: '0.1rem 0.2rem 0.4rem 0.1rem #737373'}}>
                                 <Row>
                                     <span style={{ color: "#eee" }}><FormattedMessage id="H_BLOCK" />{item.block_id}</span>
                                 </Row>

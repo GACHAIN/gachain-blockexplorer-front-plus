@@ -2,10 +2,12 @@ import { Row, Tag } from 'antd';
 import { connect } from 'dva';
 import BlockDetail from './components/BlockDetail';
 import moment from 'moment';
+import { FormattedMessage } from 'react-intl';
 
 
 const Block = ({ s_block_detail, loading }) => {
     let { dataList } = s_block_detail
+    dataList.header['utc-time'] = dataList.header.time
     function handle_data_list(data) {
         let resObj = {}
         let Block_header = []
@@ -32,6 +34,11 @@ const Block = ({ s_block_detail, loading }) => {
                         continue
                     }
 
+                    // 对utc的处理
+                    if (headObj.key === 'utc-time') {
+                        headObj.val = moment(headObj.val * 1000).utc().format()
+                    }
+
                     // 对Key的处理
                     if (headObj.key === 'key_id') {
                         headObj.val = (
@@ -40,7 +47,6 @@ const Block = ({ s_block_detail, loading }) => {
                             </a>
                         )
                     }
-
                     Block_header.push(headObj)
                 }
             } else if (k === 'transactions') {
@@ -69,7 +75,7 @@ const Block = ({ s_block_detail, loading }) => {
         }
         resObj['Block_header'] = Block_header
         resObj['Block_info'] = Block_info,
-        resObj['Transactions_info'] = Transactions_info
+            resObj['Transactions_info'] = Transactions_info
         return resObj
     }
     let listProps = {
