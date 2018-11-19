@@ -1,4 +1,4 @@
-import { Card, Tabs, Icon, Row, Pagination } from 'antd';
+import { Card, Tabs, Icon, Row, Pagination, Collapse } from 'antd';
 import router from 'umi/router';
 import { stringify } from 'qs';
 import { qGacToGac, fmoney } from 'utils'
@@ -9,6 +9,7 @@ import InCome from './svg/income.svg';
 import OutCome from './svg/outcome.svg';
 
 const TabPane = Tabs.TabPane;
+const Panel = Collapse.Panel;
 const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location, dispatch }) => {
     const handleTabClick = (key) => {
         let { pathname } = location
@@ -26,39 +27,46 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
                     {
                         incomeList ?
                             incomeList.map((item) => {
+                                console.log(item.txHash + Math.random())
                                 return (
-                                    <Row id="member_transfer_list" key={item.txHash + Math.random()}>
-                                        <Row>
-                                            <h4><FormattedMessage id="MEM_HASH" />：
-                                                <Link to={`/transaction/${item.txHash}`} id="textOverflow" style={{verticalAlign: 'bottom'}}>
-                                                    {item.txHash}
-                                                </Link>
-                                            </h4>
-                                        </Row>
-                                        <Row>
-                                            <FormattedMessage id="time" />：
-                                            {moment(item.createdAt).format()}
-                                        </Row>
-                                        <Row>
-                                            <FormattedMessage id="utc-time" />：
-                                            {moment(item.createdAt).utc().format()}
-                                        </Row>
-                                        <Row>
-                                            <FormattedMessage id="MEM_SEND" />：
-                                            <a href={`#/ecosystem/1/member/${item.senderID}?state=income`}>
-                                                {item.senderID}
-                                            </a>
-                                        </Row>
-                                        <Row>
-                                            <FormattedMessage id="MEM_REC" />：
-                                            <a href={`#/ecosystem/1/member/${item.recipientID}?state=income`}>
-                                                {item.recipientID}
-                                            </a>
-                                        </Row>
-                                        <Row>
-                                            <FormattedMessage id="Amount" />：<span id="gac_amount">{fmoney(qGacToGac(item.amount), 4)} GAC</span>
-                                        </Row>
-                                    </Row>
+                                    <Collapse accordion>
+                                        <Panel header={
+                                            `${moment(item.createdAt).fromNow()} +${fmoney(qGacToGac(item.amount), 4)} GAC`
+                                        } key={item.txHash + Math.random()}>
+                                            <Row id="member_transfer_list" key={item.txHash + Math.random()}>
+                                                <Row>
+                                                    <h4><FormattedMessage id="MEM_HASH" />：
+                                                <Link to={`/transaction/${item.txHash}`}>
+                                                            {item.txHash}
+                                                        </Link>
+                                                    </h4>
+                                                </Row>
+                                                <Row>
+                                                    <FormattedMessage id="time" />：
+                                                    {moment(item.createdAt).format()}
+                                                </Row>
+                                                <Row>
+                                                    <FormattedMessage id="utc-time" />：
+                                                    {moment(item.createdAt).utc().format()}
+                                                </Row>
+                                                <Row>
+                                                    <FormattedMessage id="MEM_SEND" />：
+                                                    <a href={`#/ecosystem/1/member/${item.senderID}?state=income`}>
+                                                        {item.senderID}
+                                                    </a>
+                                                </Row>
+                                                <Row>
+                                                    <FormattedMessage id="MEM_REC" />：
+                                                    <a href={`#/ecosystem/1/member/${item.recipientID}?state=income`}>
+                                                        {item.recipientID}
+                                                    </a>
+                                                </Row>
+                                                <Row>
+                                                    <FormattedMessage id="Amount" />：<span id="gac_amount">{fmoney(qGacToGac(item.amount), 4)} GAC</span>
+                                                </Row>
+                                            </Row>
+                                        </Panel>
+                                    </Collapse>
                                 )
                             }) :
                             []
@@ -69,31 +77,37 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
                         outcomeList ?
                             outcomeList.map((item) => {
                                 return (
-                                    <Row id="member_transfer_list" key={item.txHash + Math.random()}>
-                                        <Row>
-                                            <h4><FormattedMessage id="MEM_HASH" />：
+                                    <Collapse accordion>
+                                        <Panel header={
+                                            `${moment(item.createdAt).fromNow()} -${fmoney(qGacToGac(item.amount), 4)} GAC`
+                                        } key={item.txHash + Math.random()}>
+                                            <Row id="member_transfer_list" key={item.txHash + Math.random()}>
+                                                <Row>
+                                                    <h4><FormattedMessage id="MEM_HASH" />：
                                             <Link to={`/transaction/${item.txHash}`}>
-                                                {item.txHash}
-                                            </Link>
-                                            </h4>
+                                                            {item.txHash}
+                                                        </Link>
+                                                    </h4>
 
-                                        </Row>
-                                        <Row>
-                                            <FormattedMessage id="MEM_SEND" />：
+                                                </Row>
+                                                <Row>
+                                                    <FormattedMessage id="MEM_SEND" />：
                                             <a href={`#/ecosystem/1/member/${item.senderID}?state=income`}>
-                                                {item.senderID}
-                                            </a>
-                                        </Row>
-                                        <Row>
-                                            <FormattedMessage id="MEM_REC" />：
+                                                        {item.senderID}
+                                                    </a>
+                                                </Row>
+                                                <Row>
+                                                    <FormattedMessage id="MEM_REC" />：
                                             <a href={`#/ecosystem/1/member/${item.recipientID}?state=income`}>
-                                                {item.recipientID}
-                                            </a>
-                                        </Row>
-                                        <Row>
-                                            <FormattedMessage id="Amount" />：<span id="gac_amount">{fmoney(qGacToGac(item.amount), 4)} GAC</span>
-                                        </Row>
-                                    </Row>
+                                                        {item.recipientID}
+                                                    </a>
+                                                </Row>
+                                                <Row>
+                                                    <FormattedMessage id="Amount" />：<span id="gac_amount">{fmoney(qGacToGac(item.amount), 4)} GAC</span>
+                                                </Row>
+                                            </Row>
+                                        </Panel>
+                                    </Collapse>
                                 )
                             }) :
                             []
@@ -102,7 +116,7 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
             </Tabs>
             <Pagination
                 hideOnSinglePage={true}
-                
+
                 onChange={(p, s) => {
                     let query_member_transaction_args = {
                         head: { "version": "1.0", "msgtype": "request", "interface": "get_find_tranhistory", "remark": "" },
@@ -113,11 +127,11 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
                         payload: query_member_transaction_args
                     })
                 }}
-                defaultCurrent={1} 
+                defaultCurrent={1}
                 defaultPageSize={10}
-                total={total} 
-                style={{textAlign: "center", paddingTop: '1rem'}
-            }/>
+                total={total}
+                style={{ textAlign: "center", paddingTop: '1rem' }
+                } />
         </Card>
     )
 }

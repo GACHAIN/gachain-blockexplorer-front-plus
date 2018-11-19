@@ -7,7 +7,6 @@ import { FormattedMessage } from 'react-intl';
 
 const Block = ({ s_block_detail, loading }) => {
     let { dataList } = s_block_detail
-    dataList.header['utc-time'] = dataList.header.time
     function handle_data_list(data) {
         let resObj = {}
         let Block_header = []
@@ -32,11 +31,6 @@ const Block = ({ s_block_detail, loading }) => {
                     // 过滤掉hash 因为再详情中已经有
                     if (headObj.key === 'hash') {
                         continue
-                    }
-
-                    // 对utc的处理
-                    if (headObj.key === 'utc-time') {
-                        headObj.val = moment(headObj.val * 1000).utc().format()
                     }
 
                     // 对Key的处理

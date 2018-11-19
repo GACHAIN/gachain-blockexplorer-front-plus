@@ -59,6 +59,7 @@ export default {
     // Block Detial
     block_id: '区块高度：',
     time: '生成时间：',
+    'utc-time': 'UTC时间',
     ecosystem_id: '生态系统 ID：',
     key_id: '账号 ID：',
     node_position: '打包节点：',
