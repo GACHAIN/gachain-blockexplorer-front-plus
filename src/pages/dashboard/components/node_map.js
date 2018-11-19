@@ -6,12 +6,6 @@ import styles from './node_map.css';
 
 require('echarts/map/js/world.js')
 const max = -Infinity;
-const getColor = () => {
-    // var colors = ['#00F5FF', '#00E5EE', '#00FFFF', '#00C5CD'];
-    var colors = ['#00aee6', '#00aee6', '#00aee6', '#00aee6'];
-    var index = Math.floor((Math.random() * colors.length));
-    return colors[index];
-}
 
 const node_map = ({ data, loading }) => {
     let option = {
@@ -71,14 +65,8 @@ const node_map = ({ data, loading }) => {
             type: 'effectScatter',
             coordinateSystem: 'geo',
             //可以容纳的动画数量
-            // animationThreshold: 50000,
-            //是否启用图例 hover 时的联动高亮。
-            // legendHoverLink: true,
-            //特效类型，目前只支持涟漪特效'ripple'
             effectType: 'ripple',
             //配置何时显示特效，render表示渲染完就显示
-            // showEffectOn: 'render',
-            //涟漪特效相关配置，period:动画的时间，scale：动画中波纹的最大缩放比例，brushType：波纹的绘制方式，可选 'stroke' 和 'fill'
             rippleEffect: { 'period': 5, 'scale': 3, 'brushType': 'stroke' },
             symbolSize: [2, 10],
             symbolRotate: 15,
@@ -90,38 +78,13 @@ const node_map = ({ data, loading }) => {
                         itemOpt.longitude,
                         itemOpt.latitude
                     ],
-
-                    // label: {
-                    //     emphasis: {
-                    //         show: false
-                    //     }
-                    // },
-                    // itemStyle: {
-                    //     normal: {
-                    //         //color: getColor(),
-                    //         // 径向渐变，前三个参数分别是圆心 x, y 和半径，取值同线性渐变
-                    //         color: {
-                    //             type: 'radial',
-                    //             x: 2,
-                    //             y: 2,
-                    //             r: 1,
-                    //             colorStops: [{
-                    //                 offset: 0, color: getColor() // 0% 处的颜色
-                    //             }, {
-                    //                 offset: 1, color: getColor() // 100% 处的颜色
-                    //             }],
-                    //             globalCoord: false // 缺省为 false
-                    //         }
-                    //     }
-                    // },
-                    // z: 2,
                 };
             })
         }
         ]
     };
     return (
-        <Card className={styles.node_map_content} title={<FormattedMessage id="H_NODE"/>} loading={loading} bodyStyle={{height: '20rem'}}>
+        <Card className={styles.node_map_content} title={<FormattedMessage id="H_NODE" />} loading={loading} bodyStyle={{ height: '20rem' }}>
             <ReactEcharts
                 option={option}
                 style={{ width: '100%' }}

@@ -162,7 +162,6 @@ const TransactionHash = ({ s_transaction, loading }) => {
         loading: loading.effects['s_transaction/query'],
     }
 
-
     return (
         <DetailList {...listProps} />
     )

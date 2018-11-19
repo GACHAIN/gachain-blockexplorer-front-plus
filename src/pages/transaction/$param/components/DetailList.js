@@ -38,7 +38,9 @@ class DetailList extends React.Component {
                         })}
                         columns={columns}
                         pagination={pagination}
-                        rowKey={record => record.key.props.children.props.id}
+                        rowKey={record => {
+                            return record.key.props.children.props.id + Math.random
+                        }}
                     />
                 </Row>
             )

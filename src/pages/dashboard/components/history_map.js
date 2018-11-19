@@ -14,7 +14,7 @@ import styles from './history_map.css';
 
 const history_map = ({ data, loading }) => {
     return (
-        <Card className={styles.history_map_content} loading={loading} title={<FormattedMessage id="HISTORYMAP"/>}>
+        <Card className={styles.history_map_content} loading={loading} title={<FormattedMessage id="HISTORYMAP" />}>
             <ResponsiveContainer>
                 <LineChart data={data}>
                     <CartesianGrid strokeDasharray="10 10" />

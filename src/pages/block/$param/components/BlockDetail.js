@@ -5,6 +5,16 @@ import React from 'react';
 import moment from 'moment';
 import router from 'umi/router';
 
+
+const arr = [
+    <FormattedMessage id="COUN_3" />, 
+    <FormattedMessage id="COUN_4" />, 
+    <FormattedMessage id="COUN_2" />, 
+    <FormattedMessage id="COUN_2" />, 
+    <FormattedMessage id="COUN_2" />, 
+    <FormattedMessage id="COUN_5" />, 
+    <FormattedMessage id="COUN_1" />
+  ]
 const columns = [
     {
         title: <FormattedMessage id="PARAMNAME" />,

@@ -2,8 +2,6 @@ import { Row, Tag } from 'antd';
 import { connect } from 'dva';
 import BlockDetail from './components/BlockDetail';
 import moment from 'moment';
-import { FormattedMessage } from 'react-intl';
-
 
 const Block = ({ s_block_detail, loading }) => {
     let { dataList } = s_block_detail
@@ -29,7 +27,7 @@ const Block = ({ s_block_detail, loading }) => {
                     }
 
                     // 过滤掉hash 因为再详情中已经有
-                    if (headObj.key === 'hash') {
+                    if (headObj.key === 'hash' || headObj.key=== 'ecosystem_id') {
                         continue
                     }
 

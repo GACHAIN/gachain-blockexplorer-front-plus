@@ -27,7 +27,6 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
                     {
                         incomeList ?
                             incomeList.map((item) => {
-                                console.log(item.txHash + Math.random())
                                 return (
                                     <Collapse accordion>
                                         <Panel header={
@@ -51,13 +50,13 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
                                                 </Row>
                                                 <Row>
                                                     <FormattedMessage id="MEM_SEND" />：
-                                                    <a href={`#/ecosystem/1/member/${item.senderID}?state=income`}>
+                                                    <a href={`#/ecosystem/1/member/${item.senderID}?state=${location.query.state}`}>
                                                         {item.senderID}
                                                     </a>
                                                 </Row>
                                                 <Row>
                                                     <FormattedMessage id="MEM_REC" />：
-                                                    <a href={`#/ecosystem/1/member/${item.recipientID}?state=income`}>
+                                                    <a href={`#/ecosystem/1/member/${item.recipientID}?state=${location.query.state}`}>
                                                         {item.recipientID}
                                                     </a>
                                                 </Row>
@@ -76,6 +75,7 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
                     {
                         outcomeList ?
                             outcomeList.map((item) => {
+                                console.log(location)
                                 return (
                                     <Collapse accordion>
                                         <Panel header={
@@ -92,13 +92,13 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
                                                 </Row>
                                                 <Row>
                                                     <FormattedMessage id="MEM_SEND" />：
-                                            <a href={`#/ecosystem/1/member/${item.senderID}?state=income`}>
+                                            <a href={`#/ecosystem/1/member/${item.senderID}?state=${location.query.state}`}>
                                                         {item.senderID}
                                                     </a>
                                                 </Row>
                                                 <Row>
                                                     <FormattedMessage id="MEM_REC" />：
-                                            <a href={`#/ecosystem/1/member/${item.recipientID}?state=income`}>
+                                            <a href={`#/ecosystem/1/member/${item.recipientID}?state=${location.query.state}`}>
                                                         {item.recipientID}
                                                     </a>
                                                 </Row>
