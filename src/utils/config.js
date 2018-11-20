@@ -4,7 +4,7 @@ import api from './api'
 module.exports = {
     api,
     // Logo
-    name: <FormattedMessage id="GAC_BLOCK_EXPLORER" />,
+    name: <FormattedMessage id="BLOCK_EXPLORER" />,
     prefix: 'GAChain',
     // 版权信息国际化
     companyRight: <FormattedMessage id="COMPANYRIGHT" />,

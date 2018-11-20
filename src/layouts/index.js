@@ -1,231 +1,33 @@
-// import withRouter from 'umi/withRouter';
-// import { TransitionGroup, CSSTransition } from "react-transition-group";
-import * as React from 'react';
-import NProgress from 'nprogress'
-import { Layout, Icon, Select, Input, Row, Col, message } from 'antd';
+import React from 'react';
+import { Row } from 'antd';
 
-import { injectIntl, intlShape, FormattedMessage } from 'react-intl';
-import { setLocale, getLocale } from 'umi/locale';
-import Redirect from 'umi/redirect';
-import router from 'umi/router';
+import Header from './components/Header.js';
+import Content from './components/Content';
+import Footer from './components/Footer';
 
-import Menus from 'components/Menus/index';
-import { request, config, walletAddrToId } from 'utils';
-import { companyRight } from 'config';
-import './index.less';
+import './index.less'
 
-const { Sider, Content, Footer } = Layout;
-const Option = Select.Option;
-const Search = Input.Search;
-const { api } = config;
-
-const { commonSearch } = api;
-const offsetWidth = document.querySelector('body').offsetWidth
-let prev_pathname = ""
 class BasicLayout extends React.Component {
-  componentDidMount() {
-    window.addEventListener('scroll', () => {
-      let header = this.refs.header
-      if (header) {
-        let scrollTop = document.body.scrollTop || document.documentElement.scrollTop
-        let laycontent = document.querySelector(".ant-layout-content")
-        let langObj = document.querySelector(".selectLang")
-
-        if (scrollTop > 50) {
-          header.style.position = "fixed",
-            header.style['z-index'] = 1,
-            laycontent.style['margin-top'] = '124px',
-            langObj.style.display = 'none',
-            header.style['width'] = '100%',
-            header.style['box-shadow'] = '1px 0px 5px 1px #eaeaea'
-        } else {
-          header.style.position = 'relative'
-          laycontent.style['margin-top'] = '24px'
-          header.style['width'] = '100%'
-          langObj.style.display = 'block'
+    render() {
+        let headerProps = {
+            
         }
-      }
-    })
-  }
 
-  state = {
-    collapsed: offsetWidth < 720,
-    searchWidth: '60%',
-    searchVal: '',
-  }
-
-  static propTypes = {
-    intl: intlShape.isRequired,
-  }
-
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-
-    /**logo显示和隐藏 */
-    let logoObj = document.querySelector("#logo")
-    if (this.state.collapsed === true) {
-      logoObj.style.display = "block"
-    } else {
-      logoObj.style.display = "none"
-    }
-  }
-
-  handleChange = (v) => {
-    setLocale(v);
-  }
-
-  getSearchPlacehold = () => {
-    let langObj = {};
-    let { intl: { formatMessage } } = this.props;
-    langObj['S_T'] = formatMessage({ id: 'S_T' });
-    langObj['S'] = formatMessage({ id: 'S' });
-    return langObj
-  }
-
-  searchVal = (value) => {
-    if (value.length === 0) {
-      let { intl: { formatMessage } } = this.props;
-      message.warning(formatMessage({ id: 'S_VALUENULL' }))
-      return false
-    } else {
-      let valString = String(value)
-      // key_id
-      if (valString.length === 18 || valString.length === 19 || valString.length === 20 || valString.length === 24) {
-        console.log(valString)
-        if (valString.length === 24) {
-          valString = walletAddrToId(valString)
+        let contentProps = {
+            props: this.props
         }
-        router.replace(`/ecosystem/1/member/${valString}`)
-        return false
-      } 
-      
-      let args = {
-        head: {
-          "version": "1.0",
-          "msgtype": "request",
-          "interface": "get_common_search",
-          "remark": ""
-        },
-        params: {
-          "cmd": "001",
+
+        let footerProps = {
+
         }
-      }
-      let v = ""
-      if (value.length === 64) {
-        args.params['hash'] = value
-        v = value
-      } else {
-        args.params['block_id'] = Number(value)
-        v = Number(value)
-      }
-
-      let options = { url: commonSearch, method: 'POST', data: args }
-
-      request(options)
-        .then((resolve) => {
-          if (resolve.success) {
-            let { ret_data_type, retcode, data } = resolve.body
-            if (retcode === 404) {
-              let { intl: { formatMessage } } = this.props;
-              message.error(formatMessage({ id: "S_NotFound" }))
-              return false;
-            }
-            if (parseInt(ret_data_type) === 1) {
-              router.replace(`/block/${data.header.block_id}`);
-            } else if (parseInt(ret_data_type) === 2) {
-              router.replace(`/transaction/${v}`)
-            }
-          }
-        })
-        .catch((reject) => {
-          message.error(reject, "line 82")
-        })
-    }
-
-  }
-
-  getPage = () => {
-    if (location.hash === '#/') {
-      return <Redirect to="/dashboard" />
-    } else {
-      return this.props.children
-    }
-  }
-
-  render() {
-    if (location.pathname !== prev_pathname) {
-      NProgress.start(0.8)
-      NProgress.set(0.8)
-      NProgress.inc(0.8)
-      NProgress.done()
-    }
-    prev_pathname = location.pathname
-    return (
-      <Layout>
-        <Sider
-          id="nav_"
-          trigger={null}
-          mode="horizontal"
-          collapsible
-          collapsedWidth={0}
-          collapsed={this.state.collapsed}
-          style={{ backgroundColor: '#004a7c', height: '100vh', position: 'fixed', left: 0, boxShadow: 'rgb(153, 153, 153) 1px 5px 5px', overflow: 'hidden', transition: 'all 0.3s' }}
-          breakpoint={'xs'}
-          onBreakpoint={(broken) => {
-            this.setState({ collapsed: broken })
-          }}
-        >
-          <div id="logo">
-            <FormattedMessage id="BLOCK_EXPLORER" />
-          </div>
-          <div id="menu">
-            <Menus />
-          </div>
-        </Sider>
-        <Layout id="content" style={{ transition: 'all 0.3s', marginLeft: this.state.collapsed ? '0' : '12.5rem' }}>
-          <div className="nav-header" ref="header">
-            <Row type="flex" justify="space-between" align="middle">
-              <Col>
-                <Icon
-                  className="trigger"
-                  type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                  onClick={this.toggle}
-                />
-              </Col>
-              <Col style={{ width: this.state.searchWidth, transition: 'all 0.3s' }}>
-                <Search
-                  placeholder={this.getSearchPlacehold().S_T}
-                  enterButton={this.getSearchPlacehold().S}
-                  size="large"
-                  onSearch={value => this.searchVal(value)}
-                  style={{ height: '40px', fontSize: '12px' }}
-                  width={this.state.searchWidth}
-                />
-              </Col>
-              <Col>
-                <Select defaultValue={getLocale()} onChange={this.handleChange} className="selectLang">
-                  <Option value="zh-CN">中文</Option>
-                  <Option value="en-US">English</Option>
-                  <Option value="ja-JP">日本语</Option>
-                </Select>
-              </Col>
+        return (
+            <Row gutter={24} justify="space-around">
+                <Header { ...headerProps }/>
+                <Content { ...contentProps }/>
+                <Footer { ...footerProps }/>
             </Row>
-          </div>
-          <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-            {this.getPage()}
-          </Content>
-          <Footer id="footer">
-            <span>{ companyRight }</span>
-            <a href="https://github.com/GACHAIN" target="_blank" style={{ color: "#000000" }}>
-              <Icon type="github" style={{ paddingLeft: '5px' }} />
-            </a>
-          </Footer>
-        </Layout>
-      </Layout >
-    )
-  }
+        )
+    }
 }
 
-export default injectIntl(BasicLayout)
+export default BasicLayout

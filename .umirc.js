@@ -53,9 +53,10 @@ export default {
   },
   alias: {
     assets: resolve(__dirname, './src/assets'),
-    components: resolve(__dirname, './src/components'),
-    models: resolve(__dirname, './src/models'),
-    services: resolve(__dirname, './src/services'),
+    '@components': resolve(__dirname, './src/components'),
+    '@models': resolve(__dirname, './src/models'),
+    '@services': resolve(__dirname, './src/services'),
+    '@public': resolve(__dirname, './public'),
     utils: resolve(__dirname, './src/utils'),
     config: resolve(__dirname, './src/utils/config'),
   },

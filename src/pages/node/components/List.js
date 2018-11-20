@@ -1,9 +1,9 @@
 import { Table, Tooltip, Icon } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import * as React from 'react';
-import china from './svg/china.svg';
-import japan from './svg/japan.svg';
-import united_states from './svg/united-states.svg';
+import china from '@public/china.svg';
+import japan from '@public/japan.svg';
+import united_states from '@public/united-states.svg';
 
 const NodeList = ({ ...listProps }) => {
   const columns = [

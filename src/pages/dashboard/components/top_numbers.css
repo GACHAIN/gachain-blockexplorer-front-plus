@@ -1,6 +1,10 @@
 .numCard {
     padding: 2rem;
     cursor: pointer;
+    border: 1px solid #eee;
+    border-radius: 0.2rem;
+    border-radius: 0.2rem;
+    box-shadow: 0rem 0.3rem 0.6rem #eee;
 }
 
 .top_numbers_icon {
