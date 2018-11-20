@@ -25,7 +25,7 @@ export default {
     H_TIME: 'Create Time',
     H_M: 'Minutes',
     H_S: 'Seconds',
-    H_NODE: 'Global node distribution',
+    H_NODE: 'Global Node Distribution',
     H_GACHAINOVERVIEW: 'GAChain Over View',
 
     /**over_view */
