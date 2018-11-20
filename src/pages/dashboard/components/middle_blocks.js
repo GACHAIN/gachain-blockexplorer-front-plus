@@ -1,5 +1,6 @@
 import { Icon, Card, Row, Col, Tag } from 'antd';
 import { FormattedMessage } from 'react-intl';
+import { nodePosition } from 'config';
 import Link from 'umi/link';
 import styles from './middle_blocks.css';
 
@@ -19,7 +20,7 @@ const middle_blocks = ({ data, loading }) => {
                     </Col>
                 </Link>
                 <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12} push={2}>
-                    <Row><FormattedMessage id="H_PRODUCT" /> <Tag color="blue">{item.node_position}</Tag></Row>
+                    <Row><FormattedMessage id="H_PRODUCT" /> <Tag color="blue">{nodePosition[item.node_position]}</Tag></Row>
                     <Row>{item.tx_count} <FormattedMessage id="H_TRANSACTION" /></Row>
                 </Col>
             </Row>

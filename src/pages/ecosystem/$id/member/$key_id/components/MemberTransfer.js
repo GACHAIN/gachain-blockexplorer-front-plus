@@ -75,7 +75,6 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
                     {
                         outcomeList ?
                             outcomeList.map((item) => {
-                                console.log(location)
                                 return (
                                     <Collapse accordion>
                                         <Panel header={
@@ -88,7 +87,14 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
                                                             {item.txHash}
                                                         </Link>
                                                     </h4>
-
+                                                    <Row>
+                                                        <FormattedMessage id="time" />：
+                                                        {moment(item.createdAt).format()}
+                                                    </Row>
+                                                    <Row>
+                                                        <FormattedMessage id="utc-time" />：
+                                                        {moment(item.createdAt).utc().format()}
+                                                    </Row>
                                                 </Row>
                                                 <Row>
                                                     <FormattedMessage id="MEM_SEND" />：

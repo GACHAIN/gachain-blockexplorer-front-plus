@@ -21,7 +21,7 @@ export default {
     HISTORYMAP: '最近30天 交易/事务 历史',
     H_BLOCK: '区块',
     H_TRANSACTION: '交易/事务',
-    H_PRODUCT: '由节点',
+    H_PRODUCT: '节点',
     H_TIME: '产生时间',
     H_M: '分钟',
     H_S: '秒',
@@ -191,9 +191,9 @@ export default {
     MEM_REC: '接收方',
 
     //Countries
-    COUN_1: '美国-弗吉尼亚州阿什本',
-    COUN_2: '中国-北京',
-    COUN_3: '中国-杭州',
-    COUN_4: '中国-南昌',
-    COUN_5: '日本-东京'
+    COUN_1: '弗吉尼亚州阿什本',
+    COUN_2: '北京',
+    COUN_3: '杭州',
+    COUN_4: '南昌',
+    COUN_5: '东京'
 }

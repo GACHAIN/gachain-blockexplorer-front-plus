@@ -191,10 +191,10 @@ export default {
     MEM_REC: 'Recipient',
 
     //Countries
-    COUN_1: 'United States - ashburn, va',
-    COUN_2: 'China - Beijing',
-    COUN_3: 'Hangzhou, China',
-    COUN_4: 'Nanchang, China',
-    COUN_5: 'Japan - Tokyo'
+    COUN_1: 'ashburn, va',
+    COUN_2: 'Beijing',
+    COUN_3: 'China',
+    COUN_4: 'China',
+    COUN_5: 'Tokyo'
 }
 

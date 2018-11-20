@@ -1,6 +1,7 @@
 import { Table, Tooltip, Row, Tag } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { checkKeyidOrAddress, walletAddrToId } from 'utils';
+import { nodePosition } from 'config';
 import Link from 'umi/link';
 import moment from 'moment';
 
@@ -38,17 +39,8 @@ const List = ({ ...listProps }) => {
       title: <FormattedMessage id="BL_NODEPOSITION" />,
       dataIndex: 'node_position',
       render: (text) => {
-        let arr = [
-          <FormattedMessage id="COUN_3" />, 
-          <FormattedMessage id="COUN_4" />, 
-          <FormattedMessage id="COUN_2" />, 
-          <FormattedMessage id="COUN_2" />, 
-          <FormattedMessage id="COUN_2" />, 
-          <FormattedMessage id="COUN_5" />, 
-          <FormattedMessage id="COUN_1" />
-        ]
         return (
-          <span>{arr[text]}</span>
+          <span>{ nodePosition[text] }</span>
         )
       }
     }, {

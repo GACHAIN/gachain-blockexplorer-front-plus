@@ -191,9 +191,9 @@ export default {
     MEM_REC: '受信者',
 
     //Countries
-    COUN_1: 'アメリカ・バージニア州アシュベン。',
-    COUN_2: '中国・北京',
-    COUN_3: '中国・杭州',
-    COUN_4: '中国・南昌',
-    COUN_5: '日本・東京'
+    COUN_1: 'バージニア州アシュベン。',
+    COUN_2: '北京',
+    COUN_3: '杭州',
+    COUN_4: '南昌',
+    COUN_5: '東京'
 }

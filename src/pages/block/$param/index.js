@@ -1,6 +1,7 @@
 import { Row, Tag } from 'antd';
 import { connect } from 'dva';
 import BlockDetail from './components/BlockDetail';
+import { nodePosition } from 'config';
 import moment from 'moment';
 
 const Block = ({ s_block_detail, loading }) => {
@@ -37,6 +38,13 @@ const Block = ({ s_block_detail, loading }) => {
                             <a href={`#/ecosystem/1/member/${headObj.val}?state=income`}>
                                 {headObj.val}
                             </a>
+                        )
+                    }
+
+                    // 对nodeposition处理
+                    if (headObj.key === 'node_position') {
+                        headObj.val = (
+                            nodePosition[headObj.val]
                         )
                     }
                     Block_header.push(headObj)

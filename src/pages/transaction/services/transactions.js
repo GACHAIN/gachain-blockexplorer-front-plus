@@ -1,5 +1,4 @@
 import { request, config } from 'utils';
-
 let { api } = config
 let { getTransactionList, getTransaction, getTransactionByBlock } = api
 
