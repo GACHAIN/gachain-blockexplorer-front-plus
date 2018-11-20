@@ -9,8 +9,9 @@ import { setLocale, getLocale } from 'umi/locale';
 import Redirect from 'umi/redirect';
 import router from 'umi/router';
 
-import Menus from 'components/Menus/index'
+import Menus from 'components/Menus/index';
 import { request, config, walletAddrToId } from 'utils';
+import { companyRight } from 'config';
 import './index.less';
 
 const { Sider, Content, Footer } = Layout;
@@ -216,7 +217,7 @@ class BasicLayout extends React.Component {
             {this.getPage()}
           </Content>
           <Footer id="footer">
-            <span>@2017 - 2018 Powered by Gachain</span>
+            <span>{ companyRight }</span>
             <a href="https://github.com/GACHAIN" target="_blank" style={{ color: "#000000" }}>
               <Icon type="github" style={{ paddingLeft: '5px' }} />
             </a>

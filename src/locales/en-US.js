@@ -1,7 +1,7 @@
 export default {
     // config
     BLOCK_EXPLORER: 'GAChain Explorer',
-    FOOTERTEXT: 'GAChain block explorer  ©2018 Zhiqian blockchain technology co. LTD',
+    COMPANYRIGHT: 'GAChain Browser © 2017-2018 dry block chain technology co., LTD. All rights reserved',
 
     // menu
     DASHBOARD: 'Dashboard',

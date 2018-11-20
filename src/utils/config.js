@@ -3,9 +3,11 @@ import api from './api'
 
 module.exports = {
     api,
+    // Logo
     name: <FormattedMessage id="GAC_BLOCK_EXPLORER" />,
     prefix: 'GAChain',
-    footerText: <FormattedMessage id="FOOTERTEXT" />,
+    // 版权信息国际化
+    companyRight: <FormattedMessage id="COMPANYRIGHT" />,
     CORS: [
         { "Access-Control-Allow-Origin": "*" }
     ],

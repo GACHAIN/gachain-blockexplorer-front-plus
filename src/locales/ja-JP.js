@@ -1,7 +1,7 @@
 export default {
     // config
     BLOCK_EXPLORER: 'ブロック・ブラウザー',
-    FOOTERTEXT: 'GAChain block explorer  ©2018 ジハード・ブロック・テクノロジー有限会社。',
+    COMPANYRIGHT: '政務鎖ブラウザ©2017−2018智干塗り鎖科技有限公司版権所有',
 
     // menu
     DASHBOARD: 'パネル',

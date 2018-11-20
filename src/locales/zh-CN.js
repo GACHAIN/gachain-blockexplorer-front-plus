@@ -1,7 +1,7 @@
 export default {
     // config
     BLOCK_EXPLORER: '政务链浏览器',
-    FOOTERTEXT: 'GAChain block explorer  ©2018 智乾区块链科技有限公司',
+    COMPANYRIGHT: '政务链浏览器 ©2017-2018 智乾区块链科技有限公司版权所有',
 
     // menu
     DASHBOARD: '仪表盘',
