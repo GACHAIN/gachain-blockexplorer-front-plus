@@ -200,5 +200,7 @@ export default {
     COUN_2: '北京',
     COUN_3: '杭州',
     COUN_4: '南昌',
-    COUN_5: '東京'
+    COUN_5: '東京',
+
+    MORE: 'より'
 }

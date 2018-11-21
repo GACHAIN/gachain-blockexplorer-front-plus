@@ -31,7 +31,7 @@ const middle_blocks = ({ data, loading }) => {
     }) : []
 
     return (
-        <Card className={styles.middle_blocks} loading={loading} title={<span><Icon type="block" style={{ fontSize: '20px' }} /> <FormattedMessage id="H_BLOCKS" /><Link id="more" to="/block">更多</Link></span>} bodyStyle={{ height: "30rem", overflow: 'scroll' }}>
+        <Card className={styles.middle_blocks} loading={loading} title={<span><Icon type="block" style={{ fontSize: '20px' }} /> <FormattedMessage id="H_BLOCKS" /><Link id="more" to="/block"><FormattedMessage id="MORE" /></Link></span>} bodyStyle={{ height: "30rem", overflow: 'scroll' }}>
             {compontents}
         </Card>
     )

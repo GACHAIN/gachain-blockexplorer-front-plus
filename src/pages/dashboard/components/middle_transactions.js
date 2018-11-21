@@ -57,7 +57,7 @@ const middle_transactions = ({ data, loading }) => {
     }) : []
 
     return (
-        <Card className={styles.middle_transactions} loading={loading} title={<span><Icon type="file-sync" style={{ fontSize: '20px' }} className={styles.rotate} /> <FormattedMessage id="H_TRANSACTIONS" /><Link id="more" to="/transaction">更多</Link></span>} bodyStyle={{ height: "30rem", overflow: 'scroll' }}>
+        <Card className={styles.middle_transactions} loading={loading} title={<span><Icon type="file-sync" style={{ fontSize: '20px' }} className={styles.rotate} /> <FormattedMessage id="H_TRANSACTIONS" /><Link id="more" to="/transaction"><FormattedMessage id="MORE" /></Link></span>} bodyStyle={{ height: "30rem", overflow: 'scroll' }}>
             {compontents}
         </Card>
     )

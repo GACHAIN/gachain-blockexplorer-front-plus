@@ -200,6 +200,8 @@ export default {
     COUN_2: 'Beijing',
     COUN_3: 'Hangzhou',
     COUN_4: 'Nancang',
-    COUN_5: 'Tokyo'
+    COUN_5: 'Tokyo',
+
+    MORE: 'More'
 }
 
