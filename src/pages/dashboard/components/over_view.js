@@ -34,7 +34,7 @@ const over_view = ({ loading, data }) => {
                         <i style={{    fontStyle: 'normal', fontSize: '18px', paddingLeft: '5px'}}>¥
                             {/* {`¥ ${data === undefined ? 0 : (Number(data['usdt-gac'].last))}`} */}
                             {
-                                (!loading && data) ? parseFloat(Number(data['usdt-gac'].last) * (data.Rates.rates.CNY)).toFixed(3) : []
+                                (!loading && data) ? parseFloat(Number(data['usdt-gac'].last) * (data.Rates.rates ? data.Rates.rates.Rates : null)).toFixed(3) : []
                             }
                         </i>
                         <br/>

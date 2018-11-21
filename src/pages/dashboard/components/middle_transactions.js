@@ -40,7 +40,7 @@ const middle_transactions = ({ data, loading }) => {
                     <Row>
                         <span><FormattedMessage id="WalletID" /></span>
                         <Tooltip placement="topLeft" title={item.key_id}>
-                            <span id="textOverflow">{item.key_id}</span>
+                            <Link id="textOverflow" to={`/ecosystem/1/member/${item.key_id}?state=income`}>{item.key_id}</Link>
                         </Tooltip>
                     </Row>
                     <Row>
@@ -57,7 +57,7 @@ const middle_transactions = ({ data, loading }) => {
     }) : []
 
     return (
-        <Card className={styles.middle_transactions} loading={loading} title={<span><Icon type="file-sync" style={{ fontSize: '20px' }} className={styles.rotate} /> <FormattedMessage id="H_TRANSACTION" /></span>} bodyStyle={{ height: "30rem", overflow: 'scroll' }}>
+        <Card className={styles.middle_transactions} loading={loading} title={<span><Icon type="file-sync" style={{ fontSize: '20px' }} className={styles.rotate} /> <FormattedMessage id="H_TRANSACTIONS" /><Link id="more" to="/transaction">更多</Link></span>} bodyStyle={{ height: "30rem", overflow: 'scroll' }}>
             {compontents}
         </Card>
     )

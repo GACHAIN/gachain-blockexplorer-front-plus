@@ -13,14 +13,17 @@ const middle_blocks = ({ data, loading }) => {
                         <Row>
                             <Col style={{ lineHeight: '4rem', textAlign: 'center', height: '4rem', backgroundColor: '#004b80', borderRadius: '0.5rem', boxShadow: '0.1rem 0.2rem 0.4rem 0.1rem #737373' }}>
                                 <Row>
-                                    <span style={{ color: "#eee" }}><FormattedMessage id="H_BLOCK" />{item.block_id}</span>
+                                    <span style={{ color: "#eee" }}><FormattedMessage id="H_BLOCK" />#{item.block_id}</span>
                                 </Row>
                             </Col>
                         </Row>
                     </Col>
                 </Link>
                 <Col xs={12} sm={12} md={12} lg={12} xl={12} xxl={12} push={2}>
-                    <Row><FormattedMessage id="H_PRODUCT" /> <Tag color="blue">{nodePosition[item.node_position]}</Tag></Row>
+                    <Row><FormattedMessage id="H_PRODUCT" values={{
+                        name: <strong style={{color: '#333'}}>{nodePosition[item.node_position]}</strong>,
+                        nodeId: item.node_position
+                        }}/></Row>
                     <Row>{item.tx_count} <FormattedMessage id="H_TRANSACTION" /></Row>
                 </Col>
             </Row>
@@ -28,7 +31,7 @@ const middle_blocks = ({ data, loading }) => {
     }) : []
 
     return (
-        <Card className={styles.middle_blocks} loading={loading} title={<span><Icon type="block" style={{ fontSize: '20px' }} /> <FormattedMessage id="H_BLOCK" /></span>} bodyStyle={{ height: "30rem", overflow: 'scroll' }}>
+        <Card className={styles.middle_blocks} loading={loading} title={<span><Icon type="block" style={{ fontSize: '20px' }} /> <FormattedMessage id="H_BLOCKS" /><Link id="more" to="/block">更多</Link></span>} bodyStyle={{ height: "30rem", overflow: 'scroll' }}>
             {compontents}
         </Card>
     )

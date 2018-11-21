@@ -19,9 +19,11 @@ export default {
     TOPNUMECOSYSTEM: '生态系统',
 
     HISTORYMAP: '最近30天 交易/事务 历史',
+    H_BLOCKS: '区块',
     H_BLOCK: '区块',
     H_TRANSACTION: '交易/事务',
-    H_PRODUCT: '节点',
+    H_TRANSACTIONS: '交易/事务',
+    H_PRODUCT: '由{name}#{nodeId}的全节点产生',
     H_TIME: '产生时间',
     H_M: '分钟',
     H_S: '秒',
@@ -157,7 +159,7 @@ export default {
     DATABASE_BACKENDVISION: '最新版本',
 
     // Search
-    S_T: '请输入 事务哈希 / 区块哈希 / 区块高度 / 账户ID/地址',
+    S_T: '事务哈希 / 区块哈希 / 区块高度 / 钱包地址/账户ID',
     S: '搜索',
     S_NotFound: '输入信息有误，没有找到 区块/交易',
     S_VALUENULL: '查询的值不能为空',
@@ -181,6 +183,9 @@ export default {
     //Member
     MEM_MEMBERINFO: '成员信息',
     MEM_ASSETS: '资产',
+    NO_RECORD_REC: '暂无转入记录',
+    NO_RECORD_SENT: '暂无转出记录',
+    MEM_TOTAL: '总计',
 
     MEM_TRANSACTION: '交易/事务',
     MEM_INCOME: '转入',
@@ -195,5 +200,5 @@ export default {
     COUN_2: '北京',
     COUN_3: '杭州',
     COUN_4: '南昌',
-    COUN_5: '东京'
+    COUN_5: '东京',
 }

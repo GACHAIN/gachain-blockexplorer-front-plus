@@ -61,7 +61,8 @@ export default modelExtend(baseModel, {
                         type: 'save',
                         payload: {
                             incomeList: data.body.data,
-                            total: data.body.total
+                            total: data.body.total,
+                            sum: data.body.sum
                         }
                     })
                 } else {
@@ -69,7 +70,8 @@ export default modelExtend(baseModel, {
                         type: 'save',
                         payload: {
                             outcomeList: data.body.data,
-                            total: data.body.total
+                            total: data.body.total,
+                            sum: data.body.sum
                         }
                     })
                 }

@@ -9,5 +9,5 @@
 }
 
 .transaction_r_c_r span, .transaction_r_c_r a {
-    vertical-align: middle
+    vertical-align: top;
 }

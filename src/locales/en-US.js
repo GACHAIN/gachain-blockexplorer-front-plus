@@ -9,7 +9,7 @@ export default {
     BLOCK: 'Blocks',
     TRANSACTION: 'Transactions',
     ECOSYSTEM: 'Ecosystem',
-    SYSTEMPARAM: 'System Param',
+    SYSTEMPARAM: 'System Parameters',
 
     // Dashboard
     // TOPNUM
@@ -19,14 +19,16 @@ export default {
     TOPNUMECOSYSTEM: 'Ecosystem',
 
     HISTORYMAP: 'Recent 30-day trading history',
+    H_BLOCKS: 'Blocks',
     H_BLOCK: 'Block',
     H_TRANSACTION: 'Transaction',
-    H_PRODUCT: 'By the node',
+    H_TRANSACTIONS: 'Transactions',
+    H_PRODUCT: 'By the Master Node {name}#{nodeId}',
     H_TIME: 'Create Time',
     H_M: 'Minutes',
     H_S: 'Seconds',
     H_NODE: 'Global Node Distribution',
-    H_GACHAINOVERVIEW: 'GAChain Over View',
+    H_GACHAINOVERVIEW: 'GAChain Overview',
 
     /**over_view */
     H_MARKETVALUE: 'Total market value today',
@@ -136,7 +138,7 @@ export default {
     EP_CONDITIONS: 'Conditions',
 
     // System Parameters
-    SYSTEMPARAMETERS: 'System Parmeters',
+    SYSTEMPARAMETERS: 'System Parameters',
     SP_NAME: 'Name',
     SP_VALUE: 'Value',
     SP_CONDITIONS: 'Conditions',
@@ -181,10 +183,13 @@ export default {
     //Member
     MEM_MEMBERINFO: 'Member Information',
     MEM_ASSETS: 'Assets',
+    NO_RECORD_REC: 'No Received Record',
+    NO_RECORD_SENT: 'No Sent Record',
+    MEM_TOTAL: 'Total',
 
     MEM_TRANSACTION: 'Transaction',
-    MEM_INCOME: 'Into',
-    MEM_OUTCOME: 'Out',
+    MEM_INCOME: 'Received',
+    MEM_OUTCOME: 'Sent',
 
     MEM_HASH: 'Hash',
     MEM_SEND: 'Sender',

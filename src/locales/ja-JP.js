@@ -19,9 +19,11 @@ export default {
     TOPNUMECOSYSTEM: 'エコシステムの',
 
     HISTORYMAP: '最近の30日間の 取引/事務 の歴史',
+    H_BLOCKS: 'サイズ',
     H_BLOCK: 'サイズ',
     H_TRANSACTION: '取引/事務',
-    H_PRODUCT: 'ノード',
+    H_TRANSACTIONS: '取引/事務',
+    H_PRODUCT: '全ノード{name}#{nodeId}によって生成される。',
     H_TIME: '時間がかかる',
     H_M: '分',
     H_S: '秒',
@@ -181,6 +183,9 @@ export default {
     //Member
     MEM_MEMBERINFO: 'メンバー情報',
     MEM_ASSETS: '資産',
+    NO_RECORD_REC: '記録に戻ることはない。',
+    NO_RECORD_SENT: 'しばらく記録を出すことができない。',
+    MEM_TOTAL: '通算',
 
     MEM_TRANSACTION: '取引/事務',
     MEM_INCOME: '転入',
