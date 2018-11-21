@@ -3,7 +3,8 @@
   "scripts": {
     "start": "umi dev",
     "build": "umi build",
-    "test": "umi test"
+    "test": "umi test",
+    "lint": "eslint --fix src --ext .js"
   },
   "devDependencies": {
     "@svgr/webpack": "^4.0.3",

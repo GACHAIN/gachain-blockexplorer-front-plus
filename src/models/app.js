@@ -1,14 +1,14 @@
 export default {
-    namespace: 'app',
+	namespace: 'app',
 
-    state: {
-        collapsed: document.querySelector('body').offsetWidth < 700,
-        searchVal: '',
-    },
-    effects: {
+	state: {
+		collapsed: document.querySelector('body').offsetWidth < 700,
+		searchVal: '',
+	},
+	effects: {
         
-    },
-    reducers: {
+	},
+	reducers: {
         
-    }
+	}
 }

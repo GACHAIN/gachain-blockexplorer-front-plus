@@ -4,9 +4,9 @@ let { api } = config
 let { getDatabase } = api
 
 export function query(params) {
-    return request({
-        url: getDatabase,
-        method: 'POST',
-        data: params,
-    })
+	return request({
+		url: getDatabase,
+		method: 'POST',
+		data: params,
+	})
 }

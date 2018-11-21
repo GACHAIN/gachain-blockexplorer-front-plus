@@ -8,26 +8,26 @@ import Footer from './components/Footer';
 import './index.less'
 
 class BasicLayout extends React.Component {
-    render() {
-        let headerProps = {
+	render() {
+		let headerProps = {
             
-        }
+		}
 
-        let contentProps = {
-            props: this.props
-        }
+		let contentProps = {
+			props: this.props
+		}
 
-        let footerProps = {
+		let footerProps = {
 
-        }
-        return (
-            <Row gutter={24} justify="space-around">
-                <Header { ...headerProps }/>
-                <Content { ...contentProps }/>
-                <Footer { ...footerProps }/>
-            </Row>
-        )
-    }
+		}
+		return (
+			<Row gutter={24} justify="space-around">
+				<Header { ...headerProps }/>
+				<Content { ...contentProps }/>
+				<Footer { ...footerProps }/>
+			</Row>
+		)
+	}
 }
 
 export default BasicLayout

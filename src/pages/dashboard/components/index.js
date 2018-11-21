@@ -6,10 +6,10 @@ import HistoryMap from './history_map';
 import OverView from './over_view';
 
 export {
-    TopNumbers,
-    MiddleBlocks,
-    MiddleTransactions,
-    NodeMap,
-    HistoryMap,
-    OverView,
+	TopNumbers,
+	MiddleBlocks,
+	MiddleTransactions,
+	NodeMap,
+	HistoryMap,
+	OverView,
 }
