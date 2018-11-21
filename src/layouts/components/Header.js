@@ -123,7 +123,7 @@ class Header extends React.PureComponent {
     	let { intl: { formatMessage } } = this.props;
     	return (
     		<Row>
-    			<Row style={{ background: '#004b80' }}>
+    			<Row style={{ background: '#004b80' }} justify="start">
     				<Col id="logo" xs={6} ms={4} md={2} xl={5} xxl={5}>
     					<Link to="/dashboard">
     						<Col xs={24} ms={24} md={24} xl={4} xxl={4}>
@@ -134,10 +134,10 @@ class Header extends React.PureComponent {
     						</Col>
     					</Link>
     				</Col>
-    				<Col xs={10} ms={16} md={18} xl={14} xxl={14}>
+    				<Col xs={10} ms={16} md={18} xl={16} xxl={15}>
     					<Menus />
     				</Col>
-    				<Col xs={8} ms={4} md={4} xl={5} xxl={5} style={{paddingTop: '0.5rem'}}>
+    				<Col xs={8} ms={4} md={4} xl={3} xxl={4} style={{paddingTop: '0.5rem'}}>
     					<Select defaultValue={getLocale()} onChange={(v) => { this.handleChangeLanguage(v) }} className="selectLang">
     						<Option value="zh-CN">
     							<Icon component={china} />
