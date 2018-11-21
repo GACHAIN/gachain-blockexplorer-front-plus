@@ -13,7 +13,7 @@ const columns = [
 				<Tooltip placement="topLeft" title={text}>
 					<span id="textOverflow">{text}</span>
 				</Tooltip>
-			)
+			);
 		}
 	}, {
 		title: <FormattedMessage id="SP_CONDITIONS" />,
@@ -25,9 +25,9 @@ const List = (props) => {
 	return (
 		<Table {...props}
 			rowKey={record => record.name}
-			columns={columns.map((item) => { item['align'] = 'center'; return item })
+			columns={columns.map((item) => { item['align'] = 'center'; return item; })
 			} />
-	)
-}
+	);
+};
 
-export default List
+export default List;

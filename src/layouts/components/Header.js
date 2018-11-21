@@ -1,6 +1,6 @@
 import React from 'react';
 import { Row, Input, Col, Select, Icon, message } from 'antd';
-import Menus from '@components/Menus'
+import Menus from '@components/Menus';
 import { injectIntl, intlShape } from 'react-intl';
 import { name } from 'config';
 import { setLocale, getLocale } from 'umi/locale';
@@ -8,14 +8,14 @@ import router from 'umi/router';
 import Link from 'umi/link';
 import { request, config, walletAddrToId } from 'utils';
 
-import logo from '@public/logo.png'
+import logo from '@public/logo.png';
 import china from '@public/china.svg';
 import japan from '@public/japan.svg';
 import united from '@public/united-states.svg';
 
 const { api } = config;
 const { commonSearch } = api;
-const Option = Select.Option
+const Option = Select.Option;
 class Header extends React.PureComponent {
 
     static propTypes = {
@@ -24,54 +24,54 @@ class Header extends React.PureComponent {
 
     componentDidMount() {
     	(function () {
-    		let objs = document.querySelectorAll('#defsearch div.defaultSearch')
-    		let defsearchObj = document.querySelector('#defsearch')
-    		let inp = document.querySelector('#searchInput input')
+    		let objs = document.querySelectorAll('#defsearch div.defaultSearch');
+    		let defsearchObj = document.querySelector('#defsearch');
+    		let inp = document.querySelector('#searchInput input');
     		for (let i = 0; i < objs.length; i++) {
     			objs[i].onclick = function () {
-    				let val = objs[i].firstChild.lastChild.innerHTML
-    				let link = objs[i].firstChild.lastChild.getAttribute('action')
-    				inp.value = val
+    				let val = objs[i].firstChild.lastChild.innerHTML;
+    				let link = objs[i].firstChild.lastChild.getAttribute('action');
+    				inp.value = val;
     				if (defsearchObj.style.display === 'block') {
-    					defsearchObj.style.display = 'none'
+    					defsearchObj.style.display = 'none';
     				}
-    				router.replace('/' + link)
-    			}
+    				router.replace('/' + link);
+    			};
     		}
-    	})()
+    	})();
     }
 
     handleChangeLanguage = (v) => {
-    	setLocale(v)
+    	setLocale(v);
     }
 
     // 开启
     defsearFocus = () => {
-    	let searobj = document.querySelector('#defsearch')
+    	let searobj = document.querySelector('#defsearch');
     	if (searobj.style.display === 'none') {
-    		searobj.style.display = 'block'
+    		searobj.style.display = 'block';
     	}
     }
 
     defsearEnter = (e) => {
-    	let defsearchObj = document.querySelector('#defsearch')
+    	let defsearchObj = document.querySelector('#defsearch');
     	if (defsearchObj.style.display === 'block') {
-    		defsearchObj.style.display = 'none'
+    		defsearchObj.style.display = 'none';
     	}
 
-    	let val = e.target.value
+    	let val = e.target.value;
     	if (val.length === 0) {
     		let { intl: { formatMessage } } = this.props;
-    		message.warning(formatMessage({ id: 'S_VALUENULL' }))
-    		return false
+    		message.warning(formatMessage({ id: 'S_VALUENULL' }));
+    		return false;
     	} else {
-    		let valString = String(val)
+    		let valString = String(val);
     		if (valString.length === 18 || valString.length === 19 || valString.length === 20 || valString.length === 24) {
     			if (valString.length === 24) {
-    				valString = walletAddrToId(valString)
+    				valString = walletAddrToId(valString);
     			}
-    			router.replace(`/ecosystem/1/member/${valString}`)
-    			return false
+    			router.replace(`/ecosystem/1/member/${valString}`);
+    			return false;
     		}
 
     		let args = {
@@ -84,39 +84,38 @@ class Header extends React.PureComponent {
     			params: {
     				'cmd': '001',
     			}
-    		}
+    		};
 
-    		let v = ''
+    		let v = '';
     		if (val.length === 64) {
-    			args.params['hash'] = val
-    			v = val
+    			args.params['hash'] = val;
+    			v = val;
     		} else {
-    			args.params['block_id'] = Number(val)
-    			v = Number(val)
+    			args.params['block_id'] = Number(val);
+    			v = Number(val);
     		}
 
-    		let options = { url: commonSearch, method: 'POST', data: args }
+    		let options = { url: commonSearch, method: 'POST', data: args };
 
     		request(options)
     			.then((resolve) => {
     				if (resolve.success) {
-    					let { ret_data_type, retcode, data } = resolve.body
-    					console.log(retcode)
+    					let { ret_data_type, retcode, data } = resolve.body;
     					if (retcode === 200 && data === null) {
     						let { intl: { formatMessage } } = this.props;
-    						message.error(formatMessage({ id: 'S_NotFound' }))
+    						message.error(formatMessage({ id: 'S_NotFound' }));
     						return false;
     					}
     					if (parseInt(ret_data_type, 10) === 1) {
     						router.replace(`/block/${data.header.block_id}`);
     					} else if (parseInt(ret_data_type, 10) === 2) {
-    						router.replace(`/transaction/${v}`)
+    						router.replace(`/transaction/${v}`);
     					}
     				}
     			})
     			.catch((reject) => {
-    				message.error(reject, 'line 82')
-    			})
+    				message.error(reject, 'line 82');
+    			});
     	}
     }
     render() {
@@ -138,7 +137,7 @@ class Header extends React.PureComponent {
     					<Menus />
     				</Col>
     				<Col xs={8} ms={4} md={4} xl={3} xxl={4} style={{paddingTop: '0.5rem'}}>
-    					<Select defaultValue={getLocale()} onChange={(v) => { this.handleChangeLanguage(v) }} className="selectLang">
+    					<Select defaultValue={getLocale()} onChange={(v) => { this.handleChangeLanguage(v); }} className="selectLang">
     						<Option value="zh-CN">
     							<Icon component={china} />
     							<span style={{paddingLeft: '0.3rem'}}>中文</span>
@@ -197,9 +196,9 @@ class Header extends React.PureComponent {
     				</div>
     			</Row>
     		</Row>
-    	)
+    	);
     }
 
 }
 
-export default injectIntl(Header)
+export default injectIntl(Header);

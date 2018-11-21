@@ -1,7 +1,7 @@
 import { request, config } from 'utils';
 
-let { api } = config
-let { getNodeList } = api
+let { api } = config;
+let { getNodeList } = api;
 
 export function query(params) {
 	return request({
@@ -11,5 +11,5 @@ export function query(params) {
 			'Content-Type': 'application/json',
 		},
 		data: params,
-	}) 
+	}); 
 } 

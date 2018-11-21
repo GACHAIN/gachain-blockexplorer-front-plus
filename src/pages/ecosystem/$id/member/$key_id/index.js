@@ -4,12 +4,12 @@ import { Row, Col } from 'antd';
 import { connect } from 'dva';
 
 const Member = ({ member, loading, location, dispatch }) => {
-	let { member_info, incomeList, total, outcomeList, sum } = member
+	let { member_info, incomeList, total, outcomeList, sum } = member;
 	const memberInfoProps = {
 		data: member_info,
 		loading: loading.effects['member/query_member'],
 		total,
-	}
+	};
 
 	const memberTransferProps = {
 		dispatch,
@@ -20,7 +20,7 @@ const Member = ({ member, loading, location, dispatch }) => {
 		location,
 		total,
 		sum
-	}
+	};
 
 	return (
 		<Row gutter={24} id="member_info">
@@ -31,7 +31,7 @@ const Member = ({ member, loading, location, dispatch }) => {
 				<MemberTransfer {...memberTransferProps} />
 			</Col>
 		</Row>
-	)
-}
+	);
+};
 
-export default connect(({ member, loading }) => ({ member, loading }))(Member)
+export default connect(({ member, loading }) => ({ member, loading }))(Member);

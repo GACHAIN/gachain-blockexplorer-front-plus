@@ -36,4 +36,4 @@ export default [
 	//     "FormattedMessage": "DATABASE",
 	//     "to": "/database"
 	// },
-]
+];

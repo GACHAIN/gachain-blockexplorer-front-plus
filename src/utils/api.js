@@ -15,18 +15,18 @@
 // IBM服务器
 // const URL = 'http://ibm.sifu8.cn:8800/api'
 // 东京服务器
-const URL = 'https://explore.gac.one:8800/api'
+const URL = 'https://explore.gac.one:8800/api';
 
 export default {
 	// 查询GAC
 	dashboard_gac: `${URL}/dashboard_gac`,
 
-	//top_numbers, middle_blocks, middle_transactions
-	dashboard_top_numbers: `${URL}/dashboard_top_num`, //四个统计总数
-	dashboard_middle_blocks: `${URL}/get_block`, //区块展示
-	dashboard_middle_transactions: `${URL}/get_transaction`, //交易展示
-	dashboard_node_map: `${URL}/dashboard_node_map`, //全球节点地图分布
-	dashboard_history_map: `${URL}/dashboard_history_map`, //历史交易曲线图
+	// top_numbers, middle_blocks, middle_transactions
+	dashboard_top_numbers: `${URL}/dashboard_top_num`, // 四个统计总数
+	dashboard_middle_blocks: `${URL}/get_block`, // 区块展示
+	dashboard_middle_transactions: `${URL}/get_transaction`, // 交易展示
+	dashboard_node_map: `${URL}/dashboard_node_map`, // 全球节点地图分布
+	dashboard_history_map: `${URL}/dashboard_history_map`, // 历史交易曲线图
 	dashboard_overview: `${URL}/dashboard_overview`, // 政务链概览
 
 	// Block
@@ -55,4 +55,4 @@ export default {
 
 	// Database
 	getDatabase: `${URL}/database`,
-}
+};

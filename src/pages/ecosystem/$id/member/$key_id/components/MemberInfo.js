@@ -1,15 +1,15 @@
 import { Card, Row, Col, Avatar, Divider, Icon } from 'antd';
 import { FormattedMessage } from 'react-intl';
-import { qGacToGac, fmoney, checkKeyidOrAddress, walletAddrToId, walletIdToAddr } from 'utils'
-import gac from '@public/gac.svg'
+import { qGacToGac, fmoney, checkKeyidOrAddress, walletAddrToId, walletIdToAddr } from 'utils';
+import gac from '@public/gac.svg';
 
 const MemberInfo = ({ data }) => {
-	/**点击KeyID地址切换 */
+	/** 点击KeyID地址切换 */
 	let toggle = (e) => {
-		let text = e.target.innerHTML
-		text = checkKeyidOrAddress(text) === 1 ? walletAddrToId(text) : walletIdToAddr(text)
-		e.target.innerHTML = text
-	}
+		let text = e.target.innerHTML;
+		text = checkKeyidOrAddress(text) === 1 ? walletAddrToId(text) : walletIdToAddr(text);
+		e.target.innerHTML = text;
+	};
 	return (
 		<Card span={4} title={<FormattedMessage id="MEM_MEMBERINFO" />}>
 			<Row id="member_img">
@@ -71,7 +71,7 @@ const MemberInfo = ({ data }) => {
                 </Col>
             </Row> */}
 		</Card>
-	)
-}
+	);
+};
 
-export default MemberInfo
+export default MemberInfo;

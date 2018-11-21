@@ -2,7 +2,7 @@ import { connect } from 'dva';
 import EcosystemList from './components/List';
 
 const List = ({ ecosystem, loading }) => {
-	const { dataList } = ecosystem
+	const { dataList } = ecosystem;
 	localStorage.setItem('ecosysteList', JSON.stringify(dataList));
 	let listProps = {
 		loading: loading.effects['ecosystem/query'],
@@ -10,7 +10,7 @@ const List = ({ ecosystem, loading }) => {
 		hideOnSinglePage: true,
 		scroll: {x: 400},
 		pagination: false
-	}
+	};
 
 	return (
 		<div>

@@ -12,7 +12,7 @@ export const baseModel = modelExtend({
 			return {
 				...state,
 				...payload,
-			}
+			};
 		},
 
 		/**
@@ -20,12 +20,12 @@ export const baseModel = modelExtend({
          * @param {*} state 
          */
 		'toggle'(state, { payload }) {
-			let { index } = payload
+			let { index } = payload;
            
 			state.dataList.map((item)=>{
-				return item[index] = checkKeyidOrAddress(item[index]) === 1 ? walletAddrToId(item[index]) : walletIdToAddr(item[index])
-			})
-			return { ...state }
+				return item[index] = checkKeyidOrAddress(item[index]) === 1 ? walletAddrToId(item[index]) : walletIdToAddr(item[index]);
+			});
+			return { ...state };
 		}
 	},
-})
+});

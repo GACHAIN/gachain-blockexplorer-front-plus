@@ -2,7 +2,7 @@ import TransactionList from './components/List';
 import { connect } from 'dva';
 
 const Transaction = ({ transaction, dispatch, loading, location }) => {
-	const { dataList, total } = transaction
+	const { dataList, total } = transaction;
 	function toggle(index) {
 		dispatch({
 			type: 'transaction/toggle',
@@ -35,22 +35,22 @@ const Transaction = ({ transaction, dispatch, loading, location }) => {
 						'current_page': p || 1,
 						'page_size': n || 10,
 					}
-				}
+				};
 				dispatch({
 					type: 'transaction/queryTransactionByBlock',
 					payload: args
-				})
+				});
 			}
 		}
-	}
+	};
 
 	return (
 		<div>
 			<TransactionList {...listProps} />
 		</div>
-	)
-}
+	);
+};
 
-export default connect(transaction => transaction)(Transaction)
+export default connect(transaction => transaction)(Transaction);
 
 

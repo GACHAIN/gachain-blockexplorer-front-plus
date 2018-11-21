@@ -17,7 +17,7 @@ const NodeList = ({ ...listProps }) => {
 						component={
 							record.icon === 'china' ? china : record.icon === 'japan' ? japan :record.icon === 'united_states' ? united_states : united_states
 						}/>{text}</span>
-				)
+				);
 			}
 		},{
 			title: <FormattedMessage id="N_URL" />,
@@ -31,7 +31,7 @@ const NodeList = ({ ...listProps }) => {
 					<Tooltip placement="topLeft" title={text}>
 						<a onClick={() => listProps.onToggle('key_id')} id="textOverflow">{text}</a>
 					</Tooltip>
-				)
+				);
 			}
 		}, {
 			title: <FormattedMessage id="MN_PUBLICKEY" />,
@@ -41,18 +41,18 @@ const NodeList = ({ ...listProps }) => {
 					<Tooltip placement="topLeft" title={text}>
 						<span id="textOverflow">{text}</span>
 					</Tooltip>
-				)
+				);
 			}
 		}
 	];
 
 	return (
 		<Table
-			columns={columns.map((item) => { item['align'] = 'center'; return item })}
+			columns={columns.map((item) => { item['align'] = 'center'; return item; })}
 			rowKey={record => record.api_address}
 			{...listProps}
 		/>
-	)
-}
+	);
+};
 
-export default NodeList
+export default NodeList;

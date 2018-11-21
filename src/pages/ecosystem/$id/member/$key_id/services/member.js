@@ -1,7 +1,7 @@
 import { request, config } from 'utils';
 
-let { api } = config
-let { getEcosystemKey, getEcosystemMemberTransactions } = api
+let { api } = config;
+let { getEcosystemKey, getEcosystemMemberTransactions } = api;
 
 
 export function query_member(params) {
@@ -9,7 +9,7 @@ export function query_member(params) {
 		url: getEcosystemKey,
 		method: 'POST',
 		data: params
-	})
+	});
 }
 
 export function query_member_transaction(params) {
@@ -17,5 +17,5 @@ export function query_member_transaction(params) {
 		url: getEcosystemMemberTransactions,
 		method: 'POST',
 		data: params
-	})
+	});
 }

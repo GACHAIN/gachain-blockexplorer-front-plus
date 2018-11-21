@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import { Card } from 'antd';
 import styles from './node_map.css';
 
-require('echarts/map/js/world.js')
+require('echarts/map/js/world.js');
 const max = -Infinity;
 
 const node_map = ({ data, loading }) => {
@@ -30,9 +30,9 @@ const node_map = ({ data, loading }) => {
 		},
 		geo: {
 			name: '',
-			//类型
+			// 类型
 			type: 'map',
-			//地图
+			// 地图
 			map: 'world',
 			roam: true,
 			aspectScale: 0.75,
@@ -42,20 +42,20 @@ const node_map = ({ data, loading }) => {
 				max: 8
 			},
 			z: 1,
-			//图形上的文本标签,这里不显示
+			// 图形上的文本标签,这里不显示
 			label: {
 				emphasis: {
 					show: false
 				}
 			},
-			//地图区域的多边形 图形样式
+			// 地图区域的多边形 图形样式
 			itemStyle: {
-				//普通状态
+				// 普通状态
 				normal: {
 					areaColor: '#024a7c',
 					borderColor: '#eee'
 				},
-				//高亮状态
+				// 高亮状态
 				emphasis: {
 					color: 'rgba(0,191,255, 0.2)'
 				}
@@ -64,9 +64,9 @@ const node_map = ({ data, loading }) => {
 		series: [{
 			type: 'effectScatter',
 			coordinateSystem: 'geo',
-			//可以容纳的动画数量
+			// 可以容纳的动画数量
 			effectType: 'ripple',
-			//配置何时显示特效，render表示渲染完就显示
+			// 配置何时显示特效，render表示渲染完就显示
 			rippleEffect: { 'period': 5, 'scale': 3, 'brushType': 'stroke' },
 			symbolSize: [2, 10],
 			symbolRotate: 15,
@@ -91,7 +91,7 @@ const node_map = ({ data, loading }) => {
 				className="react_for_echarts"
 			/>
 		</Card>
-	)
+	);
 
-}
-export default node_map
+};
+export default node_map;

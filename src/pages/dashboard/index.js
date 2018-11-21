@@ -10,7 +10,7 @@ import {
 } from './components';
 
 const Dashboard = ({ loading, dashboard }) => {
-	let { top_numbers, middle_blocks, middle_transactions, node_map, history_map, gac } = dashboard
+	let { top_numbers, middle_blocks, middle_transactions, node_map, history_map, gac } = dashboard;
 	let top_numers_props = {
 		loading: loading.effects['dashboard/query_top_numbers'],
 		data: top_numbers
@@ -39,7 +39,7 @@ const Dashboard = ({ loading, dashboard }) => {
 	let gac_props = {
 		loading: loading.effects['dashboard/query_gac'],
 		data: gac,
-	}
+	};
 
 	return (
 		<Row gutter={24} style={{ padding: '12px' }}>
@@ -68,7 +68,7 @@ const Dashboard = ({ loading, dashboard }) => {
 				</Col>
 			</Row>
 		</Row>
-	)
-}
+	);
+};
 
-export default connect(({ loading, dispatch, dashboard }) => ({ loading, dispatch, dashboard }))(Dashboard)
+export default connect(({ loading, dispatch, dashboard }) => ({ loading, dispatch, dashboard }))(Dashboard);

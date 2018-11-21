@@ -9,24 +9,24 @@ const menuRes = menuData.map((item) => {
 			<Link to={item.to}>
 				<Icon type={item.icon} /><span><FormattedMessage id={item.FormattedMessage} /></span>
 			</Link>
-		</Menu.Item>)
-})
+		</Menu.Item>);
+});
 
 export default (props) => {
-	var selectKey = ''
+	let selectKey = '';
 	menuData.forEach(e => {
-		let path = window.location.hash.substr(1)
-		let pathArr = path.split('/')
+		let path = window.location.hash.substr(1);
+		let pathArr = path.split('/');
 		if (pathArr.length > 2) {
-			path = `/${pathArr[1]}`
+			path = `/${pathArr[1]}`;
 		}
 		if (e.to === path) {
-			selectKey = e
+			selectKey = e;
 		}
 	});
 	return (
 		<Menu id="menu" theme="dark" mode="horizontal" defaultSelectedKeys={[selectKey.FormattedMessage]}>
 			{menuRes}
 		</Menu>
-	)
-} 
+	);
+}; 

@@ -27,14 +27,14 @@ const middle_blocks = ({ data, loading }) => {
 					<Row>{item.tx_count} <FormattedMessage id="H_TRANSACTION" /></Row>
 				</Col>
 			</Row>
-		)
-	}) : []
+		);
+	}) : [];
 
 	return (
 		<Card className={styles.middle_blocks} loading={loading} title={<span><Icon type="block" style={{ fontSize: '20px' }} /> <FormattedMessage id="H_BLOCKS" /><Link id="more" to="/block"><FormattedMessage id="MORE" /></Link></span>} bodyStyle={{ height: '30rem', overflow: 'scroll' }}>
 			{compontents}
 		</Card>
-	)
-}
+	);
+};
 
-export default middle_blocks
+export default middle_blocks;

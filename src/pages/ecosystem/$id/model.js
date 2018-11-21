@@ -9,10 +9,10 @@ export default modelExtend(baseModel, {
 	subscriptions: {
 		setup({ dispatch, history }) {
 			history.listen(location => {
-				let match = pathToRegexp('/ecosystem/:id').exec(location.pathname)
-				let ecosystem_id
+				let match = pathToRegexp('/ecosystem/:id').exec(location.pathname);
+				let ecosystem_id;
 				if (match && location.query.state === 'members') {
-					ecosystem_id = parseInt(match[1], 10)
+					ecosystem_id = parseInt(match[1], 10);
 					let payload = {
 						head: {
 							'version': '1.0',
@@ -26,19 +26,19 @@ export default modelExtend(baseModel, {
 							'current_page': 1,
 							'ecosystem': ecosystem_id
 						}
-					}
+					};
 					dispatch({
 						type: 'query_members',
 						payload
-					})
+					});
 				}
-			})
+			});
 		},
 	},
 
 	effects: {
 		* query_members({ payload = {} }, { call, put }) {
-			const data = yield call(query_members, payload)
+			const data = yield call(query_members, payload);
 			if (data.success) {
 				yield put({
 					type: 'querySuccess',
@@ -46,8 +46,8 @@ export default modelExtend(baseModel, {
 						dataList: data.body.data,
 						total: data.body.total,
 					},
-				})
+				});
 			}
 		}
 	}
-})
+});

@@ -1,5 +1,5 @@
 import { FormattedMessage } from 'react-intl';
-import { Table } from 'antd'
+import { Table } from 'antd';
 const columns = [
 	{
 		title: <FormattedMessage id="DATABASE_ID" />,
@@ -17,12 +17,12 @@ const columns = [
 		title: <FormattedMessage id="DATABASE_BACKENDVISION" />,
 		dataIndex: 'BackendVersion'
 	}
-]
+];
 
 export default (props) => {
 	return (
-		<Table columns={columns.map((item) => { item['align'] = 'center'; return item })} {...props}
+		<Table columns={columns.map((item) => { item['align'] = 'center'; return item; })} {...props}
 			rowKey={record => record.ID}
 		/>
-	)
-}
+	);
+};

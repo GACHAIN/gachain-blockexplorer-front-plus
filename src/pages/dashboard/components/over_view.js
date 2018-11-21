@@ -1,7 +1,7 @@
 import { Card, Icon, Row, Col } from 'antd';
 import { FormattedMessage } from 'react-intl';
-import styles from './over_view.css'
-import Link from 'umi/link'
+import styles from './over_view.css';
+import Link from 'umi/link';
 
 const over_view = ({ loading, data }) => {
 	return (
@@ -81,7 +81,7 @@ const over_view = ({ loading, data }) => {
 				</Col>
 			</Row>
 		</Card>
-	)
-}
+	);
+};
 
-export default over_view
+export default over_view;

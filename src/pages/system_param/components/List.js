@@ -11,13 +11,13 @@ const columns = [
 		dataIndex: 'value',
 		render: (text) => {
 			if (text === '') {
-				text = '-'
+				text = '-';
 			}
 			return (
 				<Tooltip placement="topLeft" title={text} arrowPointAtCenter>
 					<span id="textOverflow">{text}</span>
 				</Tooltip>
-			)
+			);
 		}
 	}, {
 		title: <FormattedMessage id="SP_CONDITIONS" />,
@@ -26,11 +26,11 @@ const columns = [
 			if (text === 'true') {
 				return (
 					<Tag color="blue">{text}</Tag>
-				)
+				);
 			} else {
 				return (
 					<Tag color="red">{text}</Tag>
-				)
+				);
 			}
 		}
 	}
@@ -40,12 +40,12 @@ const SystemParamList = ({ ...listProps }) => {
 	return (
 		<div>
 			<Table
-				columns={columns.map((item) => { item['align'] = 'center'; return item })}
+				columns={columns.map((item) => { item['align'] = 'center'; return item; })}
 				rowKey={record => record.name}
 				{...listProps}
 			/>
 		</div>
-	)
-}
+	);
+};
 
-export default SystemParamList
+export default SystemParamList;

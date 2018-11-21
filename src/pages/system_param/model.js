@@ -20,20 +20,20 @@ export default modelExtend(baseModel, {
 							'current_page': 1,
 							'page_size': 10,
 						}
-					}
+					};
 					dispatch({
 						type: 'query',
 						payload: args
-					})
+					});
 				}
-			})
+			});
 		},
 	},
 
 	effects: {
 		* query({ payload = {
 		} }, { call, put }) {
-			const data = yield call(query, payload)
+			const data = yield call(query, payload);
 			if (data.success) {
 				yield put({
 					type: 'querySuccess',
@@ -41,8 +41,8 @@ export default modelExtend(baseModel, {
 						dataList: data.body.data,
 						total: data.body.total,
 					},
-				})
+				});
 			}
 		},
 	},
-})
+});

@@ -27,8 +27,8 @@ const top_numbers = ({ loading, data }) => {
 					</Row>
 				</Card>
 			</Col>
-		)
-	})
+		);
+	});
 
 	return (
 		<div className={styles.uicomponents}>
@@ -36,7 +36,7 @@ const top_numbers = ({ loading, data }) => {
 				{UIComponents}
 			</Row>
 		</div>
-	)
-}
+	);
+};
 
-export default top_numbers
+export default top_numbers;

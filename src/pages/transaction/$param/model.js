@@ -1,5 +1,5 @@
 import pathToRegexp from 'path-to-regexp';
-import { query_detail } from '../services/transactions'
+import { query_detail } from '../services/transactions';
 import modelExtend from 'dva-model-extend';
 import { baseModel } from 'utils/model';
 
@@ -11,7 +11,7 @@ export default modelExtend(baseModel, {
 	subscriptions: {
 		setup({ dispatch, history }) {
 			history.listen((location) => {
-				const match = pathToRegexp('/transaction/:param').exec(location.pathname)
+				const match = pathToRegexp('/transaction/:param').exec(location.pathname);
 				if (match) {
 					let payload = {
 						head: {
@@ -27,25 +27,25 @@ export default modelExtend(baseModel, {
 							'hash': match[1],
 							'current_page': 1
 						}
-					}
+					};
 					dispatch({
 						type: 'query',
 						payload
-					})
+					});
 				}
-			})
+			});
 		}
 	},
 	effects: {
 		* query({ payload = {} }, { call, put }) {
-			const data = yield call(query_detail, payload)
+			const data = yield call(query_detail, payload);
 			if (data.success) {
 				yield put({
 					type: 'save',
 					payload: {
 						dataList: data.body.data,
 					}
-				})
+				});
 			}
 		}
 	},
@@ -54,7 +54,7 @@ export default modelExtend(baseModel, {
 			return {
 				...state,
 				...payload
-			}
+			};
 		}
 	}
-})
+});

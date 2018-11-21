@@ -30,7 +30,7 @@ export default {
 	H_NODE: '全球主节点分布',
 	H_GACHAINOVERVIEW: '政务链概览',
 
-	/**over_view */
+	/** over_view */
 	H_MARKETVALUE: '当今总市值',
 	H_RATE: '今日价格：',
 	H_LASTBLOCK: '最后区块',
@@ -125,7 +125,7 @@ export default {
 	E_NAME: '生态系统名称',
 	E_MEMBERS: '成员总数',
 
-	//Ecosystem Keys
+	// Ecosystem Keys
 	K_WALLETID: '账户 ID/地址',
 	K_AMOUNT: '余额',
 	K_PUBLICKEY: '公钥',
@@ -168,19 +168,19 @@ export default {
 	PARAMNAME: '参数名称',
 	VALUE: '值',
 
-	//Message
+	// Message
 	ME_FAILYRE: '失败',
 	ME_SUCCESS: '成功',
 
-	//Type
+	// Type
 	TYPE_TRANSFER: '转账',
 	TYPE_CREATEUSER: '创建用户',
 	TYPE_TASK: '定时任务',
 
-	//Button
+	// Button
 	VIEW: '查看',
 
-	//Member
+	// Member
 	MEM_MEMBERINFO: '成员信息',
 	MEM_ASSETS: '资产',
 	NO_RECORD_REC: '暂无转入记录',
@@ -195,7 +195,7 @@ export default {
 	MEM_SEND: '发送方',
 	MEM_REC: '接收方',
 
-	//Countries
+	// Countries
 	COUN_1: '弗吉尼亚州阿什本',
 	COUN_2: '北京',
 	COUN_3: '杭州',
@@ -203,4 +203,4 @@ export default {
 	COUN_5: '东京',
 
 	MORE: '更多'
-}
+};

@@ -5,7 +5,7 @@ import {
 	query_history_map,
 	query_gac,
 	query_middle_transactions
-} from './services'
+} from './services';
 
 export default {
 	namespace: 'dashboard',
@@ -44,7 +44,7 @@ export default {
 					let query_gac_args = {
 						'head': { version: '1.0', msgtype: 'request', interface: 'query_gac', remark: '' },
 						'params': { cmd: '001' }
-					}
+					};
 
 					dispatch({
 						type: 'query_top_numbers',
@@ -72,13 +72,13 @@ export default {
 						payload: query_history_map
 					});
 				}
-			})
+			});
 		}
 	},
 
 	effects: {
 		* query_top_numbers({ payload = {} }, { call, put }) {
-			const result = yield call(query_top_numbers, payload)
+			const result = yield call(query_top_numbers, payload);
 			if (result.success) {
 				yield put({
 					type: 'save',
@@ -86,12 +86,12 @@ export default {
 						top_numbers: result.body.data,
 						total: result.body.total,
 					},
-				})
+				});
 			}
 		},
 
 		* query_middle_blocks({ payload }, { call, put }) {
-			const result = yield call(query_middle_blocks, payload)
+			const result = yield call(query_middle_blocks, payload);
 			if (result.success) {
 				yield put({
 					type: 'save',
@@ -99,12 +99,12 @@ export default {
 						middle_blocks: result.body.data,
 						total: result.body.all_row_nums,
 					}
-				})
+				});
 			}
 		},
 
 		* query_node_map({ payload }, { call, put }) {
-			const result = yield call(query_node_map, payload)
+			const result = yield call(query_node_map, payload);
 			if (result.success) {
 				yield put({
 					type: 'save',
@@ -112,12 +112,12 @@ export default {
 						node_map: result.body.data,
 						total: result.body.all_row_nums,
 					}
-				})
+				});
 			}
 		},
 
 		* query_history_map({ payload }, { call, put }) {
-			const result = yield call(query_history_map, payload)
+			const result = yield call(query_history_map, payload);
 			if (result.success) {
 				yield put({
 					type: 'save',
@@ -125,12 +125,12 @@ export default {
 						history_map: result.body.data,
 						total: result.body.all_row_nums
 					}
-				})
+				});
 			}
 		},
 
 		* query_gac({ payload }, { call, put }) {
-			const result = yield call(query_gac, payload)
+			const result = yield call(query_gac, payload);
 			if (result.success) {
 				yield put({
 					type: 'save',
@@ -138,12 +138,12 @@ export default {
 						gac: result.body.data,
 						total: result.body.all_row_nums
 					}
-				})
+				});
 			}
 		},
 
 		* query_middle_transactions({ payload }, { call, put }) {
-			const result = yield call(query_middle_transactions, payload)
+			const result = yield call(query_middle_transactions, payload);
 			if (result.success) {
 				yield put({
 					type: 'save',
@@ -151,7 +151,7 @@ export default {
 						middle_transactions: result.body.data,
 						total: result.body.all_row_nums
 					}
-				})
+				});
 			}
 		},
 	},
@@ -161,7 +161,7 @@ export default {
 			return {
 				...state,
 				...payload
-			}
+			};
 		}
 	}
-}
+};

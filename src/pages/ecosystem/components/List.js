@@ -30,14 +30,14 @@ const columns = [
 			}
 		}>{text}</Link>
 	}
-]
+];
 
 const EcosystemList = ({ ...listProps }) => {
 	return (
-		<Table {...listProps} columns={columns.map((item) => { item['align'] = 'center'; return item })}
+		<Table {...listProps} columns={columns.map((item) => { item['align'] = 'center'; return item; })}
 			rowKey={record => record.name}
 		/>
-	)
-}
+	);
+};
 
-export default withRouter(EcosystemList)
+export default withRouter(EcosystemList);

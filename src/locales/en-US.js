@@ -30,7 +30,7 @@ export default {
 	H_NODE: 'Global Node Distribution',
 	H_GACHAINOVERVIEW: 'GAChain Overview',
 
-	/**over_view */
+	/** over_view */
 	H_MARKETVALUE: 'Total market value today',
 	H_RATE: 'Today\'s Price:',
 	H_LASTBLOCK: 'Last Block',
@@ -168,19 +168,19 @@ export default {
 	PARAMNAME: 'Param Name',
 	VALUE: 'Value',
 
-	//Message
+	// Message
 	ME_FAILYRE: 'Failure',
 	ME_SUCCESS: 'Success',
 
-	//Type
+	// Type
 	TYPE_TRANSFER: 'Transfer',
 	TYPE_CREATEUSER: 'Create User',
 	TYPE_TASK: 'Task',
 
-	//Button
+	// Button
 	VIEW: 'View',
 
-	//Member
+	// Member
 	MEM_MEMBERINFO: 'Member Information',
 	MEM_ASSETS: 'Assets',
 	NO_RECORD_REC: 'No Received Record',
@@ -195,7 +195,7 @@ export default {
 	MEM_SEND: 'Sender',
 	MEM_REC: 'Recipient',
 
-	//Countries
+	// Countries
 	COUN_1: 'ashburn, va',
 	COUN_2: 'Beijing',
 	COUN_3: 'Hangzhou',
@@ -203,5 +203,5 @@ export default {
 	COUN_5: 'Tokyo',
 
 	MORE: 'More'
-}
+};
 

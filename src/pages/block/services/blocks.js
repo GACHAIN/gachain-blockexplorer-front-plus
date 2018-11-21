@@ -8,7 +8,7 @@ export function query(params) {
 		url: getBlockList,
 		method: 'POST',
 		data: params,
-	})
+	});
 }
 
 export function query_detail(params) {
@@ -16,5 +16,5 @@ export function query_detail(params) {
 		url: getBlock,
 		method: 'POST',
 		data: params,
-	})
+	});
 }

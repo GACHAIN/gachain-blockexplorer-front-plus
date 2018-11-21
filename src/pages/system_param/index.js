@@ -2,7 +2,7 @@ import { connect } from 'dva';
 import SystemParamList from './components/List';
 
 const List = ({ dispatch, system_param, loading }) => {
-	let { dataList, total } = system_param
+	let { dataList, total } = system_param;
 	let listProps = {
 		dataSource: dataList,
 		loading: loading.effects['system_param/query'],
@@ -22,14 +22,14 @@ const List = ({ dispatch, system_param, loading }) => {
 						'current_page': p || 1,
 						'page_size': n || 10,
 					}
-				}
+				};
 				dispatch({
 					type: 'system_param/query',
 					payload: args
-				})
+				});
 			}
 		}
-	}
+	};
 
 	return (
 		<div>

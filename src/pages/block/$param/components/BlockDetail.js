@@ -14,7 +14,7 @@ const columns = [
 		title: <FormattedMessage id="VALUE" />,
 		dataIndex: 'val',
 	},
-]
+];
 
 const transactions_info_columns = [
 	{
@@ -27,7 +27,7 @@ const transactions_info_columns = [
 						<span id="textOverflow">{text}</span>
 					</Link>
 				</Tooltip>
-			)
+			);
 		}
 	}, {
 		title: <FormattedMessage id="TL_CONTRACTNAME" />,
@@ -40,7 +40,7 @@ const transactions_info_columns = [
 				<Row>
 					<Tag color="#108ee9">{moment(text * 1000).fromNow(false)}</Tag>
 				</Row>
-			)
+			);
 		}
 	}, {
 		title: <FormattedMessage id="TL_TYPE" />,
@@ -49,29 +49,29 @@ const transactions_info_columns = [
 			if (text === 276) {
 				return (
 					<Tag color="blue"><FormattedMessage id="TYPE_TRANSFER" /></Tag>
-				)
+				);
 			} else
 			if (text === 293) {
 				return (
 					<Tag color="green"><FormattedMessage id="TYPE_CREATEUSER" /></Tag>
-				)
+				);
 			} else
 			if (text === 264) {
 				return (
 					<Tag color="magenta"><FormattedMessage id="TYPE_TASK" /></Tag>
-				)
+				);
 			}
 
-			return text
+			return text;
 		}
 	}, {
 		title: <FormattedMessage id="TL_WALLET" />,
 		dataIndex: 'key_id',
 		render: (text) => {
-			return <a href={`#/ecosystem/1/member/${text}?state=income`}>{text}</a>
+			return <a href={`#/ecosystem/1/member/${text}?state=income`}>{text}</a>;
 		}
 	}
-]
+];
 
 class BlockDetail extends React.Component {
     static propTypes = {
@@ -79,12 +79,12 @@ class BlockDetail extends React.Component {
     }
 
     render() {
-    	let { Block_header, Block_info, Transactions_info } = this.props.data_list
+    	let { Block_header, Block_info, Transactions_info } = this.props.data_list;
     	let { intl: { formatMessage } } = this.props;
-    	let { loading } = this.props
+    	let { loading } = this.props;
     	if (!loading && Block_header.length === 0 && Block_info.length === 0 && Transactions_info.length === 0) {
-    		router.replace('/block')
-    		message.error(formatMessage({ id: 'S_NotFound' }))
+    		router.replace('/block');
+    		message.error(formatMessage({ id: 'S_NotFound' }));
     	}
     	return (
     		<div>
@@ -92,8 +92,8 @@ class BlockDetail extends React.Component {
     			<Table
     				columns={columns}
     				dataSource={Block_header.map((item) => {
-    					item.key = <span style={{ fontWeight: 'bold' }}><FormattedMessage id={item.key} /></span>
-    					return item
+    					item.key = <span style={{ fontWeight: 'bold' }}><FormattedMessage id={item.key} /></span>;
+    					return item;
     				})}
     				pagination={false}
     				rowKey={record => record.key.props.children.props.id}
@@ -105,9 +105,9 @@ class BlockDetail extends React.Component {
     				columns={columns}
     				dataSource={Block_info.map((item) => {
     					if (item.key) {
-    						item.key = <span style={{ fontWeight: 'bold' }}><FormattedMessage id={item.key} /></span>
+    						item.key = <span style={{ fontWeight: 'bold' }}><FormattedMessage id={item.key} /></span>;
     					}
-    					return item
+    					return item;
     				})}
     				pagination={false}
     				rowKey={record => record.key.props.children.props.id}
@@ -117,8 +117,8 @@ class BlockDetail extends React.Component {
     			<Divider orientation="left" style={{ marginTop: 20 }}><FormattedMessage id="TRANSACTION" /></Divider>
     			<Table
     				columns={transactions_info_columns.map((item) => {
-    					item['align'] = 'center'
-    					return item
+    					item['align'] = 'center';
+    					return item;
     				})}
     				dataSource={Transactions_info}
     				pagination={true}
@@ -127,8 +127,8 @@ class BlockDetail extends React.Component {
     				loading={this.props.loading}
     			/>
     		</div>
-    	)
+    	);
     }
 }
 
-export default injectIntl(BlockDetail)
+export default injectIntl(BlockDetail);

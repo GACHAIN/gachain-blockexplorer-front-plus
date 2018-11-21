@@ -5,7 +5,7 @@ const Content = ({ props }) => {
 		<div id="content">
 			{props.children}
 		</div>
-	)
-}
+	);
+};
 
-export default Content
+export default Content;

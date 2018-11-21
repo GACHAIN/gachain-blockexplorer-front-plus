@@ -12,26 +12,26 @@ const fetch = (options) => {
 		data,
 		fetchType,
 		url,
-	} = options
+	} = options;
 
-	const cloneData = cloneDeep(data)
+	const cloneData = cloneDeep(data);
 
 	try {
-		let domain = ''
+		let domain = '';
 		if (url.match(/[a-zA-Z]+:\/\/[^/]*/)) {
-			[domain] = url.match(/[a-zA-Z]+:\/\/[^/]*/)
-			url = url.slice(domain.length)
-			const match = pathToRegexp.parse(url)
-			url = pathToRegexp.compile(url)(data)
+			[domain] = url.match(/[a-zA-Z]+:\/\/[^/]*/);
+			url = url.slice(domain.length);
+			const match = pathToRegexp.parse(url);
+			url = pathToRegexp.compile(url)(data);
 			for (let item of match) {
 				if (item instanceof Object && item.name in cloneData) {
-					delete cloneData[item.name]
+					delete cloneData[item.name];
 				}
 			}
-			url = domain + url
+			url = domain + url;
 		}
 	} catch (e) {
-		message.error(e.message)
+		message.error(e.message);
 	}
 
 	if (fetchType === 'JSONP') {
@@ -43,73 +43,73 @@ const fetch = (options) => {
 			},
 			(error, result) => {
 				if (error) {
-					reject(error)
+					reject(error);
 				}
-				resolve({ statusText: 'OK', status: 200, data: result })
-			})
-		})
+				resolve({ statusText: 'OK', status: 200, data: result });
+			});
+		});
 	}
 
 	switch (method.toLowerCase()) {
 	case 'get':
 		return axios.get(url, {
 			params: cloneData,
-		})
+		});
 	case 'delete':
 		return axios.delete(url, {
 			data: cloneData,
-		})
+		});
 	case 'post':
-		return axios.post(url, cloneData)
+		return axios.post(url, cloneData);
 	case 'put':
-		return axios.put(url, cloneData)
+		return axios.put(url, cloneData);
 	case 'patch':
-		return axios.patch(url, cloneData)
+		return axios.patch(url, cloneData);
 	default:
-		return axios(options)
+		return axios(options);
 	}
-}
+};
 
 export default function request(options) {
 	if (options.url && options.url.indexOf('//') > -1) {
-		const origin = `${options.url.split('//')[0]}//${options.url.split('//')[1].split('/')[0]}`
+		const origin = `${options.url.split('//')[0]}//${options.url.split('//')[1].split('/')[0]}`;
 		if (window.location.origin !== origin) {
 			if (!options.fetchType) {
 				if (CORS.length > 0) {
-					options.fetchType = 'CORS'
+					options.fetchType = 'CORS';
 				} else {
-					options.fetchType = 'JSONP'
+					options.fetchType = 'JSONP';
 				}
 			}
 		}
 	}
 	return fetch(options)
 		.then((response) => {
-			const { statusText, status } = response
-			let data = response.data
+			const { statusText, status } = response;
+			let data = response.data;
 			if (data instanceof Array) {
 				data = {
 					list: data,
-				}
+				};
 			}
 			return Promise.resolve({
 				success: true,
 				message: statusText,
 				statusCode: status,
 				...data,
-			})
+			});
 		})
 		.catch((error) => {
-			const { response } = error
-			let msg
-			let statusCode
+			const { response } = error;
+			let msg;
+			let statusCode;
 			if (response && response instanceof Object) {
-				const { data, statusText } = response
-				statusCode = response.status
-				msg = data.message || statusText
+				const { data, statusText } = response;
+				statusCode = response.status;
+				msg = data.message || statusText;
 			} else {
-				statusCode = 600
-				msg = error.message || 'Network Error'
+				statusCode = 600;
+				msg = error.message || 'Network Error';
 			}
 			/* eslint-disable */
             return Promise.reject({ success: false, statusCode, message: msg })

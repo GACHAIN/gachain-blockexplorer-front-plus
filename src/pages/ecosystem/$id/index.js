@@ -8,29 +8,29 @@ import { FormattedMessage } from 'react-intl';
 
 const TabPane = Tabs.TabPane;
 const EcosystemID = (props) => {
-	let { dispatch, loading, ecosystemID, location } = props
-	let { dataList, total } = ecosystemID
+	let { dispatch, loading, ecosystemID, location } = props;
+	let { dataList, total } = ecosystemID;
 	// 从浏览器缓存中读取生态参数
-	let data = localStorage.getItem('ecosysteList')
+	let data = localStorage.getItem('ecosysteList');
 	let dataRes = JSON.parse(data).map((item) => {
 		if (item.id === parseInt(props.match.params.id, 10)) {
-			return item.app_params
+			return item.app_params;
 		}
-		return []
-	})
+		return [];
+	});
 
-	/**点击Tab页签调用 */
+	/** 点击Tab页签调用 */
 	const handleTabClick = key => {
-		let { pathname } = location
+		let { pathname } = location;
 		router.push({
 			pathname,
 			search: stringify({
 				state: key,
 			}),
-		})
-	}
+		});
+	};
 
-	/**点击KeyID地址切换 */
+	/** 点击KeyID地址切换 */
 	const toggle = (index) => {
 		dispatch({
 			type: 'ecosystemID/toggle',
@@ -38,12 +38,12 @@ const EcosystemID = (props) => {
 				index
 			}
 		});
-	}
+	};
 
 	const paramsProps = {
 		dataSource: dataRes[0],
 		loading: loading.global,
-	}
+	};
 	const membersProps = {
 		loading: loading.global,
 		dataSource: dataList,
@@ -65,14 +65,14 @@ const EcosystemID = (props) => {
 						'current_page': p || 1,
 						'page_size': n || 10,
 					}
-				}
+				};
 				dispatch({
 					type: 'ecosystemID/query_members',
 					payload: args
-				})
+				});
 			}
 		}
-	}
+	};
 
 	return (
 		<Tabs activeKey={location.query.state} onTabClick={handleTabClick}>
@@ -83,7 +83,7 @@ const EcosystemID = (props) => {
 				<MembersList {...membersProps} />
 			</TabPane>
 		</Tabs>
-	)
-}
+	);
+};
 
-export default connect(({ dispatch, loading, ecosystemID }) => ({ dispatch, loading, ecosystemID }))(EcosystemID)
+export default connect(({ dispatch, loading, ecosystemID }) => ({ dispatch, loading, ecosystemID }))(EcosystemID);

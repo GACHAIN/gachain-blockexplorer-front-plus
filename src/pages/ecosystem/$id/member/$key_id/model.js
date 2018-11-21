@@ -1,6 +1,6 @@
 import modelExtend from 'dva-model-extend';
 import { baseModel } from 'utils/model';
-import { query_member, query_member_transaction } from './services/member'
+import { query_member, query_member_transaction } from './services/member';
 import pathToRegexp from 'path-to-regexp';
 
 export default modelExtend(baseModel, {
@@ -13,35 +13,35 @@ export default modelExtend(baseModel, {
 	subscriptions: {
 		setup({ dispatch, history }) {
 			history.listen((location) => {
-				let { state } = location.query
+				let { state } = location.query;
 				if (!state) {
-					state = 'income'
+					state = 'income';
 				}
-				let match = pathToRegexp('/ecosystem/:id/member/:key_id').exec(location.pathname)
+				let match = pathToRegexp('/ecosystem/:id/member/:key_id').exec(location.pathname);
 				if (match) {
 					let query_member_args = {
 						head: { 'version': '1.0', 'msgtype': 'request', 'interface': 'get_ecosystem_key', 'remark': '' },
 						params: { 'cmd': '001', 'page_size': 10, 'current_page': 1, 'wallet': match[2], 'ecosystem': parseInt(match[1], 10), }
-					}
+					};
 					let query_member_transaction_args = {
 						head: { 'version': '1.0', 'msgtype': 'request', 'interface': 'get_find_tranhistory', 'remark': '' },
 						params: { 'cmd': '001', 'page_size': 10, 'current_page': 1, 'wallet': match[2], 'ecosystem': parseInt(match[1], 10), 'searchType': state, }
-					}
+					};
 					dispatch({
 						type: 'query_member',
 						payload: query_member_args
-					})
+					});
 					dispatch({
 						type: 'query_member_transaction',
 						payload: query_member_transaction_args
-					})
+					});
 				}
-			})
+			});
 		},
 	},
 	effects: {
 		* query_member({ payload = {} }, { call, put }) {
-			const data = yield call(query_member, payload)
+			const data = yield call(query_member, payload);
 			if (data.success) {
 				yield put({
 					type: 'save',
@@ -49,12 +49,12 @@ export default modelExtend(baseModel, {
 						member_info: data.body.data,
 					}
 
-				})
+				});
 			}
 		},
 
 		* query_member_transaction({ payload = {} }, { call, put }) {
-			const data = yield call(query_member_transaction, payload)
+			const data = yield call(query_member_transaction, payload);
 			if (data.success) {
 				if (data.body.ret_data_type === 'income') {
 					yield put({
@@ -64,7 +64,7 @@ export default modelExtend(baseModel, {
 							total: data.body.total,
 							sum: data.body.sum
 						}
-					})
+					});
 				} else {
 					yield put({
 						type: 'save',
@@ -73,7 +73,7 @@ export default modelExtend(baseModel, {
 							total: data.body.total,
 							sum: data.body.sum
 						}
-					})
+					});
 				}
 
 			}
@@ -84,7 +84,7 @@ export default modelExtend(baseModel, {
 			return {
 				...state,
 				...payload
-			}
+			};
 		}
 	}
-})
+});

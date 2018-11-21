@@ -1,7 +1,7 @@
 import { Card, Tabs, Icon, Row, Pagination, Collapse, Col } from 'antd';
 import router from 'umi/router';
 import { stringify } from 'qs';
-import { qGacToGac, fmoney } from 'utils'
+import { qGacToGac, fmoney } from 'utils';
 import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
 import Link from 'umi/link';
@@ -14,14 +14,14 @@ const Panel = Collapse.Panel;
 const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location, dispatch, sum }) => {
     
 	const handleTabClick = (key) => {
-		let { pathname } = location
+		let { pathname } = location;
 		router.push({
 			pathname,
 			search: stringify({
 				state: key,
 			}),
-		})
-	}
+		});
+	};
 
 	function getIncomeList() {
 		if (incomeList) {
@@ -65,8 +65,8 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
 							</Row>
 						</Panel>
 					</Collapse>
-				)
-			})
+				);
+			});
 		} else {
 			return (
 				<Row>
@@ -74,7 +74,7 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
 						<FormattedMessage id="NO_RECORD_REC" />
 					</Col>
 				</Row>
-			)
+			);
 		}
 	}
 
@@ -120,8 +120,8 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
 							</Row>
 						</Panel>
 					</Collapse>
-				)
-			})
+				);
+			});
 		} else {
 			return (
 				<Row>
@@ -129,10 +129,9 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
 						<FormattedMessage id="NO_RECORD_SENT" />
 					</Col>
 				</Row>
-			)
+			);
 		}
 	}
-	console.log(sum)
 	return (
 		<Card title={<FormattedMessage id="MEM_TRANSACTION" />}>
 			<Row>
@@ -153,11 +152,11 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
 					let query_member_transaction_args = {
 						head: { 'version': '1.0', 'msgtype': 'request', 'interface': 'get_find_tranhistory', 'remark': '' },
 						params: { 'cmd': '001', 'page_size': s || 5, 'current_page': p || 1, 'wallet': member_info.id, 'ecosystem': parseInt(member_info.ecosystem, 10), 'searchType': location.query.state, }
-					}
+					};
 					dispatch({
 						type: 'member/query_member_transaction',
 						payload: query_member_transaction_args
-					})
+					});
 				}}
 				defaultCurrent={1}
 				defaultPageSize={10}
@@ -165,7 +164,7 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
 				style={{ textAlign: 'center', paddingTop: '1rem' }
 				} />
 		</Card>
-	)
-}
+	);
+};
 
-export default MemberTransfer
+export default MemberTransfer;

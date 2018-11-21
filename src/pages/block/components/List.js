@@ -7,9 +7,9 @@ import moment from 'moment';
 
 const List = ({ ...listProps }) => {
 	const viewDetail = (text) => {
-		text = checkKeyidOrAddress(text) === 1 ? walletAddrToId(text) : text
-		window.location.href=`${window.origin}#/ecosystem/1/member/${text}?state=income`
-	}
+		text = checkKeyidOrAddress(text) === 1 ? walletAddrToId(text) : text;
+		window.location.href=`${window.origin}#/ecosystem/1/member/${text}?state=income`;
+	};
 	const columns = [
 		{
 			title: <FormattedMessage id="BL_BLOCKID" />,
@@ -23,7 +23,7 @@ const List = ({ ...listProps }) => {
 					<Tooltip placement="topLeft" title={text}>
 						<Link to={`block/${record.block_id}`}><span id="textOverflow">{text}</span></Link>
 					</Tooltip>
-				)
+				);
 			}
 		}, {
 			title: <FormattedMessage id="BL_CREATETIME" />,
@@ -33,7 +33,7 @@ const List = ({ ...listProps }) => {
 					<Row>
 						<Tag color="#108ee9">{moment(text * 1000).fromNow(false)}</Tag>
 					</Row>
-				)
+				);
 			}
 		}, {
 			title: <FormattedMessage id="BL_NODEPOSITION" />,
@@ -41,7 +41,7 @@ const List = ({ ...listProps }) => {
 			render: (text) => {
 				return (
 					<span>{ nodePosition[text] }</span>
-				)
+				);
 			}
 		}, {
 			title: <FormattedMessage id="BL_ECOSYSTEMID" />,
@@ -52,11 +52,11 @@ const List = ({ ...listProps }) => {
 			render: (text) => (
 				<Row>
 					<Tooltip placement="topLeft" title={text}>
-						<a id="textOverflow" onClick={() => { listProps.onToggle('key_id') }}>
+						<a id="textOverflow" onClick={() => { listProps.onToggle('key_id'); }}>
 							{text}
 						</a>
 					</Tooltip>
-					<Tag color="#108ee9" onClick={() => { viewDetail(text) }}><FormattedMessage id="VIEW" /></Tag>
+					<Tag color="#108ee9" onClick={() => { viewDetail(text); }}><FormattedMessage id="VIEW" /></Tag>
 				</Row>
 			)
 		}, {
@@ -66,11 +66,11 @@ const List = ({ ...listProps }) => {
 
 	return (
 		<Table
-			columns={columns.map((item) => { item['align'] = 'center'; return item })}
+			columns={columns.map((item) => { item['align'] = 'center'; return item; })}
 			rowKey={record => record.hash + Math.random()}
 			{...listProps}
 		/>
-	)
-}
+	);
+};
 
-export default List
+export default List;

@@ -1,7 +1,7 @@
 import modelExtend from 'dva-model-extend';
 import { baseModel } from 'utils/model';
 import * as transactionServices from './services/transactions';
-const { query_transaction_by_block } = transactionServices
+const { query_transaction_by_block } = transactionServices;
 
 export default modelExtend(baseModel, {
 	namespace: 'transaction',
@@ -14,7 +14,7 @@ export default modelExtend(baseModel, {
 	},
 	effects: {
 		* queryTransactionByBlock({ payload = {} }, { call, put }) {
-			const data = yield call(query_transaction_by_block, payload)
+			const data = yield call(query_transaction_by_block, payload);
 			if (data.success) {
 				yield put({
 					type: 'querySuccess',
@@ -22,7 +22,7 @@ export default modelExtend(baseModel, {
 						dataList: data.body.data,
 						total: data.body.total,
 					}
-				})
+				});
 			}
 		}
 	},
@@ -42,14 +42,14 @@ export default modelExtend(baseModel, {
 							'current_page': 1,
 							'page_size': 10,
 						}
-					}
-					const payload = { ...args, ...location.query }
+					};
+					const payload = { ...args, ...location.query };
 					dispatch({
 						type: 'queryTransactionByBlock',
 						payload
-					})
+					});
 				}
-			})
+			});
 		},
 	},
-})
+});

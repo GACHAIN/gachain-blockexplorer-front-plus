@@ -10,7 +10,7 @@ const Footer = (props) => {
 				<Icon type="github" style={{ paddingLeft: '5px' }} />
 			</a>
 		</div>
-	)
-}
+	);
+};
 
-export default Footer
+export default Footer;

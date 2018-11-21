@@ -2,7 +2,7 @@ import { connect } from 'dva';
 import NodeList from './components/List';
 
 const Nodelist = ({ dispatch, node, loading }) => {
-	const { dataList, total } = node
+	const { dataList, total } = node;
 	function toggle(index) {
 		dispatch({
 			type: 'node/toggle',
@@ -33,14 +33,14 @@ const Nodelist = ({ dispatch, node, loading }) => {
 						'page_size': p || 10,
 						'current_page': n || 1,
 					}
-				}
+				};
 				dispatch({
 					type: 'node/query',
 					payload: args
-				})
+				});
 			}
 		}
-	}
+	};
 
 	return (
 		<div>

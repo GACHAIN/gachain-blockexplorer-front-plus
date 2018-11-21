@@ -1,7 +1,7 @@
 import { request, config } from 'utils';
 
-let { api } = config
-let { getIp } = api
+let { api } = config;
+let { getIp } = api;
 
 export function checkIp(params) {
 	return request({
@@ -11,5 +11,5 @@ export function checkIp(params) {
 			'content-type':'application/json'
 		},
 		data: params
-	})
+	});
 }

@@ -1,5 +1,5 @@
 import { FormattedMessage } from 'react-intl';
-import api from './api'
+import api from './api';
 
 module.exports = {
 	api,
@@ -24,4 +24,4 @@ module.exports = {
 	URL,
 	// qGAC转GAC后面有多少个0
 	MONEY_POWER: 12,
-}
+};

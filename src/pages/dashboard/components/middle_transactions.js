@@ -10,21 +10,21 @@ const middle_transactions = ({ data, loading }) => {
 		if (text === 276) {
 			return (
 				<Tag color="blue"><FormattedMessage id="TYPE_TRANSFER" /></Tag>
-			)
+			);
 		} else
 		if (text === 293) {
 			return (
 				<Tag color="green"><FormattedMessage id="TYPE_CREATEUSER" /></Tag>
-			)
+			);
 		} else
 		if (text === 264) {
 			return (
 				<Tag color="magenta"><FormattedMessage id="TYPE_TASK" /></Tag>
-			)
+			);
 		}
 
-		return text
-	}
+		return text;
+	};
 
 	let compontents = (!loading && data) ? data.map((item, key) => {
 		return (
@@ -53,14 +53,14 @@ const middle_transactions = ({ data, loading }) => {
 					</Row>
 				</Col>
 			</Row>
-		)
-	}) : []
+		);
+	}) : [];
 
 	return (
 		<Card className={styles.middle_transactions} loading={loading} title={<span><Icon type="file-sync" style={{ fontSize: '20px' }} className={styles.rotate} /> <FormattedMessage id="H_TRANSACTIONS" /><Link id="more" to="/transaction"><FormattedMessage id="MORE" /></Link></span>} bodyStyle={{ height: '30rem', overflow: 'scroll' }}>
 			{compontents}
 		</Card>
-	)
-}
+	);
+};
 
-export default middle_transactions
+export default middle_transactions;

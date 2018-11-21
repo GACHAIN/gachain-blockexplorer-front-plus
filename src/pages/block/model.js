@@ -2,7 +2,7 @@ import modelExtend from 'dva-model-extend';
 import { baseModel } from 'utils/model';
 import * as blockServices from './services/blocks';
 
-const { query } = blockServices
+const { query } = blockServices;
 
 export default modelExtend(baseModel, {
 	namespace: 'block',
@@ -23,21 +23,21 @@ export default modelExtend(baseModel, {
 							'current_page': 1,
 							'page_size': 10,
 						}
-					}
-					const payload = { ...args, ...location.query }
+					};
+					const payload = { ...args, ...location.query };
 					dispatch({
 						type: 'query',
 						payload
-					})
+					});
 				}
-			})
+			});
 		}
 	},
 
 	effects: {
 		* query({ payload = {
 		} }, { call, put }) {
-			const data = yield call(query, payload)
+			const data = yield call(query, payload);
 			if (data.success) {
 				yield put({
 					type: 'querySuccess',
@@ -45,17 +45,17 @@ export default modelExtend(baseModel, {
 						dataList: data.body.data,
 						total: data.body.total,
 					},
-				})
+				});
 			}
 		},
 	},
 
 	reducers: {
 		showModal(state, { payload }) {
-			return { ...state, ...payload }
+			return { ...state, ...payload };
 		},
 		hideModal(state) {
-			return { ...state }
+			return { ...state };
 		}
 	}
-})
+});

@@ -30,7 +30,7 @@ export default {
 	H_NODE: '全世界のノード分布',
 	H_GACHAINOVERVIEW: '政務チェーン',
 
-	/**over_view */
+	/** over_view */
 	H_MARKETVALUE: '今日の時価総額',
 	H_RATE: '本日の価格：',
 	H_LASTBLOCK: '最後のブロック',
@@ -168,19 +168,19 @@ export default {
 	PARAMNAME: 'パラメータ名',
 	VALUE: '値',
 
-	//Message
+	// Message
 	ME_FAILYRE: '失敗',
 	ME_SUCCESS: '成功',
 
-	//Type
+	// Type
 	TYPE_TRANSFER: '振替',
 	TYPE_CREATEUSER: 'ユーザーを作成する',
 	TYPE_TASK: '定時の任務',
 
-	//Button
+	// Button
 	VIEW: 'チェック',
 
-	//Member
+	// Member
 	MEM_MEMBERINFO: 'メンバー情報',
 	MEM_ASSETS: '資産',
 	NO_RECORD_REC: '記録に戻ることはない。',
@@ -195,7 +195,7 @@ export default {
 	MEM_SEND: '送信側',
 	MEM_REC: '受信者',
 
-	//Countries
+	// Countries
 	COUN_1: 'バージニア州アシュベン。',
 	COUN_2: '北京',
 	COUN_3: '杭州',
@@ -203,4 +203,4 @@ export default {
 	COUN_5: '東京',
 
 	MORE: 'より'
-}
+};

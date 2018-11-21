@@ -9,7 +9,7 @@ import {
 	Tooltip,
 	Legend,
 	ResponsiveContainer
-} from 'recharts'
+} from 'recharts';
 import styles from './history_map.css';
 
 const history_map = ({ data, loading }) => {
@@ -26,6 +26,6 @@ const history_map = ({ data, loading }) => {
 				</LineChart>
 			</ResponsiveContainer>
 		</Card>
-	)
-}
+	);
+};
 export default history_map;
