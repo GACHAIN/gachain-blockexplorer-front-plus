@@ -11,11 +11,11 @@
 // 华东服务器
 // const URL = 'http://hd.gac.one:8800/api'
 // 节点7服务器
-// const URL = 'http://node7.gac.one:8800/api'
+const URL = 'http://node7.gac.one:8800/api';
 // IBM服务器
 // const URL = 'http://ibm.sifu8.cn:8800/api'
 // 东京服务器
-const URL = 'https://explore.gac.one:8800/api';
+// const URL = 'https://explore.gac.one:8800/api';
 
 export default {
 	// 查询GAC

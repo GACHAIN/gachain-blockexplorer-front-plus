@@ -18,7 +18,18 @@ export default [
 	{
 		'icon': 'file-sync',
 		'FormattedMessage': 'TRANSACTION',
-		'to': '/transaction'
+		'children': [
+			{
+				'icon': 'file-sync',
+				'FormattedMessage': 'TRANSACTION',
+				'to': '/transaction'
+			},
+			{
+				'icon': 'file-sync',
+				'FormattedMessage': 'TRANSACTIONSTATUS',
+				'to': '/transaction_status'
+			},
+		]
 	},
     
 	{

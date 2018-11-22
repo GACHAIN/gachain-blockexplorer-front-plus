@@ -1,8 +1,10 @@
-import { Row } from 'antd';
+import { Row, Icon } from 'antd';
 import { connect } from 'dva';
 import BlockDetail from './components/BlockDetail';
-import { nodePosition } from 'config';
+import { nodeIcon, nodePosition } from 'config';
+import Link from 'umi/link';
 import moment from 'moment';
+
 
 const Block = ({ s_block_detail, loading }) => {
 	let { dataList } = s_block_detail;
@@ -27,9 +29,10 @@ const Block = ({ s_block_detail, loading }) => {
 						headObj.val = data[k][hk];
 					}
 
-					// 过滤掉hash 因为再详情中已经有
-					if (headObj.key === 'hash' || headObj.key=== 'ecosystem_id') {
-						continue;
+					// 过滤字段
+					let excludeField = ['hash', 'ecosystem_id'];
+					if (excludeField.includes(headObj.key)) {
+						continue
 					}
 
 					// 对Key的处理
@@ -44,9 +47,23 @@ const Block = ({ s_block_detail, loading }) => {
 					// 对nodeposition处理
 					if (headObj.key === 'node_position') {
 						headObj.val = (
-							nodePosition[headObj.val]
+							<Row>
+								<span>
+									{`#${headObj.val} `}<Icon component={nodeIcon[headObj.val]} style={{ fontSize: '1.2rem' }} />
+									{/* 城市名称 */}
+									{/* {nodePosition[headObj.val]} */}
+								</span>
+							</Row>
 						);
 					}
+
+					// 对上一个区块hash的处理
+					if (headObj.key === 'prehash') {
+						headObj.val = (
+							<Link to={'/block/'}>{headObj.val}</Link>
+						);
+					}
+
 					Block_header.push(headObj);
 				}
 			} else if (k === 'transactions') {

@@ -1,6 +1,11 @@
 import { FormattedMessage } from 'react-intl';
 import api from './api';
 
+// icon
+import china from '@public/china.svg';
+import japan from '@public/japan.svg';
+import united from '@public/united-states.svg';
+
 module.exports = {
 	api,
 	// Logo
@@ -20,6 +25,10 @@ module.exports = {
 		<FormattedMessage id="COUN_2" />,
 		<FormattedMessage id="COUN_5" />,
 		<FormattedMessage id="COUN_1" />
+	],
+	// 节点icon
+	nodeIcon: [
+		china, china, china, china, china, japan, united
 	],
 	URL,
 	// qGAC转GAC后面有多少个0

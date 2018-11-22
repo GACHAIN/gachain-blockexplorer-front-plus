@@ -19,11 +19,11 @@ export default {
 	TOPNUMECOSYSTEM: 'Ecosystem',
 
 	HISTORYMAP: 'Recent 30-day trading history',
-	H_BLOCKS: 'Blocks',
+	H_BLOCKS: 'New Blocks',
 	H_BLOCK: 'Block',
 	H_TRANSACTION: 'Transaction',
-	H_TRANSACTIONS: 'Transactions',
-	H_PRODUCT: 'By the Master Node {name}#{nodeId}',
+	H_TRANSACTIONS: 'New Transactions',
+	H_PRODUCT: 'By the Master Node #{nodeId}',
 	H_TIME: 'Create Time',
 	H_M: 'Minutes',
 	H_S: 'Seconds',
@@ -64,6 +64,7 @@ export default {
 	'utc-time': 'UTC Time',
 	ecosystem_id: 'Ecosystem ID:',
 	key_id: 'Account ID:',
+	prehash: 'Prev Hash',
 	node_position: 'Packaging Node:',
 	sign: 'Signature:',
 	hash: 'Hash:',
@@ -196,7 +197,7 @@ export default {
 	MEM_REC: 'Recipient',
 
 	// Countries
-	COUN_1: 'ashburn, va',
+	COUN_1: 'Ashburn, Va',
 	COUN_2: 'Beijing',
 	COUN_3: 'Hangzhou',
 	COUN_4: 'Nancang',

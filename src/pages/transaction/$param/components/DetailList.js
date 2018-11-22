@@ -8,7 +8,7 @@ const columns = [
 		title: <FormattedMessage id="PARAMNAME" />,
 		dataIndex: 'key',
 		render: text => {
-			return <span style={{ width: '5rem', display: 'inline-block' }}>{text}</span>;
+			return <span style={{ width: '10rem', display: 'inline-block' }}>{text}</span>;
 		},
 	}, {
 		title: <FormattedMessage id="VALUE" />,

@@ -6,26 +6,30 @@
     }
   }
   @media only screen and (max-width: 600px) {
-    #top-num-sign, #overview, #node_map, #blocks, #transactions {
-      margin-bottom: 10px;
+    html body {
+      padding: 0rem 1rem;
+      #top-num-sign, #overview, #node_map, #blocks, #transactions {
+        margin-bottom: 10px;
+      }
+      #blocks {
+        padding-top: 10px;
+      }
+  
+      #content {
+        margin-left: none;
+      }
+      #arrow-right {
+        transform:rotate(90deg);
+        -ms-transform:rotate(90deg); 	/* IE 9 */
+        -moz-transform:rotate(90deg); 	/* Firefox */
+        -webkit-transform:rotate(90deg); /* Safari 和 Chrome */
+        -o-transform:rotate(90deg); 	/* Opera */
+      }
+      #gac_col {
+        padding-top: 1rem;
+      }
     }
-    #blocks {
-      padding-top: 10px;
-    }
-
-    #content {
-      margin-left: none;
-    }
-    #arrow-right {
-      transform:rotate(90deg);
-      -ms-transform:rotate(90deg); 	/* IE 9 */
-      -moz-transform:rotate(90deg); 	/* Firefox */
-      -webkit-transform:rotate(90deg); /* Safari 和 Chrome */
-      -o-transform:rotate(90deg); 	/* Opera */
-    }
-    #gac_col {
-      padding-top: 1rem;
-    }
+    
   }
   
   @media only screen and (min-width: 600px) {

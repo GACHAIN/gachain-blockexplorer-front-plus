@@ -1,9 +1,10 @@
-import { Table, Tooltip, Row, Tag } from 'antd';
+import { Table, Tooltip, Row, Tag, Icon } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { checkKeyidOrAddress, walletAddrToId } from 'utils';
-import { nodePosition } from 'config';
+import { nodePosition, nodeIcon } from 'config';
 import Link from 'umi/link';
 import moment from 'moment';
+
 
 const List = ({ ...listProps }) => {
 	const viewDetail = (text) => {
@@ -40,7 +41,12 @@ const List = ({ ...listProps }) => {
 			dataIndex: 'node_position',
 			render: (text) => {
 				return (
-					<span>{ nodePosition[text] }</span>
+					<Row style={{ textAlign: 'left' }}>
+						<Icon component={nodeIcon[parseInt(text, 10)]} style={{fontSize: '1.5rem', paddingRight: '1rem'}}/>
+						<span>
+							{nodePosition[text]}
+						</span>
+					</Row>
 				);
 			}
 		}, {
