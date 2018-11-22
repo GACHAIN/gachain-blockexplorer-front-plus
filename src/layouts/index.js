@@ -5,7 +5,7 @@ import Header from './components/Header.js';
 import Content from './components/Content';
 import Footer from './components/Footer';
 
-import './index.less';
+import '../styles/index.less';
 
 class BasicLayout extends React.Component {
 	render() {

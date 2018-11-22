@@ -1,8 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "start": "eslint --fix ./src --ext .js && umi dev",
-    "build": "eslint --fix ./src --ext .js && umi build",
+    "start": "umi dev",
+    "build": "eslint --fix ./src --ext .js && stylelint src/styles/*.* --fix && umi build",
+    "eslint": "eslint --fix ./src --ext .js",
+    "stylelint": "stylelint src/styles/*.* --fix",
+    "format": "eslint --fix ./src --ext .js && stylelint src/styles/*.* --fix",
     "test": "umi test"
   },
   "devDependencies": {

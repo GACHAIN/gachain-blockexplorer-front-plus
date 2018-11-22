@@ -1,102 +1,179 @@
-/* Extra small devices (phones, 600px and down) */
 :global {
-  @media only screen and (max-width: 199px) {
-    #logo {
-      display: none
-    }
-  }
-  @media only screen and (max-width: 600px) {
-    html body {
-      padding: 0rem 1rem;
-      #top-num-sign, #overview, #node_map, #blocks, #transactions {
-        margin-bottom: 10px;
-      }
-      #blocks {
-        padding-top: 10px;
-      }
-  
-      #content {
-        margin-left: none;
-      }
-      #arrow-right {
-        transform:rotate(90deg);
-        -ms-transform:rotate(90deg); 	/* IE 9 */
-        -moz-transform:rotate(90deg); 	/* Firefox */
-        -webkit-transform:rotate(90deg); /* Safari 和 Chrome */
-        -o-transform:rotate(90deg); 	/* Opera */
-      }
-      #gac_col {
-        padding-top: 1rem;
-      }
-    }
-    
-  }
-  
-  @media only screen and (min-width: 600px) {
-    #top-num-sign, #overview, #node_map, #blocks, #transactions  {
-      margin-bottom: 10px;
-    }
-    #blocks {
-      padding-top: 10px;
-    }
-    #arrow-right {
-      transform:rotate(90deg);
-      -ms-transform:rotate(90deg); 	/* IE 9 */
-      -moz-transform:rotate(90deg); 	/* Firefox */
-      -webkit-transform:rotate(90deg); /* Safari 和 Chrome */
-      -o-transform:rotate(90deg); 	/* Opera */
-    }
-    #gac_col {
-      padding-top: 1rem;
-    }
-  }
+	// xxs <= 479
+  @media only screen and (max-width: 479px) {
+		#root {
+			padding: 0 1rem;
 
+			#top-num-sign,
+			#overview,
+			#node_map,
+			#blocks,
+			#transactions {
+				margin-bottom: 10px;
+			}
+
+			#blocks {
+				padding-top: 10px;
+			}
+
+			#arrow-right {
+				transform: rotate(90deg);
+			}
+
+			#gac_col {
+				padding-top: 1rem;
+			}
+		}
+	}
+
+	// xs >= 480
+  @media only screen and (min-width: 480px) {
+		#root {
+			padding: 0 1rem;
+
+			#top-num-sign,
+			#overview,
+			#node_map,
+			#blocks,
+			#transactions {
+				margin-bottom: 10px;
+			}
+
+			#blocks {
+				padding-top: 10px;
+			}
+
+			#arrow-right {
+				transform: rotate(90deg);
+			}
+		}
+	}
+
+	// sm >= 576
+   @media only screen and (min-width: 576px) {
+		#root {
+			padding: 0 1rem;
+
+			#top-num-sign,
+			#overview,
+			#node_map,
+			#blocks,
+			#transactions {
+				margin-bottom: 10px;
+			}
+
+			#blocks {
+				padding-top: 10px;
+			}
+
+			#arrow-right {
+				transform: rotate(90deg);
+			}
+
+			#gac_col {
+				padding-top: 1rem;
+			}
+		}
+	}
+
+	// md >= 768
   @media only screen and (min-width: 768px) {
-    #overview, #blocks {
-      padding-right: 10px;
-    }
-    #node_map, #transactions {
-      padding-left: 10px;
-    }
-    #blocks, #transactions {
-      padding-top: 10px;
-    }
-    #arrow-right {
-      transform:rotate(0deg);
-      -ms-transform:rotate(0deg); 	/* IE 9 */
-      -moz-transform:rotate(0deg); 	/* Firefox */
-      -webkit-transform:rotate(0deg); /* Safari 和 Chrome */
-      -o-transform:rotate(0deg); 	/* Opera */
-    }
-    #gac_col {
-      padding-top: 0rem;
-    }
-  } 
+		#root {
+			padding: 0 0;
 
+			#content {
+				padding: 3rem;
+			}
+
+			#overview,
+			#blocks {
+				padding-right: 10px;
+			}
+
+			#node_map,
+			#transactions {
+				padding-left: 10px;
+			}
+
+			#arrow-right {
+				transform: rotate(90deg);
+			}
+
+			#gac_col {
+				padding-top: 0;
+			}
+
+			#searchInput {
+				padding: 3rem 3rem 0;
+			}
+		}
+	}
+
+	// lg >= 992
   @media only screen and (min-width: 992px) {
-    #content {
-      padding: 3rem;
-    };
-    #blocks, #transactions {
-      padding-top: 10px;
-    }
-    #menu {
-      padding: 0rem 3rem !important
-    }
-    #defsearch, #searchInput {
-      padding: 0 3rem;
-    }
-  } 
+		#root {
+			#content {
+				padding: 3rem;
+			}
 
+			#blocks,
+			#transactions {
+				padding-top: 10px;
+			}
+
+			#menu {
+				padding: 0 3rem !important;
+			}
+
+			#arrow-right {
+				transform: rotate(0deg);
+			}
+
+			#gac_col {
+				padding-top: 0;
+			}
+
+			#searchInput {
+				padding: 3rem 3rem 0;
+			}
+		}
+	}
+
+	// xl >= 1200
   @media only screen and (min-width: 1200px) {
-    #content {
-      padding: 3rem;
-    };
-    #menu {
-      padding: 0rem 3rem !important
-    }
-    #defsearch, #searchInput {
-      padding: 0 3rem;
-    }
-  }
+		#content {
+			padding: 3rem;
+		}
+
+		#menu {
+			padding: 0 3rem !important;
+		}
+
+		#arrow-right {
+			transform: rotate(0deg);
+		}
+
+		#searchInput {
+			padding: 3rem 3rem 0;
+		}
+	}
+
+	// xxl >= 1600
+  @media only screen and (min-width: 1600px) {
+		#content {
+			padding: 3rem;
+		}
+
+		#menu {
+			padding: 0 3rem !important;
+		}
+
+		#arrow-right {
+			transform: rotate(0deg);
+		}
+
+		#searchInput {
+			padding: 3rem 3rem 0;
+		}
+	}
 }

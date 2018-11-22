@@ -20,8 +20,8 @@ const TransactionStatus = ({ transaction_status, dispatch }) => {
 					},
 					params: {
 						'cmd': '001',
-						'page_size': p,
-						'current_page': n
+						'current_page': p,
+						'page_size': n
 					}
 				};
 				dispatch({

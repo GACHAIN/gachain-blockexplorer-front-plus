@@ -1,47 +1,51 @@
 :global {
-    table {
-        /*表头*/
-        .ant-table-thead > tr > th {
-            background-color: #3E70A2;
-            /*表头字体样式*/
-            span {
-                color: #fff;
-                font-size: 16px;
-                min-width: 100px;
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-                font-weight: 700;
-            }
-            /*表头圆角*/
-            th:first-child{
-                border-radius: 10px 0 0 0 !important;
-            }
-            th:last-child {
-                border-radius: 0 10px 0 0 !important;
-            }
-        }
+	table {
+		/* 表头 */
+		.ant-table-thead > tr > th {
+			background-color: #3e70a2;
 
-        /*隔行换色*/
-        tbody tr:nth-child(odd) {
-            background-color: #eeeeee;
-        }
-        tbody tr:nth-child(even) {
-            background-color: #ffffff;
-        }
-        /*整体字体大小*/
-        font-size: 1em;
-    }
+			/* 表头字体样式 */
+			span {
+				color: #fff;
+				font-size: 16px;
+				min-width: 100px;
+				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+				font-weight: 700;
+			}
 
-    /*分页中的箭头样式调整*/
-    .ant-pagination-item-link {
-        i {
-            padding-top: 9px
-        }
-    }
+			/* 表头圆角 */
+			th:first-child {
+				border-radius: 10px 0 0 0 !important;
+			}
 
-    /*分页整体位置调整*/
-    .ant-table-pagination{
-        float: none !important;
-        text-align: center !important;
-    }
+			th:last-child {
+				border-radius: 0 10px 0 0 !important;
+			}
+		}
+
+		/* 隔行换色 */
+		tbody tr:nth-child(odd) {
+			background-color: #eee;
+		}
+
+		tbody tr:nth-child(even) {
+			background-color: #fff;
+		}
+
+		/* 整体字体大小 */
+		font-size: 1em;
+	}
+
+	/* 分页中的箭头样式调整 */
+	.ant-pagination-item-link {
+		i {
+			padding-top: 9px;
+		}
+	}
+
+	/* 分页整体位置调整 */
+	.ant-table-pagination {
+		float: none !important;
+		text-align: center !important;
+	}
 }
-

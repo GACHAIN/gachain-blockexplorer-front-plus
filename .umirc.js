@@ -57,6 +57,7 @@ export default {
     '@models': resolve(__dirname, './src/models'),
     '@services': resolve(__dirname, './src/services'),
     '@public': resolve(__dirname, './public'),
+    '@styles': resolve(__dirname, './style'),
     utils: resolve(__dirname, './src/utils'),
     config: resolve(__dirname, './src/utils/config'),
   },
