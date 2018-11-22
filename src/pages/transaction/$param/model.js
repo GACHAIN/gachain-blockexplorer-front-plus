@@ -12,7 +12,7 @@ export default modelExtend(baseModel, {
 		setup({ dispatch, history }) {
 			history.listen((location) => {
 				const match = pathToRegexp('/transaction/:param').exec(location.pathname);
-				if (match) {
+				if (match && match[1] !== 'transaction_status') {
 					let payload = {
 						head: {
 							'version': '1.0',

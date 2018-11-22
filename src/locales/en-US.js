@@ -8,6 +8,7 @@ export default {
 	NODE: 'Nodes',
 	BLOCK: 'Blocks',
 	TRANSACTION: 'Transactions',
+	TRANSACTIONSTATUS: 'Transaction Status',
 	ECOSYSTEM: 'Ecosystem',
 	SYSTEMPARAM: 'System Parameters',
 
@@ -171,6 +172,7 @@ export default {
 
 	// Message
 	ME_FAILYRE: 'Failure',
+	ME_WAITING: 'Waiting',
 	ME_SUCCESS: 'Success',
 
 	// Type

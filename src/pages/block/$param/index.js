@@ -1,7 +1,7 @@
 import { Row, Icon } from 'antd';
 import { connect } from 'dva';
 import BlockDetail from './components/BlockDetail';
-import { nodeIcon, nodePosition } from 'config';
+import { nodeIcon } from 'config';
 import Link from 'umi/link';
 import moment from 'moment';
 
@@ -32,7 +32,7 @@ const Block = ({ s_block_detail, loading }) => {
 					// 过滤字段
 					let excludeField = ['hash', 'ecosystem_id'];
 					if (excludeField.includes(headObj.key)) {
-						continue
+						continue;
 					}
 
 					// 对Key的处理

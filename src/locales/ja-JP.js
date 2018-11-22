@@ -8,6 +8,7 @@ export default {
 	NODE: 'ノード',
 	BLOCK: 'サイズ',
 	TRANSACTION: '取引/事務',
+	TRANSACTIONSTATUS: '取引/事務 状态',
 	ECOSYSTEM: 'エコシステム',
 	SYSTEMPARAM: 'システムパラメータ',
 
@@ -171,6 +172,7 @@ export default {
 
 	// Message
 	ME_FAILYRE: '失敗',
+	ME_WAITING: '待つ',
 	ME_SUCCESS: '成功',
 
 	// Type

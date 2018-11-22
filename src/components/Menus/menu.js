@@ -27,7 +27,7 @@ export default [
 			{
 				'icon': 'file-sync',
 				'FormattedMessage': 'TRANSACTIONSTATUS',
-				'to': '/transaction_status'
+				'to': '/transaction/transaction_status'
 			},
 		]
 	},

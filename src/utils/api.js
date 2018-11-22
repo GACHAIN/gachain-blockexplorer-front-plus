@@ -3,7 +3,7 @@
 // mock 远程
 // const URL = 'http://192.168.1.124:8000/mock/api'
 // 测试环境
-// const URL = 'http://192.168.1.161:8800/api'
+const URL = 'http://192.168.1.161:8800/api';
 // 莫工主机
 // const URL = 'http://192.168.1.168:8800/api'
 // 本地环境
@@ -11,7 +11,7 @@
 // 华东服务器
 // const URL = 'http://hd.gac.one:8800/api'
 // 节点7服务器
-const URL = 'http://node7.gac.one:8800/api';
+// const URL = 'http://node7.gac.one:8800/api';
 // IBM服务器
 // const URL = 'http://ibm.sifu8.cn:8800/api'
 // 东京服务器
@@ -37,6 +37,7 @@ export default {
 	getTransaction: `${URL}/get_transaction_details`,
 	getTransactionByBlock: `${URL}/get_transaction_block`,
 	getTransactionList: `${URL}/get_transaction`,
+	getTransactionStatus: `${URL}/get_transaction_status`,
 
 	// Node
 	getNodeList: `${URL}/get_node`,

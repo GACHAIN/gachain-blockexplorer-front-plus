@@ -135,27 +135,30 @@
       color: #ffffff;
       border-radius: 0.3rem;
     }
-  
-    /**错误*/
-    #failure {
+    
+    .block-status (@color) {
       width: 4rem;
       display: inline-block;
       line-height: 1.6rem;
-      background: #ce3333;
+      background: @color;
       border-radius: 0.2rem;
       color: #ffffff;
       text-align: center;
     }
+    
+    /**错误*/
+    #failure {
+      .block-status(red)
+    }
   
     /*成功*/
     #success {
-      width: 4rem;
-      display: inline-block;
-      line-height: 1.6rem;
-      background: #34bd69;
-      border-radius: 0.2rem;
-      color: #ffffff;
-      text-align: center;
+      .block-status(green)
+    }
+
+    /*等待*/
+    #waiting {
+      .block-status(yellow)
     }
   
     /**向右箭头*/

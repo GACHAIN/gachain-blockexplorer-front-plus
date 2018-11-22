@@ -7,9 +7,9 @@ import moment from 'moment';
 
 const TransactionHash = ({ s_transaction, loading }) => {
 	let { dataList } = s_transaction;
-	let senderID
+	let senderID;
 	// recipient用来构造可变变量
-	let recipient = {}
+	let recipient = {};
 	let toggle = (e) => {
 		let text = e.target.innerHTML;
 		text = checkKeyidOrAddress(text) === 1 ? walletAddrToId(text) : walletIdToAddr(text);
@@ -27,37 +27,37 @@ const TransactionHash = ({ s_transaction, loading }) => {
 				valueObj.key = k1;
 
 				// 需要排除的字段
-				let excludeField = ['key_id', 'type', 'Type', 'hash', 'BlockID']
+				let excludeField = ['key_id', 'type', 'Type', 'hash', 'BlockID'];
 				if (excludeField.includes(valueObj.key)) {
-					continue
+					continue;
 				}
 
-				let transferID = ['senderID', 'recipientID1', 'recipientID2', 'recipientID3']
+				let transferID = ['senderID', 'recipientID1', 'recipientID2', 'recipientID3'];
 				if (transferID.includes(k1)) {
 					switch (k1) {
-						case 'senderID':
-							senderID = data[k][k1];
-							break;
-						case 'recipientID1':
-							recipient[0] = data[k][k1];
-							break;
-						case 'recipientID2':
-							recipient[1] = data[k][k1];
-							break;
-						case 'recipientID3':
-							recipient[2] = data[k][k1];
-							break;
+					case 'senderID':
+						senderID = data[k][k1];
+						break;
+					case 'recipientID1':
+						recipient[0] = data[k][k1];
+						break;
+					case 'recipientID2':
+						recipient[1] = data[k][k1];
+						break;
+					case 'recipientID3':
+						recipient[2] = data[k][k1];
+						break;
 					}
-					continue
+					continue;
 				}
 
 				valueObj.value = data[k][k1];
 
 				// 转账处理
-				let amountI = ['amount1=>Amount', 'amount2=>Service Fee', 'amount3=>Commission']
+				let amountI = ['amount1=>Amount', 'amount2=>Service Fee', 'amount3=>Commission'];
 				for (let i = 0; i < amountI.length; i++) {
 					if (amountI[i].includes(valueObj.key)) {
-						valueObj.key = amountI[i].split('=>')[1]
+						valueObj.key = amountI[i].split('=>')[1];
 						valueObj.value = (
 							<Row gutter={24}>
 								<Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="send" onClick={(e) => toggle(e)}>{senderID}</Col>

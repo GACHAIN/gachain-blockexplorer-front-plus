@@ -172,6 +172,7 @@ export default {
 
 	// Message
 	ME_FAILYRE: '失败',
+	ME_WAITING: '等待',
 	ME_SUCCESS: '成功',
 
 	// Type
