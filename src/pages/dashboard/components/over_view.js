@@ -10,7 +10,7 @@ const over_view = ({ loading, data }) => {
 			style={{ backgroundColor: '#3498db', color: '#ffffff' }}
 			className={styles.over_view}
 			loading={loading}
-			bodyStyle={{height: '20rem'}}
+			bodyStyle={{ height: '20rem' }}
 		>
 			<Row style={{ paddingBottom: '30px' }}>
 				<Col span={4}>
@@ -30,15 +30,15 @@ const over_view = ({ loading, data }) => {
                     </Row> */}
 					{/* GAC汇率 */}
 					<Row>
-						<span style={{color: '#ffffff'}}><FormattedMessage id="H_RATE" /></span>
-						<i style={{    fontStyle: 'normal', fontSize: '18px', paddingLeft: '5px'}}>¥
+						<span style={{ color: '#ffffff' }}><FormattedMessage id="H_RATE" /></span>
+						<i style={{ fontStyle: 'normal', fontSize: '18px', paddingLeft: '5px' }}>¥
 							{/* {`¥ ${data === undefined ? 0 : (Number(data['usdt-gac'].last))}`} */}
 							{
-								(!loading && data) ? parseFloat(Number(data['usdt-gac'].last) * (data.Rates.rates ? data.Rates.rates.Rates : null)).toFixed(3) : []
+								(!loading && data) ? parseFloat(Number(data['usdt-gac'].last) * (data.Rates.rates ? data.Rates.rates.CNY : null)).toFixed(3) : []
 							}
 						</i>
-						<br/>
-						<Link to="#" style={{ color: '#fff', fontSize: '16px' }}>
+						<br />
+						<Link to="#" style={{ color: '#fff', fontSize: '16px' }} replace>
 							{`1 GAC ≈ ${data === undefined ? 0 : Number(data['btc-gac'].last)} BTC ≈ ${data === undefined ? 0 : Number(data['usdt-gac'].last)} USDT`}
 						</Link>
 					</Row>
@@ -50,7 +50,7 @@ const over_view = ({ loading, data }) => {
 						<span style={{ color: '#eee' }}><FormattedMessage id="H_LASTBLOCK" /></span>
 					</Row>
 					<Row>
-						<Link to="#" style={{ color: '#fff', fontSize: '16px' }}>待定</Link>
+						<Link to="#" style={{ color: '#fff', fontSize: '16px' }} replace>待定</Link>
 					</Row>
 				</Col>
 				<Col span={12}>
@@ -58,7 +58,7 @@ const over_view = ({ loading, data }) => {
 						<span style={{ color: '#eee' }}><FormattedMessage id="H_HASHRATE" /></span>
 					</Row>
 					<Row>
-						<Link to="#" style={{ color: '#fff', fontSize: '16px' }}>待定</Link>
+						<Link to="#" style={{ color: '#fff', fontSize: '16px' }} replace>待定</Link>
 					</Row>
 				</Col>
 			</Row>
@@ -68,7 +68,7 @@ const over_view = ({ loading, data }) => {
 						<span style={{ color: '#eee' }}><FormattedMessage id="H_TRANSACTION" /></span>
 					</Row>
 					<Row>
-						<Link to="#" style={{ color: '#fff' }}>待定</Link>
+						<Link to="#" style={{ color: '#fff' }} replace>待定</Link>
 					</Row>
 				</Col>
 				<Col span={12}>
@@ -76,7 +76,7 @@ const over_view = ({ loading, data }) => {
 						<span style={{ color: '#eee' }}><FormattedMessage id="H_DIFFICULTY" /></span>
 					</Row>
 					<Row>
-						<Link to="#" style={{ color: '#fff' }}>待定</Link>
+						<Link to="#" style={{ color: '#fff' }} replace>待定</Link>
 					</Row>
 				</Col>
 			</Row>

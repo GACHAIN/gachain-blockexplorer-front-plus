@@ -1,19 +1,10 @@
+import modelExtend from 'dva-model-extend';
+import { baseModel } from 'utils/model';
 import pathToRegexp from 'path-to-regexp';
 import { query_detail } from '../services/blocks';
 
-export default {
-	state: {
-		dataList: [],
-		total: [],
-	},
-
+export default modelExtend(baseModel, {
 	namespace: 's_block_detail',
-
-	reducers: {
-		'querySuccess'(state, {payload}) {
-			return {...state, ...payload};
-		}
-	},
 
 	subscriptions: {
 		setup({ dispatch, history }) {
@@ -54,4 +45,4 @@ export default {
 			}
 		}
 	}
-};
+});

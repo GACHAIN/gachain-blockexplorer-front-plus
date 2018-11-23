@@ -124,7 +124,7 @@ class Header extends React.PureComponent {
     		<Row>
     			<Row style={{ background: '#004b80' }} justify="start">
     				<Col id="logo" xs={6} ms={4} md={2} xl={5} xxl={5}>
-    					<Link to="/dashboard">
+    					<Link to="/dashboard" replace>
     						<Col xs={24} ms={24} md={24} xl={4} xxl={4}>
     							<img alt="" src={logo} width={40} style={{paddingTop: '0.3rem'}} />
     						</Col>

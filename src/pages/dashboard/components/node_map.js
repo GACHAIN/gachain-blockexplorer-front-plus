@@ -2,7 +2,6 @@ import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 import { FormattedMessage } from 'react-intl';
 import { Card } from 'antd';
-import styles from './node_map.css';
 
 require('echarts/map/js/world.js');
 const max = -Infinity;
@@ -84,7 +83,7 @@ const node_map = ({ data, loading }) => {
 		]
 	};
 	return (
-		<Card className={styles.node_map_content} title={<FormattedMessage id="H_NODE" />} loading={loading} bodyStyle={{ height: '20rem' }}>
+		<Card title={<FormattedMessage id="H_NODE" />} loading={loading} bodyStyle={{ height: '20rem' }}>
 			<ReactEcharts
 				option={option}
 				style={{ width: '100%' }}

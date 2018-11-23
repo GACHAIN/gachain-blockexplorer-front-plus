@@ -24,14 +24,14 @@ const middle_blocks = ({ data, loading }) => {
 						<span style={{ fontWeight: 'bold' }}>
 							<FormattedMessage id="H_PRODUCT" values={{
 								nodeId: parseInt(item.node_position, 10) + 1
-							}}/>
+							}} />
 						</span>
 					</Row>
 					<Row>{item.tx_count} <FormattedMessage id="H_TRANSACTION" /></Row>
 				</Col>
 				<Col xs={4} sm={4} md={4} lg={4} xl={4} xxl={4} push={2}>
 					<Row>
-						<Icon component={nodeIcon[item.node_position]} style={{fontSize: '1.5rem', marginTop: '0.8rem'}}/>
+						<Icon component={nodeIcon[item.node_position]} style={{ fontSize: '1.5rem', marginTop: '0.8rem' }} />
 					</Row>
 				</Col>
 			</Row>
@@ -39,7 +39,7 @@ const middle_blocks = ({ data, loading }) => {
 	}) : [];
 
 	return (
-		<Card className={styles.middle_blocks} loading={loading} title={<span><Icon type="block" style={{ fontSize: '20px' }} /> <FormattedMessage id="H_BLOCKS" /><Link id="more" to="/block"><FormattedMessage id="MORE" /></Link></span>} bodyStyle={{ height: '30rem', overflow: 'scroll' }}>
+		<Card className={styles.middle_blocks} loading={loading} title={<span><Icon type="block" style={{ fontSize: '20px' }} /> <FormattedMessage id="H_BLOCKS" /><Link id="more" to="/block" replace><FormattedMessage id="MORE" /></Link></span>} bodyStyle={{ height: '30rem', overflow: 'scroll' }}>
 			{compontents}
 		</Card>
 	);

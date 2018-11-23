@@ -5,7 +5,6 @@ import { nodeIcon } from 'config';
 import { clickCp } from 'utils';
 import moment from 'moment';
 
-
 const Block = ({ s_block_detail, loading }) => {
 	let { dataList } = s_block_detail;
 	function handle_data_list(data) {
@@ -62,7 +61,7 @@ const Block = ({ s_block_detail, loading }) => {
 					}
 
 					// 对上一个区块hash的处理
-					if (headObj.key === 'prehash') {
+					if (headObj.key === 'prehash' || headObj.key === 'sign' || headObj.key === 'block_id') {
 						let _val = headObj.val;
 						headObj.val = (
 							<span>
@@ -78,31 +77,21 @@ const Block = ({ s_block_detail, loading }) => {
 				Transactions_info = data[k];
 			} else {
 				// 排除字段
-				let excludeField = ['ecosystem_id', 'node_position', 'key_id', 'time', 'gen_block', 'stop_count'];
 				obj.key = k;
+				obj.val = data[k];
+				let excludeField = ['ecosystem_id', 'node_position', 'key_id', 'time', 'gen_block', 'stop_count', 'sys_update', 'bin_data'];
 				if (excludeField.includes(obj.key)) {
 					continue;
 				}
 
-				if (obj.key === 'hash') {
+				if (obj.key === 'hash' || obj.key === 'rollbacks_hash' || obj.key === 'mrkl_root') {
 					let _val = obj.val;
 					obj.val = (
-						<Row>
-							<span>{obj.val}</span>
-							<Icon type="copy" id="copy" onClick={()=>{clickCp(_val);}} />
-						</Row>
+						<span>
+							{obj.val}
+							<Icon type="copy" id="copy" onClick={() => clickCp(_val)} />
+						</span>
 					);
-				}
-
-				// 对时间值的处理
-				if (obj.key === 'time') {
-					obj.val = (
-						<Row>
-							{moment(data[k] * 1000).format('YYYY-MM-DD HH:mm:ss')}
-						</Row>
-					);
-				} else {
-					obj.val = data[k];
 				}
 
 				Block_info.push(obj);

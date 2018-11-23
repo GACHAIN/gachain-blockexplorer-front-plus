@@ -9,6 +9,7 @@ const Member = ({ member, loading, location, dispatch }) => {
 		data: member_info,
 		loading: loading.effects['member/query_member'],
 		total,
+		location
 	};
 
 	const memberTransferProps = {

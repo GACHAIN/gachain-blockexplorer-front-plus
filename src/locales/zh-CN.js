@@ -194,7 +194,7 @@ export default {
 	MEM_INCOME: '转入',
 	MEM_OUTCOME: '转出',
 
-	MEM_HASH: '交易哈希',
+	MEM_HASH: '交易哈希：',
 	MEM_SEND: '发送方',
 	MEM_REC: '接收方',
 
@@ -208,5 +208,10 @@ export default {
 	MORE: '更多',
 
 	// Copy
-	COPY: '复制成功'
+	COPY: '复制成功',
+
+	// ERRORPROMPT
+	ERRORPROMPT: 'tip: 点击失败的按钮可以查看失败信息',
+	QRCODE: '二维码',
+	LONK_FUND: '锁定'
 };

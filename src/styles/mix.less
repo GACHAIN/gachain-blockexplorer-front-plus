@@ -1,6 +1,7 @@
 @nav: #004a7c;
 @navSelect: #00b1ec;
 @cardHead: rgb(52, 152, 219);
+@avatar: #00BCD4;
 
 // 事务状态标记
 .block-status (@color) {
@@ -11,6 +12,7 @@
 	border-radius: 0.2rem;
 	color: #fff;
 	text-align: center;
+	cursor: pointer;
 }
 
 // 接收者和发送者的账户ID
@@ -232,11 +234,12 @@
 		padding-bottom: 1.5rem;
 
 		#member_img {
-			text-align: center;
-
 			span {
-				height: 5rem;
-				width: 5rem;
+				background: @avatar;
+			}
+			text-align: center;
+			i {
+				padding-top: 0.6rem;
 			}
 		}
 

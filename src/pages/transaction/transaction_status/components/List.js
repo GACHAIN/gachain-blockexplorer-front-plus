@@ -1,4 +1,4 @@
-import { Table, Tag, Tooltip } from 'antd';
+import { Table, Tag, Tooltip, message } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { transactionType } from 'config';
 import moment from 'moment';
@@ -66,6 +66,13 @@ const TransactionStatusList = (listProps) => {
 		{
 			title: <FormattedMessage id="TL_WALLET" />,
 			dataIndex: 'WalletID',
+			render: text => {
+				return (
+					<Tooltip placement="topLeft" title={text}>
+						<Link id="textOverflow" to={`/ecosystem/1/member/${text}`}>{text}</Link>
+					</Tooltip>
+				)
+			}
 		},
 		{
 			title: <FormattedMessage id="TransactionStatus" />,
@@ -73,7 +80,7 @@ const TransactionStatusList = (listProps) => {
 				let { BlockID, Error } = record;
 				if (BlockID === 0 && Error !== '') {
 					return (
-						<span id="failure"><FormattedMessage id="ME_FAILYRE" /></span>
+						<span id="failure" onClick={()=>{errorClickHandel(record)}}><FormattedMessage id="ME_FAILYRE" /></span>
 					);
 				} else if(BlockID === 0 && Error === '') {
 					return (
@@ -88,6 +95,14 @@ const TransactionStatusList = (listProps) => {
 		}
 	];
 
+	function errorClickHandel(record) {
+		let { BlockID, Error } = record
+		if (BlockID === 0 && Error !== '') {
+			let errObj = JSON.parse(Error)
+			message.error(errObj.error)
+		}
+	}
+
 	return (
 		<Table
 			columns={
@@ -96,9 +111,7 @@ const TransactionStatusList = (listProps) => {
 					return item;
 				})
 			}
-			rowKey={record => {
-				return record.Hash;
-			}}
+			
 			{...listProps}
 		/>
 	);

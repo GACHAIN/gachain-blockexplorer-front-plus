@@ -1,5 +1,6 @@
 import { Icon, Card, Row, Col, Tooltip, Tag } from 'antd';
 import { FormattedMessage } from 'react-intl';
+import { transactionType } from 'config';
 import Link from 'umi/link';
 import moment from 'moment';
 import styles from './middle_transactions.css';
@@ -7,23 +8,9 @@ import styles from './middle_transactions.css';
 const middle_transactions = ({ data, loading }) => {
 
 	let typeTag = (text) => {
-		if (text === 276) {
-			return (
-				<Tag color="blue"><FormattedMessage id="TYPE_TRANSFER" /></Tag>
-			);
-		} else
-		if (text === 293) {
-			return (
-				<Tag color="green"><FormattedMessage id="TYPE_CREATEUSER" /></Tag>
-			);
-		} else
-		if (text === 264) {
-			return (
-				<Tag color="magenta"><FormattedMessage id="TYPE_TASK" /></Tag>
-			);
-		}
-
-		return text;
+		return (
+			<Tag color="blue"><FormattedMessage id={transactionType[text]} /></Tag>
+		)
 	};
 
 	let compontents = (!loading && data) ? data.map((item, key) => {
@@ -57,7 +44,7 @@ const middle_transactions = ({ data, loading }) => {
 	}) : [];
 
 	return (
-		<Card className={styles.middle_transactions} loading={loading} title={<span><Icon type="file-sync" style={{ fontSize: '20px' }} className={styles.rotate} /> <FormattedMessage id="H_TRANSACTIONS" /><Link id="more" to="/transaction"><FormattedMessage id="MORE" /></Link></span>} bodyStyle={{ height: '30rem', overflow: 'scroll' }}>
+		<Card className={styles.middle_transactions} loading={loading} title={<span><Icon type="file-sync" style={{ fontSize: '20px' }} className={styles.rotate} /> <FormattedMessage id="H_TRANSACTIONS" /><Link id="more" to="/transaction" replace><FormattedMessage id="MORE" /></Link></span>} bodyStyle={{ height: '30rem', overflow: 'scroll' }}>
 			{compontents}
 		</Card>
 	);

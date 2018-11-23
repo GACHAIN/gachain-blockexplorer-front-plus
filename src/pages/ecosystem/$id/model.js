@@ -1,7 +1,7 @@
 import modelExtend from 'dva-model-extend';
+import { baseModel } from 'utils/model';
 import { query_members } from '../services/ecosystem';
 import pathToRegexp from 'path-to-regexp';
-import { baseModel } from 'utils/model';
 
 export default modelExtend(baseModel, {
 	namespace: 'ecosystemID',

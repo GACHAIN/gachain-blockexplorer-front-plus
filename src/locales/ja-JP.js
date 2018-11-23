@@ -194,7 +194,7 @@ export default {
 	MEM_INCOME: '転入',
 	MEM_OUTCOME: '転出',
 
-	MEM_HASH: '取引ヘル',
+	MEM_HASH: '取引ヘル：',
 	MEM_SEND: '送信側',
 	MEM_REC: '受信者',
 
@@ -208,5 +208,10 @@ export default {
 	MORE: 'より',
 
 	// Copy
-	COPY: '複製に成功する'
+	COPY: '複製に成功する',
+
+	// ERRORPROMPT
+	ERRORPROMPT: 'tip: 失败したボタンをクリックすると失败情报が见られます',
+	QRCODE: '二次元コード',
+	LONK_FUND: 'ロックオン'
 };

@@ -194,7 +194,7 @@ export default {
 	MEM_INCOME: 'Received',
 	MEM_OUTCOME: 'Sent',
 
-	MEM_HASH: 'Hash',
+	MEM_HASH: 'Hash:',
 	MEM_SEND: 'Sender',
 	MEM_REC: 'Recipient',
 
@@ -208,6 +208,10 @@ export default {
 	MORE: 'More',
 
 	// Copy
-	COPY: 'Copy Success'
-};
+	COPY: 'Copy Success',
 
+	// ERRORPROMPT
+	ERRORPROMPT: 'tip: Click the failed button to view the failure information',
+	QRCODE: 'Qr Code',
+	LONK_FUND: 'Lock'
+};

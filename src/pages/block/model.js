@@ -48,14 +48,5 @@ export default modelExtend(baseModel, {
 				});
 			}
 		},
-	},
-
-	reducers: {
-		showModal(state, { payload }) {
-			return { ...state, ...payload };
-		},
-		hideModal(state) {
-			return { ...state };
-		}
 	}
 });

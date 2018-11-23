@@ -16,7 +16,7 @@ const renderMenu = (menuData) => {
 		}else{
 			return (
 				<Menu.Item key={item.FormattedMessage}>
-					<Link to={item.to}>
+					<Link to={item.to} replace>
 						<Icon type={item.icon} /><span><FormattedMessage id={item.FormattedMessage} /></span>
 					</Link>
 				</Menu.Item>

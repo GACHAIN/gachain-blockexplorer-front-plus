@@ -7,6 +7,8 @@ import japan from '@public/japan.svg';
 import united from '@public/united-states.svg';
 
 module.exports = {
+	// Version
+	Version: '1.0.0',
 	api,
 	// Logo
 	name: <FormattedMessage id="BLOCK_EXPLORER" />,
@@ -38,5 +40,6 @@ module.exports = {
 		276: 'TYPE_TRANSFER',
 		293: 'TYPE_CREATEUSER',
 		264: 'TYPE_TASK',
+		279: 'LONK_FUND'
 	}
 };
