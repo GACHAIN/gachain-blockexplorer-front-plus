@@ -5,13 +5,13 @@ import gac from '@public/gac.svg';
 import QRCode from 'qrcode.react';
 
 const MemberInfo = ({ data, loading }) => {
-	let _val
+	let _val;
 	/** 点击KeyID地址切换 */
 	let toggle = (e) => {
 		let text = e.target.innerHTML;
 		text = checkKeyidOrAddress(text) === 1 ? walletAddrToId(text) : walletIdToAddr(text);
 		e.target.innerHTML = text;
-		_val = e.target.innerHTML
+		_val = e.target.innerHTML;
 	};
 	
 	return (
@@ -41,8 +41,8 @@ const MemberInfo = ({ data, loading }) => {
 					</Row>
 				</Row>
 				<Row style={{ textAlign: 'center' }} id="qrcode">
-				<Divider dashed={true}>
-					<h4><FormattedMessage id="QRCODE" /></h4>
+					<Divider dashed={true}>
+						<h4><FormattedMessage id="QRCODE" /></h4>
 					</Divider>
 					<QRCode value={window.location.href} />
 				</Row>

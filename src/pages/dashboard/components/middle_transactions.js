@@ -10,7 +10,7 @@ const middle_transactions = ({ data, loading }) => {
 	let typeTag = (text) => {
 		return (
 			<Tag color="blue"><FormattedMessage id={transactionType[text]} /></Tag>
-		)
+		);
 	};
 
 	let compontents = (!loading && data) ? data.map((item, key) => {

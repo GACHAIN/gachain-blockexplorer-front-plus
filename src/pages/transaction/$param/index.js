@@ -36,19 +36,19 @@ const TransactionHash = ({ s_transaction, loading }) => {
 				let transferID = ['senderID', 'recipientID1', 'recipientID2', 'recipientID3'];
 				if (transferID.includes(k1)) {
 					switch (k1) {
-						case 'senderID':
-							senderID = data[k][k1];
-							break;
-						case 'recipientID1':
-							recipient[0] = data[k][k1];
-							break;
-						case 'recipientID2':
-							recipient[1] = data[k][k1];
-							break;
-						case 'recipientID3':
-							recipient[2] = data[k][k1];
-							break;
-						default:
+					case 'senderID':
+						senderID = data[k][k1];
+						break;
+					case 'recipientID1':
+						recipient[0] = data[k][k1];
+						break;
+					case 'recipientID2':
+						recipient[1] = data[k][k1];
+						break;
+					case 'recipientID3':
+						recipient[2] = data[k][k1];
+						break;
+					default:
 					}
 					continue;
 				}
@@ -69,10 +69,10 @@ const TransactionHash = ({ s_transaction, loading }) => {
 											<Icon type="copy" id="copy" onClick={() => clickCp(senderID)} style={{ color: '#EEEEEE' }} />
 										</Col>
 									) : (
-											<Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8}>
+										<Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8}>
 
-											</Col>
-										)
+										</Col>
+									)
 								}
 								<Col xs={24} ms={24} md={24} lg={3} xl={3} xxl={3} id="arrow-right"><span>➤</span></Col>
 								{
@@ -82,10 +82,10 @@ const TransactionHash = ({ s_transaction, loading }) => {
 											<Icon type="copy" id="copy" onClick={() => clickCp(recipient[i])} style={{ color: '#EEEEEE' }} />
 										</Col>
 									) : (
-											<Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8}>
+										<Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8}>
 
-											</Col>
-										)
+										</Col>
+									)
 								}
 								<Col xs={24} ms={24} md={24} lg={5} xl={5} xxl={5} id="gac_col">
 									<span id="gac_amount">+{fmoney(qGacToGac(valueObj.value), 3)} GAC</span>

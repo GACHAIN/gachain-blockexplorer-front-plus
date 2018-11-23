@@ -211,7 +211,7 @@ export default {
 	COPY: 'Copy Success',
 
 	// ERRORPROMPT
-	ERRORPROMPT: 'tip: Click the failed button to view the failure information',
+	ERRORPROMPT: 'Tip: Click the failed button to view the failure information',
 	QRCODE: 'Qr Code',
-	LONK_FUND: 'Lock'
+	LONK_FUND: 'Lock Up'
 };

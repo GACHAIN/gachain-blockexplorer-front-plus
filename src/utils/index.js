@@ -85,10 +85,10 @@ let clickCp = (val) => {
 	copy(val);
 	let local = getLocale();
 	let localInfo = {
-		"zh-CN": '复制成功',
-		"en-US": 'Copy Success',
-		"ja-JP": '複製に成功する'
-	}
+		'zh-CN': '复制成功',
+		'en-US': 'Copy Success',
+		'ja-JP': '複製に成功する'
+	};
 	message.success(localInfo[local]);
 };
 

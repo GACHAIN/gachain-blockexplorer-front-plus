@@ -211,7 +211,7 @@ export default {
 	COPY: '複製に成功する',
 
 	// ERRORPROMPT
-	ERRORPROMPT: 'tip: 失败したボタンをクリックすると失败情报が见られます',
+	ERRORPROMPT: 'Tip: 失败したボタンをクリックすると失败情报が见られます',
 	QRCODE: '二次元コード',
-	LONK_FUND: 'ロックオン'
+	LONK_FUND: '键を仓'
 };

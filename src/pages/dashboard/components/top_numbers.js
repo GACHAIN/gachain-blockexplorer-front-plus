@@ -6,21 +6,21 @@ import Link from 'umi/link';
 const top_numbers = ({ loading, data }) => {
 	let UIComponents = data.map((item, key) => {
 		switch (item.title) {
-			case 'TOPNUMNODE':
-				item.link = 'node';
-				break;
-			case 'TOPNUMBLOCK':
-				item.link = 'block';
-				break;
-			case 'TOPNUMTRANSACTION':
-				item.link = 'transaction';
-				break;
-			case 'TOPNUMECOSYSTEM':
-				item.link = 'ecosystem';
-				break;
-			default:
-				item.link = '/dashboard';
-				break;
+		case 'TOPNUMNODE':
+			item.link = 'node';
+			break;
+		case 'TOPNUMBLOCK':
+			item.link = 'block';
+			break;
+		case 'TOPNUMTRANSACTION':
+			item.link = 'transaction';
+			break;
+		case 'TOPNUMECOSYSTEM':
+			item.link = 'ecosystem';
+			break;
+		default:
+			item.link = '/dashboard';
+			break;
 		}
 		return (
 			<Link to={item.link} key={item.title}>

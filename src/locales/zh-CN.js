@@ -41,9 +41,9 @@ export default {
 
 	// BlockList
 	BL_BLOCKID: '区块高度',
-	BL_HASH:'区块哈希值',
+	BL_HASH: '区块哈希值',
 	BL_CREATETIME: '打包时间',
-	BL_NODEPOSITION:'打包节点',
+	BL_NODEPOSITION: '打包节点',
 	BL_ECOSYSTEMID: '生态系统ID',
 	BL_KEYID: '账号 ID/地址',
 	BL_TXNUM: '交易/事务 数量',
@@ -73,7 +73,7 @@ export default {
 	tx_count: '交易/事务 数量：',
 	rollbacks_hash: '回滚哈希：',
 	mrkl_root: '默克尔根：',
-	bin_data: '二进制数据：',	
+	bin_data: '二进制数据：',
 	sys_update: '系统更新：',
 	gen_block: '',
 	stop_count: '',
@@ -99,7 +99,7 @@ export default {
 	TxDetailedInfoHex: '交易/事务 详情',
 
 	// Transaction Detail
-	id:	'交易/事务 ID：',
+	id: '交易/事务 ID：',
 	Amount: '转账金额：',
 	'Service Fee': '矿工费：',
 	Commission: '合约佣金：',
@@ -109,10 +109,10 @@ export default {
 	createdAt: '创建时间：',
 	Hash: '哈希值：',
 	Time: '创建时间：',
-	Type: '交易类型：',	
+	Type: '交易类型：',
 	WalletID: '钱包ID：',
 	BlockID: '区块高度：',
-	Error: '接口内容：',	
+	Error: '接口内容：',
 	contract_name: '合约名称：',
 	params: '参数：',
 	type: '交易类型：',
@@ -211,7 +211,7 @@ export default {
 	COPY: '复制成功',
 
 	// ERRORPROMPT
-	ERRORPROMPT: 'tip: 点击失败的按钮可以查看失败信息',
+	ERRORPROMPT: 'Tip: 点击失败的按钮可以查看失败信息',
 	QRCODE: '二维码',
-	LONK_FUND: '锁定'
+	LONK_FUND: '锁仓'
 };

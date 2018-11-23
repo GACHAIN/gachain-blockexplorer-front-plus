@@ -71,7 +71,7 @@ const TransactionStatusList = (listProps) => {
 					<Tooltip placement="topLeft" title={text}>
 						<Link id="textOverflow" to={`/ecosystem/1/member/${text}`}>{text}</Link>
 					</Tooltip>
-				)
+				);
 			}
 		},
 		{
@@ -80,7 +80,7 @@ const TransactionStatusList = (listProps) => {
 				let { BlockID, Error } = record;
 				if (BlockID === 0 && Error !== '') {
 					return (
-						<span id="failure" onClick={()=>{errorClickHandel(record)}}><FormattedMessage id="ME_FAILYRE" /></span>
+						<span id="failure" onClick={()=>{errorClickHandel(record);}}><FormattedMessage id="ME_FAILYRE" /></span>
 					);
 				} else if(BlockID === 0 && Error === '') {
 					return (
@@ -96,10 +96,10 @@ const TransactionStatusList = (listProps) => {
 	];
 
 	function errorClickHandel(record) {
-		let { BlockID, Error } = record
+		let { BlockID, Error } = record;
 		if (BlockID === 0 && Error !== '') {
-			let errObj = JSON.parse(Error)
-			message.error(errObj.error)
+			let errObj = JSON.parse(Error);
+			message.error(errObj.error);
 		}
 	}
 
