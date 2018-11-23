@@ -9,7 +9,7 @@ const renderMenu = (menuData) => {
 	return menuData.map((item) => {
 		if(item.children){
 			return (
-				<SubMenu title={<FormattedMessage id={item.FormattedMessage} />} >
+				<SubMenu key={item.FormattedMessage} title={<span><Icon type={item.icon} /><FormattedMessage id={item.FormattedMessage}/></span>} >
 					{renderMenu(item.children)}
 				</SubMenu>
 			);

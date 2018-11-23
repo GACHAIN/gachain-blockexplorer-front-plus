@@ -205,6 +205,9 @@ export default {
 	COUN_4: 'Nancang',
 	COUN_5: 'Tokyo',
 
-	MORE: 'More'
+	MORE: 'More',
+
+	// Copy
+	COPY: 'Copy Success'
 };
 

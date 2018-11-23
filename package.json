@@ -38,6 +38,7 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
+    "copy-to-clipboard": "^3.0.8",
     "echarts": "^4.2.0-rc.2",
     "echarts-for-react": "^2.0.15-beta.0",
     "int64-buffer": "^0.99.1007",

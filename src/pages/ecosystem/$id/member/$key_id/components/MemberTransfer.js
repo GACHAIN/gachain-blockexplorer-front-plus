@@ -27,11 +27,11 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
 		if (incomeList) {
 			return incomeList.map((item) => {
 				return (
-					<Collapse accordion>
+					<Collapse accordion key={item.txHash}>
 						<Panel header={
 							`${moment(item.createdAt).fromNow()} +${fmoney(qGacToGac(item.amount), 4)} GAC`
-						} key={item.txHash + Math.random()}>
-							<Row id="member_transfer_list" key={item.txHash + Math.random()}>
+						}>
+							<Row id="member_transfer_list">
 								<Row>
 									<h4><FormattedMessage id="MEM_HASH" />：
 										<Link to={`/transaction/${item.txHash}`}>

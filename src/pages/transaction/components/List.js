@@ -1,6 +1,7 @@
 import { Table, Tooltip, Row, Tag } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { checkKeyidOrAddress, walletAddrToId } from 'utils';
+import { transactionType } from 'config';
 import moment from 'moment';
 import Link from 'umi/link';
 
@@ -52,23 +53,9 @@ const List = ({ ...listProps }) => {
 			title: <FormattedMessage id="TL_TYPE" />,
 			dataIndex: 'type',
 			render: (text) => {
-				if (text === 276) {
-					return (
-						<Tag color="blue"><FormattedMessage id="TYPE_TRANSFER" /></Tag>
-					);
-				} else
-				if (text === 293) {
-					return (
-						<Tag color="green"><FormattedMessage id="TYPE_CREATEUSER" /></Tag>
-					);
-				} else
-				if (text === 264) {
-					return (
-						<Tag color="magenta"><FormattedMessage id="TYPE_TASK" /></Tag>
-					);
-				}
-
-				return text;
+				return (
+					<Tag color="blue"><FormattedMessage id={transactionType[text]} /></Tag>
+				);
 			}
 		}, {
 			title: <FormattedMessage id="TL_WALLET" />,

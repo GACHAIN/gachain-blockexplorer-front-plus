@@ -205,5 +205,8 @@ export default {
 	COUN_4: '南昌',
 	COUN_5: '東京',
 
-	MORE: 'より'
+	MORE: 'より',
+
+	// Copy
+	COPY: '複製に成功する'
 };

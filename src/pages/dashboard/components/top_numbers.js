@@ -23,8 +23,8 @@ const top_numbers = ({ loading, data }) => {
 			break;
 		}
 		return (
-			<Link to={item.link}>
-				<Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6} key={item.link} id="top-num-sign">
+			<Link to={item.link} key={item.title}>
+				<Col xs={24} sm={24} md={12} lg={12} xl={6} xxl={6} id="top-num-sign">
 					<Card key={key} bordered={false} bodyStyle={{ padding: 0 }} className={styles.numCard} loading={loading}>
 						<Row>
 							<Col span={8}>

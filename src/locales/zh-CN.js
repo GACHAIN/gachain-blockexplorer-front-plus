@@ -205,5 +205,8 @@ export default {
 	COUN_4: '南昌',
 	COUN_5: '东京',
 
-	MORE: '更多'
+	MORE: '更多',
+
+	// Copy
+	COPY: '复制成功'
 };

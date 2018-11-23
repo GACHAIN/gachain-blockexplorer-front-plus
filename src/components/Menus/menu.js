@@ -16,11 +16,11 @@ export default [
 	},
     
 	{
-		'icon': 'file-sync',
+		'icon': 'file-text',
 		'FormattedMessage': 'TRANSACTION',
 		'children': [
 			{
-				'icon': 'file-sync',
+				'icon': 'file-done',
 				'FormattedMessage': 'TRANSACTION',
 				'to': '/transaction'
 			},

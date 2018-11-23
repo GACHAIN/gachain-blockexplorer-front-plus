@@ -1,6 +1,9 @@
 import config from './config';
+import { message } from 'antd';
 import request from './request';
 import { Int64BE, Uint64BE } from 'int64-buffer';
+import copy from 'copy-to-clipboard';
+import { getLocale } from 'umi/locale';
 
 /**
  * 钱包ID转地址
@@ -75,6 +78,20 @@ let fmoney = (s, n) => {
 	return t.split('').reverse().join('') + '.' + r;
 };
 
+/**
+ * 点击复制
+ */
+let clickCp = (val) => {
+	copy(val);
+	let local = getLocale();
+	let localInfo = {
+		"zh-CN": '复制成功',
+		"en-US": 'Copy Success',
+		"ja-JP": '複製に成功する'
+	}
+	message.success(localInfo[local]);
+};
+
 export {
 	config,
 	request,
@@ -82,5 +99,6 @@ export {
 	walletAddrToId,
 	checkKeyidOrAddress,
 	qGacToGac,
-	fmoney
+	fmoney,
+	clickCp
 };

@@ -29,7 +29,7 @@ class DetailList extends React.Component {
     	}
     	let tables = listData.map((item) => {
     		return (
-    			<Row>
+    			<Row key={item.key}>
     				<Divider orientation="left"><span><FormattedMessage id={item.key} /></span></Divider>
     				<Table
     					loading={loading}

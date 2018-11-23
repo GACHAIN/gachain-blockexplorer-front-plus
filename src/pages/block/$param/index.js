@@ -2,7 +2,7 @@ import { Row, Icon } from 'antd';
 import { connect } from 'dva';
 import BlockDetail from './components/BlockDetail';
 import { nodeIcon } from 'config';
-import Link from 'umi/link';
+import { clickCp } from 'utils';
 import moment from 'moment';
 
 
@@ -37,10 +37,14 @@ const Block = ({ s_block_detail, loading }) => {
 
 					// 对Key的处理
 					if (headObj.key === 'key_id') {
+						let _val = headObj.val;
 						headObj.val = (
-							<a href={`#/ecosystem/1/member/${headObj.val}?state=income`}>
-								{headObj.val}
-							</a>
+							<Row>
+								<a href={`#/ecosystem/1/member/${headObj.val}?state=income`}>
+									{headObj.val}
+								</a>
+								<Icon type="copy" id="copy" onClick={() => clickCp(_val)} />
+							</Row>
 						);
 					}
 
@@ -59,8 +63,12 @@ const Block = ({ s_block_detail, loading }) => {
 
 					// 对上一个区块hash的处理
 					if (headObj.key === 'prehash') {
+						let _val = headObj.val;
 						headObj.val = (
-							<Link to={'/block/'}>{headObj.val}</Link>
+							<span>
+								{headObj.val}
+								<Icon type="copy" id="copy" onClick={() => clickCp(_val)} />
+							</span>
 						);
 					}
 
@@ -74,6 +82,16 @@ const Block = ({ s_block_detail, loading }) => {
 				obj.key = k;
 				if (excludeField.includes(obj.key)) {
 					continue;
+				}
+
+				if (obj.key === 'hash') {
+					let _val = obj.val;
+					obj.val = (
+						<Row>
+							<span>{obj.val}</span>
+							<Icon type="copy" id="copy" onClick={()=>{clickCp(_val);}} />
+						</Row>
+					);
 				}
 
 				// 对时间值的处理

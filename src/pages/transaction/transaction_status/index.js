@@ -8,6 +8,7 @@ const TransactionStatus = ({ transaction_status, dispatch }) => {
 	const listProps = {
 		dataSource: dataList,
 		total,
+		scroll: { x: 900 },
 		pagination: {
 			total,
 			onChange: (p, n) => {
