@@ -1,281 +1,286 @@
 @nav: #004a7c;
 @navSelect: #00b1ec;
 @cardHead: rgb(52, 152, 219);
-@avatar: #00BCD4;
+@avatar: #00bcd4;
 
 // 事务状态标记
 .block-status (@color) {
-	width: 4rem;
-	display: inline-block;
-	line-height: 1.6rem;
-	background: @color;
-	border-radius: 0.2rem;
-	color: #fff;
-	text-align: center;
-	cursor: pointer;
+    width: 4rem;
+    display: inline-block;
+    line-height: 1.6rem;
+    background: @color;
+    border-radius: 0.2rem;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
 }
 
 // 接收者和发送者的账户ID
 .walletAddress (@color) {
-	line-height: 2.2rem;
-	display: inline-block;
-	border-radius: 0.2rem;
-	background-color: @color;
-	color: #fff;
-	text-align: center;
-	cursor: pointer;
+    line-height: 2.2rem;
+    display: inline-block;
+    border-radius: 0.2rem;
+    background-color: @color;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
 }
 
 :global {
-	html {
-		overflow-x: hidden;
+    html {
+        overflow-x: hidden;
 
-		/* logo设置 */
-		#logo {
-			text-align: center;
-			color: #eee;
-			font-size: 1rem;
-			padding-left: 3rem;
-			height: 3rem;
-			line-height: 3rem;
-			float: left;
+        /* logo设置 */
+        #logo {
+            text-align: center;
+            font-size: 1rem;
+            padding-left: 3rem;
+            height: 3rem;
+            line-height: 3rem;
+            float: left;
 
-			a {
-				color: #eee;
-			}
+            a {
+                color: #fff;
+                font-weight: bold;
+            }
+        }
 
-			span {
-				display: inline-block;
-				width: 100%;
-				height: 25px;
-				font-weight: bold;
-			}
-		}
+        .ant-input-suffix {
+            display: none !important;
+        }
 
-		.ant-input-suffix {
-			display: none !important;
-		}
+        .selectLang {
+            i {
+                padding-right: 0.3rem;
+                padding-top: 0.5rem;
+            }
+            .anticon-down {
+                padding-top: 0 !important;
+            }
+        }
 
-		.selectLang {
-			i {
-				padding-right: 0.3rem;
-			}
-		}
+        #menu {
+            background-color: @nav;
+            color: #fff;
+            line-height: 3rem;
 
-		#menu {
-			background-color: @nav;
-			color: #fff;
-			line-height: 3rem;
+            li {
+                span {
+                    color: #fff;
+                    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+                }
 
-			li {
-				span {
-					color: #fff;
-					font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-				}
+                i {
+                    color: #fff;
+                    font-size: 1.2rem;
+                    vertical-align: text-top;
+                }
+            }
 
-				i {
-					color: #fff;
-					font-size: 1.2rem;
-					vertical-align: text-top;
-				}
-			}
+            li:hover {
+                background-color: @navSelect;
+            }
+        }
 
-			li:hover {
-				background-color: @navSelect;
-			}
-		}
+        #searchInput {
+            input {
+                border-radius: 0;
+                height: 2.5rem;
+            }
 
-		#searchInput {
-			input {
-				border-radius: 0;
-				height: 2.5rem;
-			}
+            padding-top: 1rem;
+        }
 
-			padding-top: 1rem;
-		}
+        /* 头部导航样式设置 */
+        div .nav-header {
+            background: #fff;
+            height: 3rem;
+            padding: 5px 20px;
 
-		/* 头部导航样式设置 */
-		div .nav-header {
-			background: #fff;
-			height: 3rem;
-			padding: 5px 20px;
+            .trigger {
+                font-size: 1rem;
+                cursor: pointer;
+            }
 
-			.trigger {
-				font-size: 1rem;
-				cursor: pointer;
-			}
+            /* 语言选择样式 */
+            .lang {
+                border-bottom: none;
+            }
 
-			/* 语言选择样式 */
-			.lang {
-				border-bottom: none;
-			}
+            .ant-menu-submenu .ant-menu-submenu-horizontal .sublang:hover {
+                border-bottom: none !important;
+                background-color: #eee !important;
+            }
+        }
 
-			.ant-menu-submenu .ant-menu-submenu-horizontal .sublang:hover {
-				border-bottom: none !important;
-				background-color: #eee !important;
-			}
-		}
+        .ant-card-head-title {
+            position: relative;
 
-		.ant-card-head-title {
-			position: relative;
+            #more {
+                position: absolute;
+                right: 0;
+                font-size: 0.8rem;
+                color: #fff;
+                font-weight: 0;
+            }
+        }
+    }
 
-			#more {
-				position: absolute;
-				right: 0;
-				font-size: 0.8rem;
-				color: #fff;
-				font-weight: 0;
-			}
-		}
-	}
+    .ant-card-head {
+        background-color: @cardHead;
+        color: #fff;
+    }
 
-	.ant-card-head {
-		background-color: @cardHead;
-		color: #fff;
-	}
+    /* 哈希值样式 */
+    #textOverflow {
+        width: 8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        cursor: pointer;
+    }
 
-	/* 哈希值样式 */
-	#textOverflow {
-		width: 8rem;
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		display: inline-block;
-		cursor: pointer;
-	}
+    /**  错误 */
+    #failure {
+        .block-status(red);
+    }
 
-	/**  错误 */
-	#failure {
-		.block-status(red);
-	}
+    /* 成功 */
+    #success {
+        .block-status(green);
+    }
 
-	/* 成功 */
-	#success {
-		.block-status(green);
-	}
+    /* 等待 */
+    #waiting {
+        .block-status(yellow);
+    }
 
-	/* 等待 */
-	#waiting {
-		.block-status(yellow);
-	}
+    /* 发送者 */
+    #send {
+        .walletAddress(#c71515);
+    }
 
-	/* 发送者 */
-	#send {
-		.walletAddress(#c71515);
-	}
+    /* 接收者 */
+    #recipient {
+        .walletAddress(#0a9007);
+    }
 
-	/* 接收者 */
-	#recipient {
-		.walletAddress(#0a9007);
-	}
+    /**  向右箭头 */
+    #arrow-right {
+        padding-left: 12px;
+        text-align: center;
+        padding-right: 12px;
+        font-size: 1.5rem;
+        color: #099011;
+    }
 
-	/**  向右箭头 */
-	#arrow-right {
-		padding-left: 12px;
-		text-align: center;
-		padding-right: 12px;
-		font-size: 1.5rem;
-		color: #099011;
-	}
+    /* 交易详情中GAC样式 */
+    #gac_amount {
+        width: 8rem;
+        background: #00b1ec;
+        color: #fff;
+        height: 2rem;
+        line-height: 2rem;
+        text-align: center;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        font-size: 14px;
+        font-family: sans-serif;
+        padding: 0.25rem 1rem;
+    }
 
-	/* 交易详情中GAC样式 */
-	#gac_amount {
-		width: 8rem;
-		background: #00b1ec;
-		color: #fff;
-		height: 2rem;
-		line-height: 2rem;
-		text-align: center;
-		border-radius: 0.5rem;
-		font-weight: bold;
-		font-size: 14px;
-		font-family: sans-serif;
-		padding: 0.25rem 1rem;
-	}
+    /* 交易详情中GAC显示居中 */
+    #gac_col {
+        text-align: center;
+    }
 
-	/* 交易详情中GAC显示居中 */
-	#gac_col {
-		text-align: center;
-	}
+    #copy {
+        padding-left: 1rem;
+        color: #000;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
 
-	#copy {
-		padding-left: 1rem;
-		color: #000;
-		font-size: 1.2rem;
-		cursor: pointer;
-	}
+    /* 版权信息 */
+    #footer {
+        background: #fff;
+        z-index: 1;
+        text-align: center;
+        height: 3rem;
+        line-height: 3rem;
+        border-top: 0.001rem solid #eee;
+    }
 
-	/* 版权信息 */
-	#footer {
-		background: #fff;
-		z-index: 1;
-		text-align: center;
-		height: 3rem;
-		line-height: 3rem;
-		border-top: 0.001rem solid #eee;
-	}
+    /* 底部logo */
+    #footer_icon {
+        i {
+            font-size: 1.2rem;
+            padding-left: 1rem;
+        }
+    }
 
-	/* 代码格式化 */
-	pre {
-		white-space: pre-wrap;
-	}
+    /* 代码格式化 */
+    pre {
+        white-space: pre-wrap;
+    }
 
-	/* Tab页签 */
-	.ant-tabs-nav-wrap {
-		background-color: #fff;
+    /* Tab页签 */
+    .ant-tabs-nav-wrap {
+        background-color: #fff;
 
-		.ant-tabs-nav .ant-tabs-tab {
-			height: 3rem;
-		}
-	}
+        .ant-tabs-nav .ant-tabs-tab {
+            height: 3rem;
+        }
+    }
 
-	/* 头像 */
-	#member_info {
-		padding-bottom: 1.5rem;
+    /* 头像 */
+    #member_info {
+        padding-bottom: 1.5rem;
 
-		#member_img {
-			span {
-				background: @avatar;
-			}
+        #member_img {
+            span {
+                background: @avatar;
+            }
 
-			text-align: center;
+            text-align: center;
 
-			i {
-				padding-top: 0.6rem;
-			}
-		}
+            i {
+                padding-top: 0.6rem;
+            }
+        }
 
-		#member_assets {
-			height: 3rem;
-			line-height: 3rem;
-		}
+        #member_assets {
+            height: 3rem;
+            line-height: 3rem;
+        }
 
-		/* 会员姓名 */
-		#member_name {
-			text-align: center;
+        /* 会员姓名 */
+        #member_name {
+            text-align: center;
 
-			span {
-				display: inline-block;
-				height: 3rem;
-				line-height: 3rem;
-				font-weight: bold;
-				color: #333;
-				font-family: monospace;
-			}
-		}
+            span {
+                display: inline-block;
+                height: 3rem;
+                line-height: 3rem;
+                font-weight: bold;
+                color: #333;
+                font-family: monospace;
+            }
+        }
 
-		#member_description {
-			text-align: center;
-		}
+        #member_description {
+            text-align: center;
+        }
 
-		#member_union {
-			height: 3rem;
-			line-height: 3rem;
-		}
-	}
+        #member_union {
+            height: 3rem;
+            line-height: 3rem;
+        }
+    }
 
-	#member_transfer_list {
-		border-bottom: 0.1rem dashed #eee;
-		padding: 1rem;
-	}
+    #member_transfer_list {
+        border-bottom: 0.1rem dashed #eee;
+        padding: 1rem;
+    }
 }

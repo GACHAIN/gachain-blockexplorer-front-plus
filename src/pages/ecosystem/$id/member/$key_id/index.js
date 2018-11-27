@@ -4,9 +4,10 @@ import { Row, Col } from 'antd';
 import { connect } from 'dva';
 
 const Member = ({ member, loading, location, dispatch }) => {
-	let { member_info, incomeList, total, outcomeList, sum } = member;
+	let { member_info, incomeList, total, outcomeList, member_transaction_info, sum } = member;
 	const memberInfoProps = {
 		data: member_info,
+		member_transaction_info,
 		loading: loading.effects['member/query_member'],
 		total,
 		location

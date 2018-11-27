@@ -1,7 +1,7 @@
 import { request, config } from 'utils';
 
 let { api } = config;
-let { getEcosystemKey, getEcosystemMemberTransactions } = api;
+let { getEcosystemKey, getEcosystemMemberTransactions, getWallettotal } = api;
 
 
 export function query_member(params) {
@@ -18,4 +18,12 @@ export function query_member_transaction(params) {
 		method: 'POST',
 		data: params
 	});
+}
+
+export function query_member_transaction_info(params) {
+	return request({
+		url: getWallettotal,
+		method: 'POST',
+		data: params
+	})
 }

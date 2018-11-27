@@ -65,7 +65,7 @@ export default {
 	'utc-time': 'UTC Time',
 	ecosystem_id: 'Ecosystem ID:',
 	key_id: 'Account ID:',
-	prehash: 'Prev Hash',
+	prehash: 'Prev Hash:',
 	node_position: 'Packaging Node:',
 	sign: 'Signature:',
 	hash: 'Hash:',
@@ -121,6 +121,7 @@ export default {
 	N_URL: 'API Address',
 	N_KEYID: 'Account / Wallet',
 	N_REGION: 'Region',
+	N_STATE: 'Node State',
 
 	// Ecosystem
 	E_ID: 'Ecosystem ID',
@@ -155,10 +156,19 @@ export default {
 
 	// Database
 	DATABASE: 'Database',
-	DATABASE_ID: 'ID',
-	DATABASE_NAME: 'Name',
-	DATABASE_ENGINE: 'Engine',
-	DATABASE_BACKENDVISION: 'Version',
+	DATABASEPARAMS: 'Param',
+	DATABASEVALUES: 'Value',
+	DATABASE_T: 'Table',
+	DATABASE_INFO: 'Base Info',
+	DATABASE_V_C: 'Values/Columns',
+	DATABASE_FIELDS: 'Fields',
+	DATABASE_TYPE: 'Type',
+
+	// Database Description
+	DATABASE_DES_ID: 'ID',
+	DATABASE_DES_NAME: 'Name',
+	DATABASE_DES_ENGINE: 'Type',
+	DATABASE_DES_BACKENDVERSION: 'Version',
 
 	// Search
 	S_T: 'Please enter transaction hash/block hash/block height/account ID/ address',
@@ -189,6 +199,13 @@ export default {
 	NO_RECORD_REC: 'No Received Record',
 	NO_RECORD_SENT: 'No Sent Record',
 	MEM_TOTAL: 'Total',
+	MEM_TRAN_INFO: 'Transaction Info',
+
+	// Member Transaction Info
+    transaction: "Transaction Number:",
+    inamount: "Received Total:",
+    outamount: "Sent Total:",
+    amount: "Amount:",
 
 	MEM_TRANSACTION: 'Transaction',
 	MEM_INCOME: 'Received',
@@ -213,5 +230,8 @@ export default {
 	// ERRORPROMPT
 	ERRORPROMPT: 'Tip: Click the failed button to view the failure information',
 	QRCODE: 'Qr Code',
-	LONK_FUND: 'Lock Up'
+	LONK_FUND: 'Lock Up',
+
+	// Page
+	PAGE_DESC: 'Current {x}-{y} total {total} items'
 };
