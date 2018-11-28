@@ -9,7 +9,7 @@ export default modelExtend(baseModel, {
 		setup({ dispatch, history }) {
 			history.listen((location) => {
 				if (location.pathname === '/transaction/transaction_status') {
-					let args = {
+					let requestArgs = {
 						head: {
 							'version': '1.0',
 							'msgtype': 'request',
@@ -24,7 +24,10 @@ export default modelExtend(baseModel, {
 					};
 					dispatch({
 						type: 'query',
-						payload: args
+						payload: {
+							requestArgs,
+							dispatch
+						}
 					});
 				}
 			});
@@ -32,13 +35,17 @@ export default modelExtend(baseModel, {
 	},
 	effects: {
 		* query({ payload }, { call, put }) {
-			const data = yield call(query, payload);
+			let { requestArgs, dispatch } = payload;
+			const data = yield call(query, requestArgs);
 			if (data.success){
 				yield put({
 					type: 'querySuccess',
 					payload: {
 						dataList: data.body.data,
 						total: data.body.total,
+						onChangeType: 'query',
+						requestArgs,
+						dispatch
 					}
 				});
 			}

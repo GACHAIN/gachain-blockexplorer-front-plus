@@ -49,6 +49,7 @@ const TransactionHash = ({ s_transaction, loading }) => {
 						recipient[2] = data[k][k1];
 						break;
 					default:
+						break;
 					}
 					continue;
 				}
@@ -88,7 +89,7 @@ const TransactionHash = ({ s_transaction, loading }) => {
 									)
 								}
 								<Col xs={24} ms={24} md={24} lg={5} xl={5} xxl={5} id="gac_col">
-									<span id="gac_amount">+{fmoney(qGacToGac(valueObj.value), 3)} GAC</span>
+									<span id="gac_amount">+{fmoney(qGacToGac(valueObj.value), 4)} GAC</span>
 								</Col>
 							</Row>
 						);

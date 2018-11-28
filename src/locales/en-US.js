@@ -14,7 +14,7 @@ export default {
 
 	// Dashboard
 	// TOPNUM
-	TOPNUMNODE: 'Total number of nodes',
+	TOPNUMNODE: 'Total number of master nodes',
 	TOPNUMBLOCK: 'Block Height',
 	TOPNUMTRANSACTION: 'Transactions',
 	TOPNUMECOSYSTEM: 'Ecosystem',
@@ -36,7 +36,7 @@ export default {
 	H_RATE: 'Today\'s Price:',
 	H_LASTBLOCK: 'Last Block',
 	H_HASHRATE: 'Hash Rate',
-	H_DIFFICULTY: 'Difficulty',
+	H_DIFFICULTY: 'Waiting',
 	H_MONREY: 'GAC',
 
 	// BlockList
@@ -58,6 +58,7 @@ export default {
 	B_TRANSACTIONSIZE: 'Transaction Size',
 	B_TRANSACTIONSIZEOFFSET: 'Transaction Size Offset',
 	B_TRANSACTIONTYPEID: 'Transaction Type ID',
+	BTSIZE: '{val} bytes',
 
 	// Block Detial
 	block_id: 'Block Height:',
@@ -75,6 +76,8 @@ export default {
 	mrkl_root: 'Merkel Root:',
 	bin_data: 'Binary Data:',
 	sys_update: 'System Update:',
+	blocksize: 'Block Size',
+	trantotalsize: 'Transaction Size',
 	gen_block: '',
 	stop_count: '',
 
@@ -142,6 +145,7 @@ export default {
 
 	// System Parameters
 	SYSTEMPARAMETERS: 'System Parameters',
+	SP_ID: 'ID',
 	SP_NAME: 'Name',
 	SP_VALUE: 'Value',
 	SP_CONDITIONS: 'Conditions',
@@ -189,23 +193,23 @@ export default {
 	TYPE_TRANSFER: 'Transfer',
 	TYPE_CREATEUSER: 'Create User',
 	TYPE_TASK: 'Task',
+	TYPE_FIRSTBLOCK: 'First Block',
 
 	// Button
 	VIEW: 'View',
 
 	// Member
 	MEM_MEMBERINFO: 'Member Information',
-	MEM_ASSETS: 'Assets',
+	MEM_ASSETS: 'Assets Name',
 	NO_RECORD_REC: 'No Received Record',
 	NO_RECORD_SENT: 'No Sent Record',
-	MEM_TOTAL: 'Total',
 	MEM_TRAN_INFO: 'Transaction Info',
 
 	// Member Transaction Info
-    transaction: "Transaction Number:",
-    inamount: "Received Total:",
-    outamount: "Sent Total:",
-    amount: "Amount:",
+	transaction: 'Transaction Number:',
+	inamount: 'Received Total:',
+	outamount: 'Sent Total:',
+	amount: 'Amount:',
 
 	MEM_TRANSACTION: 'Transaction',
 	MEM_INCOME: 'Received',

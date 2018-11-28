@@ -35,7 +35,7 @@ export default {
 					};
 					let query_middle_blocks_args = {
 						'head': { version: '1.0', msgtype: 'request', interface: 'query_middle_blocks', remark: '' },
-						'params': { cmd: '001', 'current_page': 1, 'page_size': 5, }
+						'params': { cmd: '001', 'current_page': 1, 'page_size': 5, 'order': 'time desc' }
 					};
 					let query_middle_transactions_args = {
 						'head': { version: '1.0', msgtype: 'request', interface: 'query_middle_transactions', remark: '' },

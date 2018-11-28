@@ -8,7 +8,7 @@ import united from '@public/united-states.svg';
 
 module.exports = {
 	// Version
-	Version: '1.0.0',
+	Version: '1.1.0',
 	api,
 	// Logo
 	name: <FormattedMessage id="BLOCK_EXPLORER" />,
@@ -37,6 +37,7 @@ module.exports = {
 	MONEY_POWER: 12,
 	// 交易类型
 	transactionType : {
+		0: 'TYPE_FIRSTBLOCK',
 		276: 'TYPE_TRANSFER',
 		293: 'TYPE_CREATEUSER',
 		264: 'TYPE_TASK',

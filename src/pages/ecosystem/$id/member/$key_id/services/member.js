@@ -25,5 +25,5 @@ export function query_member_transaction_info(params) {
 		url: getWallettotal,
 		method: 'POST',
 		data: params
-	})
+	});
 }

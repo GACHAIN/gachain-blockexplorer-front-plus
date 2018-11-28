@@ -1,9 +1,10 @@
 import { Row, Icon } from 'antd';
-import { connect } from 'dva';
 import BlockDetail from './components/BlockDetail';
 import { nodeIcon } from 'config';
 import { clickCp } from 'utils';
 import moment from 'moment';
+import { FormattedMessage } from 'react-intl';
+import { connect } from 'dva';
 
 const Block = ({ s_block_detail, loading }) => {
 	let { dataList } = s_block_detail;
@@ -83,7 +84,6 @@ const Block = ({ s_block_detail, loading }) => {
 				if (excludeField.includes(obj.key)) {
 					continue;
 				}
-
 				if (obj.key === 'hash' || obj.key === 'rollbacks_hash' || obj.key === 'mrkl_root') {
 					let _val = obj.val;
 					obj.val = (
@@ -91,6 +91,15 @@ const Block = ({ s_block_detail, loading }) => {
 							{obj.val}
 							<Icon type="copy" id="copy" onClick={() => clickCp(_val)} />
 						</span>
+					);
+				}
+
+				// 区块大小和事务大小的处理
+				if (obj.key === 'blocksize' || obj.key === 'trantotalsize') {
+					obj.val = (
+						<FormattedMessage id="BTSIZE" values={{
+							val: obj.val
+						}} />
 					);
 				}
 

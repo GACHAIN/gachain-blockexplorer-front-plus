@@ -39,6 +39,7 @@ const Dashboard = ({ loading, dashboard }) => {
 	let gac_props = {
 		loading: loading.effects['dashboard/query_gac'],
 		data: gac,
+		top_numbers
 	};
 
 	return (

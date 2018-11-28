@@ -9,25 +9,27 @@ export default modelExtend(baseModel, {
 
 	subscriptions: {
 		setup({ dispatch, history }) {
-			history.listen((location) => {
+			history.listen(location => {
 				if (location.pathname === '/block') {
-					let args = {
+					let requestArgs = {
 						head: {
-							'version': '1.0',
-							'msgtype': 'request',
-							'interface': 'get_block',
-							'remark': ''
+							version: '1.0',
+							msgtype: 'request',
+							interface: 'get_block',
+							remark: ''
 						},
 						params: {
-							'cmd': '001',
-							'current_page': 1,
-							'page_size': 10,
+							cmd: '001',
+							current_page: 1,
+							page_size: 10
 						}
 					};
-					const payload = { ...args, ...location.query };
 					dispatch({
 						type: 'query',
-						payload
+						payload: {
+							requestArgs,
+							dispatch
+						}
 					});
 				}
 			});
@@ -35,18 +37,21 @@ export default modelExtend(baseModel, {
 	},
 
 	effects: {
-		* query({ payload = {
-		} }, { call, put }) {
-			const data = yield call(query, payload);
+		*query({ payload = {} }, { call, put }) {
+			let { requestArgs, dispatch } = payload;
+			const data = yield call(query, requestArgs);
 			if (data.success) {
 				yield put({
 					type: 'querySuccess',
 					payload: {
 						dataList: data.body.data,
 						total: data.body.total,
-					},
+						onChangeType: 'query',
+						requestArgs,
+						dispatch
+					}
 				});
 			}
-		},
+		}
 	}
 });

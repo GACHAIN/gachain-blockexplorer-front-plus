@@ -1,86 +1,66 @@
-import TransactionList from "./components/List";
-import { connect } from "dva";
-import { FormattedMessage } from "react-intl";
+import TransactionList from './components/List';
+import { connect } from 'dva';
 
 const Transaction = ({ transaction, dispatch, loading, location }) => {
-    const { dataList, total } = transaction;
-    function toggle(index) {
-        dispatch({
-            type: "transaction/toggle",
-            payload: {
-                index
-            }
-        });
-    }
+	const { dataList, pagination } = transaction;
+	function toggle(index) {
+		dispatch({
+			type: 'transaction/toggle',
+			payload: {
+				index
+			}
+		});
+	}
 
-    let pageChange = (p, n) => {
-        let args = {
-            head: {
-                version: "1.0",
-                msgtype: "request",
-                interface: "get_transaction_block",
-                remark: ""
-            },
-            params: {
-                cmd: "001",
-                current_page: p || 1,
-                page_size: n || 10
-            }
-        };
-        dispatch({
-            type: "transaction/queryTransactionByBlock",
-            payload: args
-        });
-	};
-	
-	// let sortChange = (p, n) => {
-	// 	let args = {
-
-	// 	}
-	// }
-
-    let listProps = {
-        dataSource: dataList,
-        loading: loading.effects["transaction/queryTransactionByBlock"],
-        onToggle: toggle,
-        location,
-        dispatch,
+	let listProps = {
+		dataSource: dataList,
+		loading: loading.effects['transaction/queryTransactionByBlock'],
 		scroll: { x: 900 },
+		onToggle: toggle,
+		location,
+		dispatch,
+		pagination,
 		onChange: (p, f, s) => {
-			// console.log(p)
-			// console.log(f)
-			// console.log(s)
-		},
-        pagination: {
-            total: Number(total),
-            hideOnSinglePage: true,
-            showQuickJumper: true,
-            showTotal: (total, range) => (
-                <FormattedMessage
-                    id="PAGE_DESC"
-                    values={{
-                        x: range[0],
-                        y: range[1],
-                        total
-                    }}
-                />
-            ),
-            showSizeChanger: true,
-            onChange: (p, n, s) => {
-				console.log(p, n, s)
-                pageChange(p, n);
-            },
-            onShowSizeChange: (p, n) => {
-                pageChange(p, n);
-            }
-        }
-    };
+			let { current, pageSize } = p;
+			s = s ? s : {};
+			let order = '';
+			let field = `${s.field ? s.field : ''}`;
+			let ord = `${s.order ? s.order.slice(0, -3) : ''}`;
+			if (field === '' && ord === '') {
+				order = '';
+			} else {
+				order = `${field} ${ord}`;
+			}
+			let requestArgs = {
+				head: {
+					version: '1.0',
+					msgtype: 'request',
+					interface: 'get_transaction',
+					remark: ''
+				},
+				params: {
+					cmd: '001',
+					page_size: pageSize,
+					current_page: current,
+					order,
+					...f
+				}
+			};
+			dispatch({
+				type: 'transaction/queryTransactionByBlock',
+				payload: {
+					requestArgs,
+					dispatch
+				}
+			});
+		}
+	};
 
-    return (
-        <div>
-            <TransactionList {...listProps} />
-        </div>
-    );
+	return (
+		<div>
+			<TransactionList {...listProps} />
+		</div>
+	);
 };
 
 export default connect(transaction => transaction)(Transaction);

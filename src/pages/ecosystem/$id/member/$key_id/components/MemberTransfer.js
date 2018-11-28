@@ -11,7 +11,7 @@ import OutCome from '@public/outcome.svg';
 
 const TabPane = Tabs.TabPane;
 const Panel = Collapse.Panel;
-const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location, dispatch, sum, loading }) => {
+const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location, dispatch, loading }) => {
 
 	const handleTabClick = (key) => {
 		let { pathname } = location;
@@ -24,26 +24,82 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
 	};
 
 	function getIncomeList() {
+		let result = [];
 		if (incomeList) {
-			return incomeList.map((item) => {
-				return (
-					<Collapse accordion key={item.txHash} loading={loading}>
-						<Panel header={
-							`${moment(item.createdAt).fromNow()} +${fmoney(qGacToGac(item.amount), 4)} GAC`
-						}>
-							<Row id="member_transfer_list">
-								<Row>
-									<h4>
-										<span style={{verticalAlign: 'super'}}>
-											<FormattedMessage id="MEM_HASH" />
-										</span>
-										<Link id="textOverflow" to={`/transaction/${item.txHash}`}>
-											{item.txHash}
-										</Link>
-										<Icon type="copy" id="copy" onClick={() => clickCp(item.txHash)} />
-									</h4>
+			result = incomeList.map((item) => (
+				<Collapse accordion key={item.txHash} loading={loading}>
+					<Panel header={
+						`${moment(item.createdAt).fromNow()} +${fmoney(qGacToGac(item.amount), 4)} GAC`
+					}>
+						<Row id="member_transfer_list">
+							<Row>
+								<h4>
+									<span style={{verticalAlign: 'super'}}>
+										<FormattedMessage id="MEM_HASH" />
+									</span>
+									<Link id="textOverflow" to={`/transaction/${item.txHash}`}>
+										{item.txHash}
+									</Link>
+									<Icon type="copy" id="copy" onClick={() => clickCp(item.txHash)} />
+								</h4>
 									
-								</Row>
+							</Row>
+							<Row>
+								<FormattedMessage id="time" />：
+								{moment(item.createdAt).format()}
+							</Row>
+							<Row>
+								<FormattedMessage id="utc-time" />：
+								{moment(item.createdAt).utc().format()}
+							</Row>
+							<Row>
+								<FormattedMessage id="MEM_SEND" />：
+								<a href={`#/ecosystem/1/member/${item.senderID}?state=${location.query.state}`}>
+									{item.senderID}
+								</a>
+								<Icon type="copy" id="copy" onClick={() => clickCp(item.senderID)} />
+							</Row>
+							<Row>
+								<FormattedMessage id="MEM_REC" />：
+								<a href={`#/ecosystem/1/member/${item.recipientID}?state=${location.query.state}`}>
+									{item.recipientID}
+								</a>
+								<Icon type="copy" id="copy" onClick={() => clickCp(item.recipientID)} />
+							</Row>
+							<Row>
+								<FormattedMessage id="Amount" />：<span id="gac_amount">{fmoney(qGacToGac(item.amount), 4)} GAC</span>
+							</Row>
+						</Row>
+					</Panel>
+				</Collapse>
+			));
+		} else {
+			result = (
+				<Row>
+					<Col span={24} style={{ textAlign: 'center', color: '#999' }}>
+						<FormattedMessage id="NO_RECORD_REC" />
+					</Col>
+				</Row>
+			);
+		}
+		return result;
+	}
+
+	function getOutcomeList() {
+		let result = [];
+		if (outcomeList) {
+			result = outcomeList.map((item) => (
+				<Collapse accordion key={item.txHash + Math.random()}>
+					<Panel header={
+						`${moment(item.createdAt).fromNow()} -${fmoney(qGacToGac(item.amount), 4)} GAC`
+					} >
+						<Row id="member_transfer_list" key={item.txHash + Math.random()}>
+							<Row>
+								<h4><FormattedMessage id="MEM_HASH" />：
+									<Link to={`/transaction/${item.txHash}`}>
+										{item.txHash}
+									</Link>
+								</h4>
 								<Row>
 									<FormattedMessage id="time" />：
 									{moment(item.createdAt).format()}
@@ -52,87 +108,30 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
 									<FormattedMessage id="utc-time" />：
 									{moment(item.createdAt).utc().format()}
 								</Row>
-								<Row>
-									<FormattedMessage id="MEM_SEND" />：
-									<a href={`#/ecosystem/1/member/${item.senderID}?state=${location.query.state}`}>
-										{item.senderID}
-									</a>
-									<Icon type="copy" id="copy" onClick={() => clickCp(item.senderID)} />
-								</Row>
-								<Row>
-									<FormattedMessage id="MEM_REC" />：
-									<a href={`#/ecosystem/1/member/${item.recipientID}?state=${location.query.state}`}>
-										{item.recipientID}
-									</a>
-									<Icon type="copy" id="copy" onClick={() => clickCp(item.recipientID)} />
-								</Row>
-								<Row>
-									<FormattedMessage id="Amount" />：<span id="gac_amount">{fmoney(qGacToGac(item.amount), 4)} GAC</span>
-								</Row>
 							</Row>
-						</Panel>
-					</Collapse>
-				);
-			});
-		} else {
-			return (
-				<Row>
-					<Col span={24} style={{ textAlign: 'center', color: '#999' }}>
-						<FormattedMessage id="NO_RECORD_REC" />
-					</Col>
-				</Row>
-			);
-		}
-	}
-
-	function getOutcomeList() {
-		if (outcomeList) {
-			return outcomeList.map((item) => {
-				return (
-					<Collapse accordion key={item.txHash + Math.random()}>
-						<Panel header={
-							`${moment(item.createdAt).fromNow()} -${fmoney(qGacToGac(item.amount), 4)} GAC`
-						} >
-							<Row id="member_transfer_list" key={item.txHash + Math.random()}>
-								<Row>
-									<h4><FormattedMessage id="MEM_HASH" />：
-										<Link to={`/transaction/${item.txHash}`}>
-											{item.txHash}
-										</Link>
-									</h4>
-									<Row>
-										<FormattedMessage id="time" />：
-										{moment(item.createdAt).format()}
-									</Row>
-									<Row>
-										<FormattedMessage id="utc-time" />：
-										{moment(item.createdAt).utc().format()}
-									</Row>
-								</Row>
-								<Row>
-									<FormattedMessage id="MEM_SEND" />：
-									<a href={`#/ecosystem/1/member/${item.senderID}?state=${location.query.state}`}>
-										{item.senderID}
-									</a>
-									<Icon type="copy" id="copy" onClick={() => clickCp(item.senderID)} />
-								</Row>
-								<Row>
-									<FormattedMessage id="MEM_REC" />：
-									<a href={`#/ecosystem/1/member/${item.recipientID}?state=${location.query.state}`}>
-										{item.recipientID}
-									</a>
-									<Icon type="copy" id="copy" onClick={() => clickCp(item.recipientID)} />
-								</Row>
-								<Row>
-									<FormattedMessage id="Amount" />：<span id="gac_amount">{fmoney(qGacToGac(item.amount), 4)} GAC</span>
-								</Row>
+							<Row>
+								<FormattedMessage id="MEM_SEND" />：
+								<a href={`#/ecosystem/1/member/${item.senderID}?state=${location.query.state}`}>
+									{item.senderID}
+								</a>
+								<Icon type="copy" id="copy" onClick={() => clickCp(item.senderID)} />
 							</Row>
-						</Panel>
-					</Collapse>
-				);
-			});
+							<Row>
+								<FormattedMessage id="MEM_REC" />：
+								<a href={`#/ecosystem/1/member/${item.recipientID}?state=${location.query.state}`}>
+									{item.recipientID}
+								</a>
+								<Icon type="copy" id="copy" onClick={() => clickCp(item.recipientID)} />
+							</Row>
+							<Row>
+								<FormattedMessage id="Amount" />：<span id="gac_amount">{fmoney(qGacToGac(item.amount), 4)} GAC</span>
+							</Row>
+						</Row>
+					</Panel>
+				</Collapse>
+			));
 		} else {
-			return (
+			result = (
 				<Row key={Math.random()}>
 					<Col span={24} style={{ textAlign: 'center', color: '#999' }}>
 						<FormattedMessage id="NO_RECORD_SENT" />
@@ -140,13 +139,12 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
 				</Row>
 			);
 		}
+		return result;
 	}
 	return (
 		<Spin spinning={loading}>
 			<Card title={<FormattedMessage id="MEM_TRANSACTION" />}>
-				<Row>
-					<span><span style={{ fontWeight: 'bold' }}><FormattedMessage id="MEM_TOTAL" /></span>：<span id="gac_amount">{fmoney(qGacToGac(sum), 4)} GAC</span></span>
-				</Row>
+				
 				<Tabs onTabClick={handleTabClick} defaultActiveKey={location.query.state}>
 
 					<TabPane tab={<span><Icon component={InCome} /><FormattedMessage id="MEM_INCOME" /></span>} key="income">

@@ -21,7 +21,8 @@ const TransactionStatusList = (listProps) => {
 					);
 				}
 				
-			}
+			},
+			sorter: true,
 		},
 		{
 			title: <FormattedMessage id="TL_HASH" />,
@@ -52,7 +53,8 @@ const TransactionStatusList = (listProps) => {
 						{moment(text*1000).fromNow()}
 					</Tag>
 				);
-			}
+			},
+			sorter: true,
 		},
 		{
 			title: <FormattedMessage id="TL_TYPE" />,
@@ -72,7 +74,8 @@ const TransactionStatusList = (listProps) => {
 						<Link id="textOverflow" to={`/ecosystem/1/member/${text}`}>{text}</Link>
 					</Tooltip>
 				);
-			}
+			},
+			sorter: true
 		},
 		{
 			title: <FormattedMessage id="TransactionStatus" />,

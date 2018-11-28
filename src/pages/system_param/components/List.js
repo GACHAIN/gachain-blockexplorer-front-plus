@@ -4,6 +4,10 @@ import * as React from 'react';
 
 const columns = [
 	{
+		title: <FormattedMessage id="SP_ID" />,
+		dataIndex: 'id',
+		sorter: true,
+	}, {
 		title: <FormattedMessage id="SP_NAME" />,
 		dataIndex: 'name',
 	}, {

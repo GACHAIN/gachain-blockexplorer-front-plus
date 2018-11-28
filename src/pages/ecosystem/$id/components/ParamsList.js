@@ -4,8 +4,9 @@ import { FormattedMessage } from 'react-intl';
 const columns = [
 	{
 		title: <FormattedMessage id="SP_NAME" />,
-		dataIndex: 'name',
-	}, {
+		dataIndex: 'name'
+	},
+	{
 		title: <FormattedMessage id="SP_VALUE" />,
 		dataIndex: 'value',
 		render: text => {
@@ -15,18 +16,23 @@ const columns = [
 				</Tooltip>
 			);
 		}
-	}, {
+	},
+	{
 		title: <FormattedMessage id="SP_CONDITIONS" />,
-		dataIndex: 'conditions',
+		dataIndex: 'conditions'
 	}
 ];
 
-const List = (props) => {
+const List = props => {
 	return (
-		<Table {...props}
+		<Table
+			{...props}
 			rowKey={record => record.name}
-			columns={columns.map((item) => { item['align'] = 'center'; return item; })
-			} />
+			columns={columns.map(item => {
+				item['align'] = 'center';
+				return item;
+			})}
+		/>
 	);
 };
 
