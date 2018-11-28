@@ -6,7 +6,6 @@
     "eslint": "eslint --fix ./src --ext .js",
     "stylelint": "stylelint src/styles/*.* --fix",
     "format": "eslint --fix ./src --ext .js && stylelint src/styles/*.* --fix",
-    "push": "eslint --fix ./src --ext .js && stylelint src/styles/*.* --fix && git add . && git commit -m -am && git push gitlab master",
     "test": "umi test"
   },
   "devDependencies": {

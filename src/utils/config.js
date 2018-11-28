@@ -8,7 +8,7 @@ import united from '@public/united-states.svg';
 
 module.exports = {
 	// Version
-	Version: '1.1.0',
+	Version: '1.2.0',
 	api,
 	// Logo
 	name: <FormattedMessage id="BLOCK_EXPLORER" />,
