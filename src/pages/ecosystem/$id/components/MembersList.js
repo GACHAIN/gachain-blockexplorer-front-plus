@@ -70,9 +70,9 @@ const List = props => {
 			rowKey={record => record.id}
 			columns={columns.map(item => {
 				if (item.dataIndex !== 'amount') {
-					item['align'] = 'left'
+					item['align'] = 'left';
 				}else{
-					item['align'] = 'left'
+					item['align'] = 'left';
 				}
 				return item;
 			})}
