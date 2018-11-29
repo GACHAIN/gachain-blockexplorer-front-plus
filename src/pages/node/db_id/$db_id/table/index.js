@@ -41,7 +41,7 @@ const Database = ({ database, dispatch, loading }) => {
 		dataSource: dataList,
 		currentDesc,
 		pagination: {
-			total: Number(total),
+			total: parseInt(total, 10),
 			hideOnSinglePage: true,
 			showQuickJumper: true,
 			showTotal: (total, range) => (

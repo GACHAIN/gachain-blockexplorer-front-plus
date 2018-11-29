@@ -17,7 +17,7 @@ const Nodelist = ({ dispatch, node, loading }) => {
 		onToggle: toggle,
 		scroll: { x: 900 },
 		pagination: {
-			total: Number(total),
+			total: parseInt(total, 10),
 			showQuickJumper: true,
 			hideOnSinglePage: true,
 			onChange(p, n) {

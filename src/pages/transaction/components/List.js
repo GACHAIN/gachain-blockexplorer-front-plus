@@ -41,7 +41,7 @@ const List = ({ ...listProps }) => {
 			title: <FormattedMessage id="TL_BLOCKID" />,
 			dataIndex: 'block_id',
 			render: (text, record) => {
-				if (Number(text) > 0) {
+				if (parseInt(text, 10) > 0) {
 					return (
 						<Link to={`block/${record.block_id}`}>
 							<span>{text}</span>

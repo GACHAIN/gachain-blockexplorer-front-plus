@@ -69,7 +69,11 @@ const List = props => {
 			{...props}
 			rowKey={record => record.id}
 			columns={columns.map(item => {
-				item['align'] = 'center';
+				if (item.dataIndex !== 'amount') {
+					item['align'] = 'left'
+				}else{
+					item['align'] = 'left'
+				}
 				return item;
 			})}
 			scroll={{ x: '500' }}

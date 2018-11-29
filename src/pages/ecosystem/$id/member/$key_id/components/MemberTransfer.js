@@ -52,18 +52,18 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
 								<FormattedMessage id="utc-time" />：
 								{moment(item.created_at).utc().format()}
 							</Row>
-							<Row>
-								<Col span={10}>
+							<Row style={{lineHeight: '1rem'}}>
+								<Col xs={24} sm={24} md={24} lg={10} xl={10} xxl={10}>
 									{/* <FormattedMessage id="MEM_SEND" />： */}
 									<a href={`#/ecosystem/1/member/${item.sender_id}?state=${location.query.state}`}>
 										{item.sender_id}
 									</a>
 									<Icon type="copy" id="copy" onClick={() => clickCp(item.sender_id)} />
 								</Col>
-								<Col span={4}>
-									<span style={{fontSize: '1rem'}}>➤</span>
+								<Col xs={24} sm={24} md={24} lg={4} xl={4} xxl={4} id="arrow-right">
+									<span>➤</span>
 								</Col>
-								<Col span={10}>
+								<Col xs={24} sm={24} md={24} lg={10} xl={10} xxl={10}>
 									{/* <FormattedMessage id="MEM_REC" />： */}
 									<a href={`#/ecosystem/1/member/${item.recipient_id}?state=${location.query.state}`}>
 										{item.recipient_id}
@@ -101,10 +101,14 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
 					} >
 						<Row id="member_transfer_list" key={item.txhash + Math.random()}>
 							<Row>
-								<h4><FormattedMessage id="MEM_HASH" />：
-									<Link to={`/transaction/${item.txhash}`}>
+								<h4>
+									<span style={{ display: 'inline-block', float: 'left' }}>
+										<FormattedMessage id="MEM_HASH" />
+									</span>
+									<Link id="textOverflow" to={`/transaction/${item.txhash}`} style={{ float: 'left' }}>
 										{item.txhash}
 									</Link>
+									<Icon type="copy" id="copy" onClick={() => clickCp(item.txhash)} />
 								</h4>
 								<Row>
 									<FormattedMessage id="time" />：
@@ -115,19 +119,24 @@ const MemberTransfer = ({ member_info, incomeList, outcomeList, total, location,
 									<span>{moment(item.created_at).utc().format()}</span>
 								</Row>
 							</Row>
-							<Row>
-								<FormattedMessage id="MEM_SEND" />：
-								<a href={`#/ecosystem/1/member/${item.sender_id}?state=${location.query.state}`}>
-									{item.sender_id}
-								</a>
-								<Icon type="copy" id="copy" onClick={() => clickCp(item.sender_id)} />
-							</Row>
-							<Row>
-								<FormattedMessage id="MEM_REC" />：
-								<a href={`#/ecosystem/1/member/${item.recipient_id}?state=${location.query.state}`}>
-									{item.recipient_id}
-								</a>
-								<Icon type="copy" id="copy" onClick={() => clickCp(item.recipient_id)} />
+							<Row style={{lineHeight: '1rem'}}>
+								<Col xs={24} sm={24} md={24} lg={10} xl={10} xxl={10}>
+									{/* <FormattedMessage id="MEM_SEND" />： */}
+									<a href={`#/ecosystem/1/member/${item.sender_id}?state=${location.query.state}`}>
+										{item.sender_id}
+									</a>
+									<Icon type="copy" id="copy" onClick={() => clickCp(item.sender_id)} />
+								</Col>
+								<Col xs={24} sm={24} md={24} lg={4} xl={4} xxl={4} id="arrow-right">
+									<span>➤</span>
+								</Col>
+								<Col xs={24} sm={24} md={24} lg={10} xl={10} xxl={10}>
+									{/* <FormattedMessage id="MEM_REC" />： */}
+									<a href={`#/ecosystem/1/member/${item.recipient_id}?state=${location.query.state}`}>
+										{item.recipient_id}
+									</a>
+									<Icon type="copy" id="copy" onClick={() => clickCp(item.recipient_id)} />
+								</Col>
 							</Row>
 							<Row>
 								<FormattedMessage id="Amount" />：<span id="gac_amount">{fmoney(qGacToGac(item.amount), 4)} GAC</span>

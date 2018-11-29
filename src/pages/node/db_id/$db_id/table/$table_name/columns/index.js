@@ -23,6 +23,11 @@ const Columns = ({table, loading}) => {
 			})}
 			dataSource={columnsData}
 			rowKey={record=>record.column_name}
+			pagination={
+				{
+					hideOnSinglePage: true,
+				}
+			}
 		/>
 	);
 };

@@ -49,7 +49,7 @@ const over_view = ({ loading, data, top_numbers }) => {
 							{/* {`¥ ${data === undefined ? 0 : (Number(data['usdt-gac'].last))}`} */}
 							{!loading && data
 								? parseFloat(
-									Number(data['usdt-gac'].last) *
+									parseInt(data['usdt-gac'].last, 10) *
                                           (data.Rates.rates
                                           	? data.Rates.rates.CNY
                                           	: null)
@@ -65,11 +65,11 @@ const over_view = ({ loading, data, top_numbers }) => {
 							{`1 GAC ≈ ${
 								data === undefined
 									? 0
-									: Number(data['btc-gac'].last)
+									: parseInt(data['btc-gac'].last, 10)
 							} BTC ≈ ${
 								data === undefined
 									? 0
-									: Number(data['usdt-gac'].last)
+									: parseInt(data['usdt-gac'].last, 10)
 							} USDT`}
 						</Link>
 					</Row>

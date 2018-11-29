@@ -51,7 +51,7 @@ const middle_transactions = ({ data, loading }) => {
         					</Row>
         					<Row>
         						<span>
-        							<FormattedMessage id="WalletID" />
+        							<FormattedMessage id="wallet_id" />
         						</span>
         						<Tooltip
         							placement="topLeft"
