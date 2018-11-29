@@ -194,7 +194,7 @@ export default {
 	TYPE_TRANSFER: '振替',
 	TYPE_CREATEUSER: 'ユーザーを作成する',
 	TYPE_TASK: '定時の任務',
-	TYPE_LONK_FUND: '键を仓',
+	TYPE_LOCK_FUND: '键を仓',
 	TYPE_FIRSTBLOCK: '創世ブロック',
 	TYPE_UPDATESYSTEM: 'システムパラメータを更新する',
 	TYPE_CREATE_CONTRACT: '作成契約',

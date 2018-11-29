@@ -194,7 +194,7 @@ export default {
 	TYPE_CREATEUSER: '创建用户',
 	TYPE_TASK: '定时任务',
 	TYPE_FIRSTBLOCK: '创世区块',
-	TYPE_LONK_FUND: '锁仓',
+	TYPE_LOCK_FUND: '锁仓',
 	TYPE_UPDATESYSTEM: '更新系统参数',
 	TYPE_CREATE_CONTRACT: '创建合约',
 	TYPE_CREATE_LOCK_FUND: '创建锁仓',
