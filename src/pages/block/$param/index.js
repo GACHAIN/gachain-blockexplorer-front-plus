@@ -53,7 +53,7 @@ const Block = ({ s_block_detail, loading }) => {
 						headObj.val = (
 							<Row>
 								<span>
-									{`#${headObj.val} `}<Icon component={nodeIcon[headObj.val]} style={{ fontSize: '1.2rem' }} />
+									{`#${headObj.val+1} `}<Icon component={nodeIcon[headObj.val]} style={{ fontSize: '1.2rem' }} />
 									{/* 城市名称 */}
 									{/* {nodePosition[headObj.val]} */}
 								</span>

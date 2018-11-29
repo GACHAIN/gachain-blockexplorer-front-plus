@@ -108,7 +108,7 @@ const List = ({ ...listProps }) => {
 			render: text => (
 				<Row>
 					<Tag color="#108ee9">
-						{moment(text * 1000).fromNow(false)}
+						{text > 0 ? moment(text * 1000).fromNow() : '-'}
 					</Tag>
 				</Row>
 			),

@@ -12,6 +12,7 @@ export default modelExtend(baseModel, {
 				let match = pathToRegexp('/block/:block_id').exec(location.pathname);
 				if (match) {
 					let payload = {};
+					let block_id = parseInt(match[1], 10);
 					payload.head = {
 						'version': '1.0',
 						'msgtype': 'request',
@@ -20,7 +21,7 @@ export default modelExtend(baseModel, {
 					};
 					payload.params = {
 						'cmd': '001',
-						'block_id': Number(match[1]),
+						block_id,
 					};
 					dispatch({
 						type: 'query',

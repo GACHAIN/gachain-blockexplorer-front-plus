@@ -36,8 +36,8 @@ const MemberInfo = ({ data, loading, member_transaction_info }) => {
 		member_transaction_info ? member_transaction_info : {}
 	).map(item => {
 		let obj = {};
-		obj['key'] = <FormattedMessage id={item[0]} />;
-		if (obj['key'].props.id !== 'transaction') {
+		obj['key'] = <strong><FormattedMessage id={item[0]} /></strong>;
+		if (obj['key'].props.children.props.id !== 'transaction') {
 			obj['value'] = `${fmoney(qGacToGac(item[1]), 4)} GAC`;
 		} else {
 			obj['value'] = item[1];
@@ -108,7 +108,7 @@ const MemberInfo = ({ data, loading, member_transaction_info }) => {
 					</Divider>
 					<Table
 						rowKey={record => {
-							return record.key.props.id;
+							return record.value+Math.random();
 						}}
 						showHeader={false}
 						columns={transferInfoColumns}

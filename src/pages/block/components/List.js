@@ -15,9 +15,9 @@ const List = ({ ...listProps }) => {
 	const columns = [
 		{
 			title: <FormattedMessage id="BL_BLOCKID" />,
-			dataIndex: 'block_id',
+			dataIndex: 'id',
 			render: (text, record) => (
-				<Link to={`block/${record.block_id}`}>{text}</Link>
+				<Link to={`block/${record.id}`}>{text}</Link>
 			),
 			sorter: true,
 		},
@@ -26,7 +26,7 @@ const List = ({ ...listProps }) => {
 			dataIndex: 'hash',
 			render: (text, record) => (
 				<Tooltip placement="topLeft" title={text}>
-					<Link to={`block/${record.block_id}`}>
+					<Link to={`block/${record.id}`}>
 						<span id="textOverflow">{text}</span>
 					</Link>
 				</Tooltip>
@@ -90,7 +90,8 @@ const List = ({ ...listProps }) => {
 		},
 		{
 			title: <FormattedMessage id="BL_TXNUM" />,
-			dataIndex: 'tx_count'
+			dataIndex: 'tx',
+			sorter: true,
 		}
 	];
 

@@ -8,9 +8,9 @@ import moment from 'moment';
 
 const TransactionHash = ({ s_transaction, loading }) => {
 	let { dataList } = s_transaction;
-	let senderID;
+	let sender_id;
 	// recipient用来构造可变变量
-	let recipient = {};
+	let recipientid = {};
 	let toggle = (e) => {
 		let text = e.target.innerHTML;
 		text = checkKeyidOrAddress(text) === 1 ? walletAddrToId(text) : walletIdToAddr(text);
@@ -28,25 +28,25 @@ const TransactionHash = ({ s_transaction, loading }) => {
 				valueObj.key = k1;
 
 				// 需要排除的字段
-				let excludeField = ['key_id', 'type', 'Type', 'hash', 'BlockID', 'Hash'];
+				let excludeField = ['key_id', 'type', 'Type', 'hash', 'BlockID', 'Hash', 'size'];
 				if (excludeField.includes(valueObj.key)) {
 					continue;
 				}
 
-				let transferID = ['senderID', 'recipientID1', 'recipientID2', 'recipientID3'];
+				let transferID = ['sender_id', 'recipientid1', 'recipientid2', 'recipientid3'];
 				if (transferID.includes(k1)) {
 					switch (k1) {
-					case 'senderID':
-						senderID = data[k][k1];
+					case 'sender_id':
+						sender_id = data[k][k1];
 						break;
-					case 'recipientID1':
-						recipient[0] = data[k][k1];
+					case 'recipientid1':
+						recipientid[0] = data[k][k1];
 						break;
-					case 'recipientID2':
-						recipient[1] = data[k][k1];
+					case 'recipientid2':
+						recipientid[1] = data[k][k1];
 						break;
-					case 'recipientID3':
-						recipient[2] = data[k][k1];
+					case 'recipientid3':
+						recipientid[2] = data[k][k1];
 						break;
 					default:
 						break;
@@ -64,10 +64,10 @@ const TransactionHash = ({ s_transaction, loading }) => {
 						valueObj.value = (
 							<Row gutter={24}>
 								{
-									senderID ? (
+									sender_id ? (
 										<Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="send">
-											<span onClick={(e) => toggle(e)}>{senderID}</span>
-											<Icon type="copy" id="copy" onClick={() => clickCp(senderID)} style={{ color: '#EEEEEE' }} />
+											<span onClick={(e) => toggle(e)}>{sender_id}</span>
+											<Icon type="copy" id="copy" onClick={() => clickCp(sender_id)} style={{ color: '#EEEEEE' }} />
 										</Col>
 									) : (
 										<Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8}>
@@ -77,10 +77,10 @@ const TransactionHash = ({ s_transaction, loading }) => {
 								}
 								<Col xs={24} ms={24} md={24} lg={3} xl={3} xxl={3} id="arrow-right"><span>➤</span></Col>
 								{
-									recipient[i] ? (
+									recipientid[i] ? (
 										<Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8} id="recipient">
-											<span onClick={(e) => toggle(e)}>{recipient[i]}</span>
-											<Icon type="copy" id="copy" onClick={() => clickCp(recipient[i])} style={{ color: '#EEEEEE' }} />
+											<span onClick={(e) => toggle(e)}>{recipientid[i]}</span>
+											<Icon type="copy" id="copy" onClick={() => clickCp(recipientid[i])} style={{ color: '#EEEEEE' }} />
 										</Col>
 									) : (
 										<Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8}>
@@ -96,8 +96,8 @@ const TransactionHash = ({ s_transaction, loading }) => {
 					}
 				}
 
-				// txHash
-				if (valueObj.key === 'txHash') {
+				// txhash
+				if (valueObj.key === 'txhash') {
 					let _val = valueObj.value;
 					valueObj.value = (
 						<Row>
@@ -108,7 +108,7 @@ const TransactionHash = ({ s_transaction, loading }) => {
 				}
 
 				// Error处理
-				if (valueObj.key === 'Error') {
+				if (valueObj.key === 'err') {
 					let data = JSON.parse(valueObj.value).data;
 					delete data.txhash;
 					valueObj.value = (
@@ -123,7 +123,7 @@ const TransactionHash = ({ s_transaction, loading }) => {
 				}
 
 				// timestamp时间格式处理
-				if (valueObj.key === 'createdAt') {
+				if (valueObj.key === 'created_at') {
 					valueObj.value = (
 						<Row>
 							{moment(valueObj.value).format('YYYY-MM-DD HH:MM:SS')}
@@ -141,7 +141,7 @@ const TransactionHash = ({ s_transaction, loading }) => {
 				}
 
 				// 区块ID处理
-				if (valueObj.key === 'blockID' || valueObj.key === 'BlockID') {
+				if (valueObj.key === 'blockid' || valueObj.key === 'BlockID') {
 					valueObj.value = (
 						<Link to={`/block/${valueObj.value}`}>{valueObj.value}</Link>
 					);

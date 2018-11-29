@@ -18,16 +18,16 @@ export const baseModel = modelExtend({
 					hideOnSinglePage: true,
 					showQuickJumper: true,
 					showSizeChanger: true,
-					showTotal: (total, range) => (
-						<FormattedMessage
-							id="PAGE_DESC"
-							values={{
-								x: range[0],
-								y: range[1],
-								total
-							}}
-						/>
-					),
+					// showTotal: (total, range) => (
+					// 	<FormattedMessage
+					// 		id="PAGE_DESC"
+					// 		values={{
+					// 			x: range[0],
+					// 			y: range[1],
+					// 			total
+					// 		}}
+					// 	/>
+					// ),
 					onChange: (p, n) => {
 						let { dispatch } = payload;
 						let requestArgs = {

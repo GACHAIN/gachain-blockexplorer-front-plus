@@ -9,7 +9,7 @@ const TransactionStatus = ({ transaction_status, dispatch, loading }) => {
 
 	const listProps = {
 		dataSource: dataList,
-		rowKey: record => record.Hash,
+		rowKey: record => record.hash,
 		loading: loading.effects['transaction_status/query'],
 		total,
 		scroll: { x: 900 },

@@ -18,7 +18,7 @@ const middle_blocks = ({ data, loading }) => {
         					marginBottom: '1rem'
         				}}
         			>
-        				<Link to={`/block/${item.block_id}`}>
+        				<Link to={`/block/${item.id}`}>
         					<Col
         						className={styles.blocks_left}
         						xs={10}
@@ -43,7 +43,7 @@ const middle_blocks = ({ data, loading }) => {
         								<Row>
         									<span style={{ color: '#eee' }}>
         										<FormattedMessage id="H_BLOCK" />{' '}
-                                                  #{item.block_id}
+                                                  #{item.id}
         									</span>
         								</Row>
         							</Col>

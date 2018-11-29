@@ -9,7 +9,7 @@ const TransactionStatusList = (listProps) => {
 	const columns = [
 		{
 			title: <FormattedMessage id="TL_BLOCKID" />,
-			dataIndex: 'BlockID',
+			dataIndex: 'block_id',
 			render: (text, record) => {
 				if (record.BlockID > 0) {
 					return (
@@ -26,7 +26,7 @@ const TransactionStatusList = (listProps) => {
 		},
 		{
 			title: <FormattedMessage id="TL_HASH" />,
-			dataIndex: 'Hash',
+			dataIndex: 'hash',
 			render: (text, record) => {
 				if (record.BlockID > 0) {
 					return (
@@ -46,7 +46,7 @@ const TransactionStatusList = (listProps) => {
 		},
 		{
 			title: <FormattedMessage id="H_TIME" />,
-			dataIndex: 'Time',
+			dataIndex: 'time',
 			render: text=>{
 				return (
 					<Tag color="#108ee9">
@@ -58,7 +58,7 @@ const TransactionStatusList = (listProps) => {
 		},
 		{
 			title: <FormattedMessage id="TL_TYPE" />,
-			dataIndex: 'Type',
+			dataIndex: 'type',
 			render: text => {
 				return (
 					<Tag color="blue"><FormattedMessage id={transactionType[text]} /></Tag>
@@ -67,7 +67,7 @@ const TransactionStatusList = (listProps) => {
 		},
 		{
 			title: <FormattedMessage id="TL_WALLET" />,
-			dataIndex: 'WalletID',
+			dataIndex: 'wallet_id',
 			render: text => {
 				return (
 					<Tooltip placement="topLeft" title={text}>
