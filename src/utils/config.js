@@ -1,5 +1,6 @@
 import { FormattedMessage } from 'react-intl';
 import api from './api';
+import transactionType from './transactionType';
 
 // icon
 import china from '@public/china.svg';
@@ -10,6 +11,7 @@ module.exports = {
 	// Version
 	Version: '1.2.1',
 	api,
+	transactionType,
 	// Logo
 	name: <FormattedMessage id="BLOCK_EXPLORER" />,
 	prefix: 'GAChain',
@@ -36,11 +38,5 @@ module.exports = {
 	// qGAC转GAC后面有多少个0
 	MONEY_POWER: 12,
 	// 交易类型
-	transactionType : {
-		0: 'TYPE_FIRSTBLOCK',
-		276: 'TYPE_TRANSFER',
-		293: 'TYPE_CREATEUSER',
-		264: 'TYPE_TASK',
-		279: 'LONK_FUND'
-	}
+	
 };

@@ -48,7 +48,7 @@ const transactions_info_columns = [
 		dataIndex: 'type',
 		render: text => (
 			<Tag color="blue">
-				<FormattedMessage id={transactionType[text]} />
+				<FormattedMessage id={transactionType[text] ? transactionType[text] : 'NULL'} />
 			</Tag>
 		)
 	},

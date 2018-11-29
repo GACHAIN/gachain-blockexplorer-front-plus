@@ -9,7 +9,7 @@ const middle_transactions = ({ data, loading }) => {
 	let typeTag = text => {
 		return (
 			<Tag color="blue">
-				<FormattedMessage id={transactionType[text]} />
+				<FormattedMessage id={transactionType[text] ? transactionType[text] : 'NULL'} />
 			</Tag>
 		);
 	};

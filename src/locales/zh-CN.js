@@ -194,7 +194,11 @@ export default {
 	TYPE_CREATEUSER: '创建用户',
 	TYPE_TASK: '定时任务',
 	TYPE_FIRSTBLOCK: '创世区块',
-
+	TYPE_LONK_FUND: '锁仓',
+	TYPE_UPDATESYSTEM: '更新系统参数',
+	TYPE_CREATE_CONTRACT: '创建合约',
+	TYPE_CREATE_LOCK_FUND: '创建锁仓',
+	
 	// Button
 	VIEW: '查看',
 
@@ -234,8 +238,10 @@ export default {
 	// ERRORPROMPT
 	ERRORPROMPT: 'Tip: 点击失败的按钮可以查看失败信息',
 	QRCODE: '二维码',
-	LONK_FUND: '锁仓',
 
 	// Page
-	PAGE_DESC: '当前第{x}-{y}条 共{total}条数据'
+	PAGE_DESC: '当前第{x}-{y}条 共{total}条数据',
+
+	// NULL
+	NULL: 'null'
 };

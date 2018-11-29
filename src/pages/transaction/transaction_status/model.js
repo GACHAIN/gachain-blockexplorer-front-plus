@@ -20,7 +20,7 @@ export default modelExtend(baseModel, {
 							'cmd': '001',
 							'page_size': 10,
 							'current_page': 1,
-							'order': '',
+							'order': 'block_id desc',
 						}
 					};
 					dispatch({

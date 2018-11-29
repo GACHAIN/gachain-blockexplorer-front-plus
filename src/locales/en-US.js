@@ -193,7 +193,11 @@ export default {
 	TYPE_TRANSFER: 'Transfer',
 	TYPE_CREATEUSER: 'Create User',
 	TYPE_TASK: 'Task',
+	TYPE_LOCK_FUND: 'Lock Up',
 	TYPE_FIRSTBLOCK: 'First Block',
+	TYPE_UPDATESYSTEM: 'Update System Parameters',
+	TYPE_CREATE_CONTRACT: 'Create Contract',
+	TYPE_CREATE_LOCK_FUND: 'Create a Lock Up',
 
 	// Button
 	VIEW: 'View',
@@ -234,8 +238,11 @@ export default {
 	// ERRORPROMPT
 	ERRORPROMPT: 'Tip: Click the failed button to view the failure information',
 	QRCODE: 'Qr Code',
-	LONK_FUND: 'Lock Up',
+	
 
 	// Page
-	PAGE_DESC: 'Current {x}-{y} total {total} items'
+	PAGE_DESC: 'Current {x}-{y} total {total} items',
+
+	// NULL
+	NULL: 'null'
 };

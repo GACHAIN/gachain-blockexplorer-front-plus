@@ -11,16 +11,17 @@ const TransactionStatusList = (listProps) => {
 			title: <FormattedMessage id="TL_BLOCKID" />,
 			dataIndex: 'block_id',
 			render: (text, record) => {
-				if (record.BlockID > 0) {
-					return (
-						<Link to={`/transaction/${text}`}>{text}</Link>
+				let result = {};
+				if (record.block_id > 0) {
+					result = (
+						<Link to={`/block/${text}`}>{text}</Link>
 					);
 				}else {
-					return (
-						<span to={`/transaction/${text}`}>{text}</span>
+					result = (
+						<span to={`/block/${text}`}>{text}</span>
 					);
 				}
-				
+				return result;
 			},
 			sorter: true,
 		},
@@ -28,20 +29,21 @@ const TransactionStatusList = (listProps) => {
 			title: <FormattedMessage id="TL_HASH" />,
 			dataIndex: 'hash',
 			render: (text, record) => {
-				if (record.BlockID > 0) {
-					return (
+				let result = {};
+				if (record.block_id > 0) {
+					result = (
 						<Tooltip placement="topLeft" title={text}>
 							<Link id="textOverflow" to={`/transaction/${text}`}>{text}</Link>
 						</Tooltip>
 					);
 				} else {
-					return (
+					result = (
 						<Tooltip placement="topLeft" title={text}>
 							<span id="textOverflow" to={`/transaction/${text}`}>{text}</span>
 						</Tooltip>
 					);
 				}
-				
+				return result;
 			}
 		},
 		{
@@ -61,7 +63,7 @@ const TransactionStatusList = (listProps) => {
 			dataIndex: 'type',
 			render: text => {
 				return (
-					<Tag color="blue"><FormattedMessage id={transactionType[text]} /></Tag>
+					<Tag color="blue"><FormattedMessage id={transactionType[text] ? transactionType[text] : 'NULL'} /></Tag>
 				);
 			}
 		},

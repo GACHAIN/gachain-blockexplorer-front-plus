@@ -194,7 +194,11 @@ export default {
 	TYPE_TRANSFER: '振替',
 	TYPE_CREATEUSER: 'ユーザーを作成する',
 	TYPE_TASK: '定時の任務',
+	TYPE_LONK_FUND: '键を仓',
 	TYPE_FIRSTBLOCK: '創世ブロック',
+	TYPE_UPDATESYSTEM: 'システムパラメータを更新する',
+	TYPE_CREATE_CONTRACT: '作成契約',
+	TYPE_CREATE_LOCK_FUND: '鍵倉を作る',
 
 	// Button
 	VIEW: 'チェック',
@@ -235,8 +239,11 @@ export default {
 	// ERRORPROMPT
 	ERRORPROMPT: 'Tip: 失败したボタンをクリックすると失败情报が见られます',
 	QRCODE: '二次元コード',
-	LONK_FUND: '键を仓',
+	
 
 	// Page
-	PAGE_DESC: '現在、第{x}-{y}条共に {total} のデータである'
+	PAGE_DESC: '現在、第{x}-{y}条共に {total} のデータである',
+
+	// NULL
+	NULL: 'null'
 };

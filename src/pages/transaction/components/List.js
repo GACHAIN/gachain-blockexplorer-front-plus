@@ -63,7 +63,7 @@ const List = ({ ...listProps }) => {
 			render: text => {
 				return (
 					<Tag color="blue">
-						<FormattedMessage id={transactionType[text]} />
+						<FormattedMessage id={transactionType[text] ? transactionType[text] : 'NULL'} />
 					</Tag>
 				);
 			}
