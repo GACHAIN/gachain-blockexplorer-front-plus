@@ -17,7 +17,7 @@ const over_view = ({ loading, data, top_numbers }) => {
 			loading={loading}
 			bodyStyle={{ height: '20rem' }}
 		>
-			<Row style={{ paddingBottom: '30px' }}>
+			<Row style={{ paddingBottom: '1rem' }}>
 				<Col span={4}>
 					<Icon type="global" style={{ fontSize: '50px' }} />
 				</Col>
@@ -49,7 +49,7 @@ const over_view = ({ loading, data, top_numbers }) => {
 							{/* {`¥ ${data === undefined ? 0 : (Number(data['usdt-gac'].last))}`} */}
 							{!loading && data
 								? parseFloat(
-									parseInt(data['usdt-gac'].last, 10) *
+									parseFloat(data['usdt-gac'].last, 10) *
                                           (data.Rates.rates
                                           	? data.Rates.rates.CNY
                                           	: null)
@@ -59,23 +59,23 @@ const over_view = ({ loading, data, top_numbers }) => {
 						<br />
 						<Link
 							to="#"
-							style={{ color: '#fff', fontSize: '16px' }}
+							style={{ color: '#fff', fontSize: '1.2rem' }}
 							replace
 						>
 							{`1 GAC ≈ ${
 								data === undefined
 									? 0
-									: parseInt(data['btc-gac'].last, 10)
+									: parseFloat(data['btc-gac'].last, 10)
 							} BTC ≈ ${
 								data === undefined
 									? 0
-									: parseInt(data['usdt-gac'].last, 10)
+									: parseFloat(data['usdt-gac'].last, 10)
 							} USDT`}
 						</Link>
 					</Row>
 				</Col>
 			</Row>
-			<Row style={{ paddingBottom: '30px' }}>
+			<Row style={{ paddingBottom: '1rem' }}>
 				<Col span={12}>
 					<Row>
 						<span style={{ color: '#eee' }}>
