@@ -22,7 +22,7 @@ export default modelExtend(baseModel, {
 							cmd: '001',
 							current_page: 1,
 							page_size: 10,
-							order: 'id desc'
+							order: 'time desc'
 						}
 					};
 					dispatch({

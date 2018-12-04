@@ -43,6 +43,7 @@ const List = ({ ...listProps }) => {
 				</Row>
 			),
 			sorter: true,
+			defaultSortOrder: 'descend',
 		},
 		{
 			title: <FormattedMessage id="BL_NODEPOSITION" />,

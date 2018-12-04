@@ -112,7 +112,8 @@ const List = ({ ...listProps }) => {
 					</Tag>
 				</Row>
 			),
-			sorter: true
+			sorter: true,
+			defaultSortOrder: 'descend'
 		}
 	];
 

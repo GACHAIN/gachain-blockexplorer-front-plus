@@ -49,6 +49,7 @@ const TransactionStatusList = (listProps) => {
 				);
 			},
 			sorter: true,
+			defaultSortOrder: 'descend',
 		},
 		{
 			title: <FormattedMessage id="TL_TYPE" />,
