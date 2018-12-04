@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'dva';
 import List from './components/List';
-import { Alert } from 'antd';
-import { FormattedMessage } from 'react-intl';
 
 const TransactionStatus = ({ transaction_status, dispatch, loading }) => {
 	let { dataList, total, pagination } = transaction_status;
@@ -52,11 +50,7 @@ const TransactionStatus = ({ transaction_status, dispatch, loading }) => {
 
 	return (
 		<div>
-			<Alert
-				message={<FormattedMessage id="ERRORPROMPT" />}
-				type="error"
-				style={{ marginBottom: '1rem' }}
-			/>
+			
 			<List {...listProps} />
 		</div>
 	);

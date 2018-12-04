@@ -20,10 +20,10 @@ const NodeList = ({ ...listProps }) => {
 								textAlign: 'left'
 							}}
 							component={
-								nodeIcon[parseInt(record.nodeposition, 10) - 1]
+								nodeIcon[parseInt(record.NodePosition, 10) - 1]
 							}
 						/>
-						{nodePosition[parseInt(record.nodeposition, 10) - 1]}
+						{nodePosition[parseInt(record.NodePosition, 10) - 1]}
 					</span>
 				);
 			},
@@ -87,7 +87,7 @@ const NodeList = ({ ...listProps }) => {
 		{
 			title: <FormattedMessage id="DATABASE" />,
 			render: (text, record) => {
-				let { Enable, nodeposition } = record;
+				let { Enable, NodePosition } = record;
 				let buttonProps = Enable
 					? {
 						type: 'primary'
@@ -98,7 +98,7 @@ const NodeList = ({ ...listProps }) => {
 					};
 
 				return (
-					<Link to={`/node/db_id/${nodeposition}/table`} replace={true}>
+					<Link to={`/node/db_id/${NodePosition}/table`} replace={true}>
 						<Button {...buttonProps}>
 							<FormattedMessage id="VIEW" />
 						</Button>

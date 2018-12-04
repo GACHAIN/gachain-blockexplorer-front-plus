@@ -109,8 +109,8 @@ const TransactionHash = ({ s_transaction, loading }) => {
 
 				// Error处理
 				if (valueObj.key === 'err') {
-					let data = JSON.parse(valueObj.value).data;
-					delete data.txhash;
+					let data = JSON.parse(valueObj.value || '{}').data || JSON.parse(valueObj.value || '{}');
+					data.txhash ? delete data['txhash'] : true;
 					valueObj.value = (
 						<Row>
 							<code>
@@ -127,6 +127,15 @@ const TransactionHash = ({ s_transaction, loading }) => {
 					valueObj.value = (
 						<Row>
 							{moment(valueObj.value).format('YYYY-MM-DD HH:MM:SS')}
+						</Row>
+					);
+				}
+
+				// wallet_id
+				if (valueObj.key === 'wallet_id') {
+					valueObj.value = (
+						<Row>
+							<Link to={`/ecosystem/1/member/${valueObj.value}`}>{valueObj.value}</Link>
 						</Row>
 					);
 				}

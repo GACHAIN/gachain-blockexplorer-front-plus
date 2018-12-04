@@ -30,19 +30,11 @@ const TransactionStatusList = (listProps) => {
 			dataIndex: 'hash',
 			render: (text, record) => {
 				let result = {};
-				if (record.block_id > 0) {
-					result = (
-						<Tooltip placement="topLeft" title={text}>
-							<Link id="textOverflow" to={`/transaction/${text}`}>{text}</Link>
-						</Tooltip>
-					);
-				} else {
-					result = (
-						<Tooltip placement="topLeft" title={text}>
-							<span id="textOverflow" to={`/transaction/${text}`}>{text}</span>
-						</Tooltip>
-					);
-				}
+				result = (
+					<Tooltip placement="topLeft" title={text}>
+						<Link id="textOverflow" to={`/transaction/${text}`}>{text}</Link>
+					</Tooltip>
+				);
 				return result;
 			}
 		},
@@ -82,28 +74,30 @@ const TransactionStatusList = (listProps) => {
 		{
 			title: <FormattedMessage id="TransactionStatus" />,
 			render: (record, text) => {
-				let { BlockID, Error } = record;
-				if (BlockID === 0 && Error !== '') {
-					return (
+				let { block_id, err } = record;
+				let result;
+				if (block_id === 0 && err !== '') {
+					result = (
 						<span id="failure" onClick={()=>{errorClickHandel(record);}}><FormattedMessage id="ME_FAILYRE" /></span>
 					);
-				} else if(BlockID === 0 && Error === '') {
-					return (
+				} else if(block_id === 0 && err === '') {
+					result = (
 						<span id="waiting"><FormattedMessage id="ME_WAITING" /></span>
 					);
 				} else {
-					return (
+					result = (
 						<span id="success"><FormattedMessage id="ME_SUCCESS" /></span>
 					);
 				}
+				return result;
 			}
 		}
 	];
 
 	function errorClickHandel(record) {
-		let { BlockID, Error } = record;
-		if (BlockID === 0 && Error !== '') {
-			let errObj = JSON.parse(Error);
+		let { block_id, err } = record;
+		if (block_id === 0 && err !== '') {
+			let errObj = JSON.parse(err);
 			message.error(errObj.error);
 		}
 	}

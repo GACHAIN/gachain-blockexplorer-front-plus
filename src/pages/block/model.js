@@ -29,6 +29,7 @@ export default modelExtend(baseModel, {
 						type: 'query',
 						payload: {
 							requestArgs,
+							location,
 							dispatch
 						}
 					});

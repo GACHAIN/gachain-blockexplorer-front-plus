@@ -16,10 +16,10 @@ module.exports = {
       "single"
     ],
     // 禁止使用console.log
-    "no-console": [
-      "error",
-      { "allow": ["warn", "error"] }
-    ],
+    // "no-console": [
+    //   "error",
+    //   { "allow": ["warn", "error"] }
+    // ],
     // 强制使用全等和不全等
     "eqeqeq": [
       "error",

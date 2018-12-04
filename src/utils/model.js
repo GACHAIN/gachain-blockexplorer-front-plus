@@ -1,6 +1,5 @@
 import modelExtend from 'dva-model-extend';
 import { walletIdToAddr, walletAddrToId, checkKeyidOrAddress } from 'utils';
-import { FormattedMessage } from 'react-intl';
 
 export const baseModel = modelExtend({
 	reducers: {
@@ -18,17 +17,8 @@ export const baseModel = modelExtend({
 					hideOnSinglePage: true,
 					showQuickJumper: true,
 					showSizeChanger: true,
-					// showTotal: (total, range) => (
-					// 	<FormattedMessage
-					// 		id="PAGE_DESC"
-					// 		values={{
-					// 			x: range[0],
-					// 			y: range[1],
-					// 			total
-					// 		}}
-					// 	/>
-					// ),
 					onChange: (p, n) => {
+						// 从uri获取分页参数
 						let { dispatch } = payload;
 						let requestArgs = {
 							head: payload.requestArgs.head,
@@ -47,7 +37,7 @@ export const baseModel = modelExtend({
 						});
 					},
 					onShowSizeChange: (p, n) => {
-						let { dispatch } = payload;
+						let { dispatch, location } = payload;
 						let requestArgs = {
 							head: payload.requestArgs.head,
 							params: {
@@ -60,6 +50,7 @@ export const baseModel = modelExtend({
 							type: payload.onChangeType,
 							payload: {
 								requestArgs,
+								location,
 								dispatch
 							}
 						});
@@ -77,9 +68,9 @@ export const baseModel = modelExtend({
 
 			state.dataList.map(item => {
 				return (item[index] =
-                    checkKeyidOrAddress(item[index]) === 1
-                    	? walletAddrToId(item[index])
-                    	: walletIdToAddr(item[index]));
+					checkKeyidOrAddress(item[index]) === 1
+						? walletAddrToId(item[index])
+						: walletIdToAddr(item[index]));
 			});
 			return { ...state };
 		}

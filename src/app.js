@@ -8,12 +8,15 @@ if (window.location.hash === '#/') {
 }
 
 /** 兼容钱袋链接跳转 */
-let s = pathToRegexp('/gachain/database/1/transaction/:hash').exec(window.location.pathname);
-let hash;
-if (s !== null) {
-	hash = s[1];
-	router.replace(`/transaction/${hash}`);
-}
+// let s = pathToRegexp('/gachain/database/1/transaction/:hash');
+// console.log(s);
+// console.log(window.location);
+
+// let hash;
+// if (s !== null) {
+// 	hash = s[1];
+// 	router.replace(`/transaction/${hash}`);
+// }
 
 export const dva = {
 	config: {
@@ -26,5 +29,3 @@ export const dva = {
 		},
 	},
 };
-
-
