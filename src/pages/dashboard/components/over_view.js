@@ -88,7 +88,7 @@ const over_view = ({ loading, data, top_numbers }) => {
 							style={{ color: '#fff', fontSize: '16px' }}
 							replace
 						>
-							{top_numbers[1] ? top_numbers[1]['number'] : ''}
+							{(top_numbers && top_numbers[1]) ? top_numbers[1]['number'] : ''}
 						</Link>
 					</Row>
 				</Col>
@@ -118,7 +118,7 @@ const over_view = ({ loading, data, top_numbers }) => {
 					</Row>
 					<Row>
 						<Link to="#" style={{ color: '#fff', fontSize: '1rem' }} replace>
-							{top_numbers[2] ? top_numbers[2]['number'] : ''}
+							{(top_numbers && top_numbers[2]) ? top_numbers[2]['number'] : ''}
 						</Link>
 					</Row>
 				</Col>
