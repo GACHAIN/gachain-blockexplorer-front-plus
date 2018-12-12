@@ -4,7 +4,8 @@ import CountUp from 'react-countup';
 import styles from './top_numbers.css';
 import Link from 'umi/link';
 const top_numbers = ({ loading, data }) => {
-	let UIComponents = data.map((item, key) => {
+	console.log(data)
+	let UIComponents = (data || [] ).map((item, key) => {
 		switch (item.title) {
 		case 'TOPNUMNODE':
 			item.link = 'node';
