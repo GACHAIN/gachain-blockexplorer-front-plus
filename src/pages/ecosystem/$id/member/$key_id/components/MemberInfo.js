@@ -8,7 +8,7 @@ import {
 	walletAddrToId,
 	walletIdToAddr
 } from 'utils';
-import gac from '@public/gac.svg';
+import gac from 'public/gac.svg';
 import QRCode from 'qrcode.react';
 
 const MemberInfo = ({ data, loading, member_transaction_info }) => {

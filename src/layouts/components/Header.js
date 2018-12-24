@@ -8,10 +8,10 @@ import router from 'umi/router';
 import Link from 'umi/link';
 import { request, config, walletAddrToId } from 'utils';
 
-import logo from '@public/logo.png';
-import china from '@public/china.svg';
-import japan from '@public/japan.svg';
-import united from '@public/united-states.svg';
+import logo from 'public/logo.png';
+import china from 'public/china.svg';
+import japan from 'public/japan.svg';
+import united from 'public/united-states.svg';
 
 const { api } = config;
 const { commonSearch } = api;

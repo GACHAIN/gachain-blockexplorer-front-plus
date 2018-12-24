@@ -2,9 +2,9 @@ import React from 'react';
 import { Icon } from 'antd';
 import { companyRight } from 'config';
 
-import bbs from '@public/bbs.svg';
-import gac_black from '@public/gac_black.svg';
-import gachain_black from '@public/gachain_black.svg';
+import bbs from 'public/bbs.svg';
+import gac_black from 'public/gac_black.svg';
+import gachain_black from 'public/gachain_black.svg';
 
 const Footer = props => {
 	return (

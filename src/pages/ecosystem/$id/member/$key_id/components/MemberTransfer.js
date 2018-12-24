@@ -6,8 +6,8 @@ import { FormattedMessage } from 'react-intl';
 import moment from 'moment';
 import Link from 'umi/link';
 
-import InCome from '@public/income.svg';
-import OutCome from '@public/outcome.svg';
+import InCome from 'public/income.svg';
+import OutCome from 'public/outcome.svg';
 
 const TabPane = Tabs.TabPane;
 const Panel = Collapse.Panel;

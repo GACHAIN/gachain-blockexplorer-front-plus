@@ -2,25 +2,20 @@ import { FormattedMessage } from 'react-intl';
 import api from './api';
 import transactionType from './transactionType';
 
-// icon
-import china from '@public/china.svg';
-import japan from '@public/japan.svg';
-import united from '@public/united-states.svg';
+import china from 'public/china.svg';
+import japan from 'public/japan.svg';
+import united from 'public/united-states.svg';
 
 module.exports = {
-	// Version
 	Version: '1.3.1',
 	api,
 	transactionType,
-	// Logo
 	name: <FormattedMessage id="BLOCK_EXPLORER" />,
 	prefix: 'GAChain',
-	// 版权信息国际化
 	companyRight: <FormattedMessage id="COMPANYRIGHT" />,
 	CORS: [
 		{ 'Access-Control-Allow-Origin': '*' }
 	],
-	// 节点名称国际化
 	nodePosition: [
 		<FormattedMessage id="COUN_3" />,
 		<FormattedMessage id="COUN_4" />,
@@ -30,13 +25,9 @@ module.exports = {
 		<FormattedMessage id="COUN_5" />,
 		<FormattedMessage id="COUN_1" />
 	],
-	// 节点icon
 	nodeIcon: [
 		china, china, china, china, china, japan, united
 	],
 	URL,
-	// qGAC转GAC后面有多少个0
 	MONEY_POWER: 12,
-	// 交易类型
-	
 };

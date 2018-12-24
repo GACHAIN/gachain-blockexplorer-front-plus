@@ -24,15 +24,15 @@ export default {
                 },
                 // 禁用组件按需加载
                 // dynamicImport: true,
-                dll: {
-                    exclude: [],
-                    include: [
-                        "dva",
-                        "dva/router",
-                        "dva/saga",
-                        "dva/fetch",
-                    ]
-                },
+                // dll: {
+                //     exclude: [],
+                //     include: [
+                //         "dva",
+                //         "dva/router",
+                //         "dva/saga",
+                //         "dva/fetch",
+                //     ]
+                // },
                 // hardSource: /* isMac */process.platform === 'darwin',
                 // 本地化
                 locale: {
@@ -55,6 +55,7 @@ export default {
 
     publicPath: "./", // build 后的静态文件引入路径
     hash: true,
+    // 开启hash路由
     history: "hash",
     ignoreMomentLocale: true,
     theme: {
@@ -65,7 +66,7 @@ export default {
         "@components": resolve(__dirname, "./src/components"),
         "@models": resolve(__dirname, "./src/models"),
         "@services": resolve(__dirname, "./src/services"),
-        "@public": resolve(__dirname, "./public"),
+        public: resolve(__dirname, "public"),
         "@styles": resolve(__dirname, "./style"),
         utils: resolve(__dirname, "./src/utils"),
         config: resolve(__dirname, "./src/utils/config")
