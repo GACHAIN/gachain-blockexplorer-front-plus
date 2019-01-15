@@ -5,9 +5,7 @@ import { qGacToGac, fmoney, checkKeyidOrAddress, walletAddrToId } from 'utils';
 const List = props => {
 	const viewDetail = text => {
 		let s = checkKeyidOrAddress(text) === 1 ? walletAddrToId(text) : text;
-		window.location.href = `${
-			window.origin
-		}#/ecosystem/1/member/${s}?state=income`;
+		window.location.href = `${window.location.origin || ''}#/ecosystem/1/member/${s}?state=income`;
 	};
 	const columns = [
 		{

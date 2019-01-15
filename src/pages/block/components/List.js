@@ -8,9 +8,7 @@ import moment from 'moment';
 const List = ({ ...listProps }) => {
 	const viewDetail = text => {
 		text = checkKeyidOrAddress(text) === 1 ? walletAddrToId(text) : text;
-		window.location.href = `${
-			window.origin
-		}#/ecosystem/1/member/${text}?state=income`;
+		window.location.href = `${window.location.origin || ''}#/ecosystem/1/member/${text}?state=income`;
 	};
 	const columns = [
 		{
