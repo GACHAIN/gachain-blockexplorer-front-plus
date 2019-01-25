@@ -244,5 +244,7 @@ export default {
 	PAGE_DESC: '当前第{x}-{y}条 共{total}条数据',
 
 	// NULL
-	NULL: 'null'
+	NULL: 'null',
+
+	BUY: '购买政务币'
 };
