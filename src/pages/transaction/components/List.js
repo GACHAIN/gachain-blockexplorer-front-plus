@@ -55,13 +55,24 @@ const List = ({ ...listProps }) => {
 			},
 			sorter: true
 		},
+		// {
+		// 	title: <FormattedMessage id="TL_TYPE" />,
+		// 	dataIndex: 'type',
+		// 	render: text => {
+		// 		return (
+		// 			<Tag color="blue">
+		// 				<FormattedMessage id={transactionType[text] ? transactionType[text] : 'NULL'} />
+		// 			</Tag>
+		// 		);
+		// 	}
+		// },
 		{
-			title: <FormattedMessage id="TL_TYPE" />,
-			dataIndex: 'type',
+			title: <FormattedMessage id="TL_CALL" />,
+			dataIndex: 'contract_name',
 			render: text => {
 				return (
 					<Tag color="blue">
-						<FormattedMessage id={transactionType[text] ? transactionType[text] : 'NULL'} />
+						<span>{text}</span>
 					</Tag>
 				);
 			}

@@ -86,6 +86,7 @@ export default {
 	TL_WALLET: 'Account / Wallet',
 	TL_HASH: 'Hash',
 	TL_TYPE: 'Type',
+	TL_CALL: 'Call contract name',
 	TL_ERROR: 'Interface Information',
 	TL_CONTRACTNAME: 'Call Contract Name',
 	TL_BLOCKID: 'Block Height',

@@ -86,6 +86,7 @@ export default {
 	TL_WALLET: '钱包 ID/地址',
 	TL_HASH: '交易/事务哈希值',
 	TL_TYPE: '交易/事务类型',
+	TL_CALL: '调用合约名',
 	TL_ERROR: '交易/事务 接口内容',
 	TL_CONTRACTNAME: '调用合约名',
 	TL_BLOCKID: '区块高度',

@@ -86,6 +86,7 @@ export default {
 	TL_WALLET: 'お財布id /住所',
 	TL_HASH: '取引/事務ヒッシュ',
 	TL_TYPE: '取引/事務の類型',
+	TL_CALL: '契約名を呼び出す',
 	TL_ERROR: 'インターフェース情報',
 	TL_CONTRACTNAME: '契約名を呼び出す',
 	TL_BLOCKID: 'ブロックの高さ',
