@@ -16,6 +16,8 @@
 // const URL = 'http://ibm.sifu8.cn:8800/api'
 // 东京服务器
 const URL = 'https://explore.gac.one:8800/api';
+// 测试链
+// const URL = 'https://devexplore.gac.one:8800/api';
 
 export default {
 	// 查询GAC

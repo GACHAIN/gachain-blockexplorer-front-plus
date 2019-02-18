@@ -246,5 +246,7 @@ export default {
 	PAGE_DESC: '現在、第{x}-{y}条共に {total} のデータである',
 
 	// NULL
-	NULL: 'null'
+	NULL: 'null',
+
+	BUY: '政務貨幣を購入する'
 };

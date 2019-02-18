@@ -245,5 +245,7 @@ export default {
 	PAGE_DESC: 'Current {x}-{y} total {total} items',
 
 	// NULL
-	NULL: 'null'
+	NULL: 'null',
+
+	BUY: 'Buy GAC'
 };

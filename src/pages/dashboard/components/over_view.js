@@ -1,4 +1,4 @@
-import { Card, Icon, Row, Col } from 'antd';
+import { Card, Icon, Row, Col, Button } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import styles from './over_view.css';
 import Link from 'umi/link';
@@ -134,6 +134,11 @@ const over_view = ({ loading, data, top_numbers }) => {
 						</Link>
 					</Row>
 				</Col>
+			</Row>
+			<Row>
+				<Button type="ghost" block size="large" href="https://www.coinegg.im/btc/gac/" target="_blank">
+					<FormattedMessage id="BUY" />
+				</Button>
 			</Row>
 		</Card>
 	);

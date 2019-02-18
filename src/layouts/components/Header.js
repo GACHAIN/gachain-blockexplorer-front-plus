@@ -80,7 +80,7 @@ class Header extends React.PureComponent {
 				if (valString.length === 24) {
 					valString = walletAddrToId(valString);
 				}
-				router.replace(`/ecosystem/1/member/${valString}`);
+				router.replace(`/ecosystem/1/member/${valString}?state=income`);
 				return false;
 			}
 
