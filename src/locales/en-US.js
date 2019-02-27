@@ -1,7 +1,7 @@
 export default {
 	// config
 	BLOCK_EXPLORER: 'GAChain Explorer',
-	COMPANYRIGHT: 'GAChain Browser © 2017-2018 dry block chain technology co., LTD. All rights reserved',
+	COMPANYRIGHT: 'GAChain Browser ©2017-2019 dry block chain technology co., LTD. All rights reserved',
 
 	// menu
 	DASHBOARD: 'Dashboard',
