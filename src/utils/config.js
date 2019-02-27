@@ -7,7 +7,7 @@ import japan from 'public/japan.svg';
 import united from 'public/united-states.svg';
 
 module.exports = {
-	Version: '1.3.1',
+	Version: '1.3.2',
 	api,
 	transactionType,
 	name: <FormattedMessage id="BLOCK_EXPLORER" />,
