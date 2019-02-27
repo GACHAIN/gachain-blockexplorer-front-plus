@@ -1,6 +1,6 @@
 import { Table, Tag, Tooltip, message } from 'antd';
 import { FormattedMessage } from 'react-intl';
-import { transactionType } from 'config';
+// import { transactionType } from 'config';
 import moment from 'moment';
 import Link from 'umi/link';
 
@@ -51,15 +51,15 @@ const TransactionStatusList = (listProps) => {
 			sorter: true,
 			defaultSortOrder: 'descend',
 		},
-		{
-			title: <FormattedMessage id="TL_TYPE" />,
-			dataIndex: 'type',
-			render: text => {
-				return (
-					<Tag color="blue"><FormattedMessage id={transactionType[text] ? transactionType[text] : 'NULL'} /></Tag>
-				);
-			}
-		},
+		// {
+		// 	title: <FormattedMessage id="TL_TYPE" />,
+		// 	dataIndex: 'type',
+		// 	render: text => {
+		// 		return (
+		// 			<Tag color="blue"><FormattedMessage id={transactionType[text] ? transactionType[text] : 'NULL'} /></Tag>
+		// 		);
+		// 	}
+		// },
 		{
 			title: <FormattedMessage id="TL_WALLET" />,
 			dataIndex: 'wallet_id',

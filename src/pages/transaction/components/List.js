@@ -1,7 +1,6 @@
 import { Table, Tooltip, Row, Tag } from 'antd';
 import { FormattedMessage } from 'react-intl';
 import { checkKeyidOrAddress, walletAddrToId } from 'utils';
-import { transactionType } from 'config';
 import moment from 'moment';
 import Link from 'umi/link';
 
@@ -55,17 +54,6 @@ const List = ({ ...listProps }) => {
 			},
 			sorter: true
 		},
-		// {
-		// 	title: <FormattedMessage id="TL_TYPE" />,
-		// 	dataIndex: 'type',
-		// 	render: text => {
-		// 		return (
-		// 			<Tag color="blue">
-		// 				<FormattedMessage id={transactionType[text] ? transactionType[text] : 'NULL'} />
-		// 			</Tag>
-		// 		);
-		// 	}
-		// },
 		{
 			title: <FormattedMessage id="TL_CALL" />,
 			dataIndex: 'contract_name',
