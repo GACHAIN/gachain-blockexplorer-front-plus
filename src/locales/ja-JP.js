@@ -248,5 +248,7 @@ export default {
 	// NULL
 	NULL: 'null',
 
-	BUY: '政務貨幣を購入する'
+	BUY: '政務貨幣を購入する',
+	LOCALTIME: '（現地時間）',
+	UTCTIME: '（UTC時間）',
 };

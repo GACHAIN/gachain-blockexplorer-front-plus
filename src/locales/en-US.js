@@ -247,5 +247,7 @@ export default {
 	// NULL
 	NULL: 'null',
 
-	BUY: 'Buy GAC'
+	BUY: 'Buy GAC',
+	LOCALTIME: '(Local Time)',
+	UTCTIME: '(UTC Time)',
 };

@@ -1,10 +1,10 @@
-import DetailList from './components/DetailList';
-import { walletIdToAddr, walletAddrToId, checkKeyidOrAddress, fmoney, qGacToGac } from 'utils';
-import { Row, Col, Icon } from 'antd';
-import { clickCp } from 'utils';
-import Link from 'umi/link';
 import { connect } from 'dva';
+import Link from 'umi/link';
+import { FormattedMessage } from 'react-intl';
+import { Row, Col, Icon } from 'antd';
 import moment from 'moment';
+import DetailList from './components/DetailList';
+import { walletIdToAddr, walletAddrToId, checkKeyidOrAddress, fmoney, qGacToGac, clickCp } from 'utils';
 
 const TransactionHash = ({ s_transaction, loading }) => {
 	let { dataList } = s_transaction;
@@ -36,20 +36,20 @@ const TransactionHash = ({ s_transaction, loading }) => {
 				let transferID = ['sender_id', 'recipientid1', 'recipientid2', 'recipientid3'];
 				if (transferID.includes(k1)) {
 					switch (k1) {
-					case 'sender_id':
-						sender_id = data[k][k1];
-						break;
-					case 'recipientid1':
-						recipientid[0] = data[k][k1];
-						break;
-					case 'recipientid2':
-						recipientid[1] = data[k][k1];
-						break;
-					case 'recipientid3':
-						recipientid[2] = data[k][k1];
-						break;
-					default:
-						break;
+						case 'sender_id':
+							sender_id = data[k][k1];
+							break;
+						case 'recipientid1':
+							recipientid[0] = data[k][k1];
+							break;
+						case 'recipientid2':
+							recipientid[1] = data[k][k1];
+							break;
+						case 'recipientid3':
+							recipientid[2] = data[k][k1];
+							break;
+						default:
+							break;
 					}
 					continue;
 				}
@@ -70,10 +70,10 @@ const TransactionHash = ({ s_transaction, loading }) => {
 											<Icon type="copy" id="copy" onClick={() => clickCp(sender_id)} style={{ color: '#EEEEEE' }} />
 										</Col>
 									) : (
-										<Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8}>
+											<Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8}>
 
-										</Col>
-									)
+											</Col>
+										)
 								}
 								<Col xs={24} ms={24} md={24} lg={3} xl={3} xxl={3} id="arrow-right"><span>➤</span></Col>
 								{
@@ -83,10 +83,10 @@ const TransactionHash = ({ s_transaction, loading }) => {
 											<Icon type="copy" id="copy" onClick={() => clickCp(recipientid[i])} style={{ color: '#EEEEEE' }} />
 										</Col>
 									) : (
-										<Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8}>
+											<Col xs={24} ms={24} md={24} lg={8} xl={8} xxl={8}>
 
-										</Col>
-									)
+											</Col>
+										)
 								}
 								<Col xs={24} ms={24} md={24} lg={5} xl={5} xxl={5} id="gac_col">
 									<span id="gac_amount">+{fmoney(qGacToGac(valueObj.value), 4)} GAC</span>
@@ -126,7 +126,8 @@ const TransactionHash = ({ s_transaction, loading }) => {
 				if (valueObj.key === 'created_at') {
 					valueObj.value = (
 						<Row>
-							{moment(valueObj.value).format('YYYY-MM-DD HH:MM:SS')}
+							<p>{moment(valueObj.value).format('YYYY-MM-DD HH:mm:ss')}<FormattedMessage id="LOCALTIME" /></p>
+							<p>{moment(valueObj.value).utc().format('YYYY-MM-DD HH:mm:ss')}<FormattedMessage id="UTCTIME" /></p>
 						</Row>
 					);
 				}
@@ -144,7 +145,8 @@ const TransactionHash = ({ s_transaction, loading }) => {
 				if (valueObj.key === 'Time' || valueObj.key === 'time') {
 					valueObj.value = (
 						<Row>
-							{moment(valueObj.value * 1000).format('YYYY-MM-DD HH:MM:SS')}
+							<p>{moment(valueObj.value * 1000).format('YYYY-MM-DD HH:mm:ss')}<FormattedMessage id="LOCALTIME" /></p>
+							<p>{moment(valueObj.value * 1000).utc().format('YYYY-MM-DD HH:mm:ss')}<FormattedMessage id="UTCTIME" /></p>
 						</Row>
 					);
 				}

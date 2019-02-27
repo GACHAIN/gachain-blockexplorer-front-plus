@@ -246,5 +246,7 @@ export default {
 	// NULL
 	NULL: 'null',
 
-	BUY: '购买政务币'
+	BUY: '购买政务币',
+	LOCALTIME: '（本地时间）',
+	UTCTIME: '（UTC时间）',
 };

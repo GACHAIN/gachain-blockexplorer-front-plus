@@ -22,7 +22,8 @@ const Block = ({ s_block_detail, loading }) => {
 					if (hk === 'time') {
 						headObj.val = (
 							<Row>
-								{moment(data[k][hk] * 1000).format('YYYY-MM-DD HH:mm:ss')}
+								<p>{moment(data[k][hk] * 1000).format('YYYY-MM-DD HH:mm:ss')}<FormattedMessage id="LOCALTIME"/></p>
+								<p>{moment(data[k][hk] * 1000).utc().format('YYYY-MM-DD HH:mm:ss')}<FormattedMessage id="UTCTIME"/></p>
 							</Row>
 						);
 					} else {
